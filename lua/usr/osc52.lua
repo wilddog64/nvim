@@ -11,8 +11,8 @@ end
 
 vim.g.clipboard = {
   name = 'osc52',
-  copy = {['+'] = copy, ['*'] = copy},
-  paste = {['+'] = paste, ['*'] = paste},
+  copy = {['+'] = 'yank', ['*'] = 'yank'},
+  paste = {['+'] = 'put', ['*'] = 'put'},
 }
 
 -- Now the '+' register will copy to system clipboard using OSC52
