@@ -1,4 +1,3 @@
-set nu
 set cursorline " enable cursor line
 set cpo+=$     " show $ at the end of line when change it
 set dir=/tmp// " swap file store at /tmp
@@ -14,6 +13,17 @@ let g:python3_host_prog = expand("~/.pyenv/versions/3.4.4/bin/python")
 
 " set leader to be ,
 let mapleader=","
+
+" backsapce over autoindent, line breaks and start of line
+set backspace=indent,eol,start
+set bg=dark           " set backgroup to dark
+set history=5000      " command line history
+set hlsearch          " highlight search result
+set incsearch         " do incremental search
+set nu                " turn on numbering
+set ruler             " turn on ruler
+set showcmd           " show command
+set showmatch         " show match of {}, [], <>, ...
 
 if has("autocmd")
 
