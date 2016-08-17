@@ -52,6 +52,9 @@ set ssop+=tabpages
 set ssop+=winpos
 set ssop+=winsize
 
+set listchars=tab:▸\ ,trail:⋅,nbsp:⋅,eol:¬ " specfiy the invisible characters
+set printoptions+=number:y
+
 if has("autocmd")
 
   " Enable file type detection.
