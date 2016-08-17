@@ -35,6 +35,10 @@ set diffopt+=iwhite
 
 set cmdheight=2 " make command line two lines height
 
+" display shot message, f: (3 of 5) instead of (file 3 of 5),
+" i [noeol] for [Incomplete last line], m: [+] for modified
+set shm+=film
+
 if has("autocmd")
 
   " Enable file type detection.
