@@ -43,6 +43,15 @@ set wildmode=longest:full,full
 " i [noeol] for [Incomplete last line], m: [+] for modified
 set shm+=film
 
+" what do we store for a session when mksession is executed
+set ssop+=buffers
+set ssop+=curdir
+set ssop+=folds
+set ssop+=resize
+set ssop+=tabpages
+set ssop+=winpos
+set ssop+=winsize
+
 if has("autocmd")
 
   " Enable file type detection.
