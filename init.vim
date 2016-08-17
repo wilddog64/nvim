@@ -29,6 +29,11 @@ set showmatch         " show match of {}, [], <>, ...
 set laststatus=2
 set statusline=%f\ %h%m%r%{fugitive#statusline()}\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v]
 
+" when diff mode is activated, split buffers vertically and ignore white spaces
+set diffopt+=vertical
+set diffopt+=iwhite
+
+
 if has("autocmd")
 
   " Enable file type detection.
