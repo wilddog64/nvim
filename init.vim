@@ -25,6 +25,10 @@ set ruler             " turn on ruler
 set showcmd           " show command
 set showmatch         " show match of {}, [], <>, ...
 
+" increase status line, and display more information for it
+set laststatus=2
+set statusline=%f\ %h%m%r%{fugitive#statusline()}\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v]
+
 if has("autocmd")
 
   " Enable file type detection.
