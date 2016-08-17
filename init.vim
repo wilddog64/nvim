@@ -1,0 +1,76 @@
+set nu
+set cursorline " enable cursor line
+set cpo+=$     " show $ at the end of line when change it
+set dir=/tmp// " swap file store at /tmp
+
+if version > 702
+    set undofile    " turn on undofile, so undo information is preserved for the next time."
+    let &undodir = expand("~") . "/backup/vimundo"
+endif
+
+" let nvim know python2 and python3 interpreters
+let g:python_host_prog = expand("~/.pyenv/versions/2.7.12/bin/python")
+let g:python3_host_prog = expand("~/.pyenv/versions/3.4.4/bin/python")
+
+if has("autocmd")
+
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
+
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+  au!
+
+  " For all text files set 'textwidth' to 78 characters.
+  "autocmd FileType text setlocal textwidth=78
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+  augroup END
+endif
+
+" setup plugin manager
+call plug#begin('~/.config/nvim/plugged')
+
+" a list of plugins we want to have
+Plug 'davidhalter/jedi-vim'
+Plug 'https://github.com/vim-scripts/taglist.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/syntastic'
+Plug 'benmills/vimux'
+Plug 'jiangmiao/auto-pairs'
+Plug 'godlygeek/tabular'
+Plug 'sjl/gundo.vim'
+Plug 'SirVer/ultisnips'
+Plug 'edsono/vim-matchit'
+Plug 'fatih/vim-go'
+Plug 'dbakker/vim-projectroot'
+Plug 'corntrace/bufexplorer'
+Plug 'elzr/vim-json'
+Plug 'benmills/vimux'
+
+" at the end, add plugins to the runtime path
+call plug#end()
+
+source ~/.config/nvim/settings/functions.vim
+source ~/.config/nvim/settings/keymaps.vim
+source ~/.config/nvim/settings/taglist.vim
+source ~/.config/nvim/settings/gundo.vim
+source ~/.config/nvim/settings/syntastics.vim
+source ~/.config/nvim/settings/vim-jedi.vim
+source ~/.config/nvim/settings/vim-json.vim
+source ~/.config/nvim/settings/vimux.vim
