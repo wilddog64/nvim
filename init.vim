@@ -33,6 +33,7 @@ set statusline=%f\ %h%m%r%{fugitive#statusline()}\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [
 set diffopt+=vertical
 set diffopt+=iwhite
 
+set cmdheight=2 " make command line two lines height
 
 if has("autocmd")
 
