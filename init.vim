@@ -108,6 +108,7 @@ Plug 'dbakker/vim-projectroot'
 Plug 'corntrace/bufexplorer'
 Plug 'elzr/vim-json'
 Plug 'benmills/vimux'
+Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
 
 " at the end, add plugins to the runtime path
 call plug#end()
@@ -120,3 +121,4 @@ source ~/.config/nvim/settings/syntastics.vim
 source ~/.config/nvim/settings/vim-jedi.vim
 source ~/.config/nvim/settings/vim-json.vim
 source ~/.config/nvim/settings/vimux.vim
+source ~/.config/nvim/settings/deoplete.vim
