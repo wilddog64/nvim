@@ -110,6 +110,7 @@ Plug 'elzr/vim-json'
 Plug 'benmills/vimux'
 Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
 Plug 'junegunn/vim-easy-align'
+Plug 'airblade/vim-gitgutter'
 
 " at the end, add plugins to the runtime path
 call plug#end()
