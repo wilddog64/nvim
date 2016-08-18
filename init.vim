@@ -1,6 +1,8 @@
-set cursorline " enable cursor line
-set cpo+=$     " show $ at the end of line when change it
-set dir=/tmp// " swap file store at /tmp
+set cursorline              " enable cursor line
+set cpo+=$                  " show $ at the end of line when change it
+set dir=~/.vim/swap/        " swap file store at /tmp
+set backupdir=~/.vim/backup " backup directory
+set undodir=~/.vim/undo     " undo directory
 
 if version > 702
     set undofile    " turn on undofile, so undo information is preserved for the next time."
