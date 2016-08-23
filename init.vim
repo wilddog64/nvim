@@ -90,6 +90,8 @@ endif
 " setup plugin manager
 call plug#begin('~/.config/nvim/plugged')
 
+source ~/.config/nvim/settings/functions.vim
+
 " a list of plugins we want to have
 Plug 'davidhalter/jedi-vim'
 Plug 'https://github.com/vim-scripts/taglist.vim'
@@ -116,6 +118,7 @@ Plug 'benmills/vimux'
 Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
 Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 
 " at the end, add plugins to the runtime path
 call plug#end()

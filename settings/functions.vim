@@ -105,3 +105,10 @@ endfunction
 
 autocmd BufEnter * call <SID>AutoProjectRootCD()
 
+" a function that will build a markdown composer
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    !cargo build --release
+    UpdateRemotePlugins
+  endif
+endfunction
