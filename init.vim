@@ -23,7 +23,7 @@ autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
 set backspace=indent,eol,start
 set bg=dark           " set backgroup to dark
 set history=5000      " command line history
-set hlsearch          " highlight search result
+set nohlsearch        " highlight search result
 set incsearch         " do incremental search
 set nu                " turn on numbering
 set ruler             " turn on ruler
