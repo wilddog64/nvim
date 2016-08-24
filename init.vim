@@ -56,7 +56,8 @@ set ssop+=winsize
 set listchars=tab:▸\ ,trail:⋅,nbsp:⋅,eol:¬ " specfiy the invisible characters
 set printoptions+=number:y
 
-set clipboard=unnamed
+" allow vim to use clipboard for all operations
+set clipboard=unnamedplus
 
 if has("autocmd")
 
