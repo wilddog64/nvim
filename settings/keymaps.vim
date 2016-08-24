@@ -40,13 +40,6 @@ inoremap <C-S>  <C-O>:update<CR>
 noremap <leader>nr :NERDTree<CR>
 imap <leader>nr <C-O>:NERDTree<CR><ESC>
 
-" F4 trigger the pastetoggle and F5 turn it off
-" map  <F4> :set paste<CR>
-" map  <F5> :set nopaste<CR>
-" imap <F4> <C-O>:set paste<CR>
-" imap <F5> <nop>
-" set pastetoggle=<F5>
-
 " so these mappings can allow us to undo c-u and c-w
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
