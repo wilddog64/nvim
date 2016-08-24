@@ -122,7 +122,6 @@ Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 " at the end, add plugins to the runtime path
 call plug#end()
 
-source ~/.config/nvim/settings/functions.vim
 source ~/.config/nvim/settings/keymaps.vim
 source ~/.config/nvim/settings/taglist.vim
 source ~/.config/nvim/settings/gundo.vim
