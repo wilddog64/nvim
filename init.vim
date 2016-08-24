@@ -119,6 +119,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'jmcantrell/vim-virtualenv'
+Plug 'vim-airline/vim-airline'
 
 " at the end, add plugins to the runtime path
 call plug#end()
