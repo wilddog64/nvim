@@ -3,7 +3,7 @@ set cpo+=$                  " show $ at the end of line when change it
 set dir=~/.vim/swap/        " swap file store at /tmp
 set backupdir=~/.vim/backup " backup directory
 set undodir=~/.vim/undo     " undo directory
-
+set mouse-=a                " disable mouse interaction
 if version > 702
     set undofile    " turn on undofile, so undo information is preserved for the next time."
     let &undodir = expand("~") . "/backup/vimundo"
