@@ -118,6 +118,7 @@ Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'vim-airline/vim-airline'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " at the end, add plugins to the runtime path
 call plug#end()
