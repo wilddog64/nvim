@@ -83,8 +83,8 @@ map <leader>bun :.,$s/\d\+/\=submatch(0) + 1/<CR>
 imap <leader>bun <C-O>:.,$s/\d\+/\=submatch(0) + 1/<CR>
 
 " <leader>s to toggle search pattern highlight
-map <silent> <leader>s :se invhlsearch<CR>
-imap <silent> <leader>s <C-O>:se invhlsearch<CR>
+map <silent> <leader>i :se invhlsearch<CR>
+imap <silent> <leader>i <C-O>:se invhlsearch<CR>
 
 " edit key mapping
 cnoremap %% <C-R>=expand("%:h") . '/'<CR>
