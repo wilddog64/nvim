@@ -17,7 +17,7 @@ let g:python3_host_prog = expand("~/.pyenv/versions/3.4.4/bin/python")
 let mapleader=","
 
 " if no filetype specified, set ft=markdown (alternative would be text)
-autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
+" autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
 
 " backsapce over autoindent, line breaks and start of line
 set backspace=indent,eol,start
