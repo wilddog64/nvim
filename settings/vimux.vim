@@ -25,7 +25,8 @@ function! <SID>ExecutePyModule()
     " construct a command line to execute a python module, and execute it
     let b:execute_pymodule_cmd = 'python -m ' . b:pymodule_namespace
     echom 'executing: ' . b:execute_pymodule_cmd
-    execute "VimuxRunCommand('" . b:execute_pymodule_cmd . "')"
+    " execute "VimuxRunCommand('" . b:execute_pymodule_cmd . "')"
+    call VimuxRunCommandInDir(b:execute_pymodule_cmd, 0)
 endfunction
 
 " maps <leader>xp to execute our custom module
