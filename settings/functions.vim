@@ -104,3 +104,35 @@ function! <SID>AutoProjectRootCD()
 endfunction
 
 autocmd BufEnter * call <SID>AutoProjectRootCD()
+
+" Window split settings for terminal
+highligh TermCursor ctermfg=red guifg=red
+set splitbelow
+set splitright
+
+" Terminal settings
+tnoremap <leader>, <C-\><C-n>
+
+" windows navigation function
+" make ctrl-h/j/k/l move between windows and auto-insert in terminals
+func! s:mapMoveToWindowInDirection(direction)
+    func! s:maybeInsertMode(direction)
+	stopinsert
+	execute "wincmd" a:direction
+
+	if &buftype == 'terminal'
+	    startinsert!
+	endif
+    endfunc
+
+    execute "tnoremap" "<silent>" "<C-" . a:direction . ">"
+		\ "<C-\\><C-n>"
+		\ ":call <SID>maybeInsertMode(\"" . a:direction . "\")<CR>"
+    execute "nnoremap" "<silent>" "<C-" . a:direction . ">"
+		\ ":call <SID>maybeInsertMode(\"" . a:direction . "\")<CR>"
+endfunc
+
+for dir in ["h", "j", "l", "k"]
+    call s:mapMoveToWindowInDirection(dir)
+endfor
+
