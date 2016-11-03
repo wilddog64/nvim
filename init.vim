@@ -4,10 +4,11 @@ set dir=~/.vim/swap/        " swap file store at /tmp
 set backupdir=~/.vim/backup " backup directory
 set undodir=~/.vim/undo     " undo directory
 set mouse-=a                " disable mouse interaction
-if version > 702
-    set undofile    " turn on undofile, so undo information is preserved for the next time."
-    let &undodir = expand("~") . "/backup/vimundo"
-endif
+set shada='50,<1000,s100,n~/.local/share/nvim/shada/main.shada
+
+" enable undofile and setup where to store an undo file
+set undofile    " turn on undofile, so undo information is preserved for the next time."
+let &undodir = expand("~") . "/backup/vimundo"
 
 " let nvim know python2 and python3 interpreters
 let g:python_host_prog = expand("~/.pyenv/versions/2.7.12/bin/python")
