@@ -134,3 +134,4 @@ source ~/.config/nvim/settings/vim-json.vim
 source ~/.config/nvim/settings/vimux.vim
 source ~/.config/nvim/settings/deoplete.vim
 source ~/.config/nvim/settings/easy-align.vim
+source ~/.config/nvim/settings/markdown.vim
