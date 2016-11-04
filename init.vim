@@ -120,6 +120,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'jalvesaq/vimcmdline'
+Plug 'plasticboy/vim-markdown'
 
 " at the end, add plugins to the runtime path
 call plug#end()
