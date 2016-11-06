@@ -13,23 +13,21 @@ function! <SID>FidgetWhitespace(pat)
 endfunction
 vmap <silent><leader>vs :<C-U>let @/="\\V<C-R>=escape(<SID>FidgetWhitespace(escape(@*,'\')),'\"')<CR>"<CR>
 
-if version >= 730
-    function! Preserve(command)
-        " save last search and cursor position
-        let _s = @/
-        let l = line(".")
-        let c = col(".")
+function! Preserve(command)
+    " save last search and cursor position
+    let _s = @/
+    let l = line(".")
+    let c = col(".")
 
-        " do our business here
-        execute a:command
+    " do our business here
+    execute a:command
 
-        " now restore search and cursor position
-        let @/ = _s
-        cursor(l, c)
-    endfunction
-    nmap <leader>$ :call Preserve("%s/\s\+$//g")<CR>
-    nmap <leader>= :call Preserve("normal gg=G")<CR>
-endif
+    " now restore search and cursor position
+    let @/ = _s
+    cursor(l, c)
+endfunction
+nmap <leader>$ :call Preserve("%s/\s\+$//g")<CR>
+nmap <leader>= :call Preserve("normal gg=G")<CR>
 
 " this vim function will return a actual puppet module name, assuming that
 " delim is either - or _.  This function will strip off anything before - or _
