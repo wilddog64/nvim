@@ -1,17 +1,3 @@
-" execute a shell command and send output to vim buffer
-if version >= 730
-    command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
-    function! s:RunShellCommand(cmdline)
-      botright new
-      setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
-      call setline(1, a:cmdline)
-      call setline(2, substitute(a:cmdline, '.', '=', 'g'))
-      execute 'silent $read !' . escape(a:cmdline, '%#')
-      setlocal nomodifiable
-      l
-    endfunction
-endif
-
 " remove trailing / by hitting control t
 cnoremap <C-t> <C-\>e(<SID>RemoveLastPathComponent())<CR>
 function! s:RemoveLastPathComponent()
