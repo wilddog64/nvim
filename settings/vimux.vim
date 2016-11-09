@@ -18,15 +18,15 @@ function! <SID>ExecutePyModule()
         return
     endif
 
-    call <SID>SwitchToBufferDirRoot()
     " replace / with . so we can construct a full python module namespace
     let b:pymodule_namespace = substitute(b:filename, '\/', '.', 'g')
 
     " construct a command line to execute a python module, and execute it
+    let projectroot = projectroot#get()
+    execute "VimuxRunCommand('cd " . b:projectroot . "')"
     let b:execute_pymodule_cmd = 'python -m ' . b:pymodule_namespace
     echom 'executing: ' . b:execute_pymodule_cmd
-    " execute "VimuxRunCommand('" . b:execute_pymodule_cmd . "')"
-    call VimuxRunCommandInDir(b:execute_pymodule_cmd, 0)
+    execute "VimuxRunCommand('" . b:execute_pymodule_cmd . "')"
 endfunction
 
 " maps <leader>xp to execute our custom module
@@ -35,7 +35,7 @@ imap <leader>xp <C-O>:call <SID>ExecutePyModule()<CR>
 
 function! <SID>SwitchToBufferDirRoot()
   let b:projectroot = projectroot#get(expand('%'))
-  execute "VimuxRunCommand('" . b:projectroot . "')"
+  execute "VimuxRunCommand('cd " . b:projectroot . "')"
 endfunction
 map <leader>xcd :call <SID>SwitchToBufferDirRoot()<CR>
 imap <leader>xcd <C-O>:call <SID>SwitchToBufferDirRoot()<CR>
