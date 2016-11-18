@@ -121,6 +121,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'jalvesaq/vimcmdline'
 Plug 'plasticboy/vim-markdown'
+Plug 'chase/vim-ansible-yaml'
 
 " at the end, add plugins to the runtime path
 call plug#end()
