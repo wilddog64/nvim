@@ -122,6 +122,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'jalvesaq/vimcmdline'
 Plug 'plasticboy/vim-markdown'
 Plug 'chase/vim-ansible-yaml'
+Plug 'vim-perl/vim-perl'
 
 " at the end, add plugins to the runtime path
 call plug#end()
@@ -136,3 +137,4 @@ source ~/.config/nvim/settings/vimux.vim
 source ~/.config/nvim/settings/deoplete.vim
 source ~/.config/nvim/settings/easy-align.vim
 source ~/.config/nvim/settings/markdown.vim
+source ~/.config/nvim/settings/ansible.vim
