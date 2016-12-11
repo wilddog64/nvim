@@ -1,10 +1,14 @@
 set cursorline              " enable cursor line
 set cpo+=$                  " show $ at the end of line when change it
 set dir=~/.vim/swap/        " swap file store at /tmp
-set backupdir=~/.vim/backup " backup directory
 set undodir=~/.vim/undo     " undo directory
 set mouse-=a                " disable mouse interaction
 set shada='50,<1000,s100,n~/.local/share/nvim/shada/main.shada
+
+set backup
+set writebackup
+let &backupdir=expand("~") . "/backup/vimbackup"
+set backupcopy=auto
 
 " enable undofile and setup where to store an undo file
 set undofile    " turn on undofile, so undo information is preserved for the next time."
@@ -123,6 +127,7 @@ Plug 'jalvesaq/vimcmdline'
 Plug 'plasticboy/vim-markdown'
 Plug 'pearofducks/ansible-vim'
 Plug 'vim-perl/vim-perl'
+Plug 'vim-scripts/cbackup'
 
 " at the end, add plugins to the runtime path
 call plug#end()
@@ -138,3 +143,4 @@ source ~/.config/nvim/settings/deoplete.vim
 source ~/.config/nvim/settings/easy-align.vim
 source ~/.config/nvim/settings/markdown.vim
 source ~/.config/nvim/settings/ansible.vim
+source ~/.config/nvim/settings/cbackup.vim
