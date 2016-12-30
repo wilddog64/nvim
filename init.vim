@@ -127,7 +127,7 @@ Plug 'jalvesaq/vimcmdline'
 Plug 'plasticboy/vim-markdown'
 Plug 'pearofducks/ansible-vim'
 Plug 'vim-perl/vim-perl'
-Plug 'vim-scripts/cbackup'
+Plug 'lepture/vim-jinja'
 
 " at the end, add plugins to the runtime path
 call plug#end()
