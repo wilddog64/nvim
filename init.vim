@@ -134,7 +134,7 @@ Plug 'pearofducks/ansible-vim'
 Plug 'vim-perl/vim-perl'
 Plug 'lepture/vim-jinja'
 Plug 'saltstack/salt-vim'
-PLug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim'
 
 " at the end, add plugins to the runtime path
 call plug#end()
