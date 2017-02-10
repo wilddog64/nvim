@@ -135,6 +135,7 @@ Plug 'vim-perl/vim-perl'
 Plug 'lepture/vim-jinja'
 Plug 'saltstack/salt-vim'
 Plug 'davidhalter/jedi-vim'
+Plug 'idanarye/vim-vebugger'
 
 " at the end, add plugins to the runtime path
 call plug#end()
