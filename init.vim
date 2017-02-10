@@ -5,6 +5,11 @@ set undodir=~/.vim/undo     " undo directory
 set mouse-=a                " disable mouse interaction
 set shada='50,<1000,s100,n~/.local/share/nvim/shada/main.shada
 
+" make make tabstop, soft tabstop, and shiftwidth all 4
+set ts=4
+set sts=4
+set sw=4
+
 set backup
 set writebackup
 let &backupdir=expand("~") . "/backup/vimbackup"
