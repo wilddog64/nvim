@@ -151,7 +151,9 @@ source ~/.config/nvim/settings/syntastics.vim
 source ~/.config/nvim/settings/vim-jedi.vim
 source ~/.config/nvim/settings/vim-json.vim
 source ~/.config/nvim/settings/vimux.vim
-source ~/.config/nvim/settings/deoplete.vim
+if has("nvim")
+    source ~/.config/nvim/settings/deoplete.vim
+end
 source ~/.config/nvim/settings/easy-align.vim
 source ~/.config/nvim/settings/markdown.vim
 source ~/.config/nvim/settings/ansible.vim
