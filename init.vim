@@ -3,7 +3,9 @@ set cpo+=$                  " show $ at the end of line when change it
 set dir=~/.vim/swap/        " swap file store at /tmp
 set undodir=~/.vim/undo     " undo directory
 set mouse-=a                " disable mouse interaction
-set shada='50,<1000,s100,n~/.local/share/nvim/shada/main.shada
+if has("nvim")
+    set shada='50,<1000,s100,n~/.local/share/nvim/shada/main.shada
+end
 
 " make make tabstop, soft tabstop, and shiftwidth all 4
 set ts=4
@@ -135,6 +137,7 @@ Plug 'vim-perl/vim-perl'
 Plug 'lepture/vim-jinja'
 Plug 'saltstack/salt-vim'
 Plug 'davidhalter/jedi-vim'
+Plug 'chiel92/vim-autoformat'
 
 " at the end, add plugins to the runtime path
 call plug#end()
