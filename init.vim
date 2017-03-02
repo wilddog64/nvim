@@ -123,7 +123,9 @@ Plug 'dbakker/vim-projectroot'
 Plug 'corntrace/bufexplorer'
 Plug 'elzr/vim-json'
 Plug 'benmills/vimux'
-Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
+if has("nvim")
+    Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
+end
 Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
 Plug 'jmcantrell/vim-virtualenv'
