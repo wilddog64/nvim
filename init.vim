@@ -1,5 +1,9 @@
-set cursorline              " enable cursor line set cpo+=$                  " show $ at the end of line when change it set dir=~/.vim/swap/        " swap file store at /tmp set undodir=~/.vim/undo     " undo directory set mouse-=a                " disable mouse interaction if has("nvim")
-set shada='50,<1000,s100,n~/.local/share/nvim/shada/main.shada
+set cursorline              " enable cursor line set cpo+=$                  " show $ at the end of line when change it
+set dir=~/.vim/swap/        " swap file store at /tmp
+set undodir=~/.vim/undo     " undo directory
+set mouse-=a                " disable mouse interaction
+if has("nvim")
+    set shada='50,<1000,s100,n~/.local/share/nvim/shada/main.shada
 end
 
 " make make tabstop, soft tabstop, and shiftwidth all 4
