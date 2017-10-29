@@ -1,16 +1,14 @@
-set cursorline              " enable cursor line
-set cpo+=$                  " show $ at the end of line when change it
-set dir=~/.vim/swap/        " swap file store at /tmp
-set undodir=~/.vim/undo     " undo directory
-set mouse-=a                " disable mouse interaction
-if has("nvim")
-    set shada='50,<1000,s100,n~/.local/share/nvim/shada/main.shada
+set cursorline              " enable cursor line set cpo+=$                  " show $ at the end of line when change it set dir=~/.vim/swap/        " swap file store at /tmp set undodir=~/.vim/undo     " undo directory set mouse-=a                " disable mouse interaction if has("nvim")
+set shada='50,<1000,s100,n~/.local/share/nvim/shada/main.shada
 end
 
 " make make tabstop, soft tabstop, and shiftwidth all 4
 set ts=4
 set sts=4
 set sw=4
+
+set expandtab
+retab
 
 set backup
 set writebackup
@@ -134,6 +132,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-perl/vim-perl'
+Plug 'jsfaint/gen_tags.vim'
+
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
 end
