@@ -140,6 +140,8 @@ Plug 'jsfaint/gen_tags.vim'
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
+    call deoplete#enable()
+    let g:deoplete#disable_auto_complete = 1
 end
 
 " at the end, add plugins to the runtime path
