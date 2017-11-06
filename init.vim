@@ -137,6 +137,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-perl/vim-perl'
 Plug 'jsfaint/gen_tags.vim'
+Plug 'flazz/vim-colorschemes'
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
