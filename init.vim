@@ -155,6 +155,7 @@ source ~/.config/nvim/settings/vim-json.vim
 source ~/.config/nvim/settings/vimux.vim
 if has("nvim")
     source ~/.config/nvim/settings/deoplete.vim
+    let g:python_host_skip_check = 1
 end
 source ~/.config/nvim/settings/easy-align.vim
 source ~/.config/nvim/settings/markdown.vim
