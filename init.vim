@@ -98,6 +98,8 @@ if has("autocmd")
   augroup END
 endif
 
+execute pathogen#infect()
+
 " setup plugin manager
 call plug#begin('~/.config/nvim/plugged')
 
