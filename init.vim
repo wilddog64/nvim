@@ -16,12 +16,12 @@ retab
 
 set backup
 set writebackup
-let &backupdir=expand("~") . "/backup/vimbackup"
+let &backupdir=expand("~") . "/.local/share/nvim/backup"
 set backupcopy=auto
 
 " enable undofile and setup where to store an undo file
 set undofile    " turn on undofile, so undo information is preserved for the next time."
-let &undodir = expand("~") . "/backup/vimundo"
+let &undodir = expand("~") . "/.local/share/nvim/undo"
 
 " let nvim know python2 and python4 interpreters
 let g:python_host_prog = expand("~/.pyenv/versions/2.7.13/bin/python")
