@@ -2,4 +2,8 @@ plugged/
 .netrwhist
 plug.vim.old
 autoload/plug.vim
+autoload/plug.vim.old
 bundle
+.VimballRecord
+doc
+ftplugin/
