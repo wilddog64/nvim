@@ -6,3 +6,4 @@ bundle
 .VimballRecord
 doc
 ftplugin/
+_py*
