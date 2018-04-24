@@ -1,6 +1,5 @@
 set cursorline              " enable cursor line set cpo+=$                  " show $ at the end of line when change it
 set dir=~/.vim/swap/        " swap file store at /tmp
-set undodir=~/.vim/undo     " undo directory
 set mouse-=a                " disable mouse interaction
 if has("nvim")
     set shada='50,<1000,s100,n~/.local/share/nvim/shada/main.shada
@@ -16,12 +15,12 @@ retab
 
 set backup
 set writebackup
-let &backupdir=expand("~") . "~/.local/share/nvim/backup"
+let &backupdir=expand("~/.local/share/nvim/backup")
 set backupcopy=auto
 
 " enable undofile and setup where to store an undo file
 set undofile    " turn on undofile, so undo information is preserved for the next time."
-let &undodir = expand("~") . "~/.local/share/nvim/undo"
+let &undodir = expand("~/.local/share/nvim/undo")
 
 " let nvim know python2 and python4 interpreters
 let g:python_host_prog = expand("~/.pyenv/versions/2.7.13/bin/python")
