@@ -70,7 +70,7 @@ set listchars=tab:▸\ ,trail:⋅,nbsp:⋅,eol:¬ " specfiy the invisible charac
 set printoptions+=number:y
 
 " allow vim to use clipboard for all operations
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 
 if has("autocmd")
 
