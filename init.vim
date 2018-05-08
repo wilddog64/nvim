@@ -140,6 +140,7 @@ Plug 'vim-perl/vim-perl'
 Plug 'jsfaint/gen_tags.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'juneedahamed/vc.vim'
+Plug 'https://github.com/othree/xml.vim.git'
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
