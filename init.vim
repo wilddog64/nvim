@@ -164,6 +164,7 @@ source ~/.config/nvim/settings/easy-align.vim
 source ~/.config/nvim/settings/markdown.vim
 source ~/.config/nvim/settings/ansible.vim
 source ~/.config/nvim/settings/cbackup.vim
+source ~/.config/nvim/settings/terminal.vim
 
 " diff color settings
 highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
