@@ -143,6 +143,9 @@ Plug 'juneedahamed/vc.vim'
 Plug 'https://github.com/othree/xml.vim.git'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'tfnico/vim-gradle'
+Plug 'Shougo/denite.nvim'
+Plug 'sbdchd/neoformat'
+Plug 'neomake/neomake'
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
