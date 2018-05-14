@@ -142,6 +142,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'juneedahamed/vc.vim'
 Plug 'https://github.com/othree/xml.vim.git'
 Plug 'juliosueiras/vim-terraform-completion'
+Plug 'tfnico/vim-gradle'
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
