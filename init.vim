@@ -147,6 +147,7 @@ Plug 'Shougo/denite.nvim'
 Plug 'sbdchd/neoformat'
 Plug 'neomake/neomake'
 Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-abolish'
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
