@@ -183,5 +183,8 @@ highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Re
 highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
 
 if has("nvim")
-   set inccommand=nosplit 
+   set inccommand=nosplit
 endif
+
+" where to look for a private UltiSnips
+let g:UltiSnipsSnippetsDir = expand("~/src/gitrepo/personal/ultisnips")
