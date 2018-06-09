@@ -26,7 +26,6 @@ function! Preserve(command)
     let @/ = _s
     cursor(l, c)
 endfunction
-nmap <leader>$ :call Preserve("%s/\s\+$//g")<CR>
 nmap <leader>= :call Preserve("normal gg=G")<CR>
 
 " this vim function will return a actual puppet module name, assuming that
