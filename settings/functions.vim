@@ -24,7 +24,7 @@ function! Preserve(command)
 
     " now restore search and cursor position
     let @/ = _s
-    cursor(l, c)
+    call cursor(l, c)
 endfunction
 nmap <leader>= :call Preserve("normal gg=G")<CR>
 
