@@ -10,3 +10,7 @@
 :nnoremap <C-j> <C-w>j
 :nnoremap <C-k> <C-w>k
 :nnoremap <C-l> <C-w>l
+
+:tnoremap <Esc> <C-\><C-n>
+:tnoremap <M-[> <Esc>
+:tnoremap <C-v><Esc> <Esc>
