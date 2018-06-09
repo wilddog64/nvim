@@ -1,9 +1,9 @@
 " remove trailing / by hitting control t
 cnoremap <C-t> <C-\>e(<SID>RemoveLastPathComponent())<CR>
 function! s:RemoveLastPathComponent()
-  let c = getcmdline()
-  let cRoot = fnamemodify(c, ':r')
-  return (c != cRoot ? cRoot : substitute(c, '\%(\\ \|[\\/]\@!\f\)\+[\\/]\=$\|.$', '', ''))
+    let c = getcmdline()
+    let cRoot = fnamemodify(c, ':r')
+    return (c != cRoot ? cRoot : substitute(c, '\%(\\ \|[\\/]\@!\f\)\+[\\/]\=$\|.$', '', ''))
 endfunction
 
 function! <SID>FidgetWhitespace(pat)
@@ -55,7 +55,7 @@ function! Get_puppet_module_name()
     let module_name = Puppet_module_name()
     let basename = expand( "%:t:r" )
     if basename != 'init'
-       let module_name = module_name . '::' . basename
+        let module_name = module_name . '::' . basename
     endif
 
     return module_name
@@ -79,24 +79,39 @@ imap <silent> <C-Y> <C-R><C-R>=Lookupwards()<CR>
 
 " this function will relove symlink and follow it
 function! <SID>FollowSymlink()
-  let current_file = expand('%:p')
-  " check if file type is a symlink
-  if getftype(current_file) == 'link'
-    " if it is a symlink resolve to the actual file path
-    "   and open the actual file
-    let actual_file = resolve(current_file)
-    silent! execute 'file ' . actual_file
-  end
+    let current_file = expand('%:p')
+    " check if file type is a symlink
+    if getftype(current_file) == 'link'
+        " if it is a symlink resolve to the actual file path
+        "   and open the actual file
+        let actual_file = resolve(current_file)
+        silent! execute 'file ' . actual_file
+    end
 endfunction
 
 function! <SID>AutoProjectRootCD()
-  try
-    if &ft != 'help'
-      ProjectRootCD
-    endif
-  catch
-    " Silently ignore invalid buffers
-  endtry
+    try
+        if &ft != 'help'
+            ProjectRootCD
+        endif
+    catch
+        " Silently ignore invalid buffers
+    endtry
 endfunction
 
 autocmd BufEnter * call <SID>FollowSymlink() | call <SID>AutoProjectRootCD()
+
+" strip trailing whitespaces without moving cursor
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+nmap <silent> <leader>sw :call <SID>StripTrailingWhitespaces()<CR>
