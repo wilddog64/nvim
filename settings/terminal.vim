@@ -14,3 +14,7 @@
 :tnoremap <Esc> <C-\><C-n>
 :tnoremap <M-[> <Esc>
 :tnoremap <C-v><Esc> <Esc>
+
+" start insert mode automatically if buffer is terminal
+au BufEnter * if &buftype == 'terminal' | :startinsert | :set nonu | endif
+
