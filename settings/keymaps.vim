@@ -3,17 +3,17 @@
 map <C-CR> o
 imap <C-CR> <C-O>o
 
-" map ctrl-shift-return for append at the end of line (for both normal and 
+" map ctrl-shift-return for append at the end of line (for both normal and
 " insert mode)
 map <leader><CR>  o
 imap <leader><CR> <C-O>o
 
-" map ctrl-apple-return for adding a semi-colon at the end of line, and open a 
+" map ctrl-apple-return for adding a semi-colon at the end of line, and open a
 " new line (both normal and insert mode)
 map <C-D-CR> A;<CR>
 imap <C-D-CR> <C-O>A;<CR>
- 
-" <leader>stf to add current timestamp 
+
+" <leader>stf to add current timestamp
 map <leader>stf <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR><Esc>
 imap <leader>stf <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR><Esc>
 
@@ -116,7 +116,7 @@ command! -nargs=*  Wrap set wrap linebreak nolist
 imap <leader>wr <c-o>:Wrap<cr>
 map  <leader>wr :Wrap<cr>
 
-" maps <leader>ap to AutoPairsToggle().  Allows one to enable/disable 
+" maps <leader>ap to AutoPairsToggle().  Allows one to enable/disable
 " autopairs plugin a bit easier
 imap <leader>ap <c-o>:call AutoPairsToggle()<cr>
 
