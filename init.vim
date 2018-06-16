@@ -165,16 +165,16 @@ source ~/.config/nvim/settings/syntastics.vim
 source ~/.config/nvim/settings/vim-jedi.vim
 source ~/.config/nvim/settings/vim-json.vim
 source ~/.config/nvim/settings/vimux.vim
+source ~/.config/nvim/settings/easy-align.vim
+source ~/.config/nvim/settings/markdown.vim
+source ~/.config/nvim/settings/ansible.vim
+source ~/.config/nvim/settings/cbackup.vim
 if has("nvim")
     source ~/.config/nvim/settings/deoplete.vim
     let g:python_host_skip_check = 1
     source ~/.config/nvim/settings/nvim_editcmd.vim
     source ~/.config/nvim/settings/terminal.vim
 end
-source ~/.config/nvim/settings/easy-align.vim
-source ~/.config/nvim/settings/markdown.vim
-source ~/.config/nvim/settings/ansible.vim
-source ~/.config/nvim/settings/cbackup.vim
 
 " diff color settings
 highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
