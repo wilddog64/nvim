@@ -152,6 +152,7 @@ Plug 'honza/vim-snippets'
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
+    Plug 'brettanomyces/nvim-editcommand'
 end
 
 " at the end, add plugins to the runtime path
@@ -172,6 +173,7 @@ source ~/.config/nvim/settings/easy-align.vim
 source ~/.config/nvim/settings/markdown.vim
 source ~/.config/nvim/settings/ansible.vim
 source ~/.config/nvim/settings/cbackup.vim
+source ~/.config/nvim/settings/nvim_editcmd.gtvim
 
 if has("nvim") " source this only we use neovim
     source ~/.config/nvim/settings/terminal.vim
