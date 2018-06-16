@@ -190,4 +190,4 @@ endif
 let g:UltiSnipsSnippetsDir = expand("~/src/gitrepo/personal/ultisnips")
 
 " start insert mode automatically if buffer is terminal
-au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+au BufEnter * if &buftype == 'terminal' | :startinsert | :set nonu | endif
