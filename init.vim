@@ -188,3 +188,7 @@ endif
 
 " where to look for a private UltiSnips
 let g:UltiSnipsSnippetsDir = expand("~/src/gitrepo/personal/ultisnips")
+
+" these settings will make split windows on the right or bottom
+set splitbelow
+set splitright
