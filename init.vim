@@ -153,6 +153,7 @@ if has("nvim")
     Plug 'honza/vim-snippets'
     Plug 'sbdchd/neoformat'
     Plug 'neomake/neomake'
+    Plug 'vimlab/split-term.vim'
 end
 
 " at the end, add plugins to the runtime path
