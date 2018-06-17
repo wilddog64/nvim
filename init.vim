@@ -144,8 +144,6 @@ Plug 'https://github.com/othree/xml.vim.git'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'tfnico/vim-gradle'
 Plug 'Shougo/denite.nvim'
-Plug 'sbdchd/neoformat'
-Plug 'neomake/neomake'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
 
@@ -153,6 +151,8 @@ if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
     Plug 'brettanomyces/nvim-editcommand'
     Plug 'honza/vim-snippets'
+    Plug 'sbdchd/neoformat'
+    Plug 'neomake/neomake'
 end
 
 " at the end, add plugins to the runtime path
