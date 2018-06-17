@@ -18,3 +18,4 @@
 " start insert mode automatically if buffer is terminal
 au BufEnter * if &buftype == 'terminal' | :startinsert | :set nonu | endif
 
+let g:disable_key_mappings = 1
