@@ -148,12 +148,11 @@ Plug 'sbdchd/neoformat'
 Plug 'neomake/neomake'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
-Plug 'honza/vim-snippets'
-Plug 'vimlab/split-term.vim'
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
     Plug 'brettanomyces/nvim-editcommand'
+    Plug 'honza/vim-snippets'
 end
 
 " at the end, add plugins to the runtime path
