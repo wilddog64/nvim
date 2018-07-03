@@ -111,11 +111,11 @@ source ~/.config/nvim/settings/easy-align.vim
 source ~/.config/nvim/settings/markdown.vim
 source ~/.config/nvim/settings/ansible.vim
 source ~/.config/nvim/settings/cbackup.vim
+source ~/.config/nvim/settings/terminal.vim
 if has("nvim")
     source ~/.config/nvim/settings/deoplete.vim
     let g:python_host_skip_check = 1
     source ~/.config/nvim/settings/nvim_editcmd.vim
-    source ~/.config/nvim/settings/terminal.vim
 end
 
 " diff color settings
