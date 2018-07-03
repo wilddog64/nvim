@@ -146,6 +146,7 @@ Plug 'tfnico/vim-gradle'
 Plug 'Shougo/denite.nvim'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
+Plug 'burnettk/vim-jenkins'
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
