@@ -53,6 +53,8 @@ if has("nvim")
     Plug 'honza/vim-snippets'
     Plug 'sbdchd/neoformat'
     Plug 'neomake/neomake'
+    Plug 'hashivim/vim-terraform'
+    Plug 'juliosueiras/vim-terraform-completion'
 end
 Plug 'vimlab/split-term.vim'
 
