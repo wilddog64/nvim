@@ -46,6 +46,7 @@ Plug 'Shougo/denite.nvim'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
 Plug 'burnettk/vim-jenkins'
+Plug 'rodjek/vim-puppet'
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
