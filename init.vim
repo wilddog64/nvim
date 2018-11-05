@@ -22,8 +22,8 @@ set backupcopy=auto
 set undofile    " turn on undofile, so undo information is preserved for the next time."
 let &undodir = expand("~/.local/share/nvim/undo")
 
-" let nvim know python2 and python4 interpreters
-let g:python_host_prog = expand("~/.pyenv/versions/2.7.13/bin/python")
+" let nvim know python2 and python3 interpreters
+let g:python_host_prog = expand("~/.pyenv/versions/2.7.15/bin/python")
 let g:python3_host_prog = expand("~/.pyenv/versions/3.6.0/bin/python")
 
 " set leader to be ,
