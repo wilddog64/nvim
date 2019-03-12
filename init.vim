@@ -27,7 +27,7 @@ let g:python_host_prog = expand("~/.pyenv/versions/2.7.15/bin/python")
 let g:python3_host_prog = expand("~/.pyenv/versions/3.6.0/bin/python")
 
 " set leader to be ,
-let mapleader=","
+let mapleader=";"
 
 " if no filetype specified, set ft=markdown (alternative would be text)
 " autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
