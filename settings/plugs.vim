@@ -49,6 +49,7 @@ Plug 'burnettk/vim-jenkins'
 Plug 'rodjek/vim-puppet'
 Plug 'vim-scripts/dbext.vim'
 Plug 'Shougo/neosnippet.vim'
+Plug 'dhruvasagar/vim-open-url'
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
