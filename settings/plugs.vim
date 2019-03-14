@@ -48,6 +48,7 @@ Plug 'tpope/vim-abolish'
 Plug 'burnettk/vim-jenkins'
 Plug 'rodjek/vim-puppet'
 Plug 'vim-scripts/dbext.vim'
+Plug 'Shougo/neosnippet.vim'
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
