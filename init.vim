@@ -136,3 +136,6 @@ let g:UltiSnipsSnippetsDir = expand("~/src/gitrepo/personal/ultisnips")
 
 " disable folding
 let g:vim_markdown_folding_disabled = 1
+
+" enable spelling check
+set spell spelllang=en_us
