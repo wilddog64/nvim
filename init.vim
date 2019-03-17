@@ -139,3 +139,5 @@ let g:vim_markdown_folding_disabled = 1
 
 " enable spelling check
 set spell spelllang=en_us
+
+colorscheme Atelier_PlateauDark
