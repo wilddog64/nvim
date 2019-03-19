@@ -54,7 +54,6 @@ Plug 'dhruvasagar/vim-open-url'
 Plug 'Shougo/neocomplete.vim'
 Plug 'zchee/deoplete-go'
 Plug 'majutsushi/tagbar'
-Plug 'joereynolds/vim-minisnip'
 Plug 'jodosha/vim-godebug'
 
 if has("nvim")
