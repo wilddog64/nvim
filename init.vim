@@ -112,6 +112,7 @@ source ~/.config/nvim/settings/markdown.vim
 source ~/.config/nvim/settings/ansible.vim
 source ~/.config/nvim/settings/terminal.vim
 source ~/.config/nvim/settings/neoformat.vim
+source ~/.config/nvim/settings/neosnippet.vim
 source ~/.config/nvim/settings/vim-go.vim
 if has("nvim")
     source ~/.config/nvim/settings/deoplete.vim
@@ -140,4 +141,4 @@ let g:vim_markdown_folding_disabled = 1
 " enable spelling check
 set spell spelllang=en_us
 
-colorscheme Atelier_PlateauDark
+colorscheme Atelier_HeathLight
