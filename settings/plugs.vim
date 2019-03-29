@@ -53,7 +53,6 @@ Plug 'dhruvasagar/vim-open-url'
 Plug 'Shougo/neocomplete.vim'
 Plug 'zchee/deoplete-go'
 Plug 'majutsushi/tagbar'
-Plug 'jodosha/vim-godebug'
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
@@ -63,6 +62,7 @@ if has("nvim")
     Plug 'neomake/neomake'
     Plug 'hashivim/vim-terraform'
     Plug 'juliosueiras/vim-terraform-completion'
+    Plug 'jodosha/vim-godebug'
 end
 Plug 'vimlab/split-term.vim'
 
