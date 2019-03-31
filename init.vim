@@ -118,6 +118,7 @@ if has("nvim")
     source ~/.config/nvim/settings/deoplete.vim
     let g:python_host_skip_check = 1
     source ~/.config/nvim/settings/nvim_editcmd.vim
+    " source ~/.config/nvim/settings/terraform-complete.vim
 end
 
 " diff color settings
