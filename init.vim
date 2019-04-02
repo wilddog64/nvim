@@ -145,3 +145,4 @@ set spell spelllang=en_us
 colorscheme Atelier_HeathLight
 
 let g:ruby_host_prog='/Users/cliang/.rbenv/versions/2.4.3/bin/ruby'
+let g:neocomplete#enable_at_startup = 1
