@@ -50,7 +50,7 @@ Plug 'vim-scripts/dbext.vim'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'dhruvasagar/vim-open-url'
-Plug 'Shougo/neocomplete.vim'
+" Plug 'Shougo/neocomplete.vim'
 Plug 'zchee/deoplete-go'
 Plug 'majutsushi/tagbar'
 
