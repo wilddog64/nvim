@@ -63,6 +63,7 @@ if has("nvim")
     Plug 'hashivim/vim-terraform'
     Plug 'juliosueiras/vim-terraform-completion'
     Plug 'jodosha/vim-godebug'
+    Plug 'Shougo/context_filetype.vim'
 end
 Plug 'vimlab/split-term.vim'
 
