@@ -50,9 +50,13 @@ Plug 'vim-scripts/dbext.vim'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'dhruvasagar/vim-open-url'
-" Plug 'Shougo/neocomplete.vim'
 Plug 'zchee/deoplete-go'
 Plug 'majutsushi/tagbar'
+
+if has("lua")
+    Plug 'Shougo/neocomplete.vim'
+    Plug 'Shougo/context_filetype.vim'
+endif
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
