@@ -36,10 +36,6 @@ noremap  <C-S>   :update<CR>
 vnoremap <C-S>  <C-C>:update<CR>
 inoremap <C-S>  <C-O>:update<CR>
 
-" use \nr to open NERDTree in normal/insert mode
-noremap <leader>nr :NERDTree<CR>
-imap <leader>nr <C-O>:NERDTree<CR><ESC>
-
 " so these mappings can allow us to undo c-u and c-w
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
@@ -102,9 +98,6 @@ imap <leader>et <C-O>:tabe %%
 
 map <leader>gt :GundoToggle<CR>
 imap <leader>gt <C-O>:GundoToggle<CR>
-
-map <leader>n :NERDTreeToggle ~/src/gitrepo/marketleader <CR>
-imap <leader>n <C-O>:NERDTreeToggle ~/src/gitrepo/marketleader <CR>
 
 map <leader>sz :sp term://zsh<CR>
 imap <leader>sz <C-O>:sp term://zsh<CR>
