@@ -52,6 +52,8 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'dhruvasagar/vim-open-url'
 Plug 'zchee/deoplete-go'
 Plug 'majutsushi/tagbar'
+Plug 'google/vim-maktaba'
+Plug 'bazelbuild/vim-bazel'
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
