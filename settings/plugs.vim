@@ -54,6 +54,7 @@ Plug 'zchee/deoplete-go'
 Plug 'majutsushi/tagbar'
 Plug 'google/vim-maktaba'
 Plug 'bazelbuild/vim-bazel'
+Plug 'google/vim-glaive'
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
