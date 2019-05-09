@@ -1,4 +1,5 @@
-set cursorline              " enable cursor line set cpo+=$                  " show $ at the end of line when change it
+set cpo+=$            " enable cursor line set cpo+=$                  " show $ at the end of line when change it
+set cursorline
 set dir=~/.vim/swap/        " swap file store at /tmp
 set mouse-=a                " disable mouse interaction
 if has("nvim")
