@@ -13,7 +13,7 @@ function! <SID>FidgetWhitespace(pat)
 endfunction
 vmap <silent><leader>vs :<C-U>let @/="\\V<C-R>=escape(<SID>FidgetWhitespace(escape(@*,'\')),'\"')<CR>"<CR>
 
-function! Preserve(command)
+function! <SID>Preserve(command)
     " save last search and cursor position
     let _s = @/
     let l = line(".")
@@ -26,7 +26,7 @@ function! Preserve(command)
     let @/ = _s
     call cursor(l, c)
 endfunction
-nmap <leader>= :call Preserve("normal gg=G")<CR>
+nmap <leader>= :call <SID>Preserve("normal gg=G")<CR>
 
 " this vim function will return a actual puppet module name, assuming that
 " delim is either - or _.  This function will strip off anything before - or _
@@ -103,15 +103,8 @@ autocmd BufEnter * call <SID>FollowSymlink() | call <SID>AutoProjectRootCD()
 " strip trailing whitespaces without moving cursor
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
+    call <SID>Preserve("%s/\s\+$//e")
 endfunction
 
 nmap <silent> <leader>sw :call <SID>StripTrailingWhitespaces()<CR>
-autocmd BufWritePost * call <SID>StripTrailingWhitespaces() " strip trailing white spaces after write to disk
+autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
