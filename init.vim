@@ -14,6 +14,7 @@ source ~/.config/nvim/settings/terminal.vim
 source ~/.config/nvim/settings/neoformat.vim
 source ~/.config/nvim/settings/neosnippet.vim
 source ~/.config/nvim/settings/vim-go.vim
+source ~/.config/nvim/settings/functions.vim
 if has("nvim")
     source ~/.config/nvim/settings/deoplete.vim
     let g:python_host_skip_check = 1
