@@ -114,3 +114,4 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 nmap <silent> <leader>sw :call <SID>StripTrailingWhitespaces()<CR>
+autocmd BufWritePost * call <SID>StripTrailingWhitespaces() " strip trailing white spaces after write to disk
