@@ -108,3 +108,24 @@ endfunction
 
 nmap <silent> <leader>sw :call <SID>StripTrailingWhitespaces()<CR>
 autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
+
+function! Get_puppet_manfiest_file()
+    let puppetfile = expand("<cWORD>")
+    if stridx(puppetfile, '::') == -1
+        return
+    endif
+    if stridx(puppetfile, 'Class') != -1
+        let puppetfile = substitute(puppetfile, '^Class', '', '')
+    endif
+    if stridx(puppetfile, ']') != -1 || stridx(puppetfile, '[') != -1
+        let puppetfile = substitute(puppetfile, '[', "", 'g')
+        let puppetfile = substitute(puppetfile, ']', "", 'g')
+    endif
+    let puppetfile = strpart(puppetfile, 0, len(puppetfile) - 1)
+    let puppetfile = substitute(puppetfile, "'", "", "g")
+    let puppetfile = substitute(puppetfile, '::', '\/', 'g')
+    let puppetfile = substitute(puppetfile, '\/\zs', 'manifests\/', '')
+    let puppetfile = '../' . puppetfile . '.pp'
+
+    return puppetfile
+endfunction
