@@ -57,7 +57,7 @@ function! Get_puppet_module_name()
         let module_name = module_name . '::' . basename
     endif
 
-    return module_name
+    return strpart( module_name, stridx( module_name, '/' ) + 1, len( module_name ) )
 endfunction
 
 " Lookupward function allow vim to copy vertical line above even if there's an
