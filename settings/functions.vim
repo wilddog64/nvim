@@ -109,18 +109,30 @@ endfunction
 nmap <silent> <leader>sw :call <SID>StripTrailingWhitespaces()<CR>
 autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
 
+" Get_puppet_manfiest_file is a function that return a full path of puppet
+" manifest file by looking at puppet namespace
 function! Get_puppet_manfiest_file()
-    let puppetfile = expand("<cWORD>")
-    if stridx(puppetfile, '::') == -1
+    let puppetfile = expand("<cWORD>") " obtain a WORD under the cursor
+    if stridx(puppetfile, '::') == -1  " end function if we can't find ::
         return
     endif
+
+    " if Class is found, strip it off
     if stridx(puppetfile, 'Class') != -1
         let puppetfile = substitute(puppetfile, '^Class', '', '')
     endif
+
+    " if [ or ] is found, remove them
     if stridx(puppetfile, ']') != -1 || stridx(puppetfile, '[') != -1
         let puppetfile = substitute(puppetfile, '[', "", 'g')
         let puppetfile = substitute(puppetfile, ']', "", 'g')
     endif
+
+    " remove last character from string
+    " strip off single quotes
+    " replace :: with /
+    " insert manifests after first found /
+    " prepend ../ and append .pp
     let puppetfile = strpart(puppetfile, 0, len(puppetfile) - 1)
     let puppetfile = substitute(puppetfile, "'", "", "g")
     let puppetfile = substitute(puppetfile, '::', '\/', 'g')
