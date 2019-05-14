@@ -128,12 +128,19 @@ function! Get_puppet_manfiest_file()
         let puppetfile = substitute(puppetfile, ']', "", 'g')
     endif
 
+    if match(puppetfile, '^::')
+        let puppetfile = substitute(puppetfile, "^::", "", "")
+    endif
     " remove last character from string
     " strip off single quotes
     " replace :: with /
     " insert manifests after first found /
     " prepend ../ and append .pp
-    let puppetfile = strpart(puppetfile, 0, len(puppetfile) - 1)
+    if match( puppetfile, ":$" )
+        " let puppetfile = strpart(puppetfile, 0, len(puppetfile) - 1)
+        let puppetfile = substitute(puppetfile, ":$", "", "")
+        echom "module file path: " . puppetfile
+    endif
     let puppetfile = substitute(puppetfile, "'", "", "g")
     let puppetfile = substitute(puppetfile, '::', '\/', 'g')
     let puppetfile = substitute(puppetfile, '\/\zs', 'manifests\/', '')
@@ -141,3 +148,9 @@ function! Get_puppet_manfiest_file()
 
     return puppetfile
 endfunction
+
+" autocmd BufReadPost filetype puppet nmap <leader>gf :exe "e " . Get_puppet_manfiest_file()<CR>
+augroup puppetEx
+    au!
+    autocmd BufReadPost filetype puppet nmap <buffer> <leader>gf :exe "e " . Get_puppet_manfiest_file()<CR>
+augroup END
