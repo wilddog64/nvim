@@ -111,7 +111,7 @@ autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
 
 " Get_puppet_manfiest_file is a function that return a full path of puppet
 " manifest file by looking at puppet namespace
-function! Get_puppet_file_path()
+function! <SID>Get_puppet_file_path()
     let puppetfile = Transfer_class_namespace2path()
     return puppetfile
 endfunction
@@ -161,5 +161,5 @@ endfunction
 " autocmd BufReadPost filetype puppet nmap <leader>gf :exe "e " . Get_puppet_manfiest_file()<CR>
 augroup puppetEx
     au!
-    autocmd BufReadPost * nmap <buffer> <leader>gf :exe "e " . Get_puppet_file_path()<CR>
+    autocmd BufReadPost * nmap <buffer> <leader>gf :exe "e " . <SID>Get_puppet_file_path()<CR>
 augroup END
