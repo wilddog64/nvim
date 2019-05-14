@@ -139,12 +139,12 @@ function! Get_puppet_manfiest_file()
     if match( puppetfile, ":$" )
         " let puppetfile = strpart(puppetfile, 0, len(puppetfile) - 1)
         let puppetfile = substitute(puppetfile, ":$", "", "")
-        echom "module file path: " . puppetfile
     endif
     let puppetfile = substitute(puppetfile, "'", "", "g")
     let puppetfile = substitute(puppetfile, '::', '\/', 'g')
     let puppetfile = substitute(puppetfile, '\/\zs', 'manifests\/', '')
     let puppetfile = '../' . puppetfile . '.pp'
+    echom "module file path: " . puppetfile
 
     return puppetfile
 endfunction
