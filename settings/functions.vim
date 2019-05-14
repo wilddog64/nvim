@@ -152,5 +152,5 @@ endfunction
 " autocmd BufReadPost filetype puppet nmap <leader>gf :exe "e " . Get_puppet_manfiest_file()<CR>
 augroup puppetEx
     au!
-    autocmd BufReadPost filetype puppet nmap <buffer> <leader>gf :exe "e " . Get_puppet_manfiest_file()<CR>
+    autocmd BufReadPost * nmap <buffer> <leader>gf :exe "e " . Get_puppet_manfiest_file()<CR>
 augroup END
