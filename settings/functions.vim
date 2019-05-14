@@ -120,6 +120,7 @@ function! Get_puppet_file_path()
     if match(puppetfile, ",$")
         let puppetfile = substitute(puppetfile, ",$", "", "")
     endif
+
     " if Class is found, strip it off
     if stridx(puppetfile, 'Class') != -1
         let puppetfile = substitute(puppetfile, '^Class', '', '')
