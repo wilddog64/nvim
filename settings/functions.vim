@@ -117,6 +117,9 @@ function! Get_puppet_manfiest_file()
         return
     endif
 
+    if match(puppetfile, ",$")
+        let puppetfile = substitute(puppetfile, ",$", "", "")
+    endif
     " if Class is found, strip it off
     if stridx(puppetfile, 'Class') != -1
         let puppetfile = substitute(puppetfile, '^Class', '', '')
