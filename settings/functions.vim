@@ -112,6 +112,11 @@ autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
 " Get_puppet_manfiest_file is a function that return a full path of puppet
 " manifest file by looking at puppet namespace
 function! Get_puppet_file_path()
+    puppetfile = <SID>Transfer_class_namespace2path()
+    return puppetfile
+endfunction
+
+function! <SID>Transfer_class_namespace2path()
     let puppetfile = expand("<cWORD>") " obtain a WORD under the cursor
     if stridx(puppetfile, '::') == -1  " end function if we can't find ::
         return
