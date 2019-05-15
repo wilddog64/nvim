@@ -112,9 +112,6 @@ autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
 " Get_puppet_manfiest_file is a function that return a full path of puppet
 " manifest, template, and upload file by interpretation of puppet statements
 function! Get_puppet_filepath()
-    " let puppetfile = Transfer_puppet_namespace2path()
-    " let puppetfile = Transfer_puppet_template2path()
-
     let puppetfile = expand("<cWORD>")
     echom "puppetfile: " . puppetfile
     if stridx(puppetfile, '::') != -1
