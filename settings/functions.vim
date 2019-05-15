@@ -116,11 +116,13 @@ function! Get_puppet_filepath()
     " let puppetfile = Transfer_puppet_template2path()
 
     let puppetfile = expand("<cWORD>")
+    echom "puppetfile: " . puppetfile
     if stridx(puppetfile, '::') != -1
         let puppetfile = Transfer_puppet_namespace2path()
     elseif stridx(puppetfile, 'template') != -1
-        echom "puppetfile: " . puppetfile
         let puppetfile = Transfer_puppet_template2path()
+    elseif stridx(puppetfile, 'puppet:') != -1
+        let puppetfile = Transfer_puppet_modules2path()
     endif
     return puppetfile
 endfunction
@@ -181,6 +183,25 @@ function! Transfer_puppet_template2path()
     let puppetfile = substitute(puppetfile, "'", "", "g")
     let puppetfile = substitute(puppetfile, '\/\zs', 'templates\/', '')
     let puppetfile = '../' . puppetfile
+    echom "puppetfile :" . puppetfile
+    return puppetfile
+endfunction
+
+function! Transfer_puppet_modules2path()
+    let puppetfile = expand("<cWORD>")
+    if stridx(puppetfile, "'") != -1
+        let puppetfile = substitute(puppetfile, "'", "", "g")
+    endif
+
+    if match(puppetfile, ",$")
+        let puppetfile = substitute(puppetfile, ",$", "", "")
+    endif
+
+    if stridx(puppetfile, 'puppet:') == -1
+        return
+    endif
+    let puppetfile = substitute(puppetfile, "puppet:.*\/modules", "..", "")
+    let puppetfile = substitute(puppetfile, '\(\w\+\)\ze\/', '\1\/files', '')
     echom "puppetfile :" . puppetfile
     return puppetfile
 endfunction
