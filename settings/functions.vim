@@ -113,7 +113,6 @@ autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
 " manifest, template, and upload file by interpretation of puppet statements
 function! Get_puppet_filepath()
     let puppetfile = expand("<cWORD>")
-    echom "puppetfile: " . puppetfile
     if stridx(puppetfile, '::') != -1
         let puppetfile = Transfer_puppet_namespace2path()
     elseif stridx(puppetfile, 'template') != -1
@@ -199,7 +198,6 @@ function! Transfer_puppet_modules2path()
     endif
     let puppetfile = substitute(puppetfile, "puppet:.*\/modules", "..", "")
     let puppetfile = substitute(puppetfile, '\(\w\+\)\ze\/', '\1\/files', '')
-    echom "puppetfile :" . puppetfile
     return puppetfile
 endfunction
 
