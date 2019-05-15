@@ -110,7 +110,7 @@ nmap <silent> <leader>sw :call <SID>StripTrailingWhitespaces()<CR>
 autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
 
 " Get_puppet_manfiest_file is a function that return a full path of puppet
-" manifest file by looking at puppet namespace
+" manifest, template, and upload file by interpretation of puppet statements
 function! Get_puppet_filepath()
     " let puppetfile = Transfer_puppet_namespace2path()
     " let puppetfile = Transfer_puppet_template2path()
