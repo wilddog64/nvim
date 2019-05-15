@@ -111,8 +111,17 @@ autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
 
 " Get_puppet_manfiest_file is a function that return a full path of puppet
 " manifest file by looking at puppet namespace
-function! <SID>Get_puppet_file_path()
-    let puppetfile = Transfer_puppet_namespace2path()
+function! Get_puppet_filepath()
+    " let puppetfile = Transfer_puppet_namespace2path()
+    " let puppetfile = Transfer_puppet_template2path()
+
+    let puppetfile = expand("<cWORD>")
+    if stridx(puppetfile, '::') != -1
+        let puppetfile = Transfer_puppet_namespace2path()
+    elseif stridx(puppetfile, 'template') != -1
+        echom "puppetfile: " . puppetfile
+        let puppetfile = Transfer_puppet_template2path()
+    endif
     return puppetfile
 endfunction
 
@@ -158,8 +167,26 @@ function! Transfer_puppet_namespace2path()
     return puppetfile
 endfunction
 
+function! Transfer_puppet_template2path()
+    let puppetfile = expand("<cWORD>")
+    if stridx(puppetfile, 'template') == -1
+        return
+    endif
+    if match(puppetfile, ",$")
+        let puppetfile = substitute(puppetfile, ",$", "", "")
+    endif
+    let puppetfile = substitute(puppetfile, "template", "", "")
+    let puppetfile = substitute(puppetfile, "(", "", "")
+    let puppetfile = substitute(puppetfile, ")", "", "")
+    let puppetfile = substitute(puppetfile, "'", "", "g")
+    let puppetfile = substitute(puppetfile, '\/\zs', 'templates\/', '')
+    let puppetfile = '../' . puppetfile
+    echom "puppetfile :" . puppetfile
+    return puppetfile
+endfunction
+
 " autocmd BufReadPost filetype puppet nmap <leader>gf :exe "e " . Get_puppet_manfiest_file()<CR>
 augroup puppetEx
     au!
-    autocmd BufReadPost * nmap <buffer> <leader>gf :exe "e " . <SID>Get_puppet_file_path()<CR>
+    autocmd BufReadPost * nmap <buffer> <leader>gf :exe "e " . Get_puppet_filepath()<CR>
 augroup END
