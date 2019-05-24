@@ -144,6 +144,12 @@ function! Transfer_puppet_namespace2path()
         let puppetfile = substitute(puppetfile, ']', "", 'g')
     endif
 
+    if stridx(puppetfile, 'create_resources') != -1
+        let puppetfile = substitute(puppetfile, "^create_resources", '', '')
+        let puppetfile = substitute(puppetfile, "(", "", "")
+        let puppetfile = substitute(puppetfile, ")", "", "")
+    endif
+
     if match(puppetfile, '^::')
         let puppetfile = substitute(puppetfile, "^::", "", "")
     endif
@@ -173,6 +179,7 @@ function! Transfer_puppet_template2path()
     if match(puppetfile, ",$")
         let puppetfile = substitute(puppetfile, ",$", "", "")
     endif
+
     let puppetfile = substitute(puppetfile, "template", "", "")
     let puppetfile = substitute(puppetfile, "(", "", "")
     let puppetfile = substitute(puppetfile, ")", "", "")
