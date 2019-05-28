@@ -28,8 +28,8 @@ map <leader>c :hi Normal guibg=#<c-r>=expand("<cword>")<cr><cr> " display rgb co
 
 
 " for working with taglist.vim plugin
-noremap  <silent> <F2> <Esc><Esc>:Tlist<CR>
-inoremap <silent> <F2> <C-O>:Tlist<CR>
+noremap  <silent> <F2> <Esc><Esc>:TagbarToggle<CR>
+inoremap <silent> <F2> <C-O>:TagbarToggle<CR>
 
 " control-s in normal, insert, and visual mode will update buffer to disk
 noremap  <C-S>   :update<CR>
