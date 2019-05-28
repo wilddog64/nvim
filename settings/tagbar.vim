@@ -26,3 +26,6 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
+let g:tagbar_left = 1
+let g:tagbar_compact = 1
+let g:tagbar_autoclose = 1
