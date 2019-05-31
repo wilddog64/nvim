@@ -128,3 +128,4 @@ let g:ruby_host_prog='/Users/cliang/.rbenv/versions/2.4.3/bin/ruby'
 
 let g:xml_use_xhtml = 1
 
+let g:ale_completeion_enabled = 1
