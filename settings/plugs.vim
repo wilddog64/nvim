@@ -43,6 +43,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'zchee/deoplete-go'
 Plug 'w0rp/ale'
+Plug 'derekprior/vim-trimmer'
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
