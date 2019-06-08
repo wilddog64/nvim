@@ -44,6 +44,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'zchee/deoplete-go'
 Plug 'w0rp/ale'
 Plug 'derekprior/vim-trimmer'
+Plug 'thoughtstream/Damian-Conway-s-Vim-Setup'
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
