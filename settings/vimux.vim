@@ -66,15 +66,15 @@ function! <SID>ExecuteVagrantCommand(command)
 endfunction
 
 " key mappings for some vagrant commands
-map vau :call <SID>ExecuteVagrantCommand('up')<CR>
-imap vau <C-O>:call <SID>ExecuteVagrantCommand('up')<CR>
-map vad :call <SID>ExecuteVagrantCommand('destroy -f')<CR>
-imap vad <C-O>:call <SID>ExecuteVagrantCommand('destroy -f')<CR>
-map vap :call <SID>ExecuteVagrantCommand('provision')<CR>
-imap vap <C-O>:call <SID>ExecuteVagrantCommand('provision')<CR>
-map vah :call <SID>ExecuteVagrantCommand('halt')<CR>
-imap vah <C-O>:call <SID>ExecuteVagrantCommand('halt')<CR>
-map vag :call <SID>ExecuteVagrantCommand('plugin list')<CR>
-imap vag <C-O>:call <SID>ExecuteVagrantCommand('plugin list')<CR>
-map vat :call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
-map vat <C-O>:call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
+map <leader>vau :call <SID>ExecuteVagrantCommand('up')<CR>
+imap <leader>vau <C-O>:call <SID>ExecuteVagrantCommand('up')<CR>
+map <leader>vad :call <SID>ExecuteVagrantCommand('destroy -f')<CR>
+imap <leader>vad <C-O>:call <SID>ExecuteVagrantCommand('destroy -f')<CR>
+map <leader>vap :call <SID>ExecuteVagrantCommand('provision')<CR>
+imap <leader>vap <C-O>:call <SID>ExecuteVagrantCommand('provision')<CR>
+map <leader>vah :call <SID>ExecuteVagrantCommand('halt')<CR>
+imap <leader>vah <C-O>:call <SID>ExecuteVagrantCommand('halt')<CR>
+map <leader>vag :call <SID>ExecuteVagrantCommand('plugin list')<CR>
+imap <leader>vag <C-O>:call <SID>ExecuteVagrantCommand('plugin list')<CR>
+map <leader>vat :call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
+map <leader>vat <C-O>:call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
