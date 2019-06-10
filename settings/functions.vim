@@ -107,7 +107,7 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 nmap <silent> <leader>sw :call <SID>StripTrailingWhitespaces()<CR>
-autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
+" autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
 
 " Get_puppet_manfiest_file is a function that return a full path of puppet
 " manifest, template, and upload file by interpretation of puppet statements
