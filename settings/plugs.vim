@@ -45,6 +45,7 @@ Plug 'zchee/deoplete-go'
 Plug 'w0rp/ale'
 Plug 'derekprior/vim-trimmer'
 Plug 'thoughtstream/Damian-Conway-s-Vim-Setup'
+Plug 'benmills/vimux'
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
