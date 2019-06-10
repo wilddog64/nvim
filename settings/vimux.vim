@@ -11,7 +11,7 @@ imap <leader>xl <C-O>:VimuxRunLastCommand<CR>
 " depends on vimux plugin
 function! <SID>ExecutePyModule()
     let b:filename = expand("%:r")     " file without extension
-    
+
     " this only fits for python type script, reject any other
     if &ft != 'python'
         echom 'this meant only for python script'
@@ -44,12 +44,12 @@ map <leader>ir :VimuxInspectRunner<CR>       " inspect Runner pane
 imap <leader>ir <C-O>:VimuxInspectRunner<CR> " inspect Runner pane
 map <leader>vz :call VimuxZoomRunner()<CR>   " zoom runner pane for better examining
 map <leader>vx :VimuxInterruptRunner<CR>     " interrupt current running panel
-map <leader>vp :VimuxPromptCommand<CR> 
+map <leader>vp :VimuxPromptCommand<CR>
 map <leader>ct :VimuxRunCommand('ctags -R')<CR> " execute ctags -R to generate or update tags file
 
-" A function that will execute vagrant commands in tmux pane via 
-" VimuxRunCommand.  This function will also check to make sure Vagrantfile 
-" exist before it execute a given vagrant command.  It aborts if it can't find 
+" A function that will execute vagrant commands in tmux pane via
+" VimuxRunCommand.  This function will also check to make sure Vagrantfile
+" exist before it execute a given vagrant command.  It aborts if it can't find
 " any Vagrantfile in current project root directory
 function! <SID>ExecuteVagrantCommand(command)
   call <SID>SwitchToBufferDirRoot()
@@ -57,7 +57,7 @@ function! <SID>ExecuteVagrantCommand(command)
   let vagrantfile = projectroot . '/Vagrantfile'
   echom vagrantfile
   if !empty(glob(vagrantfile))
-    let vagrantcmd = 'vagrant ' . a:command    
+    let vagrantcmd = 'vagrant ' . a:command
   else
     echom 'no Vagrantfile exist, abort!'
     return
@@ -76,3 +76,5 @@ map vah :call <SID>ExecuteVagrantCommand('halt')<CR>
 imap vah <C-O>:call <SID>ExecuteVagrantCommand('halt')<CR>
 map vag :call <SID>ExecuteVagrantCommand('plugin list')<CR>
 imap vag <C-O>:call <SID>ExecuteVagrantCommand('plugin list')<CR>
+map vat :call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
+map vat <C-O>:call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
