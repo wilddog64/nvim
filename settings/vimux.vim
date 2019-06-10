@@ -79,4 +79,4 @@ imap <leader>vah <C-O>:call <SID>ExecuteVagrantCommand('halt')<CR>
 map  <leader>vag :call <SID>ExecuteVagrantCommand('plugin list')<CR>
 imap <leader>vag <C-O>:call <SID>ExecuteVagrantCommand('plugin list')<CR>
 map  <leader>vat :call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
-map  <leader>vat <C-O>:call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
+imap  <leader>vat <C-O>:call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
