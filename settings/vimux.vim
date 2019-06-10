@@ -6,6 +6,8 @@ map <leader>ch :VimuxClearRunnerHistory<CR>
 imap <leader>ch <C-O>:VimuxClearRunnerHistory<CR>
 map <leader>xl :VimuxRunLastCommand<CR>
 imap <leader>xl <C-O>:VimuxRunLastCommand<CR>
+map <leader>vc :VimuxCloseRunner<CR>
+imap <leader>vc <C-O>:VimuxCloseRunner<CR>
 
 " execute a python module in current vim buffer.  This function
 " depends on vimux plugin
@@ -66,15 +68,15 @@ function! <SID>ExecuteVagrantCommand(command)
 endfunction
 
 " key mappings for some vagrant commands
-map <leader>vau :call <SID>ExecuteVagrantCommand('up')<CR>
+map  <leader>vau :call <SID>ExecuteVagrantCommand('up')<CR>
 imap <leader>vau <C-O>:call <SID>ExecuteVagrantCommand('up')<CR>
-map <leader>vad :call <SID>ExecuteVagrantCommand('destroy -f')<CR>
+map  <leader>vad :call <SID>ExecuteVagrantCommand('destroy -f')<CR>
 imap <leader>vad <C-O>:call <SID>ExecuteVagrantCommand('destroy -f')<CR>
-map <leader>vap :call <SID>ExecuteVagrantCommand('provision')<CR>
+map  <leader>vap :call <SID>ExecuteVagrantCommand('provision')<CR>
 imap <leader>vap <C-O>:call <SID>ExecuteVagrantCommand('provision')<CR>
-map <leader>vah :call <SID>ExecuteVagrantCommand('halt')<CR>
+map  <leader>vah :call <SID>ExecuteVagrantCommand('halt')<CR>
 imap <leader>vah <C-O>:call <SID>ExecuteVagrantCommand('halt')<CR>
-map <leader>vag :call <SID>ExecuteVagrantCommand('plugin list')<CR>
+map  <leader>vag :call <SID>ExecuteVagrantCommand('plugin list')<CR>
 imap <leader>vag <C-O>:call <SID>ExecuteVagrantCommand('plugin list')<CR>
-map <leader>vat :call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
-map <leader>vat <C-O>:call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
+map  <leader>vat :call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
+map  <leader>vat <C-O>:call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
