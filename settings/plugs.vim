@@ -46,6 +46,7 @@ Plug 'w0rp/ale'
 Plug 'derekprior/vim-trimmer'
 Plug 'thoughtstream/Damian-Conway-s-Vim-Setup'
 Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-navigator'
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
