@@ -48,6 +48,7 @@ Plug 'thoughtstream/Damian-Conway-s-Vim-Setup'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'junegunn/fzf.vim'
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
