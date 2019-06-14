@@ -17,6 +17,7 @@ source ~/.config/nvim/settings/neosnippet.vim
 source ~/.config/nvim/settings/vim-go.vim
 source ~/.config/nvim/settings/tagbar.vim
 source ~/.config/nvim/settings/ale.vim
+source ~/.config/nvim/settings/fzf.vim
 if has("nvim")
     source ~/.config/nvim/settings/deoplete.vim
     let g:python_host_skip_check = 1
