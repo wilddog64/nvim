@@ -67,6 +67,20 @@ function! <SID>ExecuteVagrantCommand(command)
   execute "VimuxRunCommand('" . vagrantcmd . "')"
 endfunction
 
+" function! <SID>ExecuteTerraform(command)
+"   call <SID>SwitchToBufferDirRoot()
+"   let projectroot = projectroot#get(expand('%'))
+"   let terraformdir = projectroot . '/.terraform'
+"   echom 'terraform dir:' . terraformdir
+"   lcd projectroot
+"   let terraform_init = 'terraform init'
+"   if empty(glob(terraformdir))
+"       if input('initialize terraform?')
+"           execute "VimuxRunCommand('" . terraform_init . "')"
+"       endif
+"   endif
+" endfunction
+
 " key mappings for some vagrant commands
 map  <leader>vau :call <SID>ExecuteVagrantCommand('up')<CR>
 imap <leader>vau <C-O>:call <SID>ExecuteVagrantCommand('up')<CR>
