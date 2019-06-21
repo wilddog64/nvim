@@ -49,6 +49,7 @@ Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'junegunn/fzf.vim'
+Plug 'aklt/plantuml-syntax'
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
