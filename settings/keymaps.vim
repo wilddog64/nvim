@@ -150,3 +150,11 @@ au FileType go set ts=4
 " make transport 'xp' as one change rather than two
 nmap <Plug>TransposeCharacters xp
 nmap cp <Plug>TransposeCharacters
+
+" allow drag a block of text
+let g:DVB_TrmWS = 1
+vmap  <expr>  <LEFT>   DVB_Drag('left')
+vmap  <expr>  <RIGHT>  DVB_Drag('right')
+vmap  <expr>  <DOWN>   DVB_Drag('down')
+vmap  <expr>  <UP>     DVB_Drag('up')
+vmap  <expr>  D        DVB_Duplicate()
