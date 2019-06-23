@@ -1,5 +1,6 @@
 source ~/.config/nvim/settings/functions.vim
 source ~/.config/nvim/settings/plugs.vim
+source ~/.config/nvim/settings/disable_damian_plugins.vim
 source ~/.config/nvim/settings/general.vim
 source ~/.config/nvim/settings/keymaps.vim
 source ~/.config/nvim/settings/taglist.vim
