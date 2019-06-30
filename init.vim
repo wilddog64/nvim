@@ -20,6 +20,7 @@ source ~/.config/nvim/settings/tagbar.vim
 source ~/.config/nvim/settings/ale.vim
 source ~/.config/nvim/settings/fzf.vim
 source ~/.config/nvim/settings/slim.vim
+source ~/.config/nvim/settings/deoplete-go.vim
 
 if has("nvim")
     source ~/.config/nvim/settings/deoplete.vim
