@@ -28,4 +28,4 @@ if has("nvim")
     source ~/.config/nvim/settings/nvim_editcmd.vim
     " source ~/.config/nvim/settings/terraform-complete.vim
 end
-" color Atelier_HeathLight
+color Atelier_HeathLight
