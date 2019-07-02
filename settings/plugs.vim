@@ -51,6 +51,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'junegunn/fzf.vim'
 Plug 'aklt/plantuml-syntax'
 Plug 'jpalardy/vim-slime'
+Plug 'tmux-plugins/vim-tmux'
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
