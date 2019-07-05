@@ -52,6 +52,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'aklt/plantuml-syntax'
 Plug 'jpalardy/vim-slime'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'WolfgangMehner/bash-support'
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
