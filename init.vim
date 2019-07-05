@@ -21,6 +21,7 @@ source ~/.config/nvim/settings/ale.vim
 source ~/.config/nvim/settings/fzf.vim
 source ~/.config/nvim/settings/slim.vim
 source ~/.config/nvim/settings/deoplete-go.vim
+source ~/.config/nvim/settings/bash_support.vim
 
 if has("nvim")
     source ~/.config/nvim/settings/deoplete.vim
@@ -28,4 +29,4 @@ if has("nvim")
     source ~/.config/nvim/settings/nvim_editcmd.vim
     " source ~/.config/nvim/settings/terraform-complete.vim
 end
-color Atelier_HeathLight
+color Atelier_CaveDark
