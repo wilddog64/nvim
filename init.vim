@@ -22,6 +22,7 @@ source ~/.config/nvim/settings/fzf.vim
 source ~/.config/nvim/settings/slim.vim
 source ~/.config/nvim/settings/deoplete-go.vim
 source ~/.config/nvim/settings/bash_support.vim
+source ~/.config/nvim/settings/markdown_preview.vim
 
 if has("nvim")
     source ~/.config/nvim/settings/deoplete.vim
