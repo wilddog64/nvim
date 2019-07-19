@@ -53,6 +53,7 @@ Plug 'aklt/plantuml-syntax'
 Plug 'jpalardy/vim-slime'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'WolfgangMehner/bash-support'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
