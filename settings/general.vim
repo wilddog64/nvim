@@ -132,3 +132,6 @@ let g:ale_completeion_enabled = 1
 
 " tell trimmer to ignore markdown
 let g:trimmer_blacklist = ['markdown']
+
+" allow vim to use fzf
+set rtp+=/usr/local/opt/fzf
