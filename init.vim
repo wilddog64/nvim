@@ -13,7 +13,7 @@ source ~/.config/nvim/settings/easy-align.vim
 source ~/.config/nvim/settings/markdown.vim
 source ~/.config/nvim/settings/ansible.vim
 source ~/.config/nvim/settings/terminal.vim
-source ~/.config/nvim/settings/neoformat.vim
+" source ~/.config/nvim/settings/neoformat.vim
 source ~/.config/nvim/settings/neosnippet.vim
 source ~/.config/nvim/settings/vim-go.vim
 source ~/.config/nvim/settings/tagbar.vim
