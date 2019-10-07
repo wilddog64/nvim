@@ -55,6 +55,7 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'WolfgangMehner/bash-support'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
