@@ -1,4 +1,4 @@
-" remove trailing / by hitting control t
+" remove trailing / by hitting control w
 cnoremap <C-w> <C-\>e(<SID>RemoveLastPathComponent())<CR>
 function! s:RemoveLastPathComponent()
     let c = getcmdline()
