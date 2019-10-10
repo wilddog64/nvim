@@ -53,19 +53,19 @@ map <leader>ct :VimuxRunCommand('ctags -R')<CR> " execute ctags -R to generate o
 " VimuxRunCommand.  This function will also check to make sure Vagrantfile
 " exist before it execute a given vagrant command.  It aborts if it can't find
 " any Vagrantfile in current project root directory
-function! <SID>ExecuteVagrantCommand(command)
-  call <SID>SwitchToBufferDirRoot()
-  let projectroot = projectroot#get(expand('%'))
-  let vagrantfile = projectroot . '/Vagrantfile'
-  echom vagrantfile
-  if !empty(glob(vagrantfile))
-    let vagrantcmd = 'vagrant ' . a:command
-  else
-    echom 'no Vagrantfile exist, abort!'
-    return
-  endif
-  execute "VimuxRunCommand('" . vagrantcmd . "')"
-endfunction
+" function! <SID>ExecuteVagrantCommand(command)
+"   call <SID>SwitchToBufferDirRoot()
+"   let projectroot = projectroot#get(expand('%'))
+"   let vagrantfile = projectroot . '/Vagrantfile'
+"   echom vagrantfile
+"   if !empty(glob(vagrantfile))
+"     let vagrantcmd = 'vagrant ' . a:command
+"   else
+"     echom 'no Vagrantfile exist, abort!'
+"     return
+"   endif
+"   execute "VimuxRunCommand('" . vagrantcmd . "')"
+" endfunction
 
 " function! <SID>ExecuteTerraform(command)
 "   call <SID>SwitchToBufferDirRoot()
@@ -82,15 +82,15 @@ endfunction
 " endfunction
 
 " key mappings for some vagrant commands
-map  <leader>vau :call <SID>ExecuteVagrantCommand('up')<CR>
-imap <leader>vau <C-O>:call <SID>ExecuteVagrantCommand('up')<CR>
-map  <leader>vad :call <SID>ExecuteVagrantCommand('destroy -f')<CR>
-imap <leader>vad <C-O>:call <SID>ExecuteVagrantCommand('destroy -f')<CR>
-map  <leader>vap :call <SID>ExecuteVagrantCommand('provision')<CR>
-imap <leader>vap <C-O>:call <SID>ExecuteVagrantCommand('provision')<CR>
-map  <leader>vah :call <SID>ExecuteVagrantCommand('halt')<CR>
-imap <leader>vah <C-O>:call <SID>ExecuteVagrantCommand('halt')<CR>
-map  <leader>vag :call <SID>ExecuteVagrantCommand('plugin list')<CR>
-imap <leader>vag <C-O>:call <SID>ExecuteVagrantCommand('plugin list')<CR>
-map  <leader>vat :call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
-imap  <leader>vat <C-O>:call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
+" map  <leader>vau :call <SID>ExecuteVagrantCommand('up')<CR>
+" imap <leader>vau <C-O>:call <SID>ExecuteVagrantCommand('up')<CR>
+" map  <leader>vad :call <SID>ExecuteVagrantCommand('destroy -f')<CR>
+" imap <leader>vad <C-O>:call <SID>ExecuteVagrantCommand('destroy -f')<CR>
+" map  <leader>vap :call <SID>ExecuteVagrantCommand('provision')<CR>
+" imap <leader>vap <C-O>:call <SID>ExecuteVagrantCommand('provision')<CR>
+" map  <leader>vah :call <SID>ExecuteVagrantCommand('halt')<CR>
+" imap <leader>vah <C-O>:call <SID>ExecuteVagrantCommand('halt')<CR>
+" map  <leader>vag :call <SID>ExecuteVagrantCommand('plugin list')<CR>
+" imap <leader>vag <C-O>:call <SID>ExecuteVagrantCommand('plugin list')<CR>
+" map  <leader>vat :call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
+" imap  <leader>vat <C-O>:call <SID>ExecuteVagrantCommand('vagrant pristine -f')<CR>
