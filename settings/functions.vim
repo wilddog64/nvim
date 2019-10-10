@@ -1,5 +1,5 @@
 " remove trailing / by hitting control t
-cnoremap <C-t> <C-\>e(<SID>RemoveLastPathComponent())<CR>
+cnoremap <C-w> <C-\>e(<SID>RemoveLastPathComponent())<CR>
 function! s:RemoveLastPathComponent()
     let c = getcmdline()
     let cRoot = fnamemodify(c, ':r')
