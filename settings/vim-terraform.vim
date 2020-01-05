@@ -6,3 +6,5 @@ call deoplete#custom#option('omni_patterns', {
 \})
 
 call deoplete#initialize()
+
+let g:terraform_align=1 " automatically format terraform
