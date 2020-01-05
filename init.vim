@@ -5,7 +5,6 @@ source ~/.config/nvim/settings/general.vim
 source ~/.config/nvim/settings/keymaps.vim
 source ~/.config/nvim/settings/taglist.vim
 source ~/.config/nvim/settings/gundo.vim
-" source ~/.config/nvim/settings/syntastics.vim
 source ~/.config/nvim/settings/vim-jedi.vim
 source ~/.config/nvim/settings/vim-json.vim
 source ~/.config/nvim/settings/vimux.vim
