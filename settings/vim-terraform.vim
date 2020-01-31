@@ -5,5 +5,5 @@ if has("nvim")
    \ 'terraform': '[^ *\t"{=$]\w*',
    \})
    call deoplete#initialize()
-   let g:terraform_align=1 " automatically format terraform"
+   " let g:terraform_align=1 " automatically format terraform"
 endif
