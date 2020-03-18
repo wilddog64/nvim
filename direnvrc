@@ -1,0 +1,23 @@
+find_myip() {
+    dig +short myip.opendns.com @resolver1.opendns.com
+}
+
+activate_gcloud_project() {
+    gcloud config configurations activate $1
+
+}
+
+kube_current_context() {
+    kubectl config current-context
+
+}
+
+kube_use_context() {
+    kubectl config use $1
+
+}
+
+rg() {
+    command rg -l --no-heading "$@"
+}
+
