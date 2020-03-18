@@ -20,3 +20,6 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+" allow vi/vim to use fzf
+set rtp+=/usr/local/opt/fzf
