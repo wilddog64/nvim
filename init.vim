@@ -1,3 +1,6 @@
+if &shell =~# 'fish$' " ensure we use bash in order for vim work correctly
+    set shell=bash
+endif
 source ~/.config/nvim/settings/functions.vim
 source ~/.config/nvim/settings/plugs.vim
 source ~/.config/nvim/settings/disable_damian_plugins.vim
