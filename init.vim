@@ -1,5 +1,5 @@
 if &shell =~# 'fish$' " ensure we use bash in order for vim work correctly
-    set shell=bash
+    set shell=zsh
 endif
 source ~/.config/nvim/settings/functions.vim
 source ~/.config/nvim/settings/plugs.vim
