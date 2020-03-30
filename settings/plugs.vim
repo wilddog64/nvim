@@ -53,6 +53,7 @@ Plug 'WolfgangMehner/bash-support'
 Plug 'justinmk/vim-sneak'
 Plug 'dag/vim-fish'
 Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
