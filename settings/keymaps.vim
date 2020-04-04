@@ -134,7 +134,7 @@ map <leader>gw  :execute 'Gwrite ' . expand('%') . '\| Gcommit'<CR>
 map <leader>gst :Gstatus<CR>
 map <leader>gpu :Gpush<CR>
 
-map <leader>n :NERDTreeToggle<CR>
+# map <leader>n :NERDTreeToggle<CR>
 
 " mappings for vim-go
 au FileType go nmap <leader>gr :GoRun<CR>
