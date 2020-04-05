@@ -56,6 +56,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'burnettk/vim-jenkins'
 Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'Numkil/ag.nvim'
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
