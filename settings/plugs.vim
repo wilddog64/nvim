@@ -58,6 +58,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 " Plug 'Numkil/ag.nvim'
 Plug 'hashivim/vim-hashicorp-tools'
+Plug 'https://github.com/fatih/vim-hclfmt'
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
