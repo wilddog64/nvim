@@ -70,7 +70,6 @@ if has("nvim")
     Plug 'honza/vim-snippets'
     Plug 'sbdchd/neoformat'
     Plug 'neomake/neomake'
-    Plug 'hashivim/vim-terraform'
     Plug 'juliosueiras/vim-terraform-completion'
     Plug 'jodosha/vim-godebug'
     Plug 'Shougo/context_filetype.vim'
