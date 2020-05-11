@@ -58,6 +58,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'w0rp/ale'
 Plug 'zchee/deoplete-go'
+Plug 'b4b4r07/vim-hcl'
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
