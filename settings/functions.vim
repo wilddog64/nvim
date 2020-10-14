@@ -215,3 +215,18 @@ augroup puppetEx
     autocmd BufReadPost * nmap <buffer> <leader>wf :exe "sp "  . Get_puppet_filepath()<CR>
     autocmd BufReadPost * nmap <buffer> <leader>vf :exe "vsp " . Get_puppet_filepath()<CR>
 augroup END
+
+" split help file vertically
+aug NewSplit | au!
+  au WinNew * au BufEnter * ++once call <SID>NewSplit()
+aug end
+
+fun! <SID>NewSplit()
+  if (&bt ==? 'help' || &ft ==? 'man' || &ft ==? 'fugitive')
+    let p = winnr('#')
+    if winwidth(p) >= getwinvar(p, '&tw', 80) + getwinvar(winnr(), '&tw', 80)
+      exe 'wincmd ' . (&splitright ? 'L' : 'H')
+    endif
+  endif
+endfun
+
