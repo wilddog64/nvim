@@ -25,7 +25,7 @@ set undofile    " turn on undofile, so undo information is preserved for the nex
 let &undodir = expand("~/.local/share/nvim/undo")
 
 " let nvim know python2 and python3 interpreters
-let g:python3_host_prog = expand("~/.pyenv/versions/3.8.0/bin/python")
+let g:python3_host_prog = expand("~/.pyenv/versions/3.9.0/bin/python")
 
 " set leader to be ;
 let mapleader=";"
