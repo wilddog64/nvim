@@ -29,6 +29,7 @@ source ~/.config/nvim/settings/markdown_preview.vim
 source ~/.config/nvim/settings/jenkins.vim
 " source ~/.config/nvim/settings/nerdtree.vim
 source ~/.config/nvim/settings/vim-terraform.vim
+source ~/.config/nvim/settings/supertab.vim
 
 if has("nvim")
     source ~/.config/nvim/settings/deoplete.vim
