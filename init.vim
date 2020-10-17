@@ -1,3 +1,7 @@
+if exists(g:vscode)
+    finish
+endif
+
 if &shell =~# 'fish$' " ensure we use bash in order for vim work correctly
     set shell=zsh
 endif
