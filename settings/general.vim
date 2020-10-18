@@ -143,3 +143,6 @@ let g:netrw_liststyle = 3 "tree
 let g:netrw_list_hide = netrw_gitignore#Hide()
 
 let g:BASH_InsertFileHeader = 'No'
+
+set laststatus=2
+set statusline=%<%f\ %h%m%r\ %y%=%{v:register}\ %-14.(%l,%c%V%)\ %P
