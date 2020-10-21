@@ -5,8 +5,7 @@ source ~/.config/nvim/settings/functions.vim
 
 " a list of plugins we want to have
 " Plug 'JamshedVesuna/vim-markdown-preview'
-" Plug 'Numkil/ag.nvim'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Numkil/ag.nvim'
 " Plug 'aklt/plantuml-syntax'
 " Plug 'burnettk/vim-jenkins'
 " Plug 'derekprior/vim-trimmer'
@@ -34,7 +33,7 @@ Plug 'ervandew/supertab'
 " Plug 'fatih/vim-go'
 " Plug 'flazz/vim-colorschemes'
 Plug 'godlygeek/tabular'
-" Plug 'hashivim/vim-hashicorp-tools'
+Plug 'hashivim/vim-hashicorp-tools'
 Plug 'https://github.com/othree/xml.vim.git'
 Plug 'https://github.com/vim-scripts/taglist.vim'
 " Plug 'jalvesaq/vimcmdline'
@@ -43,7 +42,7 @@ Plug 'junegunn/fzf.vim'
 " Plug 'justinmk/vim-sneak'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'maxmellon/vim-jsx-pretty'
-" Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'sjl/gundo.vim'
 Plug 'terryma/vim-multiple-cursors'
@@ -56,26 +55,26 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-" Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'w0rp/ale'
-" Plug 'zchee/deoplete-go'
-" Plug 'hashivim/vim-terraform'
+Plug 'zchee/deoplete-go'
+Plug 'hashivim/vim-terraform'
 
 " Plug 'b4b4r07/vim-hcl'
 
-" if has("lua")
-"     Plug 'Shougo/neocomplete.vim'
-"     Plug 'Shougo/context_filetype.vim'
-" endif
+if has("lua")
+    Plug 'Shougo/neocomplete.vim'
+    Plug 'Shougo/context_filetype.vim'
+endif
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
-"   Plug 'brettanomyces/nvim-editcommand'
-"   Plug 'honza/vim-snippets'
-"   Plug 'sbdchd/neoformat'
-"   Plug 'neomake/neomake'
-"   Plug 'juliosueiras/vim-terraform-completion'
-"   Plug 'jodosha/vim-godebug'
+    Plug 'brettanomyces/nvim-editcommand'
+    Plug 'honza/vim-snippets'
+    Plug 'sbdchd/neoformat'
+    Plug 'neomake/neomake'
+    Plug 'juliosueiras/vim-terraform-completion'
+    Plug 'jodosha/vim-godebug'
     Plug 'Shougo/context_filetype.vim'
 end
 Plug 'vimlab/split-term.vim'
