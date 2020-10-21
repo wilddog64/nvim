@@ -99,8 +99,6 @@ if has("autocmd")
   augroup END
 endif
 
-execute pathogen#infect()
-
 " diff color settings
 highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
