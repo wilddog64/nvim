@@ -140,7 +140,7 @@ let g:netrw_altv = 1 " open split to the right
 let g:netrw_banner = 0 " turn off banner
 let g:netrw_browse_split = 4 "open previous windows
 let g:netrw_liststyle = 3 "tree
-let g:netrw_list_hide = netrw_gitignore#Hide()
+" let g:netrw_list_hide = netrw_gitignore#Hide()
 
 let g:BASH_InsertFileHeader = 'No'
 
