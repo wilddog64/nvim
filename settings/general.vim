@@ -19,6 +19,7 @@ set backup
 set writebackup
 let &backupdir=expand("~/.local/share/nvim/backup")
 set backupcopy=auto
+set hidden
 
 " enable undofile and setup where to store an undo file
 set undofile    " turn on undofile, so undo information is preserved for the next time."
