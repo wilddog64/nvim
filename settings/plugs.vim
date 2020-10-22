@@ -3,6 +3,17 @@ call plug#begin('~/.config/nvim/plugged')
 
 source ~/.config/nvim/settings/functions.vim
 
+if has("nvim")
+    Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
+    Plug 'brettanomyces/nvim-editcommand'
+    Plug 'honza/vim-snippets'
+    Plug 'sbdchd/neoformat'
+    Plug 'neomake/neomake'
+    Plug 'juliosueiras/vim-terraform-completion'
+    Plug 'jodosha/vim-godebug'
+    Plug 'Shougo/context_filetype.vim'
+end
+
 " a list of plugins we want to have
 Plug 'zchee/deoplete-go'
 Plug 'w0rp/ale'
@@ -64,16 +75,6 @@ if has("lua")
     Plug 'Shougo/context_filetype.vim'
 endif
 
-if has("nvim")
-    Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
-    Plug 'brettanomyces/nvim-editcommand'
-    Plug 'honza/vim-snippets'
-    Plug 'sbdchd/neoformat'
-    Plug 'neomake/neomake'
-    Plug 'juliosueiras/vim-terraform-completion'
-    Plug 'jodosha/vim-godebug'
-    Plug 'Shougo/context_filetype.vim'
-end
 Plug 'vimlab/split-term.vim'
 
 " at the end, add plugins to the runtime path
