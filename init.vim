@@ -38,5 +38,5 @@ if !exists('g:vscode') " execute these if the context is not vscode
         source ~/.config/nvim/settings/nvim_editcmd.vim
         " source ~/.config/nvim/settings/terraform-complete.vim
     end
-    color elisex
+    color BlackSea
 end
