@@ -2,8 +2,10 @@ set cpo+=$            " enable cursor line set cpo+=$                  " show $ 
 set cursorline
 set dir=~/.vim/swap/        " swap file store at /tmp
 set mouse-=a                " disable mouse interaction
-if has("nvim")
+if has("nvim") " for nvim set shada option; otherwise use viminfo
     set shada='50,<1000,s100,n~/.local/share/nvim/shada/main.shada
+else
+    set viminfo='50,<1000,s100,:0,n~/.vim/viminfo
 end
 
 " make make tabstop, soft tabstop, and shiftwidth all 4
