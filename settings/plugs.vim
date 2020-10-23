@@ -14,14 +14,6 @@ if has("nvim")
     Plug 'Shougo/context_filetype.vim'
 end
 
-<<<<<<< HEAD
-if has("lua")
-    Plug 'Shougo/neocomplete.vim'
-    Plug 'Shougo/context_filetype.vim'
-endif
-
-=======
->>>>>>> develop
 " a list of plugins we want to have
 Plug 'zchee/deoplete-go'
 Plug 'w0rp/ale'
@@ -77,15 +69,6 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'Shougo/denite.nvim'
 " Plug 'JamshedVesuna/vim-markdown-preview'
 
-<<<<<<< HEAD
-=======
-if has("lua")
-    Plug 'Shougo/neocomplete.vim'
-    Plug 'Shougo/context_filetype.vim'
-endif
-
->>>>>>> develop
-Plug 'vimlab/split-term.vim'
 
 " at the end, add plugins to the runtime path
 call plug#end()
