@@ -141,5 +141,5 @@ let g:netrw_banner = 0 " turn off banner
 
 let g:BASH_InsertFileHeader = 'No'
 
-" set laststatus=2
-" set statusline=%<%f\ %h%m%r\ %y%=%{v:register}\ %-14.(%l,%c%V%)\ %P
+set laststatus=2
+set statusline=%<%f\ %h%m%r\ %y%=%{v:register}\ %-14.(%l,%c%V%)\ %P
