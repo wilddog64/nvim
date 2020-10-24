@@ -18,7 +18,7 @@ end
 Plug 'zchee/deoplete-go'
 Plug 'w0rp/ale'
 " Plug 'vim-airline/vim-airline'
-Plug 'wilddog64/vim-unimpaired'
+Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
