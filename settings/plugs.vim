@@ -33,6 +33,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'majutsushi/tagbar'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'https://github.com/vim-scripts/taglist.vim'
@@ -69,7 +70,6 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'Shougo/neosnippet-snippets'
 " Plug 'Shougo/denite.nvim'
 " Plug 'JamshedVesuna/vim-markdown-preview'
-
 
 " at the end, add plugins to the runtime path
 call plug#end()
