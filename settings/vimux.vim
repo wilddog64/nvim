@@ -1,11 +1,11 @@
-map <leader>gb :VimuxRunCommand('git branch')<CR>
-imap <leader>gb <C-O>:VimuxRunCommand('git branch')<CR>
-map <leader>cl :VimuxRunCommand('clear')<CR>
-imap <leader>cl <C-O>:VimuxRunCommand('clear')<CR>
+map <leader>vgb :VimuxRunCommand('git branch')<CR>
+imap <leader>vgb <C-O>:VimuxRunCommand('git branch')<CR>
+map <leader>vcl :VimuxRunCommand('clear')<CR>
+imap <leader>vcl <C-O>:VimuxRunCommand('clear')<CR>
 map <leader>ch :VimuxClearRunnerHistory<CR>
 imap <leader>ch <C-O>:VimuxClearRunnerHistory<CR>
-map <leader>xl :VimuxRunLastCommand<CR>
-imap <leader>xl <C-O>:VimuxRunLastCommand<CR>
+map <leader>vxl :VimuxRunLastCommand<CR>
+imap <leader>vxl <C-O>:VimuxRunLastCommand<CR>
 map <leader>vc :VimuxCloseRunner<CR>
 imap <leader>vc <C-O>:VimuxCloseRunner<CR>
 

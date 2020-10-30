@@ -78,10 +78,7 @@ map Y y$ " Y will yank from cursor until EOL
 map <leader>bun :.,$s/\d\+/\=submatch(0) + 1/<CR>
 imap <leader>bun <C-O>:.,$s/\d\+/\=submatch(0) + 1/<CR>
 
-" <leader>s to toggle search pattern highlight
-map <silent> <leader>i :se invhlsearch<CR>
-imap <silent> <leader>i <C-O>:se invhlsearch<CR>
-
+d
 " edit key mapping
 cnoremap %% <C-R>=expand("%:h") . '/'<CR>
 map <leader>ee :e %%
@@ -107,10 +104,6 @@ imap <leader>uid <c-r>=system('~/.vim/bundle/genuuid.py')<cr>
 
 " map <leader>fc to fake-credential.rb to generate a fake credential
 imap <leader>fc <c-r>=system('~/.vim/bundle/fake-credential.rb')<cr>
-
-command! -nargs=*  Wrap set wrap linebreak nolist
-imap <leader>wr <c-o>:Wrap<cr>
-map  <leader>wr :Wrap<cr>
 
 " maps <leader>ap to AutoPairsToggle().  Allows one to enable/disable
 " autopairs plugin a bit easier
@@ -150,11 +143,3 @@ au FileType go set ts=4
 " make transport 'xp' as one change rather than two
 nmap <Plug>TransposeCharacters xp
 nmap cp <Plug>TransposeCharacters
-
-" allow drag a block of text
-let g:DVB_TrmWS = 1
-vmap  <expr>  <LEFT>   DVB_Drag('left')
-vmap  <expr>  <RIGHT>  DVB_Drag('right')
-vmap  <expr>  <DOWN>   DVB_Drag('down')
-vmap  <expr>  <UP>     DVB_Drag('up')
-vmap  <expr>  D        DVB_Duplicate()
