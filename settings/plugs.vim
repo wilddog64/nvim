@@ -25,6 +25,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'dbakker/vim-projectroot'
 Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(1) } }
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-hashicorp-tools'
 Plug 'hashivim/vim-terraform'
