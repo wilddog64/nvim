@@ -1,7 +1,7 @@
 set cpo+=$            " enable cursor line set cpo+=$                  " show $ at the end of line when change it
 set cursorline
 set dir=~/.vim/swap/        " swap file store at /tmp
-set mouse-=a                " disable mouse interaction
+" set mouse-=a                " disable mouse interaction
 if has("nvim") " for nvim set shada option; otherwise use viminfo
     set shada='50,<1000,s100,n~/.local/share/nvim/shada/main.shada
 else
