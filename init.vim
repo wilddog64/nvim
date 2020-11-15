@@ -3,7 +3,6 @@ if !exists('g:vscode') " execute these if the context is not vscode
     if &shell =~# 'fish$' " ensure we use bash in order for vim work correctly
         set shell=zsh
     endif
-    
     source ~/.config/nvim/settings/functions.vim
     source ~/.config/nvim/settings/plugs.vim
     source ~/.config/nvim/settings/general.vim
@@ -30,6 +29,7 @@ if !exists('g:vscode') " execute these if the context is not vscode
     " source ~/.config/nvim/settings/nerdtree.vim
     " source ~/.config/nvim/settings/vim-terraform.vim
     source ~/.config/nvim/settings/supertab.vim
+    source ~/.config/nvim/settings/firenvim.vim
     
     if has("nvim")
         source ~/.config/nvim/settings/deoplete.vim
