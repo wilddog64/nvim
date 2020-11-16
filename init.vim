@@ -25,6 +25,7 @@ if !exists('g:vscode') " execute these if the context is not vscode
     source ~/.config/nvim/settings/slim.vim
     source ~/.config/nvim/settings/deoplete-go.vim
     source ~/.config/nvim/settings/markdown_preview.vim
+    source ~/.config/nvim/settings/vim_maximizer.vim
     " source ~/.config/nvim/settings/jenkins.vim
     " source ~/.config/nvim/settings/nerdtree.vim
     " source ~/.config/nvim/settings/vim-terraform.vim
