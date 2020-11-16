@@ -12,6 +12,7 @@ if has("nvim")
     Plug 'juliosueiras/vim-terraform-completion'
     Plug 'jodosha/vim-godebug'
     Plug 'Shougo/context_filetype.vim'
+    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(1) } }
 end
 
 " a list of plugins we want to have
@@ -25,7 +26,6 @@ Plug 'davidhalter/jedi-vim'
 Plug 'dbakker/vim-projectroot'
 Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(1) } }
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-hashicorp-tools'
 Plug 'hashivim/vim-terraform'
