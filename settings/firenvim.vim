@@ -16,12 +16,15 @@ let g:firenvim_config = {
     \ }
 \ }
 let fc = g:firenvim_config['localSettings']
+
+" some webistes did not work well with firenvim so we exclude those here
 let fc['https://studio.youtube.com.*'] = { 'takeover': 'never', 'priority': 1 }
 let fc['https?://instagram.com.*'] = { 'takeover': 'never', 'priority': 1 }
 let fc['https?://twitter.com.*'] = { 'takeover': 'never', 'priority': 1 }
 let fc['https://.*gmail.com.*'] = { 'takeover': 'never', 'priority': 1 }
 let fc['https?://.*twitch.tv.*'] = { 'takeover': 'never', 'priority': 1 }
 let fc['https://linkedin.com'] = { 'takeover': 'never', 'priority': 1 }
+let fc['http://localhost:8080/script'] = { 'takeover': 'never', 'priority': 1 } 
 
 augroup firenvim
     autocmd!
