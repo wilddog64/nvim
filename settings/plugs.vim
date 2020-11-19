@@ -5,7 +5,7 @@ source ~/.config/nvim/settings/functions.vim
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
-    Plug 'brettanomyces/nvim-editcommand'
+    Plug 'brettanomyes/nvim-editcommand'
     Plug 'honza/vim-snippets'
     Plug 'sbdchd/neoformat'
     Plug 'neomake/neomake'
@@ -52,10 +52,10 @@ Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'wilddog64/vim-unimpaired'
 Plug 'zchee/deoplete-go'
-Plug 'roy2220/easyjump.tmux'
 Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
 Plug 'pechorin/any-jump.vim'
+" Plug 'roy2220/easyjump.tmux'
 " Plug 'vim-airline/vim-airline'
 " Plug 'tpope/vim-rake'
 " Plug 'tommcdo/vim-exchange'
