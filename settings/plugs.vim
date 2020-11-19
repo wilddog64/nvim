@@ -5,7 +5,7 @@ source ~/.config/nvim/settings/functions.vim
 
 if has("nvim")
     Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
-    Plug 'brettanomyes/nvim-editcommand'
+    Plug 'brettanomyces/nvim-editcommand'
     Plug 'honza/vim-snippets'
     Plug 'sbdchd/neoformat'
     Plug 'neomake/neomake'
