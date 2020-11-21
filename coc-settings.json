@@ -1,0 +1,13 @@
+{
+    "languageserver": {
+        "terraform": {
+            "command": "terraform-ls",
+            "filetypes": [
+                "terraform",
+                "tf"
+            ],
+            "initializationOptions": {},
+            "settings": {}
+        }
+    }
+}
