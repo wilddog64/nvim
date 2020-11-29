@@ -38,4 +38,11 @@ if !exists('g:vscode') " execute these if the context is not vscode
         source ~/.config/nvim/settings/nvim_editcmd.vim
         " source ~/.config/nvim/settings/terraform-complete.vim
     end
+else
+    " don't highlight search items
+    set nohlsearch
+
+    " call VSCodeCommentary on the visual selection, and then re-select that visual selection with gv
+    xmap <C-/> <Plug>VSCodeCommentarygv
+    nmap <C-/> <Plug>VSCodeCommentaryLine
 end
