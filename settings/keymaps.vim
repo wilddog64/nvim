@@ -78,7 +78,6 @@ map Y y$ " Y will yank from cursor until EOL
 map <leader>bun :.,$s/\d\+/\=submatch(0) + 1/<CR>
 imap <leader>bun <C-O>:.,$s/\d\+/\=submatch(0) + 1/<CR>
 
-d
 " edit key mapping
 cnoremap %% <C-R>=expand("%:h") . '/'<CR>
 map <leader>ee :e %%
