@@ -84,6 +84,9 @@ cnoremap %% <C-R>=expand("%:h") . '/'<CR>
 map <leader>ee :e %%
 imap <leader>ee <C-O>:e %%
 
+map <leader>em :e $MYVIMRC<CR>
+imap <leader>em <C-O>:e $MYVIMRC<CR>
+
 map <leader>es :sp %%
 imap <leader>es <C-O>:sp %%
 
@@ -98,6 +101,7 @@ imap <leader>gt <C-O>:GundoToggle<CR>
 
 map <leader>sz :sp term://zsh<CR>
 imap <leader>sz <C-O>:sp term://zsh<CR>
+
 
 " mapping for generating uuid into vim buffer
 imap <leader>uid <c-r>=system('~/.vim/bundle/genuuid.py')<cr>
