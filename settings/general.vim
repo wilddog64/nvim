@@ -39,7 +39,7 @@ let mapleader=";"
 " backsapce over autoindent, line breaks and start of line
 set backspace=indent,eol,start
 set bg=dark           " set background to dark
-color BlackSea        " set color scheme to BlackSea
+color codedark        " set color scheme to BlackSea
 set history=5000      " command line history
 set nohlsearch        " highlight search result
 set incsearch         " do incremental search
