@@ -140,7 +140,7 @@ set laststatus=2
 set statusline=%<%F\ %h%m%r\ %y%=%{v:register}\ %-14.(%l,%c%V%)\ %p
 
 " enable relative number
-set relativenumber
+" set relativenumber
 
 " enable code fencing for these language
 let g:markdown_fenced_languages = ['bash=sh', 'javascript', 'js=javascript', 'json=javascript', 'typescript', 'ts=typescript', 'php', 'html', 'css']
