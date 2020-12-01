@@ -3,6 +3,7 @@ let g:deoplete#disable_auto_complete = 1
 let g:deoplete#enable_smart_case = 1
 
 " for complete java by using javacomplete2, and ultisnips plugins
+let g:deoplete#sources = {}
 let g:deoplete#sources.java = ['jc', 'javacomplete2', 'file', 'buffer', 'ultisnips']
 
 call deoplete#enable() " enable deoplete
