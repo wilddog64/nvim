@@ -57,6 +57,7 @@ Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
 Plug 'pechorin/any-jump.vim'
 Plug 'tfnico/vim-gradle'
+Plug 'JamshedVesuna/vim-markdown-preview'
 " Plug 'roy2220/easyjump.tmux'
 " Plug 'vim-airline/vim-airline'
 " Plug 'tpope/vim-rake'
@@ -74,7 +75,6 @@ Plug 'tfnico/vim-gradle'
 " Plug 'aklt/plantuml-syntax'
 " Plug 'WolfgangMehner/bash-support'
 " Plug 'Shougo/denite.nvim'
-" Plug 'JamshedVesuna/vim-markdown-preview'
 
 " at the end, add plugins to the runtime path
 call plug#end()
