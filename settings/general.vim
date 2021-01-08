@@ -144,3 +144,7 @@ set statusline=%<%F\ %h%m%r\ %y%=%{v:register}\ %-14.(%l,%c%V%)\ %p
 
 " enable code fencing for these language
 let g:markdown_fenced_languages = ['bash=sh', 'javascript', 'js=javascript', 'json=javascript', 'typescript', 'ts=typescript', 'php', 'html', 'css']
+
+" enable terraform auto format
+let g:terraform_fmt_on_save=1
+let g:terraform_align=1
