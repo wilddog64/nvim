@@ -9,9 +9,9 @@ else
 end
 
 " make make tabstop, soft tabstop, and shiftwidth all 4
-set ts=4
-set sts=4
-set sw=4
+set ts=2
+set sts=2
+set sw=2
 
 set expandtab
 retab
