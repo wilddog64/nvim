@@ -121,7 +121,7 @@ let g:vim_markdown_folding_disabled = 1
 " enable spelling check
 " set spell spelllang=en_us
 
-let g:ruby_host_prog='/Users/chengkli/.rbenv/versions/2.7.2/bin/ruby'
+let g:ruby_host_prog='/Users/chengkli/.rbenv/versions/3.0.2/bin/ruby'
 " let g:neocomplete#enable_at_startup = 1
 
 let g:xml_use_xhtml = 1
