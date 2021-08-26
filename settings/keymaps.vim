@@ -123,10 +123,10 @@ imap <leader>tl :tablast<CR>
 map <leader>so :so $MYVIMRC<CR>
 
 " mappings for fugitive
-map <leader>gdi :Gdiff<CR>
+map <leader>gdi :Git diff<CR>
 map <leader>gw  :execute 'Gwrite ' . expand('%') . '\| Gcommit'<CR>
-map <leader>gst :Gstatus<CR>
-map <leader>gpu :Gpush<CR>
+map <leader>gst :Git status<CR>
+map <leader>gpu :Git push<CR>
 
 " map <leader>n :NERDTreeToggle<CR>
 
