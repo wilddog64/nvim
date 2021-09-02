@@ -123,7 +123,7 @@ imap <leader>tl :tablast<CR>
 map <leader>so :so $MYVIMRC<CR>
 
 " mappings for fugitive
-map <leader>gdi :Git diff<CR>
+map <leader>gdi :Gvdiffsplit<CR>
 map <leader>gw  :execute 'Gwrite ' . expand('%') . '\| Gcommit'<CR>
 map <leader>gst :Git status<CR>
 map <leader>gpu :Git push<CR>
