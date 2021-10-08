@@ -1,0 +1,48 @@
+set nu
+set sts=4
+set ts=4
+set sw=4
+set ai
+set cpo+=$
+set cursorline
+set viminfo='50,<1000,s100,n~/.vim/viminfo
+set hidden
+set bg=dark
+
+set dir=~/.vim/swap
+set undofile
+let &undodir = expand("~/.local/share/vim/undo")
+let mapleader=";"
+set history=5000
+set cmdheight=2
+
+set wildmenu
+set wildmode=longest:full,full
+set shm+=film
+
+if has("autocmd")
+
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
+
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+  au!
+  " For all text files set 'textwidth' to 78 characters.
+  " autocmd FileType text setlocal textwidth=78
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g`\"" |
+  \ endif
+  augroup END
+endif
+
+set laststatus=2
+set statusline=%<%F\ %h%m%r\ %y%=%{v:register}\ %-14.(%l,%c%V%)\ %p
+
