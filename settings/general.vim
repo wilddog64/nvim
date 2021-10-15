@@ -10,6 +10,7 @@ endif
 " set mouse-=a                " disable mouse interaction
 if has("nvim") " for nvim set shada option; otherwise use viminfo
     set shada='50,<1000,s100,n~/.local/share/nvim/shada/main.shada
+    set inccommand=nosplit
 else
     set viminfo='50,<1000,s100,:0,n~/.vim/viminfo
 end
@@ -108,10 +109,6 @@ highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Re
 highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
-
-if has("nvim")
-   set inccommand=nosplit
-endif
 
 " where to look for a private UltiSnips
 let g:UltiSnipsSnippetsDir = expand("~/src/gitrepo/personal/ultisnips")
