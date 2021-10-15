@@ -3,16 +3,14 @@ set cursorline
 
 " enable undofile and setup where to store an undo file
 set undofile
-if !has("nvim")
-  set dir=~/.vim/swap/        " swap file store at /tmp
-  let &undodir = expand("~/.local/share/vim/undo")
-endif
 " set mouse-=a                " disable mouse interaction
 if has("nvim") " for nvim set shada option; otherwise use viminfo
     set shada='50,<1000,s100,n~/.local/share/nvim/shada/main.shada
     set inccommand=nosplit
 else
     set viminfo='50,<1000,s100,:0,n~/.vim/viminfo
+    set dir=~/.vim/swap/        " swap file store at /tmp
+    let &undodir = expand("~/.local/share/vim/undo")
 end
 
 " make make tabstop, soft tabstop, and shiftwidth all 4
