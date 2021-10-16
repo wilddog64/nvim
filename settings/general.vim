@@ -10,7 +10,7 @@ if has("nvim") " for nvim set shada option; otherwise use viminfo
 else
     set viminfo='50,<1000,s100,:0,n~/.vim/viminfo
     set dir=~/.vim/swap/        " swap file store at /tmp
-    let &undodir = expand("~/.local/share/vim/undo")
+    let &undodir = expand("~/.local/share/nvim/undo")
 end
 
 " make make tabstop, soft tabstop, and shiftwidth all 4
