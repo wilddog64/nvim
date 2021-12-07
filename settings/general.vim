@@ -30,7 +30,8 @@ set hidden
 
 
 " let nvim know python2 and python3 interpreters
-let g:python3_host_prog = expand("~/.pyenv/versions/3.9.0/bin/python")
+" let g:python3_host_prog = expand("~/.pyenv/versions/3.9.0/bin/python")
+let g:python3_host_prog = "/usr/bin/python3"
 
 " set leader to be ;
 let mapleader=";"
