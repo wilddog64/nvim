@@ -130,7 +130,7 @@ let g:xml_use_xhtml = 1
 let g:ale_completeion_enabled = 1
 
 " allow vim to use fzf
-set rtp+=/usr/local/opt/fzf
+set rtp+=/home/linuxbrew/.linuxbrew/bin/fzf
 
 " netrw configuration
 let g:netrw_banner = 0 " turn off banner
