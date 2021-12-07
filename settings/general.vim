@@ -41,8 +41,6 @@ let mapleader=";"
 
 " backsapce over autoindent, line breaks and start of line
 set backspace=indent,eol,start
-set bg=dark           " set background to dark
-color solarized8_dark_low " set color scheme to BlackSea
 set history=5000      " command line history
 set nohlsearch        " highlight search result
 set incsearch         " do incremental search
@@ -50,6 +48,10 @@ set nu                " turn on numbering
 set ruler             " turn on ruler
 set showcmd           " show command
 set showmatch         " show match of {}, [], <>, ...
+
+" set colorscheme
+color solarized8_dark_low " set color scheme to BlackSea
+set bg=dark           " set background to dark
 
 " when diff mode is activated, split buffers vertically and ignore white spaces
 set diffopt+=vertical
