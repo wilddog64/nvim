@@ -122,7 +122,7 @@ let g:vim_markdown_folding_disabled = 1
 " enable spelling check
 " set spell spelllang=en_us
 
-let g:ruby_host_prog='/Users/chengkli/.rbenv/versions/3.0.2/bin/ruby'
+let g:ruby_host_prog= expand('~/.rbenv/versions/3.0.2/bin/ruby')
 " let g:neocomplete#enable_at_startup = 1
 
 let g:xml_use_xhtml = 1
@@ -149,3 +149,7 @@ let g:markdown_fenced_languages = ['bash=sh', 'javascript', 'js=javascript', 'js
 " enable terraform auto format
 let g:terraform_fmt_on_save=1
 let g:terraform_align=1
+
+if !empty($DISPLAY) && has("unix")
+  set clipboard+=unnamedplus
+endif
