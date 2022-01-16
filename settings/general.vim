@@ -149,3 +149,8 @@ let g:markdown_fenced_languages = ['bash=sh', 'javascript', 'js=javascript', 'js
 " enable terraform auto format
 let g:terraform_fmt_on_save=1
 let g:terraform_align=1
+
+if !empty($DISPLAY) && has("unix")
+  set clipboard+=unnamedplus
+endif
+
