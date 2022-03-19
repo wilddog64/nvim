@@ -32,6 +32,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired'
   use 'szw/vim-maximizer'
+  use 'corntrace/bufexplorer'
 
   -- LSP
     use {
