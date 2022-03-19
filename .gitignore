@@ -9,3 +9,4 @@ ftplugin/
 _py*
 swap
 viminfo
+plugin/
