@@ -11,6 +11,8 @@ require('packer').startup(function(use)
   -- colorscheme
   use 'joshdick/onedark.vim'
 
+  use 'jiangmiao/auto-pairs'
+
   -- LSP
     use {
       'VonHeikemen/lsp-zero.nvim',
