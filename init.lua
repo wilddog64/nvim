@@ -65,4 +65,5 @@ lsp.setup()
 vim.cmd([[
   source ~/.config/nvim/settings/general.vim
   source ~/.config/nvim/settings/keymaps.vim
+  source ~/.config/nvim/settings/functions.vim
 ]])
