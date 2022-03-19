@@ -9,7 +9,7 @@ if has("nvim") " for nvim set shada option; otherwise use viminfo
     set inccommand=nosplit
 else
     set viminfo='50,<1000,s100,:0,n~/.vim/viminfo
-    set dir=~/.vim/swap/        " swap file store at /tmp
+    set dir=~/.local/share/nvim/swap/ " swap file store at /tmp
     let &undodir = expand("~/.local/share/nvim/undo")
 end
 
