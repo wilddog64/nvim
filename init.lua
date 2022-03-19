@@ -34,9 +34,9 @@ require('packer').startup(function(use)
   }
 end)
 
-vim.opt.signcolumn = 'yes'
-vim.opt.termguicolors = true
-pcall(vim.cmd, 'colorscheme onedark')
+-- vim.opt.signcolumn = 'yes'
+-- vim.opt.termguicolors = true
+-- pcall(vim.cmd, 'colorscheme onedark')
 
 -- add lsp configuration
 local lsp = require('lsp-zero')
