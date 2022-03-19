@@ -10,6 +10,8 @@ require('packer').startup(function(use)
 
   use 'jiangmiao/auto-pairs'
   use 'airblade/vim-gitgutter'
+  use 'benmills/vimux'
+  use 'christoomey/vim-tmux-navigator'
 
   -- LSP
     use {
