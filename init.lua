@@ -6,6 +6,7 @@ vim.opt.expandtab = true
 
 
 require('ckm.plugins')
+require('ckm.omicmp')
 
 -- add lsp configuration
 local lsp = require('lsp-zero')
