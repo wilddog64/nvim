@@ -9,6 +9,7 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'jiangmiao/auto-pairs'
+  use 'airblade/vim-gitgutter'
 
   -- LSP
     use {
