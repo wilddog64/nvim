@@ -35,6 +35,14 @@ require('packer').startup(function(use)
   use 'corntrace/bufexplorer'
   use 'nvim-treesitter/nvim-treesitter'
 
+  use {
+    'ojroques/nvim-lspfuzzy',
+    requires = {
+      {'junegunn/fzf'},
+      {'junegunn/fzf.vim'},
+    }
+  }
+
   -- LSP
     use {
       'VonHeikemen/lsp-zero.nvim',
@@ -64,6 +72,7 @@ lsp.preset('recommended')
 lsp.nvim_workspace()
 lsp.setup()
 
+require('lspfuzzy').setup {}
 
 vim.cmd([[
   source ~/.config/nvim/settings/general.vim
