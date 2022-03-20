@@ -9,7 +9,7 @@ if has("nvim") " for nvim set shada option; otherwise use viminfo
     set inccommand=nosplit
 else
     set viminfo='50,<1000,s100,:0,n~/.vim/viminfo
-    set dir=~/.vim/swap/        " swap file store at /tmp
+    set dir=~/.local/share/nvim/swap/ " swap file store at /tmp
     let &undodir = expand("~/.local/share/nvim/undo")
 end
 
@@ -123,7 +123,7 @@ let g:vim_markdown_folding_disabled = 1
 " enable spelling check
 " set spell spelllang=en_us
 
-let g:ruby_host_prog='/Users/chengkli/.rbenv/versions/3.0.2/bin/ruby'
+let g:ruby_host_prog= expand('~/.rbenv/versions/3.0.2/bin/ruby')
 " let g:neocomplete#enable_at_startup = 1
 
 let g:xml_use_xhtml = 1
@@ -131,7 +131,7 @@ let g:xml_use_xhtml = 1
 let g:ale_completeion_enabled = 1
 
 " allow vim to use fzf
-set rtp+=/usr/local/opt/fzf
+set rtp+=/home/linuxbrew/.linuxbrew/bin/fzf
 
 " netrw configuration
 let g:netrw_banner = 0 " turn off banner
@@ -154,4 +154,3 @@ let g:terraform_align=1
 if !empty($DISPLAY) && has("unix")
   set clipboard+=unnamedplus
 endif
-

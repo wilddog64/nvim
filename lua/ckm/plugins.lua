@@ -1,10 +1,3 @@
--- setup tab expansion
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
-vim.opt.expandtab = true
-
-<<<<<<< HEAD
 require('packer').startup(function(use)
   -- allow packer to manage itself
   use 'wbthomason/packer.nvim'
@@ -34,6 +27,15 @@ require('packer').startup(function(use)
   use 'tpope/vim-unimpaired'
   use 'szw/vim-maximizer'
   use 'corntrace/bufexplorer'
+  use 'nvim-treesitter/nvim-treesitter'
+
+  use {
+    'ojroques/nvim-lspfuzzy',
+    requires = {
+      {'junegunn/fzf'},
+      {'junegunn/fzf.vim'},
+    }
+  }
 
   -- LSP
     use {
@@ -57,21 +59,3 @@ require('packer').startup(function(use)
       }
   }
 end)
-
-require('ckm.plugins')
-require('ckm.omicmp')
-
--- add lsp configuration
-local lsp = require('lsp-zero')
-lsp.preset('recommended')
-lsp.nvim_workspace()
-lsp.setup()
-
-require('lspfuzzy').setup {}
-
-vim.cmd([[
-  source ~/.config/nvim/settings/general.vim
-  source ~/.config/nvim/settings/keymaps.vim
-  source ~/.config/nvim/settings/functions.vim
-  source ~/.config/nvim/settings/supertab.vim
-]])
