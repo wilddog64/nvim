@@ -4,7 +4,6 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
-<<<<<<< HEAD
 require('packer').startup(function(use)
   -- allow packer to manage itself
   use 'wbthomason/packer.nvim'
