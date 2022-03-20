@@ -14,8 +14,6 @@ lsp.nvim_workspace()
 lsp.setup()
 require 'lspfuzzy'.setup{}
 
-require('lspfuzzy').setup {}
-
 vim.cmd([[
   source ~/.config/nvim/settings/general.vim
   source ~/.config/nvim/settings/keymaps.vim
