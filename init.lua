@@ -33,6 +33,9 @@ require('packer').startup(function(use)
   use 'tpope/vim-unimpaired'
   use 'szw/vim-maximizer'
   use 'corntrace/bufexplorer'
+  use {'junegunn/fzf'}
+  use {'junegunn/fzf.vim'}
+  use {'ojroques/nvim-lspfuzzy'}
 
   -- LSP
     use {
@@ -65,6 +68,7 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 lsp.nvim_workspace()
 lsp.setup()
+require 'lspfuzzy'.setup{}
 
 require('lspfuzzy').setup {}
 
