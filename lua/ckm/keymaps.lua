@@ -25,5 +25,5 @@ keymap("i", "<c-u>", "<c-g>u<c-u>", opts)
 keymap("i", "<c-w>", "<c-g>u<c-w>", opts)
 
 -- compress empty lines
-keymap("n", "cln", ":w/./,/./-1join", opts)
-keymap("i", "cln", ":w/./,/./-1join", opts)
+keymap("n", "cln", ":v/./,/./-1join<C-R>", opts)
+keymap("i", "cln", ":v/./,/./-1join<C-R>", opts)

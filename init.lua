@@ -6,7 +6,6 @@ vim.opt.expandtab = true
 
 require('ckm.plugins')
 require('ckm.omicmp')
-require('ckm.keymaps')
 
 -- add lsp configuration
 local lsp = require('lsp-zero')
@@ -17,9 +16,9 @@ require 'lspfuzzy'.setup{}
 
 vim.cmd([[
   source ~/.config/nvim/settings/general.vim
+  source ~/.config/nvim/settings/keymaps.vim
   source ~/.config/nvim/settings/functions.vim
   source ~/.config/nvim/settings/supertab.vim
   source ~/.config/nvim/settings/gundo.vim
   source ~/.config/nvim/settings/deoplete.vim
 ]])
--- source ~/.config/nvim/settings/keymaps.vim
