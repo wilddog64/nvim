@@ -34,7 +34,7 @@ require('packer').startup(function(use)
   use {'rhysd/clever-f.vim'}
 
   use {
-    'kyazdani42/nvim-tree.lua'
+    'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons'
     },
