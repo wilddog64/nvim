@@ -32,6 +32,7 @@ require('packer').startup(function(use)
   use {'shougo/deoplete.nvim'}
   use {'neovim/nvim-lspconfig'}
   use {'rhysd/clever-f.vim'}
+  use {'kyazdani42/nvim-tree.lua'}
 
   use {
     'ojroques/nvim-lspfuzzy',
