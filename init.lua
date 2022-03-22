@@ -5,6 +5,7 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
 require('ckm.plugins')
+require('ckm.impatient')
 require('ckm.cmp')
 require('ckm.nvim-tree')
 
