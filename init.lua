@@ -8,6 +8,7 @@ require('usr.plugins')
 require('usr.impatient')
 require('usr.cmp')
 require('usr.nvim-tree')
+require('usr.treesitter')
 require('usr.lsp')
 
 -- add lsp configuration
