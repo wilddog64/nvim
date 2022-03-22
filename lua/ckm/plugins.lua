@@ -72,6 +72,8 @@ return packer.startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'rhysd/clever-f.vim'
   use 'kyazdani42/nvim-tree.lua'
+  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   use {
     'kyazdani42/nvim-tree.lua',
