@@ -8,10 +8,12 @@ if has("nvim") " for nvim set shada option; otherwise use viminfo
     set shada='50,<1000,s100,n~/.local/share/nvim/shada/main.shada
     set inccommand=nosplit
     let &undodir = expand("~/.local/share/nvim/undo")
+    let &backupdir=expand("~/.local/share/nvim/backup")
 else
     set viminfo='50,<1000,s100,:0,n~/.vim/viminfo
     set dir=~/.local/share/nvim/swap/ " swap file store at /tmp
     let &undodir = expand("~/.local/share/vim/undo")
+    let &backupdir=expand("~/.local/share/vim/backup")
 end
 
 " make make tabstop, soft tabstop, and shiftwidth all 4
@@ -25,7 +27,6 @@ retab
 " configure how vim backup files
 set backup
 set writebackup
-let &backupdir=expand("~/.local/share/nvim/backup")
 set backupcopy=auto
 set hidden
 
