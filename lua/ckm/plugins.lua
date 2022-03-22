@@ -1,4 +1,5 @@
-require('packer').startup(function(use)
+local packer = require('packer')
+return packer.startup(function(use)
   -- allow packer to manage itself
   use 'wbthomason/packer.nvim'
 
@@ -32,6 +33,7 @@ require('packer').startup(function(use)
   use {'shougo/deoplete.nvim'}
   use {'neovim/nvim-lspconfig'}
   use {'rhysd/clever-f.vim'}
+  use {'kyazdani42/nvim-tree.lua'}
 
   use {
     'kyazdani42/nvim-tree.lua',
