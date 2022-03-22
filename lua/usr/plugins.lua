@@ -74,6 +74,7 @@ return packer.startup(function(use)
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "lewis6991/impatient.nvim" -- cache plugins, make nvim start faster
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
   use {
     'kyazdani42/nvim-tree.lua',
