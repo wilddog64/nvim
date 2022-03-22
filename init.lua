@@ -4,10 +4,10 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
-require('ckm.plugins')
-require('ckm.impatient')
-require('ckm.cmp')
-require('ckm.nvim-tree')
+require('usr.plugins')
+require('usr.impatient')
+require('usr.cmp')
+require('usr.nvim-tree')
 
 -- add lsp configuration
 local lsp = require('lsp-zero')
