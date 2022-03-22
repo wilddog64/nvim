@@ -5,7 +5,7 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
 require('ckm.plugins')
-require('ckm.omicmp')
+require('ckm.cmp')
 require('ckm.nvim-tree')
 
 -- add lsp configuration
