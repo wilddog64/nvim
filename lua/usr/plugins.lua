@@ -77,6 +77,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use  'ojroques/vim-oscyank'
   use 'mfussenegger/nvim-dap'
+  use  'mfussenegger/nvim-dap-python'
 
   use {
     'kyazdani42/nvim-tree.lua',
