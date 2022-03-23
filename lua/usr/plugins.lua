@@ -76,6 +76,7 @@ return packer.startup(function(use)
   use "lewis6991/impatient.nvim" -- cache plugins, make nvim start faster
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use  'ojroques/vim-oscyank'
+  use 'mfussenegger/nvim-dap'
 
   use {
     'kyazdani42/nvim-tree.lua',
