@@ -68,7 +68,7 @@ return packer.startup(function(use)
   use 'corntrace/bufexplorer'
   use 'nvim-treesitter/nvim-treesitter'
   use 'shougo/deoplete-lsp'
-  use 'shougo/deoplete.nvim'
+  use {  'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
   use 'neovim/nvim-lspconfig'
   use 'rhysd/clever-f.vim'
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
