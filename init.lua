@@ -10,6 +10,7 @@ require('usr.cmp')
 require('usr.treesitter')
 require('usr.lsp')
 require('usr.dag-python')
+require('usr.options')
 
 -- add lsp configuration
 local lsp = require('lsp-zero')
@@ -19,7 +20,6 @@ lsp.setup()
 require 'lspfuzzy'.setup{}
 
 vim.cmd([[
-  source ~/.config/nvim/settings/general.vim
   source ~/.config/nvim/settings/keymaps.vim
   source ~/.config/nvim/settings/functions.vim
   source ~/.config/nvim/settings/supertab.vim
