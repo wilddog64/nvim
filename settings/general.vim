@@ -7,10 +7,13 @@ set undofile
 if has("nvim") " for nvim set shada option; otherwise use viminfo
     set shada='50,<1000,s100,n~/.local/share/nvim/shada/main.shada
     set inccommand=nosplit
+    let &undodir = expand("~/.local/share/nvim/undo")
+    let &backupdir=expand("~/.local/share/nvim/backup")
 else
     set viminfo='50,<1000,s100,:0,n~/.vim/viminfo
     set dir=~/.local/share/nvim/swap/ " swap file store at /tmp
-    let &undodir = expand("~/.local/share/nvim/undo")
+    let &undodir = expand("~/.local/share/vim/undo")
+    let &backupdir=expand("~/.local/share/vim/backup")
 end
 
 " make make tabstop, soft tabstop, and shiftwidth all 4
@@ -24,14 +27,13 @@ retab
 " configure how vim backup files
 set backup
 set writebackup
-let &backupdir=expand("~/.local/share/nvim/backup")
 set backupcopy=auto
 set hidden
 
 
 " let nvim know python2 and python3 interpreters
 " let g:python3_host_prog = expand("~/.pyenv/versions/3.9.0/bin/python")
-let g:python3_host_prog = $HOMEBREW_PREFIX . "/bin/python3.9"
+let g:python3_host_prog = "/usr/bin/python3"
 
 " set leader to be ;
 let mapleader=";"
@@ -123,7 +125,7 @@ let g:vim_markdown_folding_disabled = 1
 " enable spelling check
 " set spell spelllang=en_us
 
-let g:ruby_host_prog= expand('~/.rbenv/versions/3.0.2/bin/ruby')
+let g:ruby_host_prog = '/usr/bin/ruby'
 " let g:neocomplete#enable_at_startup = 1
 
 let g:xml_use_xhtml = 1

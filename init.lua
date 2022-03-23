@@ -4,9 +4,11 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
-require('ckm.plugins')
-require('ckm.omicmp')
-require('ckm.nvim-tree')
+require('usr.plugins')
+require('usr.impatient')
+require('usr.cmp')
+require('usr.treesitter')
+require('usr.lsp')
 
 -- add lsp configuration
 local lsp = require('lsp-zero')
@@ -22,4 +24,5 @@ vim.cmd([[
   source ~/.config/nvim/settings/supertab.vim
   source ~/.config/nvim/settings/gundo.vim
   source ~/.config/nvim/settings/deoplete.vim
+  source ~/.config/nvim/settings/nvim-tree.vim
 ]])
