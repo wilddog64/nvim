@@ -9,6 +9,7 @@ require('usr.impatient')
 require('usr.cmp')
 require('usr.treesitter')
 require('usr.lsp')
+require('usr.dag-python')
 
 -- add lsp configuration
 local lsp = require('lsp-zero')
