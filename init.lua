@@ -4,13 +4,13 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
+require('usr.options')
 require('usr.plugins')
 require('usr.impatient')
 require('usr.cmp')
 require('usr.treesitter')
 require('usr.lsp')
 require('usr.dag-python')
-require('usr.options')
 
 -- add lsp configuration
 local lsp = require('lsp-zero')
