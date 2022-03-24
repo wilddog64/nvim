@@ -142,6 +142,12 @@ return packer.startup(function(use)
     end
   }
 
+  use {
+    'nvim-treesitter/playground',
+    after = { 'nvim-treesitter' },
+    run = ":TSInstall query"
+  }
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
