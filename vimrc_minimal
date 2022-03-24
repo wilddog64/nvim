@@ -1,3 +1,8 @@
+" if there's no .vim directory then we should create one
+if !isdirectory(expand("~/.vim"))
+  silent call mkdir(expand("~/.vim"), "p")
+endif
+
 set nu
 set sts=4
 set ts=4
@@ -9,9 +14,19 @@ set viminfo='50,<1000,s100,n~/.vim/viminfo
 set hidden
 set bg=dark
 
-set dir=~/.vim/swap
+" create swap dir if it is not exist
+if !isdirectory(expand("~/.local/share/vim/swap"))
+  silent call mkdir(expand("~/.local/share/vim/swap"), "p")
+endif
+set dir=~/.local/share/vim/swap
+
+"create undo directory if is not exist
+if !isdirectory(expand("~/.local/share/vim/undo"))
+  silent call mkdir(expand("~/.local/share/vim/undo"), "p")
+endif
 set undofile
 let &undodir = expand("~/.local/share/vim/undo")
+
 let mapleader=";"
 set history=5000
 set cmdheight=2
@@ -46,3 +61,33 @@ endif
 set laststatus=2
 set statusline=%<%F\ %h%m%r\ %y%=%{v:register}\ %-14.(%l,%c%V%)\ %p
 
+" map ctrl-return to open a line (for both normal and insert mode)
+map <C-CR> o
+imap <C-CR> <C-O>o
+
+" map ctrl-shift-return for append at the end of line (for both normal and
+" insert mode)
+map <leader><CR>  o
+imap <leader><CR> <C-O>o
+" compress empty lines
+nnoremap <leader>cln :v/./.,/./-1join<CR>
+imap <leader>cln <C-O>:v/./.,/./-1join<CR>
+" tab and shift-tab keys to navigate buffers back and forth
+" opt-tab and shift-opt-tab keys to navigate tab pages
+map <TAB>   :bn!<CR>
+map <S-TAB> :bp!<CR>
+" map %% for command line to quickly edit file in current directory
+cabbr %% e <C-R>=expand("%:p:h") . "/" <CR>
+" edit key mapping
+cnoremap %% <C-R>=expand("%:h") . '/'<CR>
+map <leader>ee :e %%
+imap <leader>ee <C-O>:e %%
+
+map <leader>em :e $MYVIMRC<CR>
+imap <leader>em <C-O>:e $MYVIMRC<CR>
+
+map <leader>es :sp %%
+imap <leader>es <C-O>:sp %%
+
+map <leader>ev :vsp %%
+imap <leader>ev <C-O>:vsp %%
