@@ -66,7 +66,6 @@ return packer.startup(function(use)
   use 'tpope/vim-unimpaired'
   use 'szw/vim-maximizer'
   use 'corntrace/bufexplorer'
-  use 'nvim-treesitter/nvim-treesitter'
   use 'shougo/deoplete-lsp'
   use {  'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
   use 'neovim/nvim-lspconfig'
@@ -80,6 +79,7 @@ return packer.startup(function(use)
   use  'mfussenegger/nvim-dap-python'
   use 'nvim-lualine/lualine.nvim'
   use 'antoinemadec/FixCursorHold.nvim'
+  use "numToStr/Comment.nvim" -- Easily comment stuff
 
   use {
     'kyazdani42/nvim-tree.lua',
@@ -116,6 +116,14 @@ return packer.startup(function(use)
       -- Snippets
       {'L3MON4D3/LuaSnip'},
       {'rafamadriz/friendly-snippets'},
+
+      -- Treesitter
+      use {
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+      },
+      use "JoosepAlviste/nvim-ts-context-commentstring"
+
     }
   }
 
