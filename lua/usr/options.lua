@@ -25,6 +25,7 @@ vim.opt.cmdheight = 2
 vim.opt.wildmenu = true
 vim.opt.conceallevel = 0
 vim.opt.laststatus = 2
+vim.opt.signcolumn = "yes"
 
 -- what we want to store in a session file
 vim.opt.ssop = {
