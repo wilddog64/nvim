@@ -83,6 +83,7 @@ return packer.startup(function(use)
   use "akinsho/toggleterm.nvim"
   use "rktjmp/lush.nvim"
   use "adisen99/apprentice.nvim"
+  use "nvim-telescope/telescope.nvim"
 
   use {
     'kyazdani42/nvim-tree.lua',
@@ -135,7 +136,7 @@ return packer.startup(function(use)
     after = { 'nvim-treesitter' },
     config = function()
       require('treesitter-context').setup( {
-        enable = ture,
+        enable = true,
         throttle = true
       } )
     end
