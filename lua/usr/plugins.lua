@@ -126,8 +126,8 @@ return packer.startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
       },
-      use "JoosepAlviste/nvim-ts-context-commentstring"
-
+      use "JoosepAlviste/nvim-ts-context-commentstring",
+      use 'folke/lsp-colors.nvim',
     }
   }
 
