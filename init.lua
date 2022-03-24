@@ -14,6 +14,7 @@ require('usr.dag-python')
 require('usr.lualine')
 require('usr.comment')
 require('usr.toggleterm')
+require('usr.colors')
 
 -- add lsp configuration
 local lsp = require('lsp-zero')

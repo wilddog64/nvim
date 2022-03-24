@@ -81,6 +81,8 @@ return packer.startup(function(use)
   use 'antoinemadec/FixCursorHold.nvim'
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "akinsho/toggleterm.nvim"
+  use "rktjmp/lush.nvim"
+  use "adisen99/apprentice.nvim"
 
   use {
     'kyazdani42/nvim-tree.lua',
