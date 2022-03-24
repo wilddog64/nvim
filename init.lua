@@ -11,6 +11,7 @@ require('usr.cmp')
 require('usr.treesitter')
 require('usr.lsp')
 require('usr.dag-python')
+require('usr.lualine')
 
 -- add lsp configuration
 local lsp = require('lsp-zero')

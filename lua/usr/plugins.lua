@@ -78,6 +78,7 @@ return packer.startup(function(use)
   use  'ojroques/vim-oscyank'
   use 'mfussenegger/nvim-dap'
   use  'mfussenegger/nvim-dap-python'
+  use 'nvim-lualine/lualine.nvim'
 
   use {
     'kyazdani42/nvim-tree.lua',
