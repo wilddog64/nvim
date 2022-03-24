@@ -130,6 +130,17 @@ return packer.startup(function(use)
     }
   }
 
+  use {
+    'romgrk/nvim-treesitter-context',
+    after = { 'nvim-treesitter' },
+    config = function()
+      require('treesitter-context').setup( {
+        enable = ture,
+        throttle = true
+      } )
+    end
+  }
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
