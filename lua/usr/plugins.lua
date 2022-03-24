@@ -79,6 +79,7 @@ return packer.startup(function(use)
   use 'mfussenegger/nvim-dap'
   use  'mfussenegger/nvim-dap-python'
   use 'nvim-lualine/lualine.nvim'
+  use 'antoinemadec/FixCursorHold.nvim'
 
   use {
     'kyazdani42/nvim-tree.lua',
