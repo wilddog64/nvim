@@ -31,4 +31,5 @@ vim.cmd([[
   source ~/.config/nvim/settings/deoplete.vim
   source ~/.config/nvim/settings/nvim-tree.vim
   source ~/.config/nvim/settings/oscyank.vim
+  source ~/.config/nvim/settings/autocmd.vim
 ]])
