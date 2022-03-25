@@ -52,8 +52,6 @@ return packer.startup(function(use)
   use 'hashivim/vim-terraform'
   use 'juliosueiras/vim-terraform-completion'
   use 'othree/xml.vim'
-  use 'vim-scripts/taglist.vim'
-  use 'majutsushi/tagbar'
   use 'sjl/gundo.vim'
   use 'terryma/vim-multiple-cursors'
   use 'tmhedberg/matchit'
