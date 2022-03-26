@@ -13,7 +13,16 @@ function! Get_lua_config_dir()
   let b:second_quote = stridx(b:word, "'", b:first_quote)
   let b:length = (b:second_quote - b:first_quote)
   let b:lua_path = strcharpart(b:word, b:first_quote, b:length)
-  let b:lua_path = "./lua/" . substitute(b:lua_path, "\\.", "/", "g") . '.lua'
+  let b:lua_file_path = "./lua/" . substitute(b:lua_path, "\\.", "/", "g")
+  let b:lua_file = b:lua_file_path . '.lua'
+  if filereadable(b:lua_file)
+    return b:lua_file
+  else
+    let b:lua_init_file = b:lua_file_path . '/init.lua'
+    if filereadable(b:lua_init_file)
+      return b:lua_init_file
+    endif
+  endif
   return b:lua_path
 endfunction
 
