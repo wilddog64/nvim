@@ -18,7 +18,6 @@ vim.opt.number = true     -- turn on numbering
 vim.opt.ruler = true      -- turn on ruler
 vim.opt.showcmd = true    -- show command
 vim.opt.showmatch = true  -- show match of {}, [], <>, ...
-vim.g.colorscheme = "solarized8_dark_low"
 vim.opt.background = "dark"
 vim.opt.diffopt = { "vertical", "iwhite" }
 vim.opt.cmdheight = 2
