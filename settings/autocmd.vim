@@ -7,7 +7,9 @@ augroup END
 function! Get_lua_config_dir()
   let b:word = getline(line("."))
   if stridx(b:word, 'require') == -1
-    return expand('<cfile>')
+    if filereadable(b:word)
+      return expand('<cfile>')
+    endif
   endif
 
   let b:looking_for = "'"
