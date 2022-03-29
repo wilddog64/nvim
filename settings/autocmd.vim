@@ -34,7 +34,13 @@ function! Get_lua_config_dir()
       return b:lua_init_file
     endif
   endif
-  return b:lua_path
+  let b:cur_dir = expand("%h")
+  if stridx(b:lua_path, ".")
+    let b:full_path = b:cur_dir . '/' . b:lua_path
+    if !empty(glob(b:full_path))
+      return b:full_path
+    endif
+  endif
 endfunction
 
 augroup luamap
