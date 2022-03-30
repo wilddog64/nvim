@@ -1,4 +1,4 @@
-vim.opt.cpo ='aABceFs$-'
+vim.opt.cpo ='aABceFs$'
 vim.opt.cursorline = true
 vim.opt.undofile = true
 vim.opt.shada = "'50,<1000,s100,n~/.local/share/nvim/shada/main.shada"
