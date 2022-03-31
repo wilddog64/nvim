@@ -34,7 +34,7 @@ function! Get_lua_config_dir()
       return b:lua_init_file
     endif
   endif
-  return b:lua_path
+  return b:full_path
 endfunction
 
 augroup luamap
