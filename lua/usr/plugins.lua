@@ -52,8 +52,6 @@ return packer.startup(function(use)
   use 'hashivim/vim-terraform'
   use 'juliosueiras/vim-terraform-completion'
   use 'othree/xml.vim'
-  use 'vim-scripts/taglist.vim'
-  use 'majutsushi/tagbar'
   use 'sjl/gundo.vim'
   use 'terryma/vim-multiple-cursors'
   use 'tmhedberg/matchit'
@@ -66,15 +64,23 @@ return packer.startup(function(use)
   use 'tpope/vim-unimpaired'
   use 'szw/vim-maximizer'
   use 'corntrace/bufexplorer'
-  use 'nvim-treesitter/nvim-treesitter'
   use 'shougo/deoplete-lsp'
-  use {  'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
+  use { 'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
   use 'neovim/nvim-lspconfig'
   use 'rhysd/clever-f.vim'
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "lewis6991/impatient.nvim" -- cache plugins, make nvim start faster
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use  'ojroques/vim-oscyank'
+  use 'mfussenegger/nvim-dap'
+  use  'mfussenegger/nvim-dap-python'
+  use 'nvim-lualine/lualine.nvim'
+  use 'antoinemadec/FixCursorHold.nvim'
+  use "numToStr/Comment.nvim" -- Easily comment stuff
+  use "akinsho/toggleterm.nvim"
+  use "rktjmp/lush.nvim"
+  use "nvim-telescope/telescope.nvim"
 
   use {
     'kyazdani42/nvim-tree.lua',
@@ -111,7 +117,32 @@ return packer.startup(function(use)
       -- Snippets
       {'L3MON4D3/LuaSnip'},
       {'rafamadriz/friendly-snippets'},
+
+      -- Treesitter
+      use {
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+      },
+      use "JoosepAlviste/nvim-ts-context-commentstring",
+      use 'folke/lsp-colors.nvim',
     }
+  }
+
+  use {
+    'romgrk/nvim-treesitter-context',
+    after = { 'nvim-treesitter' },
+    config = function()
+      require('treesitter-context').setup( {
+        enable = true,
+        throttle = true
+      } )
+    end
+  }
+
+  use {
+    'nvim-treesitter/playground',
+    after = { 'nvim-treesitter' },
+    run = ":TSInstall query"
   }
 
   if PACKER_BOOTSTRAP then

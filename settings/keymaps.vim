@@ -147,3 +147,12 @@ au FileType go set ts=4
 " make transport 'xp' as one change rather than two
 nmap <Plug>TransposeCharacters xp
 nmap cp <Plug>TransposeCharacters
+
+" keymap for resizing windows
+nmap <C-Up> :resize -2<CR>
+nmap <C-Down> :resize +2<CR>
+nmap <C-Left> :vertical resize -2<CR>
+nmap <C-Right> :vertical resize +2<CR>
+
+map gf :e <cfile><CR>
+imap gf <C-O> :e <cfile><CR>
