@@ -51,6 +51,9 @@ local kind_icons = {
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup {
+  completion = {
+    autocomplete = false
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
@@ -136,3 +139,30 @@ cmp.setup {
     native_menu = false,
   },
 }
+
+-- setup keys to trigger auto complete and snippets
+_G.vimrc = _G.vimrc or {}
+_G.vimrc.cmp = _G.vimrc.cmp or {}
+_G.vimrc.cmp.lsp = function()
+  cmp.complete({
+    config = {
+      sources = {
+        { name = 'nvim_lsp' }
+      }
+    }
+  })
+end
+_G.vimrc.cmp.snippet = function()
+  cmp.complete({
+    config = {
+      sources = {
+        { name = 'vsnip' }
+      }
+    }
+  })
+end
+
+vim.cmd([[
+  inoremap <C-x><C-o> <Cmd>lua vimrc.cmp.lsp()<CR>
+  inoremap <C-x><C-s> <Cmd>lua vimrc.cmp.snippet()<CR>
+]])
