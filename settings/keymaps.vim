@@ -156,3 +156,7 @@ nmap <C-Right> :vertical resize +2<CR>
 
 " map gf :e <cfile><CR>
 " imap gf <C-O> :e <cfile><CR>
+
+inoremap <silent> <leader>rn <cmd>lua require('renamer').rename()<cr>
+nnoremap <silent> <leader>rn <cmd>lua require('renamer').rename()<cr>
+vnoremap <silent> <leader>rn <cmd>lua require('renamer').rename()<cr>
