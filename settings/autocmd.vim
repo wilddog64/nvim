@@ -41,7 +41,7 @@ augroup luamap
   au BufEnter *.lua nmap <silent> gf :exe "e " . Get_lua_config_dir()<CR>
 augroup END
 
-# this autocommand group setup some formation options for editing buffers
+" this autocommand group setup some formation options for editing buffers
 augroup formatoptions
   au!
   au FileType * set fo-=o   " disable continuation of comments when using 'o' or 'O'
