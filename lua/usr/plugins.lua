@@ -145,14 +145,6 @@ return packer.startup(function(use)
     run = ":TSInstall query"
   }
 
-  use {
-    'filipdutescu/renamer.nvim',
-    branch = 'master',
-    requires = {
-      { 'nvim-lua/plenary.nvim' }
-    }
-  }
-
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
