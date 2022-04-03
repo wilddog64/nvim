@@ -40,3 +40,12 @@ endfunction
 augroup luamap
   au BufEnter *.lua nmap <silent> gf :exe "e " . Get_lua_config_dir()<CR>
 augroup END
+
+# this autocommand group setup some formation options for editing buffers
+augroup formatoptions
+  au!
+  au FileType * set fo-=o   " disable continuation of comments when using 'o' or 'O'
+  au FileType * set fo+=j   " remove a comment leader when join lines
+  au FileType * set fo+=l   " don't break a line after a one-letter word
+  au FileType * set fo+=n   " recognize numbered list
+augroup END
