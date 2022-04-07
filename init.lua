@@ -3,6 +3,8 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.number = true
+vim.opt.cursorline = true
+vim.g.mapleader = ";"
 
 local fn = vim.fn
 
@@ -49,6 +51,7 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'echasnovski/mini.nvim'
+  use 'ervandew/supertab'
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
@@ -93,8 +96,8 @@ require('mini.completion').setup({
     }
 })
 
-vim.api.nvim_set_keymap('i', [[<Tab>]],   [[pumvisible() ? "\<C-n>" : "\<Tab>"]],   { noremap = true, expr = true })
-vim.api.nvim_set_keymap('i', [[<S-Tab>]], [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { noremap = true, expr = true })
+-- vim.api.nvim_set_keymap('i', [[<Tab>]],   [[pumvisible() ? "\<C-n>" : "\<Tab>"]],   { noremap = true, expr = true })
+-- vim.api.nvim_set_keymap('i', [[<S-Tab>]], [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { noremap = true, expr = true })
 
 require('mini.cursorword').setup {}
 require('mini.fuzzy').setup {}
@@ -103,3 +106,8 @@ require('mini.pairs').setup {}
 require('mini.statusline').setup {}
 require('mini.surround').setup {}
 require('mini.trailspace').setup {}
+
+vim.cmd [[
+    source ~/.config/nvim/settings/autocmd.vim
+    source ~/.config/nvim/settings/keymaps.vim
+]]
