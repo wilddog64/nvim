@@ -1,10 +1,4 @@
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab = true
-vim.opt.number = true
-vim.opt.cursorline = true
-vim.g.mapleader = ";"
+require('usr.options')
 
 local fn = vim.fn
 
@@ -52,6 +46,7 @@ require('packer').startup(function(use)
 
   use 'echasnovski/mini.nvim'
   use 'ervandew/supertab'
+  use 'corntrace/bufexplorer'
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
