@@ -55,6 +55,7 @@ require('packer').startup(function(use)
   use 'tmux-plugins/vim-tmux-focus-events'
   use 'sjl/gundo.vim'
   use 'terryma/vim-multiple-cursors'
+  use 'christoomey/vim-tmux-navigator'
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
