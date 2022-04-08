@@ -47,6 +47,7 @@ require('packer').startup(function(use)
   use 'echasnovski/mini.nvim'
   use 'ervandew/supertab'
   use 'corntrace/bufexplorer'
+  use 'dbakker/vim-projectroot'
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
@@ -105,4 +106,5 @@ require('mini.trailspace').setup {}
 vim.cmd [[
     source ~/.config/nvim/settings/autocmd.vim
     source ~/.config/nvim/settings/keymaps.vim
+    source ~/.config/nvim/settings/functions.vim
 ]]
