@@ -103,6 +103,7 @@ require('mini.statusline').setup {}
 require('mini.surround').setup {}
 require('mini.trailspace').setup {}
 require('mini.jump').setup {}
+require('mini.sessions').setup {}
 
 vim.cmd [[
     source ~/.config/nvim/settings/autocmd.vim
