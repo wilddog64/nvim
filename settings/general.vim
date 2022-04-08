@@ -157,5 +157,5 @@ if !empty($DISPLAY) && has("unix")
   set clipboard+=unnamedplus
 endif
 
--- show relative path in buffer explorer
+" show relative path in buffer explorer
 let g:bufExplorerShowRelativePath=1
