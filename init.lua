@@ -112,6 +112,8 @@ require('mini.trailspace').setup {}
 require('mini.jump').setup {}
 require('mini.sessions').setup {}
 
+-- g:bufExplorerShowRelativePath=1
+vim.g.bufExplorerShowRelativePath = 1
 vim.cmd [[
     source ~/.config/nvim/settings/autocmd.vim
     source ~/.config/nvim/settings/keymaps.vim

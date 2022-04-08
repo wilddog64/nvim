@@ -156,3 +156,6 @@ let g:terraform_align=1
 if !empty($DISPLAY) && has("unix")
   set clipboard+=unnamedplus
 endif
+
+-- show relative path in buffer explorer
+let g:bufExplorerShowRelativePath=1
