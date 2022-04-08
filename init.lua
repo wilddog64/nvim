@@ -48,6 +48,13 @@ require('packer').startup(function(use)
   use 'ervandew/supertab'
   use 'corntrace/bufexplorer'
   use 'dbakker/vim-projectroot'
+  use 'airblade/vim-gitgutter'
+  use 'ojroques/vim-oscyank'
+  use 'tpope/vim-fugitive'
+  use 'tmux-plugins/vim-tmux'
+  use 'tmux-plugins/vim-tmux-focus-events'
+  use 'sjl/gundo.vim'
+  use 'terryma/vim-multiple-cursors'
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
