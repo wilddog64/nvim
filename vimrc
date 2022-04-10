@@ -34,6 +34,7 @@ if !exists('g:vscode') " execute these if the context is not vscode
     source ~/.config/nvim/settings/supertab.vim
     source ~/.config/nvim/settings/firenvim.vim
     source ~/.config/nvim/settings/oscyank.vim
+    source ~/.config/nvim/settings/autocmd.vim
     
     if has("nvim")
         source ~/.config/nvim/settings/deoplete.vim
