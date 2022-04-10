@@ -49,3 +49,13 @@ augroup formatoptions
   au FileType * set fo+=l   " don't break a line after a one-letter word
   au FileType * set fo+=n   " recognize numbered list
 augroup END
+
+augroup helpmapping
+  au!
+  autocmd FileType help nnoremap <buffer> <CR> <C-]>
+  autocmd FileType help nnoremap <buffer> <BS> <C-T>
+  autocmd FileType help nnoremap <buffer> o /'\l\{2,\}'<CR>
+  autocmd FileType help nnoremap <buffer> O ?'\l\{2,\}'<CR>
+  autocmd FileType help nnoremap <buffer> s /\|\zs\S\+\ze\|<CR>
+  autocmd FileType help nnoremap <buffer> S ?\|\zs\S\+\ze\|<CR>
+augroup END
