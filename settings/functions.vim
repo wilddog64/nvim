@@ -228,5 +228,6 @@ fun! <SID>NewSplit()
       exe 'wincmd ' . (&splitright ? 'L' : 'H')
     endif
   endif
+  map q :norm! ZZ<cr>
 endfun
 
