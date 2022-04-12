@@ -59,3 +59,9 @@ augroup helpmapping
   autocmd FileType help nnoremap <buffer> s /\|\zs\S\+\ze\|<CR>
   autocmd FileType help nnoremap <buffer> S ?\|\zs\S\+\ze\|<CR>
 augroup END
+
+augroup sessions
+  autocmd!
+  autocmd FocusLost * wshada
+  autocmd FocusGained * rshada
+augroup end
