@@ -15,6 +15,7 @@ require('usr.lualine')
 require('usr.comment')
 require('usr.toggleterm')
 require('usr.telescope')
+require('usr.python-dap')
 
 -- add lsp configuration
 local lsp = require('lsp-zero')
