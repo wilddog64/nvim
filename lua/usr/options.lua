@@ -25,6 +25,8 @@ vim.opt.wildmenu = true
 vim.opt.conceallevel = 0
 vim.opt.laststatus = 2
 vim.opt.signcolumn = "yes"
+vim.g.bufExplorerShowRelativePath = 1
+
 
 -- what we want to store in a session file
 vim.opt.ssop = {

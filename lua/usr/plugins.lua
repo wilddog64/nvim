@@ -40,6 +40,10 @@ packer.init {
 
 return packer.startup(function(use)
   -- allow packer to manage itself
+  use {
+    'lewis6991/impatient.nvim',
+    require 'impatient'
+  }  -- cache plugins, make nvim start faster
   use 'wbthomason/packer.nvim'
   use 'jiangmiao/auto-pairs'
   use 'airblade/vim-gitgutter'
@@ -70,7 +74,6 @@ return packer.startup(function(use)
   use 'rhysd/clever-f.vim'
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  use "lewis6991/impatient.nvim" -- cache plugins, make nvim start faster
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use  'ojroques/vim-oscyank'
   use 'mfussenegger/nvim-dap'

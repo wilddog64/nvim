@@ -6,7 +6,6 @@ vim.opt.expandtab = true
 
 require('usr.options')
 require('usr.plugins')
-require('usr.impatient')
 require('usr.cmp')
 require('usr.treesitter')
 require('usr.lsp')
