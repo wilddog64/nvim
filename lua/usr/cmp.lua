@@ -132,10 +132,10 @@ _G.vimrc.cmp.lsp = function()
       end,
     },
     sources = {
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "buffer" },
-    { name = "path" },
+      { name = "nvim_lsp" },
+      { name = "luasnip" },
+      { name = "buffer" },
+      { name = "path" },
     },
     confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,
