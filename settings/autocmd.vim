@@ -73,7 +73,7 @@ augroup tabconf
 
     " 2-space tab languages
     autocmd Filetype
-\       yaml,html,css,htmldjango,javascript,javascriptreact,typescript,typescriptreact,markdown,terraform
+\       yaml,html,css,htmldjango,javascript,javascriptreact,typescript,typescriptreact,markdown,terraform,lua
 \       setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
     " 3-space tab languages (why, reStructured text, why?!?)

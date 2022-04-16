@@ -88,6 +88,7 @@ return packer.startup(function(use)
   use 'junegunn/fzf.vim'
   use 'idbrii/vim-ripple'
   use 'idbrii/itchy.vim'
+  use 'axieax/urlview.nvim'
 
   use {
     'kyazdani42/nvim-tree.lua',
