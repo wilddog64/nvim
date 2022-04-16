@@ -137,6 +137,7 @@ _G.vimrc.cmp.lsp = function()
       { name = "buffer" },
       { name = "path" },
       { name = "buffer" },
+      { name = 'spell' },
     },
     confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,
