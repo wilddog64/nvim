@@ -136,6 +136,7 @@ _G.vimrc.cmp.lsp = function()
       { name = "luasnip" },
       { name = "buffer" },
       { name = "path" },
+      { name = "buffer" },
     },
     confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,
