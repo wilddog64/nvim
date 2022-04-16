@@ -6,3 +6,6 @@ set wildignore+=*.o,*.ko,*.obj,*.dSYM       " C
 set wildignore+=*.swp,~*                    " Temp files
 set wildignore+=*.zip,*.tar                 " Archives
 set wildignore+=node_modules/*              " Javascript / Node.js
+
+let g:itchy_always_split = 1
+let g:itchy_split_direction = 2

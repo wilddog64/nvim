@@ -86,6 +86,8 @@ return packer.startup(function(use)
   use "nvim-telescope/telescope.nvim"
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
+  use 'idbrii/vim-ripple'
+  use 'idbrii/itchy.vim'
 
   use {
     'kyazdani42/nvim-tree.lua',
