@@ -89,6 +89,8 @@ return packer.startup(function(use)
   use 'idbrii/vim-ripple'
   use 'idbrii/itchy.vim'
   use 'axieax/urlview.nvim'
+  use 'honza/vim-snippets'
+  use 'f3fora/cmp-spell'
 
   use {
     'kyazdani42/nvim-tree.lua',
@@ -151,6 +153,17 @@ return packer.startup(function(use)
     'nvim-treesitter/playground',
     after = { 'nvim-treesitter' },
     run = ":TSInstall query"
+  }
+
+  use { 
+    'SirVer/ultisnips',
+    config = function()
+      vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'      
+      vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
+      vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
+      vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
+      vim.g.UltiSnipsRemoveSelectModeMappings = 0
+    end
   }
 
   if PACKER_BOOTSTRAP then
