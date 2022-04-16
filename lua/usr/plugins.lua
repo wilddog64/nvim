@@ -84,6 +84,8 @@ return packer.startup(function(use)
   use "akinsho/toggleterm.nvim"
   use "rktjmp/lush.nvim"
   use "nvim-telescope/telescope.nvim"
+  use 'junegunn/fzf'
+  use 'junegunn/fzf.vim'
 
   use {
     'kyazdani42/nvim-tree.lua',
