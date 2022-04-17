@@ -158,7 +158,7 @@ nmap <C-Right> :vertical resize +2<CR>
 " imap gf <C-O> :e <cfile><CR>
 
 " key maps for fzf
-nnoremap <silent><leader>p :Files!<CR>
+nnoremap <silent><leader>f :Files!<CR>
 nnoremap <silent><leader>b :Buffers!<CR>
 nnoremap <silent><leader>h :History!<CR>
 nnoremap <silent><leader>gs :GFiles?<CR>
