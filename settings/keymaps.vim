@@ -165,7 +165,7 @@ nnoremap <silent><leader>gs :GFiles?<CR>
 nnoremap <silent><leader>gh :BCommits!<CR>
 nnoremap <silent><leader>rg :Rg!<CR>
 
-nnoremap <silent><leader>lg :<Cmd>lua _LAZYGIT_TOGGLE()<cr><cr>
+nnoremap <silent><leader>gi :<Cmd>lua _LAZYGIT_TOGGLE()<cr><cr>
 nnoremap <silent><leader>py :<Cmd>lua _PYTHON_TOGGLE()<cr><cr>
 nnoremap <silent><leader>ip :<Cmd>lua _IPYTHON_TOGGLE()<cr><cr>
 
