@@ -91,6 +91,7 @@ return packer.startup(function(use)
   use 'axieax/urlview.nvim'
   use 'honza/vim-snippets'
   use 'f3fora/cmp-spell'
+  use 'benmills/vimux'
 
   use {
     'kyazdani42/nvim-tree.lua',
