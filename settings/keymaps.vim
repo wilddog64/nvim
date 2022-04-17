@@ -167,3 +167,5 @@ nnoremap <silent><leader>rg :Rg!<CR>
 
 nnoremap <silent><leader>lg :<Cmd>lua _LAZYGIT_TOGGLE()<cr><cr>
 nnoremap <silent><leader>py :<Cmd>lua _PYTHON_TOGGLE()<cr><cr>
+nnoremap <silent><leader>ip :<Cmd>lua _IPYTHON_TOGGLE()<cr><cr>
+
