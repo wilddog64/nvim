@@ -160,12 +160,4 @@ nmap <C-Right> :vertical resize +2<CR>
 " map gf :e <cfile><CR>
 " imap gf <C-O> :e <cfile><CR>
 
-" key maps for fzf
-nnoremap <silent><leader>f :Files!<CR>
-nnoremap <silent><leader>b :Buffers!<CR>
-nnoremap <silent><leader>h :History!<CR>
-nnoremap <silent><leader>gs :GFiles?<CR>
-nnoremap <silent><leader>gh :BCommits!<CR>
-nnoremap <silent><leader>rg :Rg!<CR>
-
 nnoremap <silent><leader>gi :<Cmd>lua _LAZYGIT_TOGGLE()<cr><cr>
