@@ -32,8 +32,12 @@ function! <SID>ExecutePyModule()
 endfunction
 
 " maps <leader>xp to execute our custom module
-map <leader>xp :call <SID>ExecutePyModule()<CR>
-imap <leader>xp <C-O>:call <SID>ExecutePyModule()<CR>
+augroup python
+   au!
+   autocmd python map  <leader>xp :call <SID>ExecutePyModule()<CR>
+   autocmd python imap <python> <leader>xp <C-O>:call <SID>ExecutePyModule()<CR>
+augroup END
+
 
 function! <SID>SwitchToBufferDirRoot()
   let b:projectroot = projectroot#get(expand('%'))
