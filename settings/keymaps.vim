@@ -134,15 +134,18 @@ map <leader>gpu :Git push<CR>
 " map <leader>n :NERDTreeToggle<CR>
 
 " mappings for vim-go
-au FileType go nmap <leader>gr :GoRun<CR>
-au FileType go imap <leader>gr <C-O>:GoRun<CR>
-au FileType go nmap <leader>gb :GoBuild<CR>
-au FileType go imap <leader>gb <C-O>:GoBuild<CR>
-au FileType go nmap <leader>gi :GoImport<CR>
-au FileType go imap <leader>gi <C-O>:GoImport<CR>
-au FileType go nmap <leader>gv :GoVet<CR>
-au FileType go imap <leader>gv <C-O>:GoVet<CR>
-au FileType go set ts=4
+augroup vimgo
+   au!
+   au FileType go nmap <leader>gr :GoRun<CR>
+   au FileType go imap <leader>gr <C-O>:GoRun<CR>
+   au FileType go nmap <leader>gb :GoBuild<CR>
+   au FileType go imap <leader>gb <C-O>:GoBuild<CR>
+   au FileType go nmap <leader>gi :GoImport<CR>
+   au FileType go imap <leader>gi <C-O>:GoImport<CR>
+   au FileType go nmap <leader>gv :GoVet<CR>
+   au FileType go imap <leader>gv <C-O>:GoVet<CR>
+   au FileType go set ts=4
+augroup END
 
 " make transport 'xp' as one change rather than two
 nmap <Plug>TransposeCharacters xp
