@@ -34,8 +34,8 @@ endfunction
 " maps <leader>xp to execute our custom module
 augroup python
    au!
-   autocmd python map  <leader>xp :call <SID>ExecutePyModule()<CR>
-   autocmd python imap <python> <leader>xp <C-O>:call <SID>ExecutePyModule()<CR>
+   autocmd FileType python map  <leader>xp :call <SID>ExecutePyModule()<CR>
+   autocmd FileType python imap <python> <leader>xp <C-O>:call <SID>ExecutePyModule()<CR>
 augroup END
 
 
@@ -51,7 +51,7 @@ imap <leader>ir <C-O>:VimuxInspectRunner<CR> " inspect Runner pane
 map <leader>vz :call VimuxZoomRunner()<CR>   " zoom runner pane for better examining
 map <leader>vx :VimuxInterruptRunner<CR>     " interrupt current running panel
 map <leader>vp :VimuxPromptCommand<CR>
-map <leader>ct :VimuxRunCommand('ctags -R')<CR> " execute ctags -R to generate or update tags file
+" map <leader>ct :VimuxRunCommand('ctags -R')<CR> " execute ctags -R to generate or update tags file
 
 " A function that will execute vagrant commands in tmux pane via
 " VimuxRunCommand.  This function will also check to make sure Vagrantfile
