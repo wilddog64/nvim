@@ -24,8 +24,8 @@ function! <SID>ExecutePyModule()
     let b:pymodule_namespace = substitute(b:filename, '\/', '.', 'g')
 
     " construct a command line to execute a python module, and execute it
-    let projectroot = projectroot#get()
-    execute "VimuxRunCommand('cd " . b:projectroot . "')"
+    " let projectroot = projectroot#get()
+    " execute "VimuxRunCommand('cd " . b:projectroot . "')"
     let b:execute_pymodule_cmd = 'python -m ' . b:pymodule_namespace
     echom 'executing: ' . b:execute_pymodule_cmd
     execute "VimuxRunCommand('" . b:execute_pymodule_cmd . "')"
