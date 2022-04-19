@@ -109,4 +109,5 @@ vim.cmd([[
   nnoremap <leader>fr <cmd>lua require('telescope.builtin').registers()<cr>
   nnoremap <leader>fk <cmd>lua require('telescope.builtin').keymaps()<cr>
   nnoremap <leader>fa <cmd>lua require('telescope.builtin').autocommands()<cr>
+  nnoremap <leader>cf <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
 ]])
