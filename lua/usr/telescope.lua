@@ -105,6 +105,7 @@ vim.cmd([[
   nnoremap <leader>fc <cmd>lua require('telescope.builtin').commands()<cr>
   nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
   nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+  nnoremap <leader>fl <cmd>lua require('telescope.builtin').loclist()<cr>
   nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
   nnoremap <leader>fk <cmd>lua require('telescope.builtin').keymaps()<cr>
   nnoremap <leader>fm <cmd>lua require('telescope.builtin').marks()<cr>
