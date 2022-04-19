@@ -110,4 +110,5 @@ vim.cmd([[
   nnoremap <leader>fm <cmd>lua require('telescope.builtin').marks()<cr>
   nnoremap <leader>fr <cmd>lua require('telescope.builtin').registers()<cr>
   nnoremap <leader>fs <cmd>lua require('telescope.builtin').grep_string()<cr>
+  nnoremap <leader>ss <cmd>lua require('telescope.builtin').spell_suggest()<cr>
 ]])
