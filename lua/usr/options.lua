@@ -15,6 +15,7 @@ vim.opt.history = 5000    -- command line history
 vim.opt.hlsearch = false  -- no highlight search result
 vim.opt.incsearch = true  -- do incremental search
 vim.opt.number = true     -- turn on numbering
+vim.opt.relativenumber = true
 vim.opt.ruler = true      -- turn on ruler
 vim.opt.showcmd = true    -- show command
 vim.opt.showmatch = true  -- show match of {}, [], <>, ...
