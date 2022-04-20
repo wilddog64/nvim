@@ -103,7 +103,8 @@ vim.cmd([[
   nnoremap <leader>fa <cmd>lua require('telescope.builtin').autocommands()<cr>
   nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
   nnoremap <leader>fc <cmd>lua require('telescope.builtin').commands()<cr>
-  nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+  " nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+  nnoremap <leader>ff :Files<cr>
   nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
   nnoremap <leader>fl <cmd>lua require('telescope.builtin').loclist()<cr>
   nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
