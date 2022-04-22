@@ -1,5 +1,5 @@
 " setup plugin manager
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.local/share/vim/site/plugins')
 
 source ~/.config/nvim/settings/functions.vim
 
