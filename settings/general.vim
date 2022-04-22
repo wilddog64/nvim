@@ -10,7 +10,7 @@ if has("nvim") " for nvim set shada option; otherwise use viminfo
     let &undodir = expand("~/.local/share/nvim/undo")
     let &backupdir=expand("~/.local/share/nvim/backup")
 else
-    set viminfo='50,<1000,s100,:0,n~/.vim/viminfo
+    set viminfo='50,<1000,s100,:0,n~/.local/share/vim/viminfo
     set dir=~/.local/share/nvim/swap/ " swap file store at /tmp
     let &undodir = expand("~/.local/share/vim/undo")
     let &backupdir=expand("~/.local/share/vim/backup")
