@@ -43,3 +43,30 @@ inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
   \ 'source': 'rg -n ^ --color always',
   \ 'options': '--ansi --delimiter : --nth 3..',
   \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
+
+if !has('nvim')
+  nmap <leader>ff :Files<cr>
+  imap <leader>ff <c-o>:Files<cr>
+
+  nmap <leader>fb :Buffers<cr>
+  imap <leader>fb <c-o>:Buffers<cr>
+
+  nmap <leader>fs :Rg<cr>
+  imap <leader>fs <c-o>:Rg<cr>
+
+  nmap <leader>fh :History<cr>
+  imap <leader>fh <c-o>:History<cr>
+
+  nmap <leader>fm :Marks<cr>
+  imap <leader>fm <c-o>:Marks<cr>
+
+  nmap <leader>ft :Tags<cr>
+  imap <leader>ft <c-o>:Tags<cr>
+
+  nmap <leader>fc :Commands<cr>
+  imap <leader>fc <c-o>:Commands<cr>
+
+  nmap <leader>fg :BCommits<cr>
+  imap <leader>fg <c-o>:BCommits<cr>
+endif
+
