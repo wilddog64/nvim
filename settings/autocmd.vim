@@ -86,3 +86,7 @@ augroup README
    au VimResized *.md if *&columns > 80 | set columns=80 | endif
    au BufRead,BufNewFile *.md setlocal wrap linebreak showbreak=++
 augroup END
+
+" content will be copy to clipboard
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
+
