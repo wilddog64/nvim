@@ -1,5 +1,4 @@
 local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
 
 -- create an alias for option
 local keymap = vim.api.nvim_set_keymap
