@@ -80,13 +80,6 @@ augroup tabconf
     autocmd Filetype rst setlocal tabstop=3 shiftwidth=3 softtabstop=3 expandtab
 augroup END
 
-augroup README
-   au!
-   au BufRead,BufNewFile *.md setlocal columns=80
-   au VimResized *.md if *&columns > 80 | set columns=80 | endif
-   au BufRead,BufNewFile *.md setlocal wrap linebreak showbreak=++
-augroup END
-
 " content will be copy to clipboard
 autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
 
