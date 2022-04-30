@@ -16,6 +16,7 @@ require('usr.toggleterm')
 require('usr.telescope')
 require('usr.python-dap')
 require('usr.urlview')
+require('usr.luasnip')
 
 -- add lsp configuration
 local lsp = require('lsp-zero')
