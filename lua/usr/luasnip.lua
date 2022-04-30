@@ -15,3 +15,39 @@ ls.config.set_config({
     },
   },
 })
+
+-- key maps
+vim.keymap.set({
+  "i", "s"
+}, "<cr>", function()
+  if ls.expand_or_jumpable() then
+      ls.expand()
+  end
+end
+)
+
+vim.keymap.set({
+  "i", "s"
+}, "<tab>", function()
+  if ls.jummpable(1) then
+    ls.jump(1)
+  end
+end)
+
+vim.keymap.set({ "i", "s" }, "<s-tab>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end)
+
+vim.keymap.set({ "i", "s" }, "<a-l>", function()
+  if ls.choice_active() then
+    ls.change_choice(1)
+  end
+end)
+
+vim.keymap.set({ "i", "s" }, "<a-h", function()
+  if ls.choice_active() then
+    ls.change_choice(-1)
+  end
+end)
