@@ -38,13 +38,13 @@ vim.keymap.set({ "i", "s" }, "<c-p>", function()
   end
 end)
 
-vim.keymap.set({ "i", "s" }, "<a-k>", function()
+vim.keymap.set({ "i", "s" }, "<c-u>", function()
   if ls.choice_active() then
     ls.change_choice(1)
   end
 end)
 
-vim.keymap.set({ "i", "s" }, "<a-h", function()
+vim.keymap.set({ "i", "s" }, "<c-d>", function()
   if ls.choice_active() then
     ls.change_choice(-1)
   end
