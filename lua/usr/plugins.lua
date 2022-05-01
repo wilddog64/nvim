@@ -57,7 +57,6 @@ return packer.startup(function(use)
   use 'juliosueiras/vim-terraform-completion'
   use 'othree/xml.vim'
   use 'sjl/gundo.vim'
-  use 'terryma/vim-multiple-cursors'
   use 'tmhedberg/matchit'
   use 'tmux-plugins/vim-tmux'
   use 'tmux-plugins/vim-tmux-focus-events'
