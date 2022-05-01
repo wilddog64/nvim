@@ -19,7 +19,7 @@ if !exists('g:vscode') " execute these if the context is not vscode
     source ~/.config/nvim/settings/ansible.vim
     source ~/.config/nvim/settings/terminal.vim
     " source ~/.config/nvim/settings/neoformat.vim
-    source ~/.config/nvim/settings/neosnippet.vim
+    " source ~/.config/nvim/settings/neosnippet.vim
     source ~/.config/nvim/settings/vim-go.vim
     source ~/.config/nvim/settings/tagbar.vim
     source ~/.config/nvim/settings/ale.vim
@@ -34,6 +34,7 @@ if !exists('g:vscode') " execute these if the context is not vscode
     source ~/.config/nvim/settings/supertab.vim
     source ~/.config/nvim/settings/firenvim.vim
     source ~/.config/nvim/settings/autocmd.vim
+    source ~/.config/nvim/settings/ultisnips.vim
     
     if has("nvim")
         source ~/.config/nvim/settings/deoplete.vim
