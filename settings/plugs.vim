@@ -15,7 +15,7 @@ if has("nvim")
 end
 
 " a list of plugins we want to have
-Plug 'Shougo/neosnippet-snippets'
+" Plug 'Shougo/neosnippet-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'
 Plug 'benmills/vimux'
@@ -42,7 +42,6 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'sjl/gundo.vim'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tmhedberg/matchit'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
