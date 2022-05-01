@@ -66,7 +66,7 @@ _G.vimrc.cmp.lsp = function()
     },
     snippet = {
       expand = function(args)
-        luasnip.lsp_expand(args.body) -- For `luasnip` users.
+        vim.fn["UltiSnips#Annon"](args.body)
       end,
     },
     mapping = {
@@ -136,6 +136,8 @@ _G.vimrc.cmp.lsp = function()
       { name = "luasnip" },
       { name = "buffer" },
       { name = "path" },
+      { name = "buffer" },
+      { name = 'spell' },
     },
     confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,
