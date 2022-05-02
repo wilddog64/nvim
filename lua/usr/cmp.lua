@@ -132,11 +132,11 @@ _G.vimrc.cmp.lsp = function()
       end,
     },
     sources = {
-      { name = "nvim_lsp" },
+      { name = "nvim_lsp", max_item_count = 10 },
       { name = "luasnip" },
       { name = "buffer" },
       { name = "path" },
-      { name = "buffer" },
+      { name = "buffer", max_item_count = 10 },
       { name = 'spell' },
     },
     confirm_opts = {
