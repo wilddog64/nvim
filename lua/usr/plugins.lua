@@ -40,10 +40,12 @@ packer.init {
 
 return packer.startup(function(use)
   -- allow packer to manage itself
+
   use {
     'lewis6991/impatient.nvim',
-    require 'impatient'
+    config = function() require 'impatient' end
   }  -- cache plugins, make nvim start faster
+
   use 'wbthomason/packer.nvim'
   use 'jiangmiao/auto-pairs'
   use 'airblade/vim-gitgutter'
