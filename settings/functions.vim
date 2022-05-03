@@ -225,7 +225,9 @@ fun! <SID>NewSplit()
   if (&bt ==? 'help' || &ft ==? 'man' || &ft ==? 'fugitive')
     let p = winnr('#')
     if winwidth(p) >= getwinvar(p, '&tw', 80) + getwinvar(winnr(), '&tw', 80)
+      set nosplitright
       exe 'wincmd ' . (&splitright ? 'L' : 'H')
+      set splitright
     endif
   endif
   nmap q :norm! ZZ <CR>
