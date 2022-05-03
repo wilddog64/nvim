@@ -36,4 +36,14 @@ terraform {{
   }))
 
 table.insert(snippets, tfw)
+
+local requiredProviders = s('rq', fmt([[
+required_providers {{
+  {}
+}}
+]], {
+    i(1, '')
+  }))
+
+table.insert(snippets, requiredProviders)
 return snippets, autosnippets
