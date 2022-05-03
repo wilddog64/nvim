@@ -93,6 +93,7 @@ return packer.startup(function(use)
   use 'honza/vim-snippets'
   use 'f3fora/cmp-spell'
   use 'plasticboy/vim-markdown'
+  use 'echasnovski/mini.nvim'
 
   use {
     'kyazdani42/nvim-tree.lua',
