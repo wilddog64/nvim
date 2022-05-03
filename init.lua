@@ -11,12 +11,12 @@ require('usr.cmp')
 require('usr.lsp')
 require('usr.dag-python')
 require('usr.lualine')
-require('usr.comment')
 require('usr.toggleterm')
 require('usr.telescope')
 require('usr.python-dap')
 require('usr.urlview')
 require('usr.luasnip')
+require('usr.mini')
 
 -- add lsp configuration
 local lsp = require('lsp-zero')
