@@ -58,4 +58,14 @@ local bProvider = s('bp', fmt([[
   }))
 table.insert(snippets, bProvider)
 
+local iProvider = s('p', fmt([[
+provider "{}" {{
+  {}
+}}
+]], {
+    i(1, ''),
+    i(2, ''),
+  }))
+table.insert(snippets, iProvider)
+
 return snippets, autosnippets
