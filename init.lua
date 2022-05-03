@@ -7,7 +7,7 @@ vim.opt.expandtab = true
 require('usr.options')
 require('usr.plugins')
 require('usr.cmp')
-require('usr.treesitter')
+-- require('usr.treesitter')
 require('usr.lsp')
 require('usr.dag-python')
 require('usr.lualine')
