@@ -16,7 +16,20 @@ local snippets, autosnippets = {}, {}
 local group = vim.api.nvim_create_augroup('Lua Snippets', { clear = true })
 local file_pattern = "*.lua"
 
+local tfw = s('tfw', fmt([[
+terraform {{
+  backend = "{}"
 
+  workspaces {{
+    name = "{}"
+  }}
+  hostname = "{}"
+}}
+]], {
+    i(1, ''),
+    i(2, ''),
+    i(3, ''),
+  }))
 
-table.insert(snippets, mySnippet)
+table.insert(snippets, tfw)
 return snippets, autosnippets
