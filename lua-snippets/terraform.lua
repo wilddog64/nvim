@@ -18,17 +18,21 @@ local file_pattern = "*.lua"
 
 local tfw = s('tfw', fmt([[
 terraform {{
-  backend = "{}"
+  organization = "{}"
 
-  workspaces {{
-    name = "{}"
+  backend = "{}" {{
+    workspaces {{
+      name = "{}"
+    }}
+    hostname = "{}"
   }}
-  hostname = "{}"
+
 }}
 ]], {
     i(1, ''),
     i(2, ''),
     i(3, ''),
+    i(4, ''),
   }))
 
 table.insert(snippets, tfw)
