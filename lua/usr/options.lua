@@ -26,6 +26,8 @@ vim.opt.conceallevel = 0
 vim.opt.laststatus = 2
 vim.opt.signcolumn = "yes"
 vim.g.bufExplorerShowRelativePath = 1
+vim.o.splitright = true
+vim.osplitbelow = true
 
 
 -- what we want to store in a session file
