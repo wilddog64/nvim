@@ -44,6 +44,18 @@ required_providers {{
 ]], {
     i(1, '')
   }))
-
 table.insert(snippets, requiredProviders)
+
+local bProvider = s('bp', fmt([[
+{} = {{
+  source = "{}",
+  version = "{}"
+}}
+]], {
+    i(1, ''),
+    i(2, ''),
+    i(3, '')
+  }))
+table.insert(snippets, bProvider)
+
 return snippets, autosnippets
