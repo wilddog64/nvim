@@ -155,4 +155,14 @@ data "aws_ssm_parameter" "{}" {{
   }))
 table.insert(snippets, awsSsm)
 
+local dataSsm = s('dssm', fmt([[
+data "aws_ssm_parameter" "{}" {{
+  name = "{}"
+}}
+]], {
+    i(1, ''),
+    i(2, '')
+  }))
+table.insert(snippets, dataSsm)
+
 return snippets, autosnippets
