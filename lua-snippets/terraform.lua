@@ -183,4 +183,14 @@ data "template_file" "{}" {{
   }))
 table.insert(snippets, templateFile)
 
+local dependsON = s('dep', fmt([[
+data "aws_ssm_parameter" "{}" {{
+  name = "{}"
+}}
+]], {
+    i(1, ''),
+    i(2, '')
+  }))
+table.insert(snippets, dependsON)
+
 return snippets, autosnippets
