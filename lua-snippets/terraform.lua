@@ -127,4 +127,32 @@ data "aws_ami" "{}" {{
   }))
 table.insert(snippets, awsAmi)
 
+local awsSsm = s('ssm', fmt([[
+data "aws_ssm_parameter" "{}" {{
+  description = "{}"
+  name = "{}"
+  type = "{}"
+  value = "{}"
+  overwrite = {}
+
+  {}
+}}
+]], {
+    i(1, ''),
+    i(2, ''),
+    i(3, ''),
+    c(4, {
+      i(1, 'SecureString'),
+      i(2, 'StringList'),
+      i(3, 'String')
+    }),
+    i(5, ''),
+    c(6, {
+      i(1, 'true'),
+      i(2, 'false')
+    }),
+    i(7, '')
+  }))
+table.insert(snippets, awsSsm)
+
 return snippets, autosnippets
