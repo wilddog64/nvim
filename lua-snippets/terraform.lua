@@ -207,4 +207,12 @@ dynamic "{}" {{
   }))
 table.insert(snippets, dynamicContent)
 
+local equ = s('=', fmt([[
+{} = {}
+]], {
+    i(1, ''),
+    i(2, '')
+  }))
+table.insert(snippets, equ)
+
 return snippets, autosnippets
