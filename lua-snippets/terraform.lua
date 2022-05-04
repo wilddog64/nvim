@@ -165,4 +165,22 @@ data "aws_ssm_parameter" "{}" {{
   }))
 table.insert(snippets, dataSsm)
 
+local templateFile = s('tmpl', fmt([[
+data "template_file" "{}" {{
+  template = "${{file("{}")}}"
+
+  vars = {{
+    {}
+  }}
+}}
+]], {
+    i(1, ''),
+    c(2, {
+      i(1, ''),
+      i(2, '${path.module}/')
+    }),
+    i(3, '')
+  }))
+table.insert(snippets, templateFile)
+
 return snippets, autosnippets
