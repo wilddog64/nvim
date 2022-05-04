@@ -68,4 +68,15 @@ provider "{}" {{
   }))
 table.insert(snippets, iProvider)
 
+local tResource = s('res', fmt([[
+resource "{}" "{}" {{
+  {}
+}}
+]], {
+    i(1, ''),
+    i(2, ''),
+    i(3, '')
+  }))
+table.insert(snippets, tResource)
+
 return snippets, autosnippets
