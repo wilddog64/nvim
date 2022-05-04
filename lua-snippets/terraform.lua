@@ -101,4 +101,30 @@ data "terraform_remote_state" "{}" {{
   }))
 table.insert(snippets, terraformRemoteState)
 
+local awsAmi = s('ami', fmt([[
+data "aws_ami" "{}" {{
+  owners = [
+    {}
+  ]
+  most_recent = {}
+
+  filter {{
+    name = "{}"
+    values = [
+      "{}"
+    ]
+  }}
+}}
+]], {
+    i(1, ''),
+    i(2, ''),
+    c(3, {
+      i(1, "true"),
+      i(2, "false")
+    }),
+    i(4, ''),
+    i(5, '')
+  }))
+table.insert(snippets, awsAmi)
+
 return snippets, autosnippets
