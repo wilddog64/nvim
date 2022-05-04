@@ -192,4 +192,19 @@ depends_on = [
   }))
 table.insert(snippets, dependsON)
 
+local dynamicContent = s('dc', fmt([[
+dynamic "{}" {{
+  for_each = {}
+
+  content {{
+    {}
+  }}
+}}
+]], {
+    i(1, ''),
+    i(2, ''),
+    i(3, ''),
+  }))
+table.insert(snippets, dynamicContent)
+
 return snippets, autosnippets
