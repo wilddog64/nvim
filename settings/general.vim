@@ -43,7 +43,7 @@ let mapleader=";"
 
 " backsapce over autoindent, line breaks and start of line
 set backspace=indent,eol,start
-set history=5000      " command line history
+set history=1000      " command line history
 set nohlsearch        " highlight search result
 set incsearch         " do incremental search
 set nu                " turn on numbering
