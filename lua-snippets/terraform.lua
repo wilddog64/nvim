@@ -226,4 +226,13 @@ local listComp = s('lstc', fmt([[
   }))
 table.insert(snippets, listComp)
 
+local tLocal = s('lo', fmt([[
+local {{
+  {}
+}}
+]], {
+    i(1, '')
+  }))
+table.insert(snippets, tLocal)
+
 return snippets, autosnippets
