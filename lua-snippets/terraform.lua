@@ -184,12 +184,11 @@ data "template_file" "{}" {{
 table.insert(snippets, templateFile)
 
 local dependsON = s('dep', fmt([[
-data "aws_ssm_parameter" "{}" {{
-  name = "{}"
-}}
+depends_on = [
+  {}
+]
 ]], {
-    i(1, ''),
-    i(2, '')
+    i(1, '')
   }))
 table.insert(snippets, dependsON)
 
