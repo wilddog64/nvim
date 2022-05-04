@@ -215,4 +215,15 @@ local equ = s('=', fmt([[
   }))
 table.insert(snippets, equ)
 
+local listComp = s('lstc', fmt([[
+{} = [for x in {} : x.{} if x.{} == {}]
+]], {
+    i(1, ''),
+    i(2, ''),
+    i(3, ''),
+    i(4, ''),
+    i(5, ''),
+  }))
+table.insert(snippets, listComp)
+
 return snippets, autosnippets
