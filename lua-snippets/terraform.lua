@@ -79,4 +79,26 @@ resource "{}" "{}" {{
   }))
 table.insert(snippets, tResource)
 
+local terraformRemoteState = s('trs', fmt([[
+data "terraform_remote_state" "{}" {{
+  backend = "{}"
+
+  config = {{
+    organization = "{}"
+    workspaces = {{
+      name = "{}"
+    }}
+  }}
+}}
+]], {
+    i(1, ''),
+    c(2, {
+      i(1, "remote"),
+      i(2, "local"),
+    }),
+    i(3, ''),
+    i(4, '')
+  }))
+table.insert(snippets, terraformRemoteState)
+
 return snippets, autosnippets
