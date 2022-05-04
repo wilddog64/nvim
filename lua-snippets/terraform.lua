@@ -207,14 +207,6 @@ dynamic "{}" {{
   }))
 table.insert(snippets, dynamicContent)
 
-local equ = s('=', fmt([[
-{} = {}
-]], {
-    i(1, ''),
-    i(2, '')
-  }))
-table.insert(snippets, equ)
-
 local listComp = s('lstc', fmt([[
 {} = [for x in {} : x.{} if x.{} == {}]
 ]], {
@@ -246,5 +238,16 @@ module "{}" {{
     i(3, ''),
   }))
 table.insert(snippets, tModule)
+
+local nestAssignment = s("=", c(1, {
+  i(1, "var = value"),
+  sn(1, {
+    i(1, "var"),
+    t(" = "),
+    i(2, "value")
+  })
+}))
+
+table.insert(snippets, nestAssignment)
 
 return snippets, autosnippets
