@@ -29,3 +29,6 @@ require('mini.comment').setup({
     comment_line = 'gcc',
     textobject = 'gc',
 })
+
+require('mini.cursorword').setup {}
+require('mini.indentscope').setup {}
