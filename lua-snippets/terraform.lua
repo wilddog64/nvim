@@ -238,19 +238,12 @@ table.insert(snippets, tLocal)
 local tModule = s('mod', fmt([[
 module "{}" {{
   source = "{}"
-  {} = "{}"
-
   {}
 }}
 ]], {
     i(1, ''),
     i(2, ''),
-    c(3, {
-      i(1, ''),
-      i(2, 'version'),
-    }),
-    i(4, ''),
-    i(5, ''),
+    i(3, ''),
   }))
 table.insert(snippets, tModule)
 
