@@ -55,8 +55,6 @@ return packer.startup(function(use)
   use 'ervandew/supertab'
   use 'fatih/vim-go'
   use 'hashivim/vim-hashicorp-tools'
-  use 'hashivim/vim-terraform'
-  use 'juliosueiras/vim-terraform-completion'
   use 'othree/xml.vim'
   use 'sjl/gundo.vim'
   use 'tmhedberg/matchit'
