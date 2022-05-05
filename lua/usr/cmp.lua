@@ -60,6 +60,7 @@ cmp.setup {
 _G.vimrc = _G.vimrc or {}
 _G.vimrc.cmp = _G.vimrc.cmp or {}
 _G.vimrc.cmp.lsp = function()
+  local cmp_ultisnips_mappings = require('cmp_nvim_ultisnips.mappings')
   cmp.complete({
     completion = {
       autocomplete = false
@@ -87,7 +88,7 @@ _G.vimrc.cmp.lsp = function()
         if cmp.visible() then
           cmp.select_next_item()
         elseif luasnip.expandable() then
-          -- luasnip.expand()
+          luasnip.expand()
           vim.fn.feedkey("<Plug>(vsnip-expand-or-jump)", "")
         elseif luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
@@ -134,6 +135,7 @@ _G.vimrc.cmp.lsp = function()
     sources = {
       { name = "nvim_lsp", max_item_count = 10 },
       { name = "luasnip" },
+      { name = 'ultisnips' },
       { name = "buffer" },
       { name = "path" },
       { name = "buffer", max_item_count = 10 },
