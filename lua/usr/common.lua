@@ -7,3 +7,13 @@ require("lsp-colors").setup({
   Information = "#0db9d7",
   Hint = "#10B981"
 })
+
+-- setup cmp-spell
+require('cmp').setup {
+  sources = {
+    { name = 'spell' }
+  }
+}
+
+vim.opt.spell = false
+vim.opt.spelllang = { 'en_us' }
