@@ -53,7 +53,7 @@ return packer.startup(function(use)
   use 'christoomey/vim-tmux-navigator'
   use 'dbakker/vim-projectroot'
   use 'ervandew/supertab'
-  use 'fatih/vim-go'
+  -- use 'fatih/vim-go'
   use 'othree/xml.vim'
   use 'sjl/gundo.vim'
   use 'tmhedberg/matchit'
@@ -123,6 +123,7 @@ return packer.startup(function(use)
       {'saadparwaiz1/cmp_luasnip'},
       {'hrsh7th/cmp-nvim-lsp'},
       {'hrsh7th/cmp-nvim-lua'},
+      {'quangnguyen30192/cmp-nvim-ultisnips'},
 
       -- Snippets
       {
