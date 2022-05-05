@@ -65,11 +65,14 @@ local file_pattern = "*.lua"
 
 {}
 
-table.insert(snippets, mySnippet)
+table.insert(snippets, {})
 return snippets, autosnippets
 ]], {
-  i(1, "")
+  i(1, ""),
+  i(2, ""),
   }))
 table.insert(snippets, luaTemplate)
 
+
 return snippets, autosnippets
+

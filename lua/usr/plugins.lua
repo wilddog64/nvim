@@ -55,8 +55,6 @@ return packer.startup(function(use)
   use 'ervandew/supertab'
   use 'fatih/vim-go'
   use 'hashivim/vim-hashicorp-tools'
-  use 'hashivim/vim-terraform'
-  use 'juliosueiras/vim-terraform-completion'
   use 'othree/xml.vim'
   use 'sjl/gundo.vim'
   use 'tmhedberg/matchit'
@@ -93,6 +91,7 @@ return packer.startup(function(use)
   use 'honza/vim-snippets'
   use 'f3fora/cmp-spell'
   use 'plasticboy/vim-markdown'
+  use 'echasnovski/mini.nvim'
 
   use {
     'kyazdani42/nvim-tree.lua',
@@ -127,35 +126,41 @@ return packer.startup(function(use)
       {'hrsh7th/cmp-nvim-lua'},
 
       -- Snippets
-      {'L3MON4D3/LuaSnip'},
+      {
+        'L3MON4D3/LuaSnip',
+        requires = {
+          'rafamadriz/friendly-snippets',
+          'honza/vim-snippets',
+        }
+      },
       {'rafamadriz/friendly-snippets'},
 
       -- Treesitter
-      use {
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
-      },
-      use "JoosepAlviste/nvim-ts-context-commentstring",
+      -- use {
+      --   "nvim-treesitter/nvim-treesitter",
+      --   -- run = ":TSUpdate",
+      -- },
+      -- use "JoosepAlviste/nvim-ts-context-commentstring",
       use 'folke/lsp-colors.nvim',
     }
   }
 
-  use {
-    'romgrk/nvim-treesitter-context',
-    after = { 'nvim-treesitter' },
-    config = function()
-      require('treesitter-context').setup( {
-        enable = true,
-        throttle = true
-      } )
-    end
-  }
+  -- use {
+  --   'romgrk/nvim-treesitter-context',
+  --   after = { 'nvim-treesitter' },
+  --   config = function()
+  --     require('treesitter-context').setup( {
+  --       enable = true,
+  --       throttle = true
+  --     } )
+  --   end
+  -- }
 
-  use {
-    'nvim-treesitter/playground',
-    after = { 'nvim-treesitter' },
-    run = ":TSInstall query"
-  }
+  -- use {
+  --   'nvim-treesitter/playground',
+  --   after = { 'nvim-treesitter' },
+  --   run = ":TSInstall query"
+  -- }
 
   use {
     'SirVer/ultisnips',
