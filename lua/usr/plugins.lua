@@ -54,7 +54,6 @@ return packer.startup(function(use)
   use 'dbakker/vim-projectroot'
   use 'ervandew/supertab'
   use 'fatih/vim-go'
-  use 'hashivim/vim-hashicorp-tools'
   use 'othree/xml.vim'
   use 'sjl/gundo.vim'
   use 'tmhedberg/matchit'
