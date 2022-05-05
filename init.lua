@@ -17,6 +17,7 @@ require('usr.python-dap')
 require('usr.urlview')
 require('usr.luasnip')
 require('usr.mini')
+require('usr.common')
 
 -- add lsp configuration
 local lsp = require('lsp-zero')
