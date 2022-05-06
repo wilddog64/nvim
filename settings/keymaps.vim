@@ -157,4 +157,5 @@ nmap <C-Down> :resize +2<CR>
 nmap <C-Left> :vertical resize -2<CR>
 nmap <C-Right> :vertical resize +2<CR>
 
-nnoremap <silent><leader>gi :<Cmd>lua _LAZYGIT_TOGGLE()<cr><cr>
+nnoremap <silent><leader>gi :LazyGit<CR>
+imap <silent><leader>gi <c-o>:LazyGit<CR>

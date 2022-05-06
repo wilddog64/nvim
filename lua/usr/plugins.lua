@@ -94,6 +94,7 @@ return packer.startup(function(use)
   use 'echasnovski/mini.nvim'
   use 'juliosueiras/vim-terraform-completion'
   use 'hashivim/vim-terraform'
+  use 'kdheepak/lazygit.nvim'
 
   use {
     'kyazdani42/nvim-tree.lua',
