@@ -92,6 +92,7 @@ return packer.startup(function(use)
   use 'f3fora/cmp-spell'
   use 'plasticboy/vim-markdown'
   use 'echasnovski/mini.nvim'
+  use 'juliosueiras/vim-terraform-completion'
 
   use {
     'kyazdani42/nvim-tree.lua',
