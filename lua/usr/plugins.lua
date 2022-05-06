@@ -91,6 +91,8 @@ return packer.startup(function(use)
   use 'f3fora/cmp-spell'
   use 'plasticboy/vim-markdown'
   use 'echasnovski/mini.nvim'
+  use 'juliosueiras/vim-terraform-completion'
+  use 'hashivim/vim-terraform'
 
   use {
     'kyazdani42/nvim-tree.lua',
@@ -135,32 +137,9 @@ return packer.startup(function(use)
       },
       {'rafamadriz/friendly-snippets'},
 
-      -- Treesitter
-      -- use {
-      --   "nvim-treesitter/nvim-treesitter",
-      --   -- run = ":TSUpdate",
-      -- },
-      -- use "JoosepAlviste/nvim-ts-context-commentstring",
       use 'folke/lsp-colors.nvim',
     }
   }
-
-  -- use {
-  --   'romgrk/nvim-treesitter-context',
-  --   after = { 'nvim-treesitter' },
-  --   config = function()
-  --     require('treesitter-context').setup( {
-  --       enable = true,
-  --       throttle = true
-  --     } )
-  --   end
-  -- }
-
-  -- use {
-  --   'nvim-treesitter/playground',
-  --   after = { 'nvim-treesitter' },
-  --   run = ":TSInstall query"
-  -- }
 
   use {
     'SirVer/ultisnips',
