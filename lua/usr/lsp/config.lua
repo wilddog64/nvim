@@ -8,4 +8,4 @@ vim.diagnostic.config({
 
 -- hover for diagnostic
 vim.opt.updatetime = 250
-vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(bor, {focus=false, border='rounded'})]]
+vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(bor, {focus=false, border='rounded', scope='cursor'})]]
