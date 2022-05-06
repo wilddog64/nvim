@@ -93,6 +93,7 @@ return packer.startup(function(use)
   use 'plasticboy/vim-markdown'
   use 'echasnovski/mini.nvim'
   use 'juliosueiras/vim-terraform-completion'
+  use 'hashivim/vim-terraform'
 
   use {
     'kyazdani42/nvim-tree.lua',
