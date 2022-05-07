@@ -70,7 +70,11 @@ cabbr %% e <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>tic :s/\<\(\w\)\(\w*\)\>/\u\1\L\2/g<CR>
 imap <leader>tic <C-O>:s/\<\(\w\)\(\w*\)\>/\u\1\L\2/g<CR>
 
-map Y y$ " Y will yank from cursor until EOL
+" only map Y if we are not using neovim
+if !has('nvim')
+    map Y y$ " Y will yank from cursor until EOL
+endif
+
 " map <C-L> :noh<CR><C-L> " C-L will also clean up highlight, and redraw screen
 
 " bump sequence number by 1 from current cursor location to the end
