@@ -137,7 +137,6 @@ return packer.startup(function(use)
           'honza/vim-snippets',
         }
       },
-      {'rafamadriz/friendly-snippets'},
 
       use 'folke/lsp-colors.nvim',
     }
