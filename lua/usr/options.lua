@@ -47,7 +47,7 @@ vim.cmd([[
   set listchars=tab:▸\ ,trail:⋅,nbsp:⋅,eol:¬ " specfiy the invisible characters
   set printoptions+=number:y
 
-   color space-vim-dark
+   color vimbrant
   if has("autocmd")
 
   " Enable file type detection.
