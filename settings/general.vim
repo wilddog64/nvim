@@ -52,8 +52,8 @@ set showcmd           " show command
 set showmatch         " show match of {}, [], <>, ...
 
 " set colorscheme
-color solarized8_dark_low " set color scheme to BlackSea
-set bg=dark           " set background to dark
+color falcon " set color scheme to BlackSea
+set bg=dark  " set background to dark
 
 " when diff mode is activated, split buffers vertically and ignore white spaces
 set diffopt+=vertical
