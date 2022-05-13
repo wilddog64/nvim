@@ -26,10 +26,6 @@ imap <leader>vdup <C-O>/^\(.*\)\(\r\?\n\1\)\+$<CR>
 map <leader>gx yiw/^\(sub\<bar>function\)\s\+\w\+<CR>           " search sub or function declaractions in a buffer
 map <leader>c :hi Normal guibg=#<c-r>=expand("<cword>")<cr><cr> " display rgb color under the cursor, eg #445588
 
-" for working with taglist.vim plugin
-noremap  <silent> <F2> <Esc><Esc>:TagbarToggle<CR>
-inoremap <silent> <F2> <C-O>:TagbarToggle<CR>
-
 " control-s in normal, insert, and visual mode will update buffer to disk
 noremap  <C-S>   :update<CR>
 vnoremap <C-S>  <C-C>:update<CR>
