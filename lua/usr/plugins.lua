@@ -74,9 +74,9 @@ return packer.startup(function(use)
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  use  'ojroques/vim-oscyank'
+  use 'ojroques/vim-oscyank'
   use 'mfussenegger/nvim-dap'
-  use  'mfussenegger/nvim-dap-python'
+  use 'mfussenegger/nvim-dap-python'
   use 'nvim-lualine/lualine.nvim'
   use 'antoinemadec/FixCursorHold.nvim'
   use "numToStr/Comment.nvim" -- Easily comment stuff
