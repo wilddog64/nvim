@@ -167,6 +167,6 @@ imap <silent><leader>gi <c-o>:LazyGit<CR>
 " define line highlight color
 highlight LineHighlight ctermbg=darkgray guibg=darkgray
 " highlight the current line
-nnoremap <silent> <Leader>l :call matchadd('LineHighlight', '\%'.line('.').'l')<CR>
+nnoremap <silent> <Leader>h :call matchadd('LineHighlight', '\%'.line('.').'l')<CR>
 " clear all the highlighted lines
 nnoremap <silent> <Leader>c :call clearmatches()<CR>
