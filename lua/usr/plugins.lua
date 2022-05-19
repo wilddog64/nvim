@@ -96,6 +96,8 @@ return packer.startup(function(use)
   use 'hashivim/vim-terraform'
   use 'kdheepak/lazygit.nvim'
   use 'martinda/Jenkinsfile-vim-syntax'
+  use 'haya14busa/is.vim'
+  use 'haya14busa/vim-asterisk'
 
   use {
     'kyazdani42/nvim-tree.lua',
