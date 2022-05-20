@@ -32,7 +32,6 @@ vim.cmd([[
   source ~/.config/nvim/settings/supertab.vim
   source ~/.config/nvim/settings/gundo.vim
   source ~/.config/nvim/settings/deoplete.vim
-  source ~/.config/nvim/settings/nvim-tree.vim
   source ~/.config/nvim/settings/autocmd.vim
   source ~/.config/nvim/settings/options.vim
   source ~/.config/nvim/settings/vimux.vim

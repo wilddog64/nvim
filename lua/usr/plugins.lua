@@ -98,15 +98,16 @@ return packer.startup(function(use)
   use 'martinda/Jenkinsfile-vim-syntax'
   use 'haya14busa/is.vim'
   use 'haya14busa/vim-asterisk'
+  use 'tpope/vim--vinneegar'
 
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons'
-    },
-    config = function() require 'nvim-tree'.setup {} end,
-    cmd = { 'NvimTreeToggle' }
-  }
+  -- use {
+  --   'kyazdani42/nvim-tree.lua',
+  --   requires = {
+  --     'kyazdani42/nvim-web-devicons'
+  --   },
+  --   config = function() require 'nvim-tree'.setup {} end,
+  --   cmd = { 'NvimTreeToggle' }
+  -- }
 
   use {
     'ojroques/nvim-lspfuzzy',
