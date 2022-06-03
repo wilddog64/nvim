@@ -98,6 +98,7 @@ return packer.startup(function(use)
   use 'martinda/Jenkinsfile-vim-syntax'
   use 'haya14busa/is.vim'
   use 'haya14busa/vim-asterisk'
+  use 'wellle/targets.vim'
 
   use {
     'kyazdani42/nvim-tree.lua',
