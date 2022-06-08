@@ -166,3 +166,7 @@ highlight LineHighlight ctermbg=darkgray guibg=darkgray
 nnoremap <silent> <Leader>h :call matchadd('LineHighlight', '\%'.line('.').'l')<CR>
 " clear all the highlighted lines
 nnoremap <silent> <Leader>c :call clearmatches()<CR>
+
+" map C-K in insert mode to delete fromc urrent cursor postion to the end of
+" line
+imap <C-K> <C-O><S-D>
