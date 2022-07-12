@@ -67,6 +67,9 @@ Plug 'haya14busa/is.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'tpope/vim-vinegar'
 Plug 'wellle/targets.vim'
+Plug 'rafamadriz/friendly-snippets',
+Plug 'honza/vim-snippets',
+
 " Plug 'JamshedVesuna/vim-markdown-preview'
 " Plug 'roy2220/easyjump.tmux'
 " Plug 'vim-airline/vim-airline'
