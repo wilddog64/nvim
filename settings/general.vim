@@ -63,6 +63,7 @@ set diffopt+=iwhite
 set cmdheight=2 " make command line two lines height
 
 " for advance completion
+set wildoptions+=fuzzy,pum " fuzzy matching, and popup windows"
 set wildmenu
 set wildmode=longest:full,full
 set path+=**
