@@ -32,10 +32,8 @@ Plug 'juliosueiras/vim-terraform-completion'
 Plug 'https://github.com/othree/xml.vim.git'
 Plug 'https://github.com/vim-scripts/taglist.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'jpalardy/vim-slime'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'majutsushi/tagbar'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'maxmellon/vim-jsx-pretty'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -88,6 +86,8 @@ Plug 'honza/vim-snippets',
 " Plug 'aklt/plantuml-syntax'
 " Plug 'WolfgangMehner/bash-support'
 " Plug 'Shougo/denite.nvim'
+" Plug 'jpalardy/vim-slime'
+" Plug 'majutsushi/tagbar'
 
 " at the end, add plugins to the runtime path
 call plug#end()
