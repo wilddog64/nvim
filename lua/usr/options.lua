@@ -29,7 +29,6 @@ vim.g.bufExplorerShowRelativePath = 1
 vim.o.splitright = true
 vim.osplitbelow = true
 
-
 -- what we want to store in a session file
 vim.opt.ssop = {
   "buffers",
