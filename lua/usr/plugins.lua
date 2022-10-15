@@ -157,6 +157,14 @@ return packer.startup(function(use)
     end
   }
 
+  use {
+    'folke/whichk-key.nvim',
+    config = function()
+      require('which-key').setup {
+      }
+    end
+  }
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
