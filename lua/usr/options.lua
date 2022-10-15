@@ -28,6 +28,7 @@ vim.opt.signcolumn = "yes"
 vim.g.bufExplorerShowRelativePath = 1
 vim.o.splitright = true
 vim.osplitbelow = true
+vim.o.mouse=""
 
 -- what we want to store in a session file
 vim.opt.ssop = {
