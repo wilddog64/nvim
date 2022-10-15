@@ -95,7 +95,7 @@ telescope.setup {
   },
 }
 
-telescope.load_extension('urlview')
+-- telescope.load_extension('urlview')
 
 vim.cmd([[
   " Using Lua functions
