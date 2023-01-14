@@ -99,6 +99,7 @@ return packer.startup(function(use)
   use 'haya14busa/is.vim'
   use 'haya14busa/vim-asterisk'
   use 'wellle/targets.vim'
+  use 'sam4llis/nvim-lua-gf'
 
   use {
     'kyazdani42/nvim-tree.lua',
