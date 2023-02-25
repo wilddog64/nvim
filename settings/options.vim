@@ -9,9 +9,3 @@ set wildignore+=node_modules/*              " Javascript / Node.js
 
 let g:itchy_always_split = 1
 let g:itchy_split_direction = 2
-
-" mapping for nvim-tree
-nmap <leader>n :NvimTreeToggle<CR>
-imap <leader>n <C-O>:NvimTreeToggle<CR>
-nmap <leader>f :NvimTreeFindFile<CR>
-imap <leader>f <C-O>:NvimTreeFindFile<CR>
