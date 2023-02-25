@@ -170,3 +170,6 @@ nnoremap <silent> <Leader>c :call clearmatches()<CR>
 " map C-K in insert mode to delete fromc urrent cursor postion to the end of
 " line
 imap <C-K> <C-O><S-D>
+
+map <silent> <leader>n :lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>
+imap <silent> <leader>n <C-O> :lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>
