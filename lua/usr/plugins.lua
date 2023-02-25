@@ -82,7 +82,6 @@ return packer.startup(function(use)
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "akinsho/toggleterm.nvim"
   use "rktjmp/lush.nvim"
-  use "nvim-telescope/telescope.nvim"
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
   use 'idbrii/vim-ripple'
@@ -158,6 +157,15 @@ return packer.startup(function(use)
     end
   }
 
+  use {
+    "nvim-telescope/telescope.nvim",
+    requires = {
+      { "nvim-telescope/telescope-live-grep-args.nvim" },
+    },
+    config = function()
+      require("telescope").load_extension("live_grep_args")
+    end
+  }
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
