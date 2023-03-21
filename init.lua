@@ -54,8 +54,13 @@ require('packer').startup(function(use)
   use 'tmux-plugins/vim-tmux'
   use 'tmux-plugins/vim-tmux-focus-events'
   use 'sjl/gundo.vim'
-  use 'terryma/vim-multiple-cursors'
   use 'christoomey/vim-tmux-navigator'
+  use 'jiangmiao/auto-pairs'
+  use 'tpope/vim-surround'
+  use 'tpope/vim-unimpaired'
+  use 'junegunn/fzf'
+  use 'junegunn/fzf.vim'
+  use 'akinsho/toggleterm.nvim'
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
