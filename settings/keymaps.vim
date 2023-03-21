@@ -156,3 +156,6 @@ nmap <C-Right> :vertical resize +2<CR>
 
 " map gf :e <cfile><CR>
 " imap gf <C-O> :e <cfile><CR>
+
+nnoremap <silent><leader>gi :LazyGit<CR>
+imap <silent><leader>gi :LazyGit<CR>

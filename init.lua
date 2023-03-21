@@ -61,6 +61,7 @@ require('packer').startup(function(use)
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
   use 'akinsho/toggleterm.nvim'
+  use 'kdheepak/lazygit.nvim'
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
