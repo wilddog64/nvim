@@ -118,6 +118,7 @@ require('mini.trailspace').setup {}
 require('mini.jump').setup {}
 require('mini.sessions').setup {}
 
+require('usr.toggleterm')
 -- g:bufExplorerShowRelativePath=1
 vim.g.bufExplorerShowRelativePath = 1
 vim.cmd [[
