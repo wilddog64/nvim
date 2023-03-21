@@ -43,6 +43,7 @@ packer.init {
 require('packer').startup(function(use)
   -- packer can manage itself
   use 'wbthomason/packer.nvim'
+  use 'nvim-lua/plenary.nvim'
 
   use 'echasnovski/mini.nvim'
   use 'ervandew/supertab'
@@ -121,6 +122,8 @@ require('mini.jump').setup {}
 require('mini.sessions').setup {}
 
 require('usr.toggleterm')
+require('usr.telescope')
+
 -- g:bufExplorerShowRelativePath=1
 vim.g.bufExplorerShowRelativePath = 1
 vim.cmd [[
