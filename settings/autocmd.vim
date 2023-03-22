@@ -8,9 +8,9 @@ function! Get_lua_config_dir()
   let b:word = getline(line("."))
   if stridx(b:word, 'require') == -1
     if stridx(b:word, '~')
-      let b:word = strcharpart(b:word, stridx(b:word, '~'))
-      if filereadable(expand(b:word))
-        return expand(b:word)
+      let b:word = expand(strcharpart(b:word, stridx(b:word, '~')))
+      if filereadable(b:word)
+        return b:word
       endif
     endif
   endif
