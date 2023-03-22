@@ -10,7 +10,7 @@ function! Get_lua_config_dir()
     if stridx(b:word, '~')
       let b:word = strpart(b:word, stridx(b:word, '~'), strlen(b:word))
       if filereadable(expand(b:word))
-        return expand('<cfile>')
+        return b:word
       endif
     endif
   endif
