@@ -158,3 +158,6 @@ let g:terraform_align=1
 if !empty($DISPLAY) && has("unix")
   set clipboard+=unnamedplus
 endif
+
+" turn off annoy bell for all events
+set belloff=all
