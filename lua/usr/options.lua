@@ -45,7 +45,7 @@ vim.cmd([[
   set wildmode=longest:full,full
   set shm+=film
   set listchars=tab:▸\ ,trail:⋅,nbsp:⋅,eol:¬ " specfiy the invisible characters
-  set printoptions+=number:y
+  " set printoptions+=number:y
 
    color falcon
   if has("autocmd")
