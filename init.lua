@@ -20,11 +20,6 @@ require('usr.luasnip')
 require('usr.mini')
 require('usr.common')
 
--- add lsp configuration
-local lsp = require('lsp-zero')
-lsp.preset('recommended')
-lsp.nvim_workspace()
-lsp.setup()
 require 'lspfuzzy'.setup{}
 
 vim.cmd([[
