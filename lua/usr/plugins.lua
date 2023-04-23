@@ -98,6 +98,7 @@ return packer.startup(function(use)
   use 'haya14busa/vim-asterisk'
   use 'wellle/targets.vim'
   use 'sam4llis/nvim-lua-gf'
+  use 'rodjek/vim-puppet'
 
   use {
     'ojroques/nvim-lspfuzzy',
@@ -114,6 +115,7 @@ return packer.startup(function(use)
       -- LSP Support
       {'neovim/nvim-lspconfig'},
       {'williamboman/nvim-lsp-installer'},
+      {"williamboman/mason.nvim", run = ':MasonUpdate'},
 
       -- Autocompletion
       {'hrsh7th/nvim-cmp'},
