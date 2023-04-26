@@ -100,6 +100,9 @@ if !has('nvim')
 
   nmap <leader>fbl :BLines<cr>
   imap <leader>fbl <c-o>:BLines<cr>
+
+  nmap <leader>fk :Maps<cr>
+  imap <leader>fk <c-o>:Maps<cr>
 endif
 
 function! Lazygit()
