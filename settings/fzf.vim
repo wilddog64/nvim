@@ -44,6 +44,26 @@ set rtp+=/usr/local/opt/fzf
 "   \ 'options': '--ansi --delimiter : --nth 3..',
 "   \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
 
+" Required:
+" - width [float range [0 ~ 1]] or [integer range [8 ~ ]]
+" - height [float range [0 ~ 1]] or [integer range [4 ~ ]]
+"
+" Optional:
+" - xoffset [float default 0.5 range [0 ~ 1]]
+" - yoffset [float default 0.5 range [0 ~ 1]]
+" - relative [boolean default v:false]
+" - border [string default 'rounded']: Border style
+"   - 'rounded' / 'sharp' / 'horizontal' / 'vertical' / 'top' / 'bottom' / 'left' / 'right'
+
+" See `man fzf-tmux` for available options
+if exists('$TMUX')
+  let g:fzf_layout = { 'tmux': '-p90%,60%' }
+else
+  let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+endif
+
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
 if !has('nvim')
   nmap <leader>ff :Files<cr>
   imap <leader>ff <c-o>:Files<cr>
