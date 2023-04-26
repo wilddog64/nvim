@@ -30,7 +30,7 @@ if !exists('g:vscode') " execute these if the context is not vscode
     source ~/.config/nvim/settings/vim_maximizer.vim
     " source ~/.config/nvim/settings/jenkins.vim
     " source ~/.config/nvim/settings/nerdtree.vim
-    " source ~/.config/nvim/settings/vim-terraform.vim
+    source ~/.config/nvim/settings/vim-terraform.vim
     source ~/.config/nvim/settings/supertab.vim
     source ~/.config/nvim/settings/firenvim.vim
     source ~/.config/nvim/settings/autocmd.vim
