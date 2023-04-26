@@ -71,8 +71,8 @@ if !has('nvim')
   nmap <leader>fb :Buffers<cr>
   imap <leader>fb <c-o>:Buffers<cr>
 
-  nmap <leader>fs :Rg<cr>
-  imap <leader>fs <c-o>:Rg<cr>
+  nmap <leader>fg :Rg<cr>
+  imap <leader>fg <c-o>:Rg<cr>
 
   nmap <leader>fh :History<cr>
   imap <leader>fh <c-o>:History<cr>
@@ -86,7 +86,5 @@ if !has('nvim')
   nmap <leader>fc :Commands<cr>
   imap <leader>fc <c-o>:Commands<cr>
 
-  nmap <leader>fg :BCommits<cr>
-  imap <leader>fg <c-o>:BCommits<cr>
 endif
 
