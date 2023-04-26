@@ -86,5 +86,19 @@ if !has('nvim')
   nmap <leader>fc :Commands<cr>
   imap <leader>fc <c-o>:Commands<cr>
 
+  nmap <leader>fgc :BCommits<cr>
+  imap <leader>fgc <c-o>:BCommits<cr>
+
+  nmap <leader>fgf :GFiles<cr>
+  imap <leader>fgf <c-o>:GFiles<cr>
+
+  nmap <leader>fs :Snippets<cr>
+  imap <leader>fs <c-o>:Snippets<cr>
+
+  nmap <leader>fl :Lines<cr>
+  imap <leader>fl <c-o>:Lines<cr>
+
+  nmap <leader>fbl :BLines<cr>
+  imap <leader>fbl <c-o>:BLines<cr>
 endif
 
