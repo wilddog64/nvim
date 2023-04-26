@@ -154,9 +154,6 @@ nmap <C-Down> :resize +2<CR>
 nmap <C-Left> :vertical resize -2<CR>
 nmap <C-Right> :vertical resize +2<CR>
 
-nnoremap <silent><leader>gi :LazyGit<CR>
-imap <silent><leader>gi <c-o>:LazyGit<CR>
-
 " define line highlight color
 highlight LineHighlight ctermbg=darkgray guibg=darkgray
 " highlight the current line

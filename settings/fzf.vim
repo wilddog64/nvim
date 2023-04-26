@@ -102,3 +102,16 @@ if !has('nvim')
   imap <leader>fbl <c-o>:BLines<cr>
 endif
 
+function! Lazygit()
+  if !exists('$TMUX')
+    echom('Lazygit requires tmux')
+    return
+  endif
+
+  let workdir = getcwd()
+  let lazygit_cmd = 'tmux display-popup -xC -yC -h50 -w150 -d ' . workdir . " lazygit"
+  call system(lazygit_cmd)
+endfunction
+
+nnoremap <silent><leader>gi :call Lazygit()<CR>
+imap <silent><leader>gi <c-o>:Lazygit()<CR>

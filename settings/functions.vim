@@ -232,4 +232,3 @@ fun! <SID>NewSplit()
   endif
   nmap q :norm! ZZ <CR>
 endfun
-
