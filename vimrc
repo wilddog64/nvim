@@ -36,13 +36,8 @@ if !exists('g:vscode') " execute these if the context is not vscode
     source ~/.config/nvim/settings/autocmd.vim
     source ~/.config/nvim/settings/ultisnips.vim
     source ~/.config/nvim/settings/asterisk.vim
+    source ~/.config/nvim/settings/terraform-complete.vim
     
-    if has("nvim")
-        source ~/.config/nvim/settings/deoplete.vim
-        let g:python_host_skip_check = 1
-        source ~/.config/nvim/settings/nvim_editcmd.vim
-        " source ~/.config/nvim/settings/terraform-complete.vim
-    end
 else
     " don't highlight search items
     set nohlsearch

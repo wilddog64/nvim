@@ -3,17 +3,6 @@ call plug#begin('~/.local/share/vim/site/plugins')
 
 source ~/.config/nvim/settings/functions.vim
 
-if has("nvim")
-    Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
-    Plug 'brettanomyces/nvim-editcommand'
-    Plug 'honza/vim-snippets'
-    Plug 'sbdchd/neoformat'
-    Plug 'neomake/neomake'
-    Plug 'jodosha/vim-godebug'
-    Plug 'Shougo/context_filetype.vim'
-    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(1) } }
-end
-
 " a list of plugins we want to have
 " Plug 'Shougo/neosnippet-snippets'
 Plug 'SirVer/ultisnips'
