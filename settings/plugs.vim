@@ -56,6 +56,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'wellle/targets.vim'
 Plug 'rafamadriz/friendly-snippets',
 Plug 'honza/vim-snippets',
+Plug 'rodjek/vim-puppet'
 
 " Plug 'JamshedVesuna/vim-markdown-preview'
 " Plug 'roy2220/easyjump.tmux'
@@ -63,7 +64,6 @@ Plug 'honza/vim-snippets',
 " Plug 'tpope/vim-rake'
 " Plug 'tommcdo/vim-exchange'
 " Plug 'scrooloose/nerdtree'
-" Plug 'rodjek/vim-puppet'
 " Plug 'pearofducks/ansible-vim'
 " Plug 'lepture/vim-jinja'
 " Plug 'justinmk/vim-sneak'
