@@ -112,7 +112,7 @@ function! Lazygit()
   endif
 
   let workdir = getcwd()
-  let lazygit_cmd = 'tmux display-popup -xC -yC -h50 -w150 -d ' . workdir . " lazygit"
+  let lazygit_cmd = 'tmux display-popup -xC -yC -h40 -w150 -d ' . workdir . " lazygit"
   call system(lazygit_cmd)
 endfunction
 
