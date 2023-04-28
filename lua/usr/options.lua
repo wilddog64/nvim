@@ -1,12 +1,19 @@
+local nvim_shada = vim.fn.stdpath('data') .. '/shada/main.shada'
+local nvim_backup = vim.fn.stdpath('data') .. '/backup'
+local nvim_undo = vim.fn.stdpath('data')  .. '/undo'
+
 vim.opt.cpo ='aABceFs$'
 vim.opt.cursorline = true
 vim.opt.undofile = true
-vim.opt.shada = "'50,<1000,s100,n~/.local/share/nvim/shada/main.shada"
+-- vim.opt.shada = "'50,<1000,s100,n~/.local/share/nvim/shada/main.shada"
+vim.opt.shada = "'50,<1000,s100,n" .. nvim_shada
 vim.opt.inccommand = "nosplit"
-vim.opt.undodir = vim.fn.expand("~/.local/share/nvim/undo")
+-- vim.opt.undodir = vim.fn.expand("~/.local/share/nvim/undo")
+vim.opt.undodir = nvim_undo
 vim.opt.backup = true
 vim.opt.backupcopy = "auto"
-vim.opt.backupdir = vim.fn.expand("~/.local/share/nvim/backup")
+-- vim.opt.backupdir = vim.fn.expand("~/.local/share/nvim/backup")
+vim.opt.backupdir = nvim_backup
 vim.opt.hidden = true
 vim.g.mapleader = ";"
 vim.g["python3_host_prog"] = "/usr/bin/python3"
