@@ -69,19 +69,17 @@ return packer.startup(function(use)
   use 'shougo/deoplete-lsp'
   use { 'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
   use 'neovim/nvim-lspconfig'
-  use 'rhysd/clever-f.vim'
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  use  'ojroques/vim-oscyank'
+  use 'ojroques/vim-oscyank'
   use 'mfussenegger/nvim-dap'
-  use  'mfussenegger/nvim-dap-python'
+  use 'mfussenegger/nvim-dap-python'
   use 'nvim-lualine/lualine.nvim'
   use 'antoinemadec/FixCursorHold.nvim'
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "akinsho/toggleterm.nvim"
   use "rktjmp/lush.nvim"
-  use "nvim-telescope/telescope.nvim"
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
   use 'idbrii/vim-ripple'
@@ -93,14 +91,13 @@ return packer.startup(function(use)
   use 'echasnovski/mini.nvim'
   use 'juliosueiras/vim-terraform-completion'
   use 'hashivim/vim-terraform'
-
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons'
-    },
-    config = function() require 'nvim-tree'.setup {} end
-  }
+  use 'kdheepak/lazygit.nvim'
+  use 'martinda/Jenkinsfile-vim-syntax'
+  use 'haya14busa/is.vim'
+  use 'haya14busa/vim-asterisk'
+  use 'wellle/targets.vim'
+  use 'sam4llis/nvim-lua-gf'
+  use 'rodjek/vim-puppet'
 
   use {
     'ojroques/nvim-lspfuzzy',
@@ -116,7 +113,9 @@ return packer.startup(function(use)
     requires = {
       -- LSP Support
       {'neovim/nvim-lspconfig'},
-      {'williamboman/nvim-lsp-installer'},
+      -- {'williamboman/nvim-lsp-installer'},
+      {"williamboman/mason.nvim", run = ':MasonUpdate'},
+      {'williamboman/mason.lspconfig.nvim'},
 
       -- Autocompletion
       {'hrsh7th/nvim-cmp'},
@@ -135,7 +134,6 @@ return packer.startup(function(use)
           'honza/vim-snippets',
         }
       },
-      {'rafamadriz/friendly-snippets'},
 
       use 'folke/lsp-colors.nvim',
     }
@@ -149,6 +147,16 @@ return packer.startup(function(use)
       vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
       vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
       vim.g.UltiSnipsRemoveSelectModeMappings = 0
+    end
+  }
+
+  use {
+    "nvim-telescope/telescope.nvim",
+    requires = {
+      { "nvim-telescope/telescope-live-grep-args.nvim" },
+    },
+    config = function()
+      require("telescope").load_extension("live_grep_args")
     end
   }
 

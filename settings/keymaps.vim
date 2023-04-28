@@ -26,10 +26,6 @@ imap <leader>vdup <C-O>/^\(.*\)\(\r\?\n\1\)\+$<CR>
 map <leader>gx yiw/^\(sub\<bar>function\)\s\+\w\+<CR>           " search sub or function declaractions in a buffer
 map <leader>c :hi Normal guibg=#<c-r>=expand("<cword>")<cr><cr> " display rgb color under the cursor, eg #445588
 
-" for working with taglist.vim plugin
-noremap  <silent> <F2> <Esc><Esc>:TagbarToggle<CR>
-inoremap <silent> <F2> <C-O>:TagbarToggle<CR>
-
 " control-s in normal, insert, and visual mode will update buffer to disk
 noremap  <C-S>   :update<CR>
 vnoremap <C-S>  <C-C>:update<CR>
@@ -70,7 +66,11 @@ cabbr %% e <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>tic :s/\<\(\w\)\(\w*\)\>/\u\1\L\2/g<CR>
 imap <leader>tic <C-O>:s/\<\(\w\)\(\w*\)\>/\u\1\L\2/g<CR>
 
-map Y y$ " Y will yank from cursor until EOL
+" only map Y if we are not using neovim
+if !has('nvim')
+    map Y y$ " Y will yank from cursor until EOL
+endif
+
 " map <C-L> :noh<CR><C-L> " C-L will also clean up highlight, and redraw screen
 
 " bump sequence number by 1 from current cursor location to the end
@@ -93,9 +93,6 @@ imap <leader>ev <C-O>:vsp %%
 
 map <leader>et :tabe %%
 imap <leader>et <C-O>:tabe %%
-
-map <leader>gt :GundoToggle<CR>
-imap <leader>gt <C-O>:GundoToggle<CR>
 
 map <leader>sz :sp term://zsh<CR>
 imap <leader>sz <C-O>:sp term://zsh<CR>
@@ -157,4 +154,20 @@ nmap <C-Down> :resize +2<CR>
 nmap <C-Left> :vertical resize -2<CR>
 nmap <C-Right> :vertical resize +2<CR>
 
-nnoremap <silent><leader>gi :<Cmd>lua _LAZYGIT_TOGGLE()<cr><cr>
+" define line highlight color
+highlight LineHighlight ctermbg=darkgray guibg=darkgray
+" highlight the current line
+nnoremap <silent> <Leader>h :call matchadd('LineHighlight', '\%'.line('.').'l')<CR>
+" clear all the highlighted lines
+nnoremap <silent> <Leader>c :call clearmatches()<CR>
+
+" map C-K in insert mode to delete fromc urrent cursor postion to the end of
+" line
+imap <C-K> <C-O><S-D>
+
+map <silent> <leader>n :lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>
+
+if has("nvim")
+   nnoremap <silent><leader>gi :LazyGit<CR>
+   imap <silent><leader>gi <c-o>:LazyGit<CR>
+endif

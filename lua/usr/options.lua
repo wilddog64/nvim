@@ -12,7 +12,7 @@ vim.g.mapleader = ";"
 vim.g["python3_host_prog"] = "/usr/bin/python3"
 vim.opt.backspace = { "indent", "eol", "start" }
 vim.opt.history = 1000    -- command line history
-vim.opt.hlsearch = false  -- no highlight search result
+vim.opt.hlsearch = true   -- no highlight search result
 vim.opt.incsearch = true  -- do incremental search
 vim.opt.number = true     -- turn on numbering
 vim.opt.ruler = true      -- turn on ruler
@@ -28,7 +28,7 @@ vim.opt.signcolumn = "yes"
 vim.g.bufExplorerShowRelativePath = 1
 vim.o.splitright = true
 vim.osplitbelow = true
-
+vim.o.mouse=""
 
 -- what we want to store in a session file
 vim.opt.ssop = {
@@ -45,9 +45,9 @@ vim.cmd([[
   set wildmode=longest:full,full
   set shm+=film
   set listchars=tab:▸\ ,trail:⋅,nbsp:⋅,eol:¬ " specfiy the invisible characters
-  set printoptions+=number:y
+  " set printoptions+=number:y
 
-  " color Atelier_CaveDark
+   color falcon
   if has("autocmd")
 
   " Enable file type detection.

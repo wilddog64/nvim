@@ -11,7 +11,8 @@ if has("nvim") " for nvim set shada option; otherwise use viminfo
     let &backupdir=expand("~/.local/share/nvim/backup")
 else
     set viminfo='50,<1000,s100,:0,n~/.local/share/vim/viminfo
-    set dir=~/.local/share/nvim/swap/ " swap file store at /tmp
+    set dir=~/.local/share/vim/swap/ " swap file store at /tmp
+    call system('mkdir -p ~/.local/share/vim/{undo,backup,swap}')
     let &undodir = expand("~/.local/share/vim/undo")
     let &backupdir=expand("~/.local/share/vim/backup")
 end
@@ -44,7 +45,7 @@ let mapleader=";"
 " backsapce over autoindent, line breaks and start of line
 set backspace=indent,eol,start
 set history=1000      " command line history
-set nohlsearch        " highlight search result
+set hlsearch        " highlight search result
 set incsearch         " do incremental search
 set nu                " turn on numbering
 set ruler             " turn on ruler
@@ -52,8 +53,8 @@ set showcmd           " show command
 set showmatch         " show match of {}, [], <>, ...
 
 " set colorscheme
-color solarized8_dark_low " set color scheme to BlackSea
-set bg=dark           " set background to dark
+color DimSlate " set color scheme to DimSlate
+set bg=dark  " set background to dark
 
 " when diff mode is activated, split buffers vertically and ignore white spaces
 set diffopt+=vertical
@@ -62,6 +63,7 @@ set diffopt+=iwhite
 set cmdheight=2 " make command line two lines height
 
 " for advance completion
+set wildoptions+=fuzzy,pum " fuzzy matching, and popup windows"
 set wildmenu
 set wildmode=longest:full,full
 set path+=**
