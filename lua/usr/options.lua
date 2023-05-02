@@ -55,6 +55,7 @@ vim.cmd([[
   " set printoptions+=number:y
 
    color gruvbox
+
   if has("autocmd")
 
   " Enable file type detection.
