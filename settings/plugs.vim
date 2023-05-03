@@ -4,13 +4,6 @@ call plug#begin('~/.local/share/vim/site/plugins')
 source ~/.config/nvim/settings/functions.vim
 
 " a list of plugins we want to have
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-" Plug 'Shougo/neosnippet-snippets'
->>>>>>> e7343aa (sort plugins)
-=======
->>>>>>> c621c65 (move comment out lines to one place)
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'SirVer/ultisnips'
@@ -80,7 +73,6 @@ Plug 'mattn/vim-lsp-settings'
 " Plug 'pearofducks/ansible-vim'
 " Plug 'pechorin/any-jump.vim'
 " Plug 'puremourning/vimspector'
-" Plug 'rodjek/vim-puppet'
 " Plug 'roy2220/easyjump.tmux'
 " Plug 'scrooloose/nerdtree'
 " Plug 'tommcdo/vim-exchange'
