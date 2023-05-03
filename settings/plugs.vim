@@ -5,9 +5,12 @@ source ~/.config/nvim/settings/functions.vim
 
 " a list of plugins we want to have
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 " Plug 'Shougo/neosnippet-snippets'
 >>>>>>> e7343aa (sort plugins)
+=======
+>>>>>>> c621c65 (move comment out lines to one place)
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'SirVer/ultisnips'
