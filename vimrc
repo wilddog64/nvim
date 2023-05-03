@@ -5,11 +5,9 @@ endif
 
 if !exists('g:vscode') " execute these if the context is not vscode
 
-
     source ~/.config/nvim/settings/functions.vim
     source ~/.config/nvim/settings/plugs.vim
     source ~/.config/nvim/settings/general.vim
-
     source ~/.config/nvim/settings/ale.vim
     source ~/.config/nvim/settings/ansible.vim
     source ~/.config/nvim/settings/asterisk.vim
