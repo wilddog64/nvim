@@ -4,7 +4,6 @@ call plug#begin('~/.local/share/vim/site/plugins')
 source ~/.config/nvim/settings/functions.vim
 
 " a list of plugins we want to have
-" Plug 'Shougo/neosnippet-snippets'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'SirVer/ultisnips'
@@ -50,14 +49,15 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
+Plug 'voldikss/vim-floaterm'
 Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 Plug 'yasuhiroki/github-actions-yaml.vim'
 Plug 'zchee/deoplete-go'
-Plug 'voldikss/vim-floaterm'
 
 " Plug 'JamshedVesuna/vim-markdown-preview'
 " Plug 'Shougo/denite.nvim'
+" Plug 'Shougo/neosnippet-snippets'
 " Plug 'WolfgangMehner/bash-support'
 " Plug 'aklt/plantuml-syntax'
 " Plug 'burnettk/vim-jenkins'
