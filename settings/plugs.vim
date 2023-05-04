@@ -54,6 +54,7 @@ Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 Plug 'yasuhiroki/github-actions-yaml.vim'
 Plug 'zchee/deoplete-go'
+Plug 'voldikss/vim-floaterm'
 
 " Plug 'JamshedVesuna/vim-markdown-preview'
 " Plug 'Shougo/denite.nvim'
