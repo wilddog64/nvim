@@ -111,14 +111,14 @@ imap <leader>fc <c-r>=system('~/.vim/bundle/fake-credential.rb')<cr>
 imap <leader>ap <c-o>:call AutoPairsToggle()<cr>
 
 " mapping for navigating around tabs
-map <leader>tn :tabn<CR>
-imap <leader>tn <C-O>:tabn!<CR>
-map <leader>tp :tabp<CR>
-imap <leader>tp <C-O>:tabp!<CR>
-map <leader>tf :tabfirst<CR>
-imap <leader>tf :tabfirst!<CR>
-map <leader>tl :tablast<CR>
-imap <leader>tl :tablast<CR>
+" map <leader>tn :tabn<CR>
+" imap <leader>tn <C-O>:tabn!<CR>
+" map <leader>tp :tabp<CR>
+" imap <leader>tp <C-O>:tabp!<CR>
+" map <leader>tf :tabfirst<CR>
+" imap <leader>tf :tabfirst!<CR>
+" map <leader>tl :tablast<CR>
+" imap <leader>tl :tablast<CR>
 
 map <leader>so :so $MYVIMRC<CR>
 
