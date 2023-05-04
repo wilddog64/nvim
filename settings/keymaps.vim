@@ -174,4 +174,3 @@ if has("nvim")
    nmap <leader>cc <leader>c_
    vmap <leader>c <Plug>OSCYankVisual
 endif
-
