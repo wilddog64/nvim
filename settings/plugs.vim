@@ -25,7 +25,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'maxmellon/vim-jsx-pretty'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'sjl/gundo.vim'
@@ -39,9 +38,7 @@ Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-unimpaired'
 Plug 'zchee/deoplete-go'
-" Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
-" Plug 'pechorin/any-jump.vim'
 Plug 'tfnico/vim-gradle'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'OmniSharp/omnisharp-vim'
@@ -77,6 +74,9 @@ Plug 'rodjek/vim-puppet'
 " Plug 'Shougo/denite.nvim'
 " Plug 'jpalardy/vim-slime'
 " Plug 'majutsushi/tagbar'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'puremourning/vimspector'
+" Plug 'pechorin/any-jump.vim'
 
 " at the end, add plugins to the runtime path
 call plug#end()
