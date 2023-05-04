@@ -4,6 +4,10 @@ call plug#begin('~/.local/share/vim/site/plugins')
 source ~/.config/nvim/settings/functions.vim
 
 " a list of plugins we want to have
+<<<<<<< HEAD
+=======
+" Plug 'Shougo/neosnippet-snippets'
+>>>>>>> e7343aa (sort plugins)
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'SirVer/ultisnips'
