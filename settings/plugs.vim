@@ -56,6 +56,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'wellle/targets.vim'
 Plug 'rafamadriz/friendly-snippets',
 Plug 'honza/vim-snippets',
+Plug 'voldikss/vim-floaterm'
 Plug 'markonm/traces.vim'
 
 " Plug 'JamshedVesuna/vim-markdown-preview'
