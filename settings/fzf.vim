@@ -104,19 +104,3 @@ if !has('nvim')
   nmap <leader>fk :Maps<cr>
   imap <leader>fk <c-o>:Maps<cr>
 endif
-
-function! Lazygit()
-  if !exists('$TMUX')
-    echom('Lazygit requires tmux')
-    return
-  endif
-
-  let workdir = getcwd()
-  let winheight = winheight('%') - 1
-  let winwidth = winwidth('%') - 1
-  let lazygit_cmd = 'tmux display-popup -xC -yC -h' . winheight . ' -w' . winwidth . ' -d ' . workdir . " lazygit"
-  call system(lazygit_cmd)
-endfunction
-
-nnoremap <silent><leader>gi :call Lazygit()<CR>
-imap <silent><leader>gi <c-o>:Lazygit()<CR>
