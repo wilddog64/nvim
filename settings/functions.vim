@@ -211,9 +211,9 @@ endfunction
 " autocmd BufReadPost filetype puppet nmap <leader>gf :exe "e " . Get_puppet_manfiest_file()<CR>
 augroup puppetEx
     au!
-    autocmd BufReadPost * nmap <buffer> <leader>gf :exe "e "   . Get_puppet_filepath()<CR>
-    autocmd BufReadPost * nmap <buffer> <leader>wf :exe "sp "  . Get_puppet_filepath()<CR>
-    autocmd BufReadPost * nmap <buffer> <leader>vf :exe "vsp " . Get_puppet_filepath()<CR>
+    autocmd BufReadPost filetype puppet nmap <buffer> <leader>gf :exe "e "   . Get_puppet_filepath()<CR>
+    autocmd BufReadPost filetype puppet nmap <buffer> <leader>wf :exe "sp "  . Get_puppet_filepath()<CR>
+    autocmd BufReadPost filetype puppet nmap <buffer> <leader>vf :exe "vsp " . Get_puppet_filepath()<CR>
 augroup END
 
 " split help file vertically
