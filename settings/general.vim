@@ -67,7 +67,8 @@ set cmdheight=2 " make command line two lines height
 set wildmenu
 set wildmode=longest:full,full
 set path+=**
-set completeopt-=preview
+" set completeopt-=preview
+set completeopt+=menuone,popup,preview
 
 " display shot message, f: (3 of 5) instead of (file 3 of 5),
 " i [noeol] for [Incomplete last line], m: [+] for modified
