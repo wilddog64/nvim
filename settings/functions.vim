@@ -98,16 +98,14 @@ function! <SID>AutoProjectRootCD()
       endtry
 endfunction
 
-autocmd BufEnter * call <SID>FollowSymlink() | call <SID>AutoProjectRootCD()
-
 " strip trailing whitespaces without moving cursor
 function! <SID>StripTrailingWhitespaces()
    " Preparation: save last search, and cursor position.
    call <SID>Preserve("%s/\s\+$//e")
 endfunction
 
-nmap <silent> <leader>sw :call <SID>StripTrailingWhitespaces()<CR>
-" autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
+   nmap <silent> <leader>sw :call <SID>StripTrailingWhitespaces()<CR>
+   " autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
 
 " Get_puppet_manfiest_file is a function that return a full path of puppet
 " manifest, template, and upload file by interpretation of puppet statements
