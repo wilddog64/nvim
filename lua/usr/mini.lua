@@ -21,13 +21,13 @@
 -- })
 
 require('mini.bufremove').setup({
-    set_vim_settings = true
+  set_vim_settings = true
 })
 
 require('mini.comment').setup({
-    comment = 'gc',
-    comment_line = 'gcc',
-    textobject = 'gc',
+  comment = 'gc',
+  comment_line = 'gcc',
+  textobject = 'gc',
 })
 
 require('mini.cursorword').setup {}
