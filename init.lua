@@ -19,6 +19,7 @@ require('usr.urlview')
 require('usr.luasnip')
 require('usr.mini')
 require('usr.common')
+require('usr.osc52')
 
 local lsp = require('lsp-zero').preset('recommended')
 lsp.nvim_workspace()
