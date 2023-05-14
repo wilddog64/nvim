@@ -68,7 +68,7 @@ imap <leader>tic <C-O>:s/\<\(\w\)\(\w*\)\>/\u\1\L\2/g<CR>
 
 " only map Y if we are not using neovim
 if !has('nvim')
-    map Y y$ " Y will yank from cursor until EOL
+   map Y y$ " Y will yank from cursor until EOL
 endif
 
 " map <C-L> :noh<CR><C-L> " C-L will also clean up highlight, and redraw screen
@@ -170,8 +170,8 @@ map <silent> <leader>n :lua require("telescope").extensions.live_grep_args.live_
 if has("nvim")
    nnoremap <silent><leader>gi :LazyGit<CR>
    imap <silent><leader>gi <c-o>:LazyGit<CR>
+   nmap <leader>c <Plug>OSCYankOperator
+   nmap <leader>cc <leader>c_
+   vmap <leader>c <Plug>OSCYankVisual
 endif
 
-nmap <leader>c <Plug>OSCYankOperator
-nmap <leader>cc <leader>c_
-vmap <leader>c <Plug>OSCYankVisual
