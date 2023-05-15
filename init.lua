@@ -21,16 +21,7 @@ require('usr.mini')
 require('usr.common')
 require('usr.osc52')
 require('usr.win32yank')
-<<<<<<< HEAD
 require('usr.nvim-tree')
-=======
-
-local lsp = require('lsp-zero').preset('recommended')
-lsp.nvim_workspace()
-lsp.setup()
-
-require 'lspfuzzy'.setup{}
->>>>>>> e61b104 (use win32yank as clipboard provider)
 
 vim.cmd([[
   source ~/.config/nvim/settings/keymaps.vim
