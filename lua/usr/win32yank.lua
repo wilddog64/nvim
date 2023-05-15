@@ -1,4 +1,4 @@
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 
 if vim.fn.has("wsl") == 1 then
   vim.g.clipboard = {
