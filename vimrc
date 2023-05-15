@@ -34,6 +34,8 @@ if !exists('g:vscode') " execute these if the context is not vscode
     source ~/.config/nvim/settings/vim-terraform.vim
     source ~/.config/nvim/settings/vim_maximizer.vim
     source ~/.config/nvim/settings/vimux.vim
+    source ~/.config/nvim/settings/floaterm.vim
+    source ~/.config/nvim/settings/win32yank.vim
     " source ~/.config/nvim/settings/jenkins.vim
     " source ~/.config/nvim/settings/neoformat.vim
     " source ~/.config/nvim/settings/neosnippet.vim
