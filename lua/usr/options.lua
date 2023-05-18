@@ -54,8 +54,12 @@ vim.cmd([[
   set listchars=tab:▸\ ,trail:⋅,nbsp:⋅,eol:¬ " specfiy the invisible characters
   " set printoptions+=number:y
 
+<<<<<<< HEAD
    color gruvbox
 
+=======
+   color DevC++
+>>>>>>> e711f59 (set colorscheme to DevC++)
   if has("autocmd")
 
   " Enable file type detection.
