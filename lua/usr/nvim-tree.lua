@@ -15,3 +15,9 @@ keymap("n", "f", ":NvimTreeFindFile<CR>", opts)
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 -- require 'nvim-tree'.setup {} -- END_DEFAULT_OPTS
 
+local opts = {}
+opts.actions = {}
+opts.actions.open_file = {}
+opts.actions.open_file.quit_on_open = true
+require('nvim-tree').setup(opts)
+
