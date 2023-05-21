@@ -16,4 +16,3 @@ keymap("n", "<leader>f", ":NvimTreeFindFile<CR>", opts)
 -- require 'nvim-tree'.setup {} -- END_DEFAULT_OPTS
 -- nvim_tree.setup(opts)
 -- require('nvim-tree').setup(opts)
-
