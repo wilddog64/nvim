@@ -22,15 +22,6 @@ require('usr.common')
 require('usr.osc52')
 require('usr.win32yank')
 require('usr.nvim-tree')
-<<<<<<< HEAD
-=======
-
-local lsp = require('lsp-zero').preset('recommended')
-lsp.nvim_workspace()
-lsp.setup()
-
-require 'lspfuzzy'.setup{}
->>>>>>> 53cdb48 (add nvim plugin and update its configuration)
 
 vim.cmd([[
   source ~/.config/nvim/settings/keymaps.vim
