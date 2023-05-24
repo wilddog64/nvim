@@ -112,7 +112,6 @@ return packer.startup(function(use)
   }
 
   use {
-<<<<<<< HEAD
     'nvim-tree/nvim-tree.lua',
     requires = {
       'nvim-tree/nvim-web-devicons', -- optional
@@ -126,26 +125,6 @@ return packer.startup(function(use)
         }
       }
     end
-=======
-    "nvim-neo-tree/neo-tree.nvim",
-      branch = "v2.x",
-      requires = {
-        "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-        "MunifTanjim/nui.nvim",
-        config = function()
-          event_handlers = {
-            {
-              event = "file_opened",
-              handler = function(file_path)
-                --auto close
-                require("neo-tree").close_all()
-              end
-            },
-          }
-        end
-      }
->>>>>>> e3ad54d (add nvim-tree and configuration)
   }
 
   -- LSP
