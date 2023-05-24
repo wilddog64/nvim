@@ -21,7 +21,6 @@ require('usr.mini')
 require('usr.common')
 require('usr.osc52')
 require('usr.win32yank')
-require('usr.nvim-tree')
 
 vim.cmd([[
   source ~/.config/nvim/settings/keymaps.vim
