@@ -42,4 +42,5 @@ vim.cmd([[
   source ~/.config/nvim/settings/markdown.vim
   source ~/.config/nvim/settings/asterisk.vim
   source ~/.config/nvim/settings/vim_maximizer.vim
+  source ~/.config/nvim/settings/slim.vim
 ]])
