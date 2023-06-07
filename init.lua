@@ -43,4 +43,5 @@ vim.cmd([[
   source ~/.config/nvim/settings/asterisk.vim
   source ~/.config/nvim/settings/vim_maximizer.vim
   source ~/.config/nvim/settings/slim.vim
+  source ~/.config/nvim/settings/ipy.vim
 ]])
