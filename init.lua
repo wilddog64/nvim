@@ -38,5 +38,8 @@ vim.cmd([[
   source ~/.config/nvim/settings/vim_maximizer.vim
   source ~/.config/nvim/settings/slim.vim
   source ~/.config/nvim/settings/ipy.vim
+<<<<<<< HEAD
   source ~/.config/nvim/settings/slim.vim
+=======
+>>>>>>> d883236 (add ipython related plugins and settings)
 ]])
