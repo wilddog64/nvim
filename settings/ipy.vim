@@ -1,4 +1,5 @@
-
+let g:ipython_cell_prefer_external_copy = 1
+let g:ipython_cell_highlight_cells = 0
 "------------------------------------------------------------------------------
 " ipython-cell configuration
 "------------------------------------------------------------------------------
