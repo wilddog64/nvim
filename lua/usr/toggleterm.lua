@@ -5,7 +5,7 @@ end
 
 toggleterm.setup({
 	size = 20,
-	open_mapping = [[<c-\>]],
+	open_mapping = [[<c-y>]],
 	hide_numbers = true,
 	shade_filetypes = {},
 	shade_terminals = true,
@@ -13,7 +13,8 @@ toggleterm.setup({
 	start_in_insert = true,
 	insert_mappings = true,
 	persist_size = true,
-	direction = "float",
+	direction = "horizontal",
+  size = 10,
 	close_on_exit = true,
 	shell = vim.o.shell,
 	float_opts = {
@@ -36,7 +37,7 @@ function _G.set_terminal_keymaps()
   vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
 end
 
-vim.cmd('autocmd! TermOpen term://*toogleterm#* lua set_terminal_keymaps()')
+vim.cmd('autocmd! TermOpen term:// lua set_terminal_keymaps()')
 
 -- local Terminal = require("toggleterm.terminal").Terminal
 -- local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
