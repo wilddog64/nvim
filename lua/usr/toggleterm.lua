@@ -14,7 +14,6 @@ toggleterm.setup({
 	insert_mappings = true,
 	persist_size = true,
 	direction = "horizontal",
-  size = 10,
 	close_on_exit = true,
 	shell = vim.o.shell,
 	float_opts = {
