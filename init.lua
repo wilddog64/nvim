@@ -23,6 +23,9 @@ require('usr.osc52')
 require('usr.win32yank')
 require('usr.nvim-tree')
 
+local lsp = require('lsp-zero').preset('recommended')
+lsp.nvim_workspace()
+lsp.setup()
 
 vim.cmd([[
   source ~/.config/nvim/settings/keymaps.vim
