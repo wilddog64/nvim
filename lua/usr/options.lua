@@ -16,7 +16,7 @@ vim.opt.backupcopy = "auto"
 vim.opt.backupdir = nvim_backup
 vim.opt.hidden = true
 vim.g.mapleader = ";"
-vim.g["python3_host_prog"] = "/usr/bin/python3"
+vim.g["python3_host_prog"] = vim.fn.expand('~/.pyenv/versions/3.11.6/bin/python')
 vim.opt.backspace = { "indent", "eol", "start" }
 vim.opt.history = 1000    -- command line history
 vim.opt.hlsearch = true   -- no highlight search result
@@ -54,7 +54,7 @@ vim.cmd([[
   set listchars=tab:▸\ ,trail:⋅,nbsp:⋅,eol:¬ " specfiy the invisible characters
   " set printoptions+=number:y
 
-   color zenesque
+   color Atelier_CaveDark
   if has("autocmd")
 
   " Enable file type detection.

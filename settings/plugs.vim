@@ -57,6 +57,7 @@ Plug 'rodjek/vim-puppet'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'rhysd/vim-lsp-ale'
 Plug 'mattn/vim-lsp-settings'
+Plug 'voldikss/vim-floaterm'
 
 " Plug 'JamshedVesuna/vim-markdown-preview'
 " Plug 'Shougo/denite.nvim'

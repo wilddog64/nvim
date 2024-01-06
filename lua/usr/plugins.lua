@@ -53,7 +53,7 @@ return packer.startup(function(use)
   use 'christoomey/vim-tmux-navigator'
   use 'dbakker/vim-projectroot'
   use 'ervandew/supertab'
-  use 'fatih/vim-go'
+  -- use 'fatih/vim-go'
   use 'hashivim/vim-hashicorp-tools'
   use 'othree/xml.vim'
   use 'sjl/gundo.vim'
@@ -61,7 +61,7 @@ return packer.startup(function(use)
   use 'tmux-plugins/vim-tmux'
   use 'tmux-plugins/vim-tmux-focus-events'
   use 'tpope/vim-endwise'
-  use 'tpope/vim-fugitive'
+  -- use 'tpope/vim-fugitive'
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired'
@@ -81,7 +81,7 @@ return packer.startup(function(use)
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "akinsho/toggleterm.nvim"
   use "rktjmp/lush.nvim"
-  use 'junegunn/fzf'
+  -- use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
   use 'idbrii/vim-ripple'
   use 'idbrii/itchy.vim'
