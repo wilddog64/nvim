@@ -1,7 +1,5 @@
 let g:floaterm_autoclose=2 " always lose float term when job complete
 
-nmap <silent> <leader>tn :FloatermNew<CR>
-imap <silent> <leader>tn <C-O>:FloatermNew<CR>
 nmap <silent> <leader>tt :FloatermToggle<CR>
 imap <silent> <leader>tt <C-O>:FloatermToggle<CR>
 
