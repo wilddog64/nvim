@@ -38,7 +38,6 @@ augroup python
    autocmd FileType python imap <python> <leader>xp <C-O>:call <SID>ExecutePyModule()<CR>
 augroup END
 
-
 function! <SID>SwitchToBufferDirRoot()
   let b:projectroot = projectroot#get(expand('%'))
   execute "VimuxRunCommand('cd " . b:projectroot . "')"
