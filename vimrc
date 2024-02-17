@@ -38,7 +38,6 @@ if !exists('g:vscode') " execute these if the context is not vscode
     " source ~/.config/nvim/settings/neoformat.vim
     " source ~/.config/nvim/settings/neosnippet.vim
     " source ~/.config/nvim/settings/nerdtree.vim
-    
 else
     " don't highlight search items
     set nohlsearch
