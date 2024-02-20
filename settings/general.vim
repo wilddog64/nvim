@@ -53,8 +53,8 @@ set showcmd           " show command
 set showmatch         " show match of {}, [], <>, ...
 
 " set colorscheme
-color DevC++  " set color scheme to DimSlate
-set bg=dark  " set background to dark
+color DimGrey " set color scheme to DimSlate
+set bg=dark   " set background to dark
 
 " when diff mode is activated, split buffers vertically and ignore white spaces
 set diffopt+=vertical
