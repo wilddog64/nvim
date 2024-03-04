@@ -98,6 +98,7 @@ return packer.startup(function(use)
   use 'wellle/targets.vim'
   use 'sam4llis/nvim-lua-gf'
   use 'rodjek/vim-puppet'
+  use 'markonm/traces.vim'
 
   use {
     'ojroques/nvim-lspfuzzy',
