@@ -99,8 +99,11 @@ return packer.startup(function(use)
   use 'wellle/targets.vim'
   use 'sam4llis/nvim-lua-gf'
   use 'rodjek/vim-puppet'
+<<<<<<< HEAD
   use 'jpalardy/vim-slime'
   use 'hanschen/vim-ipython-cell'
+=======
+>>>>>>> 87aebc7 (add markonm/traces.vim)
   use 'markonm/traces.vim'
 
   use {

@@ -55,6 +55,8 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'rhysd/vim-lsp-ale'
 Plug 'mattn/vim-lsp-settings'
 Plug 'voldikss/vim-floaterm'
+Plug 'rafamadriz/friendly-snippets',
+Plug 'honza/vim-snippets',
 Plug 'markonm/traces.vim'
 
 " Plug 'JamshedVesuna/vim-markdown-preview'
