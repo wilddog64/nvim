@@ -141,6 +141,15 @@ return packer.startup(function(use)
   }
 
   use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons'
+    },
+    config = function() require 'nvim-tree'.setup {} end,
+    cmd = { 'NvimTreeToggle' }
+  }
+
+  use {
     'SirVer/ultisnips',
     config = function()
       vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
