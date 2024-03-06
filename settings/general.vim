@@ -53,7 +53,7 @@ set showcmd           " show command
 set showmatch         " show match of {}, [], <>, ...
 
 " set colorscheme
-color DimSlate " set color scheme to DimSlate
+color solarized8_dark_low  " set color scheme to DimSlate
 set bg=dark  " set background to dark
 
 " when diff mode is activated, split buffers vertically and ignore white spaces
