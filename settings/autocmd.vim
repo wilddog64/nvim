@@ -81,6 +81,4 @@ augroup tabconf
 augroup END
 
 " content will be copy to clipboard
-if has("vim")
-   autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif
-endif
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif
