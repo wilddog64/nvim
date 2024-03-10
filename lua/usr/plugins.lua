@@ -145,7 +145,12 @@ return packer.startup(function(use)
       'kyazdani42/nvim-web-devicons'
     },
     config = function() require 'nvim-tree'.setup {} end,
-    cmd = { 'NvimTreeToggle' }
+    cmd = { 'NvimTreeToggle' },
+    actions = {
+      open_file = {
+        quit_on_open = true,
+      },
+    },
   }
 
   use {
