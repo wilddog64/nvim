@@ -48,7 +48,7 @@ vim.cmd([[
   " set printoptions+=number:y
 
   set fileformat=unix fixendofline
-   color falcon
+  color solarized8_dark_low
   if has("autocmd")
 
   " Enable file type detection.
