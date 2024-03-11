@@ -168,6 +168,6 @@ imap <C-K> <C-O><S-D>
 map <silent> <leader>n :lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>
 
 if has("nvim")
-   nnoremap <silent><leader>gi :LazyGit<CR>
-   imap <silent><leader>gi <c-o>:LazyGit<CR>
+   nnoremap <silent><leader>g :LazyGit<CR>
+   imap <silent><leader>g <c-o>:LazyGit<CR>
 endif
