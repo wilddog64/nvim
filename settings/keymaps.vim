@@ -63,6 +63,9 @@ map <S-TAB> :bp!<CR>
 " map %% for command line to quickly edit file in current directory
 cabbr %% e <C-R>=expand("%:p:h") . "/" <CR>
 
+map <leader>s :%s/
+imap <leader>s <C-O>:%s/
+
 map <leader>tic :s/\<\(\w\)\(\w*\)\>/\u\1\L\2/g<CR>
 imap <leader>tic <C-O>:s/\<\(\w\)\(\w*\)\>/\u\1\L\2/g<CR>
 
