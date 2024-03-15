@@ -353,3 +353,7 @@ vim.api.nvim_create_autocmd({"BufWritePre"}, {
     vim.lsp.buf.format()
   end,
 })
+
+lspconfig.bashls.setup({
+  handlers = handlers
+})

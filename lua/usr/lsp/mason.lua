@@ -17,6 +17,7 @@ require("mason-lspconfig").setup {
 -- MASON LSPCONFIG
 require('mason-lspconfig').setup({
     ensure_installed = {
+        'bashls',
         'cssls',
         'emmet_ls',
         'html',
