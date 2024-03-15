@@ -18,20 +18,14 @@ require("mason-lspconfig").setup {
 require('mason-lspconfig').setup({
     ensure_installed = {
         'bashls',
-        'cssls',
-        'emmet_ls',
         'html',
-        'intelephense',
         'jdtls',
         'jsonls',
-        'ltex',
         'lua_ls',
         'pyright',
-        'rust_analyzer',
         'terraformls',
         'texlab',
         'tsserver',
-        'volar',
         'yamlls',
     },
 })
