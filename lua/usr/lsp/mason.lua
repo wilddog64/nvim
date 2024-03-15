@@ -27,6 +27,7 @@ require('mason-lspconfig').setup({
         'lua_ls',
         'pyright',
         'rust_analyzer',
+        'terraformls',
         'texlab',
         'tsserver',
         'volar',
