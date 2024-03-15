@@ -357,3 +357,7 @@ vim.api.nvim_create_autocmd({"BufWritePre"}, {
 lspconfig.bashls.setup({
   handlers = handlers
 })
+
+lspconfig.marksman.setup({
+  handlers = handlers
+})

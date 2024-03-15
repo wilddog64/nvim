@@ -22,6 +22,7 @@ require('mason-lspconfig').setup({
         'jdtls',
         'jsonls',
         'lua_ls',
+        'marksman',
         'pyright',
         'terraformls',
         'texlab',
