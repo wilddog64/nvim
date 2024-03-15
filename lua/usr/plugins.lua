@@ -99,6 +99,7 @@ return packer.startup(function(use)
   use 'sam4llis/nvim-lua-gf'
   use 'rodjek/vim-puppet'
   use 'jpalardy/vim-slime'
+  use 'ojroques/vim-oscyank'
 
   use {
     'ojroques/nvim-lspfuzzy',
