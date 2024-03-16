@@ -361,3 +361,7 @@ lspconfig.bashls.setup({
 lspconfig.marksman.setup({
   handlers = handlers
 })
+
+lspconfig.dockerls.setup({
+  handlers = handlers
+})

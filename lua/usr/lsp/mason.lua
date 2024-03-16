@@ -18,6 +18,7 @@ require("mason-lspconfig").setup {
 require('mason-lspconfig').setup({
     ensure_installed = {
         'bashls',
+        'dockerls',
         'html',
         'jdtls',
         'jsonls',
