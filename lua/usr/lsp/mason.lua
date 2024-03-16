@@ -17,6 +17,7 @@ require("mason-lspconfig").setup {
 -- MASON LSPCONFIG
 require('mason-lspconfig').setup({
     ensure_installed = {
+        'azure_pipelines_ls',
         'bashls',
         'dockerls',
         'html',
