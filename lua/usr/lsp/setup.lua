@@ -1,5 +1,6 @@
 local lspconfig = require('lspconfig')
 local lsp_defaults = lspconfig.util.default_config
+
 -- TOGGLE INLAY HINTS
 if vim.lsp.inlay_hint then
     vim.keymap.set('n', '<leader>ih', function()
@@ -17,16 +18,20 @@ local border = {
     { '└', 'FloatBorder' },
     { '│', 'FloatBorder' },
 }
+
 -- LSP SETTINGS (FOR OVERRIDING PER CLIENT)
 local handlers = {
     ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
     ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+}
+
 -- DIAGNOSTICS SIGNS
 local signs = { Error = ' ', Warn = ' ', Hint = '󰌶 ', Info = ' ' }
 for type, icon in pairs(signs) do
     local hl = 'DiagnosticSign' .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
+
 vim.diagnostic.config({
     virtual_text = {
         prefix = '', -- Could be '●', '▎', │, 'x', '■', , 
@@ -96,5 +101,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
-
-
+lspconfig.pylsp.setup({
+  handlers = handlers
+})
