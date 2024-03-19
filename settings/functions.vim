@@ -97,6 +97,7 @@ function! <SID>AutoProjectRootCD()
          " Silently ignore invalid buffers
       endtry
 endfunction
+autocmd BufEnter * call <SID>AutoProjectRootCD()
 
 " strip trailing whitespaces without moving cursor
 function! <SID>StripTrailingWhitespaces()
