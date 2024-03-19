@@ -151,6 +151,10 @@ lspconfig.dockerls.setup({
   handlers = handlers
 })
 
+lspconfig.jsonls.setup({
+  handlers = handlers
+})
+
 lspconfig.azure_pipelines_ls.setup {
   settings = {
       yaml = {
