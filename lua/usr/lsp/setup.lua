@@ -140,3 +140,20 @@ lspconfig.azure_pipelines_ls.setup {
   },
 }
 
+lspconfig.yamlls.setup {
+  handlers = handlers,
+  settings = {
+    yaml = {
+      format = {
+        enable = true
+      },
+      schemaStore = {
+        enable = true
+      },
+      schemas = {
+        ["https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json"]= "conf/**/*catalog*",
+        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*"
+      },
+    }
+  }
+}
