@@ -16,5 +16,5 @@ lspconfig.lua_ls.setup({})
 require("usr.lsp.handlers").setup()
 require "usr.lsp.null-ls"
 require("usr.lsp.config")
-require('usr.lsp.setup')
 require('usr.lsp.mason')
+require('usr.lsp.setup')
