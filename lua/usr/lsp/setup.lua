@@ -104,3 +104,39 @@ vim.api.nvim_create_autocmd('LspAttach', {
 lspconfig.pylsp.setup({
   handlers = handlers
 })
+
+lspconfig.terraformls.setup({})
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+  pattern = {"*.tf", "*.tfvars"},
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})
+
+lspconfig.bashls.setup({
+  handlers = handlers
+})
+
+lspconfig.marksman.setup({
+  handlers = handlers
+})
+
+lspconfig.dockerls.setup({
+  handlers = handlers
+})
+
+lspconfig.azure_pipelines_ls.setup {
+  settings = {
+      yaml = {
+          schemas = {
+              ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
+                  "/azure-pipeline*.y*l",
+                  "/*.azure*",
+                  "Azure-Pipelines/**/*.y*l",
+                  "Pipelines/*.y*l",
+              },
+          },
+      },
+  },
+}
+
