@@ -54,7 +54,7 @@ vim.cmd([[
   set listchars=tab:▸\ ,trail:⋅,nbsp:⋅,eol:¬ " specfiy the invisible characters
   " set printoptions+=number:y
 
-   color solarized8_dark_low
+   color falcon
 
   if has("autocmd")
 
