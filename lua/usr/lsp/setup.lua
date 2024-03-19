@@ -43,6 +43,7 @@ vim.diagnostic.config({
 
 lspconfig.lua_ls.setup({
   single_file_support = true,
+  handlers = handlers,
   flags = {
     debounce_text_changes = 150,
   },
