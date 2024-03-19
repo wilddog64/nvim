@@ -5,9 +5,6 @@ require("mason").setup {
     }
   }
 }
-require("mason-lspconfig").setup {
-    -- ensure_installed = { "lua-language-server" },
-}
 
 -- MASON LSPCONFIG
 require('mason-lspconfig').setup({
