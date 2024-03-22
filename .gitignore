@@ -1,7 +1,6 @@
 plugged/
 .netrwhist
 plug.vim.old
-autoload/
 bundle
 .VimballRecord
 doc
