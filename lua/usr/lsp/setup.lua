@@ -156,6 +156,7 @@ lspconfig.jsonls.setup({
 })
 
 lspconfig.azure_pipelines_ls.setup {
+  handlers = handlers,
   settings = {
       yaml = {
           schemas = {
