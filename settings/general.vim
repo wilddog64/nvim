@@ -83,6 +83,9 @@ set ssop+=tabpages
 set ssop+=winpos
 set ssop+=winsize
 set ssop-=blank
+set ssop+=terminal
+set ssop+=unix
+set ssop+=slash
 
 set listchars=tab:▸\ ,trail:⋅,nbsp:⋅,eol:¬ " specfiy the invisible characters
 set printoptions+=number:y
