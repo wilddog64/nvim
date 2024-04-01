@@ -58,6 +58,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'rafamadriz/friendly-snippets',
 Plug 'honza/vim-snippets',
 Plug 'markonm/traces.vim'
+Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
 Plug 'JamshedVesuna/vim-markdown-preview'
 " Plug 'Shougo/denite.nvim'
