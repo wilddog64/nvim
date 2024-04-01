@@ -59,7 +59,7 @@ Plug 'rafamadriz/friendly-snippets',
 Plug 'honza/vim-snippets',
 Plug 'markonm/traces.vim'
 
-" Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'JamshedVesuna/vim-markdown-preview'
 " Plug 'Shougo/denite.nvim'
 " Plug 'Shougo/neosnippet-snippets'
 " Plug 'WolfgangMehner/bash-support'
