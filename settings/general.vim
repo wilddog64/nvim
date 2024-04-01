@@ -48,6 +48,7 @@ set history=1000      " command line history
 set hlsearch        " highlight search result
 set incsearch         " do incremental search
 set nu                " turn on numbering
+set relativenumber
 set ruler             " turn on ruler
 set showcmd           " show command
 set showmatch         " show match of {}, [], <>, ...
