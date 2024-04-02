@@ -101,7 +101,6 @@ return packer.startup(function(use)
   use 'rodjek/vim-puppet'
   use 'jpalardy/vim-slime'
   use 'hanschen/vim-ipython-cell'
-  use 'markonm/traces.vim'
 
   use {
     'ojroques/nvim-lspfuzzy',
