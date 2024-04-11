@@ -1,3 +1,6 @@
+local lsp_zero = require('lsp-zero')
+lsp_zero.setup({})
+
 require("mason").setup {
   ui = {
     icons = {
