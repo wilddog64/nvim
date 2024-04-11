@@ -101,6 +101,7 @@ return packer.startup(function(use)
   use 'rodjek/vim-puppet'
   use 'jpalardy/vim-slime'
   use 'hanschen/vim-ipython-cell'
+  use 'mfussenegger/nvim-ansible'
 
   use {
     'ojroques/nvim-lspfuzzy',
@@ -155,20 +156,6 @@ return packer.startup(function(use)
 
       use 'folke/lsp-colors.nvim',
     }
-  }
-
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons'
-    },
-    config = function() require 'nvim-tree'.setup {} end,
-    cmd = { 'NvimTreeToggle' },
-    actions = {
-      open_file = {
-        quit_on_open = true,
-      },
-    },
   }
 
   use {
