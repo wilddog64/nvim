@@ -48,7 +48,7 @@ vim.opt.ssop = {
   "winsize"
 }
 
-vim.cmd([[ 
+vim.cmd([[
   set statusline=%<%F\ %h%m%r\ %y%=%{v:register}\ %-14.(%l,%c%V%)\ %p
   set wildmode=longest:full,full
   set shm+=film
