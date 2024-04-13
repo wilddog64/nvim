@@ -22,6 +22,12 @@ vim.opt.background = "dark"
 vim.opt.diffopt = { "vertical", "iwhite" }
 vim.opt.cmdheight = 2
 vim.opt.wildmenu = true
+vim.opt.wildignore = {
+  "*.pyc,*.pyo,*/__pycache__/*",
+  "*.o,*.ko,*.obj,*.dSYM",
+  "*.swp,~*",
+  "node_modules/*"
+}
 vim.opt.conceallevel = 0
 vim.opt.laststatus = 2
 vim.opt.signcolumn = "yes"
