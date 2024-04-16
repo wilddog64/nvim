@@ -53,24 +53,19 @@ return packer.startup(function(use)
   use 'christoomey/vim-tmux-navigator'
   use 'dbakker/vim-projectroot'
   use 'ervandew/supertab'
-  -- use 'fatih/vim-go'
-  use 'hashivim/vim-hashicorp-tools'
   use 'othree/xml.vim'
   use 'sjl/gundo.vim'
   use 'tmhedberg/matchit'
   use 'tmux-plugins/vim-tmux'
   use 'tmux-plugins/vim-tmux-focus-events'
   use 'tpope/vim-endwise'
-  -- use 'tpope/vim-fugitive'
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired'
-  use 'szw/vim-maximizer'
   use 'corntrace/bufexplorer'
   use 'shougo/deoplete-lsp'
   use { 'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
   use 'neovim/nvim-lspconfig'
-  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use {'ojroques/nvim-osc52'}
@@ -78,12 +73,9 @@ return packer.startup(function(use)
   use 'mfussenegger/nvim-dap-python'
   use 'nvim-lualine/lualine.nvim'
   use 'antoinemadec/FixCursorHold.nvim'
-  use "numToStr/Comment.nvim" -- Easily comment stuff
   use "akinsho/toggleterm.nvim"
   use "rktjmp/lush.nvim"
-  -- use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
-  use 'idbrii/vim-ripple'
   use 'idbrii/itchy.vim'
   use 'axieax/urlview.nvim'
   use 'honza/vim-snippets'
@@ -102,6 +94,17 @@ return packer.startup(function(use)
   use 'jpalardy/vim-slime'
   use 'hanschen/vim-ipython-cell'
   use 'mfussenegger/nvim-ansible'
+
+
+  -- unused plugins
+  -- use 'fatih/vim-go'
+  -- use 'hashivim/vim-hashicorp-tools'
+  -- use 'tpope/vim-fugitive'
+  -- use 'szw/vim-maximizer'
+  -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  -- use "numToStr/Comment.nvim" -- Easily comment stuff
+  -- use 'junegunn/fzf'
+  -- use 'idbrii/vim-ripple'
 
   use {
     'ojroques/nvim-lspfuzzy',
