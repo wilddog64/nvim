@@ -59,6 +59,7 @@ Plug 'rafamadriz/friendly-snippets',
 Plug 'honza/vim-snippets',
 Plug 'markonm/traces.vim'
 Plug 'thomasfaingnaert/vim-lsp-ultisnips'
+Plug 'thomasfaingnaert/vim-lsp-snippets'
 Plug 'tpope/vim-unimpaired'
 
 Plug 'JamshedVesuna/vim-markdown-preview'
