@@ -94,6 +94,7 @@ return packer.startup(function(use)
   use 'jpalardy/vim-slime'
   use 'hanschen/vim-ipython-cell'
   use 'mfussenegger/nvim-ansible'
+  use 'rust-lang/rust.vim'
 
 
   -- unused plugins
