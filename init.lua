@@ -40,4 +40,5 @@ vim.cmd([[
   source ~/.config/nvim/settings/ipy.vim
   source ~/.config/nvim/settings/slim.vim
   source ~/.config/nvim/settings/ipython.vim
+  " source ~/.config/nvim/settings/rust.vim
 ]])

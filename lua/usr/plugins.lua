@@ -95,6 +95,8 @@ return packer.startup(function(use)
   use 'hanschen/vim-ipython-cell'
   use 'mfussenegger/nvim-ansible'
   use 'rust-lang/rust.vim'
+  use 'preservim/tagbar'
+  use 'simrat39/rust-tools.nvim'
 
 
   -- unused plugins
