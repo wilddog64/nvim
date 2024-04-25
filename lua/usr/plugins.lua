@@ -172,14 +172,21 @@ return packer.startup(function(use)
     end
   }
 
+  -- use {
+  --   "nvim-telescope/telescope.nvim",
+  --   requires = {
+  --     { "nvim-telescope/telescope-live-grep-args.nvim" },
+  --   },
+  --   config = function()
+  --     require("telescope").load_extension("live_grep_args")
+  --   end
+  -- }
+
   use {
-    "nvim-telescope/telescope.nvim",
+    'ibhagan/fzf-lua',
     requires = {
-      { "nvim-telescope/telescope-live-grep-args.nvim" },
-    },
-    config = function()
-      require("telescope").load_extension("live_grep_args")
-    end
+      'nvim-tree/nvim-web-devicons',
+    }
   }
 
   if PACKER_BOOTSTRAP then
