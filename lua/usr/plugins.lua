@@ -186,7 +186,7 @@ return packer.startup(function(use)
   -- }
 
   use {
-    'ibhagan/fzf-lua',
+    'ibhagwan/fzf-lua',
     requires = {
       'nvim-tree/nvim-web-devicons',
     }
