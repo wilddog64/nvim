@@ -13,5 +13,6 @@ vim.cmd([[
   nnoremap <leader>fs <cmd>lua require('fzf-lua.builtin').grep_string()<cr>
   nnoremap <leader>ss <cmd>lua require('fzf-lua.builtin').spell_suggest()<cr>
   nnoremap <leader>fj <cmd>lua require('fzf-lua.builtin').jumplist()<cr>
+  inoremap <c-x><c-f> <cmd>lua require("fzf-lua").complete_path()<cr>
 ]])
 
