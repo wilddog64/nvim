@@ -28,12 +28,19 @@ set undofile
 let &undodir = expand("~/.local/share/vim/undo")
 
 let mapleader=";"
-set history=5000
+set history=1000
 set cmdheight=2
 
 set wildmenu
 set wildmode=longest:full,full
+set completeopt+=menuone,popup,preview
 set shm+=film
+set hidden
+set showmatch         " show match of {}, [], <>, ...
+
+" when diff mode is activated, split buffers vertically and ignore white spaces
+set diffopt+=vertical
+set diffopt+=iwhite
 
 if has("autocmd")
 
@@ -91,3 +98,23 @@ imap <leader>es <C-O>:sp %%
 
 map <leader>ev :vsp %%
 imap <leader>ev <C-O>:vsp %%
+
+function! s:VimNavigate(direction)
+  try
+    execute 'wincmd ' . a:direction
+  catch
+    echohl ErrorMsg | echo 'E11: Invalid in command-line window; <CR> executes, CTRL-C quits: wincmd k' | echohl None
+  endtry
+endfunction
+
+command! TmuxNavigateLeft call s:VimNavigate('h')
+command! TmuxNavigateDown call s:VimNavigate('j')
+command! TmuxNavigateUp call s:VimNavigate('k')
+command! TmuxNavigateRight call s:VimNavigate('l')
+command! TmuxNavigatePrevious call s:VimNavigate('p')
+
+noremap <silent> <c-h> :<C-U>TmuxNavigateLeft<cr>
+noremap <silent> <c-j> :<C-U>TmuxNavigateDown<cr>
+noremap <silent> <c-k> :<C-U>TmuxNavigateUp<cr>
+noremap <silent> <c-l> :<C-U>TmuxNavigateRight<cr>
+noremap <silent> <c-\> :<C-U>TmuxNavigatePrevious<cr>
