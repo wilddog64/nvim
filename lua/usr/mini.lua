@@ -35,3 +35,11 @@ require('mini.indentscope').setup {}
 require('mini.diff').setup({})
 require('mini.ai').setup({})
 require('mini.trailspace').setup({})
+-- require('mini.misc').setup {}
+
+local keymap = vim.api.nvim_set_keymap
+
+local opts = {
+  silent = true
+}
+keymap('n', '<leader>z', ":lua require('mini.misc').zoom()<CR>", opts)

@@ -97,9 +97,6 @@ imap <leader>et <C-O>:tabe %%
 map <leader>sz :sp term://zsh<CR>
 imap <leader>sz <C-O>:sp term://zsh<CR>
 
-map <leader>az :MaximizerToggle<CR>
-imap <leader>az <C-O>:MaximizerToggle<CR>
-
 " mapping for generating uuid into vim buffer
 imap <leader>uid <c-r>=system('~/.vim/bundle/genuuid.py')<cr>
 
