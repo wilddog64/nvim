@@ -106,15 +106,3 @@ function! s:VimNavigate(direction)
     echohl ErrorMsg | echo 'E11: Invalid in command-line window; <CR> executes, CTRL-C quits: wincmd k' | echohl None
   endtry
 endfunction
-
-command! TmuxNavigateLeft call s:VimNavigate('h')
-command! TmuxNavigateDown call s:VimNavigate('j')
-command! TmuxNavigateUp call s:VimNavigate('k')
-command! TmuxNavigateRight call s:VimNavigate('l')
-command! TmuxNavigatePrevious call s:VimNavigate('p')
-
-noremap <silent> <c-h> :<C-U>TmuxNavigateLeft<cr>
-noremap <silent> <c-j> :<C-U>TmuxNavigateDown<cr>
-noremap <silent> <c-k> :<C-U>TmuxNavigateUp<cr>
-noremap <silent> <c-l> :<C-U>TmuxNavigateRight<cr>
-noremap <silent> <c-\> :<C-U>TmuxNavigatePrevious<cr>
