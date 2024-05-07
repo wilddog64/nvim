@@ -23,8 +23,6 @@ require('mason-lspconfig').setup({
         'pylsp',
         'terraformls',
         'yamlls',
-        'rust-analyzer',
-        'codelldb',
     },
 })
 
