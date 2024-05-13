@@ -237,3 +237,30 @@ function! GitStatus()
    return printf('+%d ~%d -%d', a, m, r)
 endfunction
 set statusline+=%{GitStatus()}
+
+
+" the following code allow (n)vim to show signs when perform a visual black operations
+augroup VisualSignShow
+  autocmd!
+  autocmd ModeChanged [\x16]*:i call s:ShowVisualBlock()
+augroup END
+
+sign define VisualSign text=> texthl=Visual
+
+function! s:ShowVisualBlock() abort
+   let s:sign_ids = []
+  for lnum in range(line("'<"), line("'>"))
+    let id = sign_place(0, '', 'VisualSign', bufnr(), { 'lnum': lnum })
+    call add(s:sign_ids, id)
+  endfor
+
+  autocmd InsertLeave * ++once call s:HideVisualBlock()
+endfunction
+
+function! s:HideVisualBlock() abort
+  for id in s:sign_ids
+    call sign_unplace('', { 'buffer': bufnr(), 'id': id })
+  endfor
+
+  let s:sign_ids = []
+endfunction
