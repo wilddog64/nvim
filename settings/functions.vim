@@ -247,8 +247,8 @@ augroup END
 
 sign define VisualSign text=> texthl=Visual
 
+let s:sign_ids = []
 function! s:ShowVisualBlock() abort
-   let s:sign_ids = []
   for lnum in range(line("'<"), line("'>"))
     let id = sign_place(0, '', 'VisualSign', bufnr(), { 'lnum': lnum })
     call add(s:sign_ids, id)
