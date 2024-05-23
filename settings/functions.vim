@@ -86,9 +86,9 @@ function! <SID>FollowSymlink()
       let actual_file = resolve(current_file)
       silent! execute 'file ' . actual_file
       end
-endfunction
+   endfunction
 
-function! <SID>AutoProjectRootCD()
+   function! <SID>AutoProjectRootCD()
       try
          if &ft != 'help'
             ProjectRootCD
@@ -96,171 +96,171 @@ function! <SID>AutoProjectRootCD()
       catch
          " Silently ignore invalid buffers
       endtry
-endfunction
-autocmd BufEnter * call <SID>AutoProjectRootCD()
+   endfunction
+   autocmd BufEnter * call <SID>AutoProjectRootCD()
 
-" strip trailing whitespaces without moving cursor
-function! <SID>StripTrailingWhitespaces()
-   " Preparation: save last search, and cursor position.
-   call <SID>Preserve("%s/\s\+$//e")
-endfunction
+   " strip trailing whitespaces without moving cursor
+   function! <SID>StripTrailingWhitespaces()
+      " Preparation: save last search, and cursor position.
+      call <SID>Preserve("%s/\s\+$//e")
+   endfunction
 
    nmap <silent> <leader>sw :call <SID>StripTrailingWhitespaces()<CR>
    " autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
 
-" Get_puppet_manfiest_file is a function that return a full path of puppet
-" manifest, template, and upload file by interpretation of puppet statements
-function! Get_puppet_filepath()
-   let puppetfile = expand("<cWORD>")
-   if stridx(puppetfile, '::') != -1
-      let puppetfile = Transfer_puppet_namespace2path()
-   elseif stridx(puppetfile, 'template') != -1
-      let puppetfile = Transfer_puppet_template2path()
-   elseif stridx(puppetfile, 'puppet:') != -1
-      let puppetfile = Transfer_puppet_modules2path()
-   endif
-   return puppetfile
-endfunction
+   " Get_puppet_manfiest_file is a function that return a full path of puppet
+   " manifest, template, and upload file by interpretation of puppet statements
+   function! Get_puppet_filepath()
+      let puppetfile = expand("<cWORD>")
+      if stridx(puppetfile, '::') != -1
+         let puppetfile = Transfer_puppet_namespace2path()
+      elseif stridx(puppetfile, 'template') != -1
+         let puppetfile = Transfer_puppet_template2path()
+      elseif stridx(puppetfile, 'puppet:') != -1
+         let puppetfile = Transfer_puppet_modules2path()
+      endif
+      return puppetfile
+   endfunction
 
-function! Transfer_puppet_namespace2path()
-   let puppetfile = expand("<cWORD>") " obtain a WORD under the cursor
-   if stridx(puppetfile, '::') == -1  " end function if we can't find ::
-      return
-   endif
+   function! Transfer_puppet_namespace2path()
+      let puppetfile = expand("<cWORD>") " obtain a WORD under the cursor
+      if stridx(puppetfile, '::') == -1  " end function if we can't find ::
+         return
+      endif
 
-   if match(puppetfile, ",$")
-      let puppetfile = substitute(puppetfile, ",$", "", "")
-   endif
+      if match(puppetfile, ",$")
+         let puppetfile = substitute(puppetfile, ",$", "", "")
+      endif
 
-   " if Class is found, strip it off
-   if stridx(puppetfile, 'Class') != -1
-      let puppetfile = substitute(puppetfile, '^Class', '', '')
-   endif
+      " if Class is found, strip it off
+      if stridx(puppetfile, 'Class') != -1
+         let puppetfile = substitute(puppetfile, '^Class', '', '')
+      endif
 
-   " if [ or ] is found, remove them
-   if stridx(puppetfile, ']') != -1 || stridx(puppetfile, '[') != -1
-      let puppetfile = substitute(puppetfile, '[', "", 'g')
-      let puppetfile = substitute(puppetfile, ']', "", 'g')
-   endif
+      " if [ or ] is found, remove them
+      if stridx(puppetfile, ']') != -1 || stridx(puppetfile, '[') != -1
+         let puppetfile = substitute(puppetfile, '[', "", 'g')
+         let puppetfile = substitute(puppetfile, ']', "", 'g')
+      endif
 
-   if stridx(puppetfile, 'create_resources') != -1
-      let puppetfile = substitute(puppetfile, "^create_resources", '', '')
+      if stridx(puppetfile, 'create_resources') != -1
+         let puppetfile = substitute(puppetfile, "^create_resources", '', '')
+         let puppetfile = substitute(puppetfile, "(", "", "")
+         let puppetfile = substitute(puppetfile, ")", "", "")
+      endif
+
+      if match(puppetfile, '^::')
+         let puppetfile = substitute(puppetfile, "^::", "", "")
+      endif
+      " remove last character from string
+      " strip off single quotes
+      " replace :: with /
+      " insert manifests after first found /
+      " prepend ../ and append .pp
+      if match( puppetfile, ":$" )
+         " let puppetfile = strpart(puppetfile, 0, len(puppetfile) - 1)
+         let puppetfile = substitute(puppetfile, ":$", "", "")
+      endif
+      let puppetfile = substitute(puppetfile, "'", "", "g")
+      let puppetfile = substitute(puppetfile, '::', '\/', 'g')
+      let puppetfile = substitute(puppetfile, '\/\zs', 'manifests\/', '')
+      let puppetfile = '../' . puppetfile . '.pp'
+      echom "module file path: " . puppetfile
+
+      return puppetfile
+   endfunction
+
+   function! Transfer_puppet_template2path()
+      let puppetfile = expand("<cWORD>")
+      if stridx(puppetfile, 'template') == -1
+         return
+      endif
+      if match(puppetfile, ",$")
+         let puppetfile = substitute(puppetfile, ",$", "", "")
+      endif
+
+      let puppetfile = substitute(puppetfile, "template", "", "")
       let puppetfile = substitute(puppetfile, "(", "", "")
       let puppetfile = substitute(puppetfile, ")", "", "")
-   endif
-
-   if match(puppetfile, '^::')
-      let puppetfile = substitute(puppetfile, "^::", "", "")
-   endif
-   " remove last character from string
-   " strip off single quotes
-   " replace :: with /
-   " insert manifests after first found /
-   " prepend ../ and append .pp
-   if match( puppetfile, ":$" )
-      " let puppetfile = strpart(puppetfile, 0, len(puppetfile) - 1)
-      let puppetfile = substitute(puppetfile, ":$", "", "")
-   endif
-   let puppetfile = substitute(puppetfile, "'", "", "g")
-   let puppetfile = substitute(puppetfile, '::', '\/', 'g')
-   let puppetfile = substitute(puppetfile, '\/\zs', 'manifests\/', '')
-   let puppetfile = '../' . puppetfile . '.pp'
-   echom "module file path: " . puppetfile
-
-   return puppetfile
-endfunction
-
-function! Transfer_puppet_template2path()
-   let puppetfile = expand("<cWORD>")
-   if stridx(puppetfile, 'template') == -1
-      return
-   endif
-   if match(puppetfile, ",$")
-      let puppetfile = substitute(puppetfile, ",$", "", "")
-   endif
-
-   let puppetfile = substitute(puppetfile, "template", "", "")
-   let puppetfile = substitute(puppetfile, "(", "", "")
-   let puppetfile = substitute(puppetfile, ")", "", "")
-   let puppetfile = substitute(puppetfile, "'", "", "g")
-   let puppetfile = substitute(puppetfile, '\/\zs', 'templates\/', '')
-   let puppetfile = '../' . puppetfile
-   echom "puppetfile :" . puppetfile
-   return puppetfile
-endfunction
-
-function! Transfer_puppet_modules2path()
-   let puppetfile = expand("<cWORD>")
-   if stridx(puppetfile, "'") != -1
       let puppetfile = substitute(puppetfile, "'", "", "g")
-   endif
+      let puppetfile = substitute(puppetfile, '\/\zs', 'templates\/', '')
+      let puppetfile = '../' . puppetfile
+      echom "puppetfile :" . puppetfile
+      return puppetfile
+   endfunction
 
-   if match(puppetfile, ",$")
-      let puppetfile = substitute(puppetfile, ",$", "", "")
-   endif
-
-   if stridx(puppetfile, 'puppet:') == -1
-      return
-   endif
-   let puppetfile = substitute(puppetfile, "puppet:.*\/modules", "..", "")
-   let puppetfile = substitute(puppetfile, '\(\w\+\)\ze\/', '\1\/files', '')
-   return puppetfile
-endfunction
-
-" autocmd BufReadPost filetype puppet nmap <leader>gf :exe "e " . Get_puppet_manfiest_file()<CR>
-augroup puppetEx
-   au!
-   autocmd BufReadPost filetype puppet nmap <buffer> <leader>gf :exe "e "   . Get_puppet_filepath()<CR>
-   autocmd BufReadPost filetype puppet nmap <buffer> <leader>wf :exe "sp "  . Get_puppet_filepath()<CR>
-   autocmd BufReadPost filetype puppet nmap <buffer> <leader>vf :exe "vsp " . Get_puppet_filepath()<CR>
-augroup END
-
-" split help file vertically
-aug NewSplit | au!
-   au WinNew * au BufEnter * ++once call <SID>NewSplit()
-aug end
-
-fun! <SID>NewSplit()
-   if (&bt ==? 'help' || &ft ==? 'man' || &ft ==? 'fugitive')
-      let p = winnr('#')
-      if winwidth(p) >= getwinvar(p, '&tw', 80) + getwinvar(winnr(), '&tw', 80)
-         set nosplitright
-         exe 'wincmd ' . (&splitright ? 'L' : 'H')
-         set splitright
+   function! Transfer_puppet_modules2path()
+      let puppetfile = expand("<cWORD>")
+      if stridx(puppetfile, "'") != -1
+         let puppetfile = substitute(puppetfile, "'", "", "g")
       endif
-   endif
-   nmap q :norm! ZZ <CR>
-endfun
 
-function! GitStatus()
-   let [a,m,r] = GitGutterGetHunkSummary()
-   return printf('+%d ~%d -%d', a, m, r)
-endfunction
-set statusline+=%{GitStatus()}
+      if match(puppetfile, ",$")
+         let puppetfile = substitute(puppetfile, ",$", "", "")
+      endif
+
+      if stridx(puppetfile, 'puppet:') == -1
+         return
+      endif
+      let puppetfile = substitute(puppetfile, "puppet:.*\/modules", "..", "")
+      let puppetfile = substitute(puppetfile, '\(\w\+\)\ze\/', '\1\/files', '')
+      return puppetfile
+   endfunction
+
+   " autocmd BufReadPost filetype puppet nmap <leader>gf :exe "e " . Get_puppet_manfiest_file()<CR>
+   augroup puppetEx
+      au!
+      autocmd BufReadPost filetype puppet nmap <buffer> <leader>gf :exe "e "   . Get_puppet_filepath()<CR>
+      autocmd BufReadPost filetype puppet nmap <buffer> <leader>wf :exe "sp "  . Get_puppet_filepath()<CR>
+      autocmd BufReadPost filetype puppet nmap <buffer> <leader>vf :exe "vsp " . Get_puppet_filepath()<CR>
+   augroup END
+
+   " split help file vertically
+   aug NewSplit | au!
+      au WinNew * au BufEnter * ++once call <SID>NewSplit()
+   aug end
+
+   fun! <SID>NewSplit()
+      if (&bt ==? 'help' || &ft ==? 'man' || &ft ==? 'fugitive')
+         let p = winnr('#')
+         if winwidth(p) >= getwinvar(p, '&tw', 80) + getwinvar(winnr(), '&tw', 80)
+            set nosplitright
+            exe 'wincmd ' . (&splitright ? 'L' : 'H')
+            set splitright
+         endif
+      endif
+      nmap q :norm! ZZ <CR>
+   endfun
+
+   function! GitStatus()
+      let [a,m,r] = GitGutterGetHunkSummary()
+      return printf('+%d ~%d -%d', a, m, r)
+   endfunction
+   set statusline+=%{GitStatus()}
 
 
-" the following code allow (n)vim to show signs when perform a visual black operations
-augroup VisualSignShow
-  autocmd!
-  autocmd ModeChanged [\x16]*:i call s:ShowVisualBlock()
-augroup END
+   " the following code allow (n)vim to show signs when perform a visual black operations
+   augroup VisualSignShow
+      autocmd!
+      autocmd ModeChanged [\x16]*:i call s:ShowVisualBlock()
+   augroup END
 
-sign define VisualSign text=> texthl=Visual
+   sign define VisualSign text=> texthl=Visual
 
-let s:sign_ids = []
-function! s:ShowVisualBlock() abort
-  for lnum in range(line("'<"), line("'>"))
-    let id = sign_place(0, '', 'VisualSign', bufnr(), { 'lnum': lnum })
-    call add(s:sign_ids, id)
-  endfor
+   let s:sign_ids = []
+   function! s:ShowVisualBlock() abort
+      for lnum in range(line("'<"), line("'>"))
+         let id = sign_place(0, '', 'VisualSign', bufnr(), { 'lnum': lnum })
+         call add(s:sign_ids, id)
+      endfor
 
-  autocmd InsertLeave * ++once call s:HideVisualBlock()
-endfunction
+      autocmd InsertLeave * ++once call s:HideVisualBlock()
+   endfunction
 
-function! s:HideVisualBlock() abort
-  for id in s:sign_ids
-    call sign_unplace('', { 'buffer': bufnr(), 'id': id })
-  endfor
+   function! s:HideVisualBlock() abort
+      for id in s:sign_ids
+         call sign_unplace('', { 'buffer': bufnr(), 'id': id })
+      endfor
 
-  let s:sign_ids = []
-endfunction
+      let s:sign_ids = []
+   endfunction
