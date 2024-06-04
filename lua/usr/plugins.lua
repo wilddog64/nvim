@@ -63,8 +63,6 @@ return packer.startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired'
   use 'corntrace/bufexplorer'
-  -- use 'shougo/deoplete-lsp'
-  -- use { 'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
   use 'neovim/nvim-lspconfig'
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
@@ -72,17 +70,13 @@ return packer.startup(function(use)
   use 'mfussenegger/nvim-dap'
   use 'mfussenegger/nvim-dap-python'
   use 'nvim-lualine/lualine.nvim'
-  -- use 'antoinemadec/FixCursorHold.nvim'
   use "akinsho/toggleterm.nvim"
-  -- use "rktjmp/lush.nvim"
   use 'junegunn/fzf.vim'
-  -- use 'idbrii/itchy.vim'
   use 'axieax/urlview.nvim'
   use 'honza/vim-snippets'
   use 'f3fora/cmp-spell'
   use 'plasticboy/vim-markdown'
   use 'echasnovski/mini.nvim'
-  -- use 'juliosueiras/vim-terraform-completion'
   use 'hashivim/vim-terraform'
   use 'kdheepak/lazygit.nvim'
   use 'martinda/Jenkinsfile-vim-syntax'
@@ -108,6 +102,12 @@ return packer.startup(function(use)
   -- use "numToStr/Comment.nvim" -- Easily comment stuff
   -- use 'junegunn/fzf'
   -- use 'idbrii/vim-ripple'
+  -- use 'shougo/deoplete-lsp'
+  -- use { 'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
+  -- use 'antoinemadec/FixCursorHold.nvim'
+  -- use "rktjmp/lush.nvim"
+  -- use 'idbrii/itchy.vim'
+  -- use 'juliosueiras/vim-terraform-completion'
 
   use {
     'ojroques/nvim-lspfuzzy',
