@@ -72,7 +72,6 @@ return packer.startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use "akinsho/toggleterm.nvim"
   use 'junegunn/fzf.vim'
-  use 'axieax/urlview.nvim'
   use 'honza/vim-snippets'
   use 'f3fora/cmp-spell'
   use 'plasticboy/vim-markdown'
@@ -108,6 +107,7 @@ return packer.startup(function(use)
   -- use "rktjmp/lush.nvim"
   -- use 'idbrii/itchy.vim'
   -- use 'juliosueiras/vim-terraform-completion'
+  -- use 'axieax/urlview.nvim'
 
   use {
     'ojroques/nvim-lspfuzzy',
