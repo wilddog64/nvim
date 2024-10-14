@@ -33,7 +33,6 @@ vim.opt.conceallevel = 0
 vim.opt.laststatus = 2
 vim.opt.signcolumn = "yes"
 vim.g.bufExplorerShowRelativePath = 1
-vim.o.splitright = true
 vim.osplitbelow = true
 vim.o.mouse=""
 
