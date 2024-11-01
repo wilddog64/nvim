@@ -8,6 +8,6 @@ if has("wsl")
        \ paste = {
          \  ["+"] = "win32yank.exe -o --lf",
          \  ["*"] = "win32yank.exe -o --lf",
-       }
-  }
+        \}
+  \}
 endif
