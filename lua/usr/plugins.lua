@@ -90,8 +90,6 @@ return packer.startup(function(use)
   use 'rust-lang/rust.vim'
   use 'preservim/tagbar'
   use 'simrat39/rust-tools.nvim'
-
-
   -- unused plugins
   -- use 'fatih/vim-go'
   -- use 'hashivim/vim-hashicorp-tools'
