@@ -140,6 +140,7 @@ return packer.startup(function(use)
       -- {'williamboman/nvim-lsp-installer'},
       {"williamboman/mason.nvim", run = ':MasonUpdate'},
       {'williamboman/mason.lspconfig.nvim'},
+      {'tamago324/nlsp-settings.nvim'},
 
       -- Autocompletion
       {'hrsh7th/nvim-cmp'},
