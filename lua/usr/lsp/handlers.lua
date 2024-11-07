@@ -1,5 +1,20 @@
 local M = {}
 
+local nlspsettings = require('nlspsettings')
+
+local nlspsettings_home = vim.fn.stdpath('config') .. '/nlsp-settings'
+if not vim.fn.isdirectory(nlspsettings_home) then
+  vim.fn.mkdir(nlspsettings_home)
+end
+
+nlspsettings.setup({
+  config_home = vim.fn.stdpath('config') .. '/nlsp-settings',
+  local_settings_dir = '.nlsp-settings',
+  local_settings_root_markers_fallback = { '.git' },
+  append_default_schemes = true,
+  loader = 'json'
+})
+
 -- TODO: backfill this to template
 M.setup = function()
   local signs = {
@@ -92,6 +107,8 @@ M.on_attach = function(client, bufnr)
   lsp_highlight_document(client)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
   vim.api.nvim_buf_set_option(0, "formatexpr", "v:lua.vim.lsp.formatexpr()")
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  buf_set_option('omni_func', 'v:lua.vim.lsp.omnifunc')
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
