@@ -98,7 +98,7 @@ return packer.startup(function(use)
   use 'wellle/targets.vim'
   use 'sam4llis/nvim-lua-gf'
   use 'rodjek/vim-puppet'
-  use 'jpalardy/vim-slime'
+  -- use 'jpalardy/vim-slime'
   use 'ojroques/vim-oscyank'
 
   use {

@@ -30,8 +30,8 @@ vim.cmd([[
   source ~/.config/nvim/settings/gundo.vim
   source ~/.config/nvim/settings/deoplete.vim
   source ~/.config/nvim/settings/autocmd.vim
-  source ~/.config/nvim/settings/vimux.vim
+  " source ~/.config/nvim/settings/vimux.vim
   source ~/.config/nvim/settings/markdown.vim
   source ~/.config/nvim/settings/asterisk.vim
-  source ~/.config/nvim/settings/slim.vim
+  " source ~/.config/nvim/settings/slim.vim
 ]])

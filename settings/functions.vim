@@ -120,6 +120,7 @@ function! Get_puppet_filepath()
     elseif stridx(puppetfile, 'puppet:') != -1
         let puppetfile = Transfer_puppet_modules2path()
     endif
+    echom 'puppet file is ' . puppetfile
     return puppetfile
 endfunction
 
