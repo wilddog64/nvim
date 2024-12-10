@@ -1,4 +1,22 @@
 " if there's no .vim directory then we should create one
+" Ensure modern Vim behavior
+if !has('nvim') && &compatible
+  set nocompatible
+endif
+
+" Set $MYVIMRC when loaded with -u
+if !exists('$MYVIMRC')
+  let $MYVIMRC = expand('<sfile>:p')
+endif
+
+" Ensure XDG paths are set
+if !exists('$XDG_CONFIG_HOME')
+  let $XDG_CONFIG_HOME = expand('~/.config')
+endif
+if !exists('$XDG_DATA_HOME')
+  let $XDG_DATA_HOME = expand('~/.local/share')
+endif
+
 if !isdirectory(expand("~/.vim"))
   silent call mkdir(expand("~/.vim"), "p")
 endif
@@ -15,17 +33,17 @@ set hidden
 set bg=dark
 
 " create swap dir if it is not exist
-if !isdirectory(expand("~/.local/share/vim/swap"))
-  silent call mkdir(expand("~/.local/share/vim/swap"), "p")
+if !isdirectory(expand("$XDG_DATA_HOME/vim/swap"))
+  silent call mkdir(expand("$XDG_DATA_HOME/vim/swap"), "p")
 endif
 set dir=~/.local/share/vim/swap
 
 "create undo directory if is not exist
 if !isdirectory(expand("~/.local/share/vim/undo"))
-  silent call mkdir(expand("~/.local/share/vim/undo"), "p")
+  silent call mkdir(expand("$XDG_DATA_HOME/vim/undo"), "p")
 endif
 set undofile
-let &undodir = expand("~/.local/share/vim/undo")
+let &undodir = expand("$XDG_DATA_HOME/vim/undo")
 
 let mapleader=";"
 set history=1000
