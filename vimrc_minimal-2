@@ -1,0 +1,65 @@
+" ===============================
+" Minimal, Portable Vim Config
+" ===============================
+
+" === XDG-Compliant Directory Setup ===
+let $XDG_CONFIG_HOME = exists('$XDG_CONFIG_HOME') ? $XDG_CONFIG_HOME : expand("~/.config")
+let $XDG_DATA_HOME = exists('$XDG_DATA_HOME') ? $XDG_DATA_HOME : expand("~/.local/share")
+
+" Create necessary directories
+if !isdirectory($XDG_DATA_HOME . "/vim/swap")
+  silent !mkdir -p $XDG_DATA_HOME/vim/swap
+endif
+if !isdirectory($XDG_DATA_HOME . "/vim/backup")
+  silent !mkdir -p $XDG_DATA_HOME/vim/backup
+endif
+if !isdirectory($XDG_DATA_HOME . "/vim/undo")
+  silent !mkdir -p $XDG_DATA_HOME/vim/undo
+endif
+
+" === General Settings ===
+set nocompatible             " Use Vim settings, not vi
+set nu                       " Show line numbers
+set sts=4 ts=4 sw=4          " Consistent tab width
+set ai                       " Auto-indent
+set hidden                   " Allow switching buffers without saving
+set history=1000             " Command history size
+set undofile                 " Persistent undo
+set undodir=$XDG_DATA_HOME/vim/undo
+set backup                   " Enable backups
+set backupdir=$XDG_DATA_HOME/vim/backup
+set dir=$XDG_DATA_HOME/vim/swap " Swap file directory
+set viminfo='50,<1000,s100,n' . $XDG_DATA_HOME . '/vim/viminfo'
+
+" === Search Settings ===
+set hlsearch                 " Highlight search results
+set incsearch                " Incremental search
+set ignorecase               " Case-insensitive search
+set smartcase                " Case-sensitive if uppercase used
+
+" === Key Mappings ===
+let mapleader=";"
+
+" Save and Quit
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>x :x<CR>
+
+" Buffer Navigation
+nnoremap <TAB>   :bn<CR>
+nnoremap <S-TAB> :bp<CR>
+
+" Window Navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Status Line
+set laststatus=2
+set statusline=%F%m%r\ [\ %l/%L,\ %c\ ]%=%P
+
+" === Filetype Detection ===
+if has('autocmd')
+  filetype plugin indent on
+endif
