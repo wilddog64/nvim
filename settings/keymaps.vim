@@ -51,9 +51,7 @@ map <leader>tic :s/\<\(\w\)\(\w*\)\>/\u\1\L\2/g<CR>
 imap <leader>tic <C-O>:s/\<\(\w\)\(\w*\)\>/\u\1\L\2/g<CR>
 
 " only map Y if we are not using neovim
-if !has('nvim')
-   map Y y$ " Y will yank from cursor until EOL
-endif
+map Y y$ " Y will yank from cursor until EOL
 
 " map <C-L> :noh<CR><C-L> " C-L will also clean up highlight, and redraw screen
 
