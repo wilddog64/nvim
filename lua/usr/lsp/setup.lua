@@ -172,6 +172,9 @@ local function get_root_dir(fname)
   local git_dir = vim.fs.find('.git', { path = startpath, upward = true })[1]
   return git_dir and vim.fs.dirname(git_dir) or vim.fn.getcwd()
 end
+lspconfig.helmls.setup({
+  handlers = handlers
+})
 
 lspconfig.azure_pipelines_ls.setup {
   root_dir = get_root_dir,

@@ -36,3 +36,10 @@ augroup lsp_install
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
+let g:lsp_settings = {
+   \ 'eclipse-jdt-ls': {
+   \   'timeout': 10,
+   \ }
+\ }
+let g:lsp_log_verbose = 0
+let g:lsp_log_file = "/tmp/vim-lsp.log"
