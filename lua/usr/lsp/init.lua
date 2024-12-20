@@ -38,4 +38,4 @@ require "usr.lsp.null-ls"
 require("usr.lsp.config")
 require('usr.lsp.mason')
 require('usr.lsp.setup')
-require('usr.lsp.rttools')
+-- require('usr.lsp.rttools')

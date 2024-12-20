@@ -68,7 +68,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use {'ojroques/nvim-osc52'}
   use 'mfussenegger/nvim-dap'
-  use 'mfussenegger/nvim-dap-python'
+  -- use 'mfussenegger/nvim-dap-python'
   use 'nvim-lualine/lualine.nvim'
   use "akinsho/toggleterm.nvim"
   use 'junegunn/fzf.vim'
@@ -84,12 +84,12 @@ return packer.startup(function(use)
   use 'wellle/targets.vim'
   use 'sam4llis/nvim-lua-gf'
   use 'rodjek/vim-puppet'
-  use 'jpalardy/vim-slime'
-  use 'hanschen/vim-ipython-cell'
+  -- use 'jpalardy/vim-slime'
+  -- use 'hanschen/vim-ipython-cell'
   use 'mfussenegger/nvim-ansible'
-  use 'rust-lang/rust.vim'
-  use 'preservim/tagbar'
-  use 'simrat39/rust-tools.nvim'
+  -- use 'rust-lang/rust.vim'
+  -- use 'preservim/tagbar'
+  -- use 'simrat39/rust-tools.nvim'
   -- unused plugins
   -- use 'fatih/vim-go'
   -- use 'hashivim/vim-hashicorp-tools'
