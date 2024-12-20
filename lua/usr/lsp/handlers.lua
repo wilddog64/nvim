@@ -1,19 +1,19 @@
 local M = {}
 
-local nlspsettings = require('nlspsettings')
+-- local nlspsettings = require('nlspsettings')
 
 local nlspsettings_home = vim.fn.stdpath('config') .. '/nlsp-settings'
 if not vim.fn.isdirectory(nlspsettings_home) then
   vim.fn.mkdir(nlspsettings_home)
 end
 
-nlspsettings.setup({
-  config_home = vim.fn.stdpath('config') .. '/nlsp-settings',
-  local_settings_dir = '.nlsp-settings',
-  local_settings_root_markers_fallback = { '.git' },
-  append_default_schemes = true,
-  loader = 'json'
-})
+-- nlspsettings.setup({
+--   config_home = vim.fn.stdpath('config') .. '/nlsp-settings',
+--   local_settings_dir = '.nlsp-settings',
+--   local_settings_root_markers_fallback = { '.git' },
+--   append_default_schemes = true,
+--   loader = 'json'
+-- })
 
 -- TODO: backfill this to template
 M.setup = function()

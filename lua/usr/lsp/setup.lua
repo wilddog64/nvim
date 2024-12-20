@@ -168,31 +168,49 @@ lspconfig.jsonls.setup({
 })
 
 lspconfig.azure_pipelines_ls.setup {
-  handlers = handlers,
-  settings = {
-      yaml = {
-          schemas = {
-              ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
-                  "/azure-pipeline*.y*l",
-                  "/*.azure*",
-                  "Azure-Pipelines/**/*.y*l",
-                  "pipelines/*.y*l",
-              },
-          },
-      },
-  },
-}
-
-lspconfig.yamlls.setup {
+  root_dir = function(fname)
+    -- Use the nearest .git directory or fallback to the current working directory
+    return require("lspconfig.util").find_git_ancestor(fname) or vim.fn.getcwd()
+  end,
   handlers = handlers,
   settings = {
     yaml = {
-      format = {
-        enable = true
+      schemas = {
+        ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
+          "/azure-pipeline*.y*l",
+          "/*.azure*",
+          "Azure-Pipelines/**/*.y*l",
+          "pipelines/*.y*l",
+        },
       },
-      schemaStore = {
-        enable = true
-      },
-    }
-  }
+    },
+  },
 }
+
+local lspconfig = require("lspconfig")
+local util = require("lspconfig.util")
+lspconfig.yamlls.setup({
+    root_dir = function(fname)
+        -- Use the nearest .git directory or fallback to the current working directory
+        return require("lspconfig.util").find_git_ancestor(fname) or vim.fn.getcwd()
+    end,
+    settings = {
+        yaml = {
+            format = { enable = true },
+            validate = true,
+            schemaStore = {
+                enable = false, -- Disable fetching schemas from SchemaStore
+            },
+            schemas = {
+                -- Explicitly define schemas for Helm files
+                ["https://json.schemastore.org/helmfile.json"] = "helmfile.yaml",
+                ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*",
+                ["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
+            },
+        },
+    },
+    flags = {
+        debounce_text_changes = 150,
+    },
+})
+
