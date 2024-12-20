@@ -21,6 +21,13 @@ if !isdirectory(expand("~/.vim"))
   silent call mkdir(expand("~/.vim"), "p")
 endif
 
+" Ensure Vim is in nocompatible mode for modern versions
+if v:version >= 700
+  if &compatible
+    set nocompatible
+  endif
+endif
+
 set nu
 set sts=4
 set ts=4
