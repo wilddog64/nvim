@@ -63,7 +63,7 @@ Plug 'thomasfaingnaert/vim-lsp-snippets'
 Plug 'tpope/vim-unimpaired'
 " Plug 'majutsushi/tagbar'
 
-Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'JamshedVesuna/vim-markdown-preview', {'for': 'markdown'}
 " Plug 'Shougo/denite.nvim'
 " Plug 'Shougo/neosnippet-snippets'
 " Plug 'WolfgangMehner/bash-support'
