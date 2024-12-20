@@ -2,9 +2,16 @@
 " Minimal, Portable Vim Config
 " ===============================
 
+" Ensure Vim is in nocompatible mode for modern versions
+if v:version >= 700
+  if &compatible
+    set nocompatible
+  endif
+endif
+
 " === XDG-Compliant Directory Setup ===
-let $XDG_CONFIG_HOME = exists('$XDG_CONFIG_HOME') ? $XDG_CONFIG_HOME : expand("~/.config")
-let $XDG_DATA_HOME = exists('$XDG_DATA_HOME') ? $XDG_DATA_HOME : expand("~/.local/share")
+let $XDG_CONFIG_HOME = expand("~/.config")
+let $XDG_DATA_HOME = expand("~/.local/share")
 
 " Create necessary directories
 if !isdirectory($XDG_DATA_HOME . "/vim/swap")
@@ -29,7 +36,7 @@ set undodir=$XDG_DATA_HOME/vim/undo
 set backup                   " Enable backups
 set backupdir=$XDG_DATA_HOME/vim/backup
 set dir=$XDG_DATA_HOME/vim/swap " Swap file directory
-set viminfo='50,<1000,s100,n' . $XDG_DATA_HOME . '/vim/viminfo'
+set viminfo="50,<1000,s100,n" . $XDG_DATA_HOME . "/vim/viminfo"
 
 " === Search Settings ===
 set hlsearch                 " Highlight search results
