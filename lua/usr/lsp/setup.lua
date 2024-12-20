@@ -187,8 +187,6 @@ lspconfig.azure_pipelines_ls.setup {
   },
 }
 
-local lspconfig = require("lspconfig")
-local util = require("lspconfig.util")
 lspconfig.yamlls.setup({
     root_dir = function(fname)
         -- Use the nearest .git directory or fallback to the current working directory
