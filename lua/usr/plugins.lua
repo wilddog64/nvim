@@ -184,12 +184,12 @@ return packer.startup(function(use)
   --   end
   -- }
 
-  -- use {
-  --   'ibhagwan/fzf-lua',
-  --   requires = {
-  --     'nvim-tree/nvim-web-devicons',
-  --   }
-  -- }
+  use {
+    'ibhagwan/fzf-lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    }
+  }
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
