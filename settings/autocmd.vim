@@ -84,3 +84,6 @@ augroup END
 if has("vim")
    autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif
 endif
+
+" only load vim-lsp for these file types
+autocmd FileType python,javascript,yaml call lsp#enable()
