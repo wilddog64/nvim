@@ -45,13 +45,25 @@ vim.diagnostic.config({
 ---
 -- LSP Servers
 ---
-
 lspconfig.lua_ls.setup({
-  single_file_support = true,
-  handlers = handlers,
-  flags = {
-    debounce_text_changes = 150,
+  settings = {
+    Lua = {
+      runtime = {
+        version = "LuaJIT", -- Use LuaJIT for Neovim
+      },
+      diagnostics = {
+        globals = { "vim" }, -- Suppress "undefined global 'vim'" warning
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true), -- Include Neovim runtime
+        checkThirdParty = false, -- Avoid third-party prompts
+      },
+      telemetry = { enable = false }, -- Disable telemetry
+    },
   },
+  on_init = function(client)
+    print("lua-language-server initialized!")
+  end,
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
