@@ -4,34 +4,36 @@ augroup ansiblels
   au BufEnter *.yaml,*.yml if stridx('%:p', 'tasks') && expand('%:e') == 'yml' | lcd %:h:h | endif
 augroup END
 
-function! Get_lua_config_dir() abort
-  " Get the current line and check if it contains 'require'
-  let l:line = getline(line("."))
-  if match(l:line, 'require') == -1
-    " Handle paths starting with ~
-    if match(l:line, '~') != -1
-      let l:expanded_path = expand(matchstr(l:line, '~.*'))
-      if filereadable(l:expanded_path)
-        return l:expanded_path
+function! Get_lua_config_dir()
+  let b:word = getline(line("."))
+  if stridx(b:word, 'require') == -1
+    if stridx(b:word, '~')
+      let b:word = expand(strcharpart(b:word, stridx(b:word, '~')))
+      if filereadable(b:word)
+        return b:word
       endif
     endif
-    return ""
   endif
 
-  " Determine the type of quote used
-  let l:quote = match(l:line, "'") != -1 ? "'" : '"'
-
-  " Extract the Lua module path between quotes
-  let l:module_path = matchstr(l:line, l:quote . '\zs.\{-}\ze' . l:quote)
-  let l:lua_file_path = './lua/' . substitute(l:module_path, '\.', '/', 'g')
-
-  " Check for the Lua file and init.lua
-  if filereadable(l:lua_file_path . '.lua')
-    return l:lua_file_path . '.lua'
-  elseif filereadable(l:lua_file_path . '/init.lua')
-    return l:lua_file_path . '/init.lua'
+  let b:looking_for = "'"
+  if stridx(b:word, b:looking_for) == -1
+    let b:looking_for = '"'
   endif
 
+  let b:first_quote = stridx(b:word, b:looking_for) + 1
+  let b:second_quote = stridx(b:word, b:looking_for, b:first_quote)
+  let b:length = (b:second_quote - b:first_quote)
+  let b:lua_path = strcharpart(b:word, b:first_quote, b:length)
+  let b:lua_file_path = "./lua/" . substitute(b:lua_path, "\\.", "/", "g")
+  let b:lua_file = b:lua_file_path . '.lua'
+  if filereadable(b:lua_file)
+    return b:lua_file
+  else
+    let b:lua_init_file = b:lua_file_path . '/init.lua'
+    if filereadable(b:lua_init_file)
+      return b:lua_init_file
+    endif
+  endif
   return ""
 endfunction
 
