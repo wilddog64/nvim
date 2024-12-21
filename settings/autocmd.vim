@@ -79,9 +79,7 @@ augroup tabconf
 augroup END
 
 " content will be copy to clipboard
-if has("vim")
-   autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif
-endif
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif
 
 " only load vim-lsp for these file types
 autocmd FileType python,javascript,yaml call lsp#enable()
