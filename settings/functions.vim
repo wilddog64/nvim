@@ -31,35 +31,6 @@ nmap <leader>= :call <SID>Preserve("normal gg=G")<CR>
 " this vim function will return a actual puppet module name, assuming that
 " delim is either - or _.  This function will strip off anything before - or _
 " including delim character, and return anything after - or _.
-function! Puppet_module_name()
-   let module_path = expand("%:p:h:h") " figure full path for a given puppet module
-   let search_char = '-'
-   let pos = stridx( module_path, search_char )
-   let module_name = ""
-   if pos == -1
-      let search_char = '_'
-      let pos = stridx( module_path, search_char )
-   endif
-   if pos != -1
-      let module_name = strpart( module_path, stridx( module_path, search_char ) + 1, strlen( module_path ) )
-   endif
-
-   return module_name
-endfunction
-
-" Get_puppet_module_name() calls Puppet_module_name() and also perform a
-" sanity check to return a proper module name
-function! Get_puppet_module_name()
-
-   let module_name = Puppet_module_name()
-   let basename = expand( "%:t:r" )
-   if basename != 'init'
-      let module_name = module_name . '::' . basename
-   endif
-
-   return strpart( module_name, stridx( module_name, '/' ) + 1, len( module_name ) )
-endfunction
-
 " Lookupward function allow vim to copy vertical line above even if there's an
 " empty line in between
 function! Lookupwards()
@@ -108,112 +79,90 @@ function! <SID>FollowSymlink()
    nmap <silent> <leader>sw :call <SID>StripTrailingWhitespaces()<CR>
    " autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
 
-   " Get_puppet_manfiest_file is a function that return a full path of puppet
-   " manifest, template, and upload file by interpretation of puppet statements
-   function! Get_puppet_filepath()
-      let puppetfile = expand("<cWORD>")
-      if stridx(puppetfile, '::') != -1
-         let puppetfile = Transfer_puppet_namespace2path()
-      elseif stridx(puppetfile, 'template') != -1
-         let puppetfile = Transfer_puppet_template2path()
-      elseif stridx(puppetfile, 'puppet:') != -1
-         let puppetfile = Transfer_puppet_modules2path()
-      endif
-      return puppetfile
-   endfunction
+function! Strip_patterns(input, patterns) abort
+  " Apply multiple substitutions to an input string
+  for pattern in a:patterns
+    let a:input = substitute(a:input, pattern, '', 'g')
+  endfor
+  return a:input
+endfunction
 
-   function! Transfer_puppet_namespace2path()
-      let puppetfile = expand("<cWORD>") " obtain a WORD under the cursor
-      if stridx(puppetfile, '::') == -1  " end function if we can't find ::
-         return
-      endif
+function! Replace_patterns(input, replacements) abort
+  " Replace multiple patterns in the input string
+  for [pattern, replacement] in items(a:replacements)
+    let a:input = substitute(a:input, pattern, replacement, 'g')
+  endfor
+  return a:input
+endfunction
 
-      if match(puppetfile, ",$")
-         let puppetfile = substitute(puppetfile, ",$", "", "")
-      endif
+function! Puppet_module_name() abort
+  let module_path = expand('%:p:h:h')  " Full path of the module
+  let separators = ['-', '_']
+  for sep in separators
+    let pos = stridx(module_path, sep)
+    if pos != -1
+      return strpart(module_path, pos + 1)
+    endif
+  endfor
+  return ''
+endfunction
 
-      " if Class is found, strip it off
-      if stridx(puppetfile, 'Class') != -1
-         let puppetfile = substitute(puppetfile, '^Class', '', '')
-      endif
+function! Get_puppet_module_name() abort
+  let module_name = Puppet_module_name()
+  let basename = expand('%:t:r')
+  if basename != 'init'
+    let module_name .= '::' . basename
+  endif
+  return substitute(module_name, '.*/', '', '')
+endfunction
 
-      " if [ or ] is found, remove them
-      if stridx(puppetfile, ']') != -1 || stridx(puppetfile, '[') != -1
-         let puppetfile = substitute(puppetfile, '[', "", 'g')
-         let puppetfile = substitute(puppetfile, ']', "", 'g')
-      endif
+function! Get_puppet_filepath() abort
+  let word = expand('<cWORD>')
+  if stridx(word, '::') != -1
+    return Transfer_puppet_namespace2path()
+  elseif stridx(word, 'template') != -1
+    return Transfer_puppet_template2path()
+  elseif stridx(word, 'puppet:') != -1
+    return Transfer_puppet_modules2path()
+  endif
+  return word
+endfunction
 
-      if stridx(puppetfile, 'create_resources') != -1
-         let puppetfile = substitute(puppetfile, "^create_resources", '', '')
-         let puppetfile = substitute(puppetfile, "(", "", "")
-         let puppetfile = substitute(puppetfile, ")", "", "")
-      endif
+function! Transfer_puppet_namespace2path() abort
+  let word = expand('<cWORD>')
+  if stridx(word, '::') == -1
+    return ''
+  endif
 
-      if match(puppetfile, '^::')
-         let puppetfile = substitute(puppetfile, "^::", "", "")
-      endif
-      " remove last character from string
-      " strip off single quotes
-      " replace :: with /
-      " insert manifests after first found /
-      " prepend ../ and append .pp
-      if match( puppetfile, ":$" )
-         " let puppetfile = strpart(puppetfile, 0, len(puppetfile) - 1)
-         let puppetfile = substitute(puppetfile, ":$", "", "")
-      endif
-      let puppetfile = substitute(puppetfile, "'", "", "g")
-      let puppetfile = substitute(puppetfile, '::', '\/', 'g')
-      let puppetfile = substitute(puppetfile, '\/\zs', 'manifests\/', '')
-      let puppetfile = '../' . puppetfile . '.pp'
-      echom "module file path: " . puppetfile
+  let word = Strip_patterns(word, [',$', '^Class', '[\[\]]', '^::', ':$'])
+  let word = Replace_patterns(word, {'::': '/', '/\zs': 'manifests/'})
+  return '../' . word . '.pp'
+endfunction
 
-      return puppetfile
-   endfunction
+function! Transfer_puppet_template2path() abort
+  let word = expand('<cWORD>')
+  if stridx(word, 'template') == -1
+    return ''
+  endif
 
-   function! Transfer_puppet_template2path()
-      let puppetfile = expand("<cWORD>")
-      if stridx(puppetfile, 'template') == -1
-         return
-      endif
-      if match(puppetfile, ",$")
-         let puppetfile = substitute(puppetfile, ",$", "", "")
-      endif
+  let word = Strip_patterns(word, [',$', 'template', '\(|\)', "'"])
+  let word = Replace_patterns(word, {'/\zs': 'templates/'})
+  return '../' . word
+endfunction
 
-      let puppetfile = substitute(puppetfile, "template", "", "")
-      let puppetfile = substitute(puppetfile, "(", "", "")
-      let puppetfile = substitute(puppetfile, ")", "", "")
-      let puppetfile = substitute(puppetfile, "'", "", "g")
-      let puppetfile = substitute(puppetfile, '\/\zs', 'templates\/', '')
-      let puppetfile = '../' . puppetfile
-      echom "puppetfile :" . puppetfile
-      return puppetfile
-   endfunction
+function! Transfer_puppet_modules2path() abort
+  let word = expand('<cWORD>')
+  let word = Strip_patterns(word, ["'", ',$', 'puppet:.*\/modules'])
+  let word = Replace_patterns(word, {'/\zs': '/files'})
+  return '../' . word
+endfunction
 
-   function! Transfer_puppet_modules2path()
-      let puppetfile = expand("<cWORD>")
-      if stridx(puppetfile, "'") != -1
-         let puppetfile = substitute(puppetfile, "'", "", "g")
-      endif
-
-      if match(puppetfile, ",$")
-         let puppetfile = substitute(puppetfile, ",$", "", "")
-      endif
-
-      if stridx(puppetfile, 'puppet:') == -1
-         return
-      endif
-      let puppetfile = substitute(puppetfile, "puppet:.*\/modules", "..", "")
-      let puppetfile = substitute(puppetfile, '\(\w\+\)\ze\/', '\1\/files', '')
-      return puppetfile
-   endfunction
-
-   " autocmd BufReadPost filetype puppet nmap <leader>gf :exe "e " . Get_puppet_manfiest_file()<CR>
-   augroup puppetEx
-      au!
-      autocmd BufReadPost filetype puppet nmap <buffer> <leader>gf :exe "e "   . Get_puppet_filepath()<CR>
-      autocmd BufReadPost filetype puppet nmap <buffer> <leader>wf :exe "sp "  . Get_puppet_filepath()<CR>
-      autocmd BufReadPost filetype puppet nmap <buffer> <leader>vf :exe "vsp " . Get_puppet_filepath()<CR>
-   augroup END
+augroup puppetEx
+  au!
+  autocmd BufReadPost *.pp nmap <buffer> <leader>gf :exe "e " . Get_puppet_filepath()<CR>
+  autocmd BufReadPost *.pp nmap <buffer> <leader>wf :exe "sp " . Get_puppet_filepath()<CR>
+  autocmd BufReadPost *.pp nmap <buffer> <leader>vf :exe "vsp " . Get_puppet_filepath()<CR>
+augroup END
 
    " split help file vertically
    aug NewSplit | au!
