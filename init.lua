@@ -29,7 +29,6 @@ vim.cmd([[
   source ~/.config/nvim/settings/functions.vim
   source ~/.config/nvim/settings/supertab.vim
   source ~/.config/nvim/settings/gundo.vim
-  " source ~/.config/nvim/settings/deoplete.vim
   source ~/.config/nvim/settings/autocmd.vim
   source ~/.config/nvim/settings/options.vim
   source ~/.config/nvim/settings/vimux.vim
@@ -42,4 +41,5 @@ vim.cmd([[
   " source ~/.config/nvim/settings/slim.vim
   " source ~/.config/nvim/settings/ipython.vim
   " source ~/.config/nvim/settings/rust.vim
+  " source ~/.config/nvim/settings/deoplete.vim
 ]])
