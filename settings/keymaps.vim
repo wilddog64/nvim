@@ -35,22 +35,6 @@ inoremap <C-S>  <C-O>:update<CR>
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
-" bring browser up by the following mappings
-" set isfname-=? isfname+=?
-" set isfname-=& isfname+=&
-" let g:Browser_links="links"
-" let g:Browser_camino="start -a Camino"
-" let g:Browser_opera="start -a Opera"
-" let g:Browser_firefox="start -a Firefox"
-" let g:Browser_default="start "
-" let g:Browser_chrome="start -a Google\ Chrome"
-" nnoremap <silent> <leader>gl :exe("sil !" . g:Browser_console . " \"" . expand( "<cfile>" ) . "\"" )<CR>
-" nnoremap <silent> <leader>gc :exe("sil !" . g:Browser_camino  . " \"" . expand( "<cfile>" ) . "\"" )<CR>
-" nnoremap <silent> <leader>gd :exe("sil !" . g:Browser_default . " \"" . expand( "<cfile>" ) . "\"" )<CR>
-" nnoremap <silent> <leader>go :exe("sil !" . g:Browser_opera   . " \"" . expand( "<cfile>" ) . "\"" )<CR>
-" nnoremap <silent> <leader>gf :exe("sil !" . g:Browser_firefox . " \"" . expand( "<cfile>" ) . "\"" )<CR>
-" nnoremap <silent> <leader>gh :exe("sil !" . g:Browser_chrome  . " \"" . expand( "<cfile>" ) . "\"" )<CR>
-
 " compress empty lines
 nnoremap <leader>cln :v/./.,/./-1join<CR>
 imap <leader>cln <C-O>:v/./.,/./-1join<CR>
