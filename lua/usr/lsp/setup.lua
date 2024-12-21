@@ -167,10 +167,10 @@ lspconfig.jsonls.setup({
   handlers = handlers
 })
 
--- Define a shared root_dir function
-local util = require("lspconfig.util")
 local function get_root_dir(fname)
-    return util.find_git_ancestor(fname) or vim.fn.getcwd()
+  local startpath = fname and vim.fs.dirname(fname) or vim.fn.getcwd()
+  local git_dir = vim.fs.find('.git', { path = startpath, upward = true })[1]
+  return git_dir and vim.fs.dirname(git_dir) or vim.fn.getcwd()
 end
 
 lspconfig.azure_pipelines_ls.setup {
@@ -197,13 +197,14 @@ lspconfig.yamlls.setup({
             format = { enable = true },
             validate = true,
             schemaStore = {
-                enable = false, -- Disable fetching schemas from SchemaStore
+                enable = true, -- Disable fetching schemas from SchemaStore
             },
             schemas = {
                 -- Explicitly define schemas for Helm files
                 ["https://json.schemastore.org/helmfile.json"] = "helmfile.yaml",
                 ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*",
                 ["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
+                ["https://json.schemastore.org/ansible-playbook"] = "/*.ansible.yaml", -- Ansible Playbooks
             },
         },
     },
