@@ -187,10 +187,3 @@ function! GitStatus()
 endfunction
 set statusline+=%{GitStatus()}
 
-function! s:HideVisualBlock() abort
-   for id in s:sign_ids
-      call sign_unplace('', { 'buffer': bufnr(), 'id': id })
-   endfor
-
-   let s:sign_ids = []
-endfunction

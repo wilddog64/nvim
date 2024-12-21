@@ -17,3 +17,12 @@ if !has("nvim") | finish | endif
 
     autocmd InsertLeave * ++once call s:HideVisualBlock()
  endfunction
+
+function! s:HideVisualBlock() abort
+   for id in s:sign_ids
+      call sign_unplace('', { 'buffer': bufnr(), 'id': id })
+   endfor
+
+   let s:sign_ids = []
+endfunction
+
