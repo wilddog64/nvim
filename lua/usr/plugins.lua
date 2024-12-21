@@ -53,44 +53,29 @@ return packer.startup(function(use)
   use 'christoomey/vim-tmux-navigator'
   use 'dbakker/vim-projectroot'
   use 'ervandew/supertab'
-  -- use 'fatih/vim-go'
-  use 'hashivim/vim-hashicorp-tools'
   use 'othree/xml.vim'
   use 'sjl/gundo.vim'
   use 'tmhedberg/matchit'
   use 'tmux-plugins/vim-tmux'
   use 'tmux-plugins/vim-tmux-focus-events'
   use 'tpope/vim-endwise'
-  -- use 'tpope/vim-fugitive'
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired'
-  use 'szw/vim-maximizer'
   use 'corntrace/bufexplorer'
-  use 'shougo/deoplete-lsp'
-  use { 'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
   use 'neovim/nvim-lspconfig'
-  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use {'ojroques/nvim-osc52'}
   use 'mfussenegger/nvim-dap'
-  use 'mfussenegger/nvim-dap-python'
+  -- use 'mfussenegger/nvim-dap-python'
   use 'nvim-lualine/lualine.nvim'
-  use 'antoinemadec/FixCursorHold.nvim'
-  use "numToStr/Comment.nvim" -- Easily comment stuff
   use "akinsho/toggleterm.nvim"
-  use "rktjmp/lush.nvim"
-  -- use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
-  use 'idbrii/vim-ripple'
-  use 'idbrii/itchy.vim'
-  use 'axieax/urlview.nvim'
   use 'honza/vim-snippets'
   use 'f3fora/cmp-spell'
   use 'plasticboy/vim-markdown'
   use 'echasnovski/mini.nvim'
-  use 'juliosueiras/vim-terraform-completion'
   use 'hashivim/vim-terraform'
   use 'kdheepak/lazygit.nvim'
   use 'martinda/Jenkinsfile-vim-syntax'
@@ -99,9 +84,28 @@ return packer.startup(function(use)
   use 'wellle/targets.vim'
   use 'sam4llis/nvim-lua-gf'
   use 'rodjek/vim-puppet'
-  use 'jpalardy/vim-slime'
-  use 'hanschen/vim-ipython-cell'
-
+  -- use 'jpalardy/vim-slime'
+  -- use 'hanschen/vim-ipython-cell'
+  use 'mfussenegger/nvim-ansible'
+  -- use 'rust-lang/rust.vim'
+  -- use 'preservim/tagbar'
+  -- use 'simrat39/rust-tools.nvim'
+  -- unused plugins
+  -- use 'fatih/vim-go'
+  -- use 'hashivim/vim-hashicorp-tools'
+  -- use 'tpope/vim-fugitive'
+  -- use 'szw/vim-maximizer'
+  -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  -- use "numToStr/Comment.nvim" -- Easily comment stuff
+  -- use 'junegunn/fzf'
+  -- use 'idbrii/vim-ripple'
+  -- use 'shougo/deoplete-lsp'
+  -- use { 'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
+  -- use 'antoinemadec/FixCursorHold.nvim'
+  -- use "rktjmp/lush.nvim"
+  -- use 'idbrii/itchy.vim'
+  -- use 'juliosueiras/vim-terraform-completion'
+  -- use 'axieax/urlview.nvim'
 
   use {
     'ojroques/nvim-lspfuzzy',
@@ -136,6 +140,7 @@ return packer.startup(function(use)
       -- {'williamboman/nvim-lsp-installer'},
       {"williamboman/mason.nvim", run = ':MasonUpdate'},
       {'williamboman/mason.lspconfig.nvim'},
+      {'tamago324/nlsp-settings.nvim'},
 
       -- Autocompletion
       {'hrsh7th/nvim-cmp'},
@@ -169,14 +174,21 @@ return packer.startup(function(use)
     end
   }
 
+  -- use {
+  --   "nvim-telescope/telescope.nvim",
+  --   requires = {
+  --     { "nvim-telescope/telescope-live-grep-args.nvim" },
+  --   },
+  --   config = function()
+  --     require("telescope").load_extension("live_grep_args")
+  --   end
+  -- }
+
   use {
-    "nvim-telescope/telescope.nvim",
+    'ibhagwan/fzf-lua',
     requires = {
-      { "nvim-telescope/telescope-live-grep-args.nvim" },
-    },
-    config = function()
-      require("telescope").load_extension("live_grep_args")
-    end
+      'nvim-tree/nvim-web-devicons',
+    }
   }
 
   if PACKER_BOOTSTRAP then
