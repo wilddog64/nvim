@@ -68,7 +68,6 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use {'ojroques/nvim-osc52'}
   use 'mfussenegger/nvim-dap'
-  -- use 'mfussenegger/nvim-dap-python'
   use 'nvim-lualine/lualine.nvim'
   use "akinsho/toggleterm.nvim"
   use 'junegunn/fzf.vim'
@@ -84,28 +83,30 @@ return packer.startup(function(use)
   use 'wellle/targets.vim'
   use 'sam4llis/nvim-lua-gf'
   use 'rodjek/vim-puppet'
-  -- use 'jpalardy/vim-slime'
-  -- use 'hanschen/vim-ipython-cell'
   use 'mfussenegger/nvim-ansible'
-  -- use 'rust-lang/rust.vim'
-  -- use 'preservim/tagbar'
-  -- use 'simrat39/rust-tools.nvim'
+
   -- unused plugins
-  -- use 'fatih/vim-go'
-  -- use 'hashivim/vim-hashicorp-tools'
-  -- use 'tpope/vim-fugitive'
-  -- use 'szw/vim-maximizer'
-  -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   -- use "numToStr/Comment.nvim" -- Easily comment stuff
-  -- use 'junegunn/fzf'
-  -- use 'idbrii/vim-ripple'
-  -- use 'shougo/deoplete-lsp'
-  -- use { 'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
-  -- use 'antoinemadec/FixCursorHold.nvim'
   -- use "rktjmp/lush.nvim"
-  -- use 'idbrii/itchy.vim'
-  -- use 'juliosueiras/vim-terraform-completion'
+  -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  -- use 'antoinemadec/FixCursorHold.nvim'
   -- use 'axieax/urlview.nvim'
+  -- use 'fatih/vim-go'
+  -- use 'hanschen/vim-ipython-cell'
+  -- use 'hashivim/vim-hashicorp-tools'
+  -- use 'idbrii/itchy.vim'
+  -- use 'idbrii/vim-ripple'
+  -- use 'jpalardy/vim-slime'
+  -- use 'juliosueiras/vim-terraform-completion'
+  -- use 'junegunn/fzf'
+  -- use 'mfussenegger/nvim-dap-python'
+  -- use 'preservim/tagbar'
+  -- use 'rust-lang/rust.vim'
+  -- use 'shougo/deoplete-lsp'
+  -- use 'simrat39/rust-tools.nvim'
+  -- use 'szw/vim-maximizer'
+  -- use 'tpope/vim-fugitive'
+  -- use { 'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
 
   use {
     'ojroques/nvim-lspfuzzy',
