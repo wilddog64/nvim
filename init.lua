@@ -4,18 +4,19 @@ vim.opt.shiftwidth = 3
 vim.opt.softtabstop = 3
 vim.opt.expandtab = true
 
+-- require('usr.treesitter')
+-- require('usr.telescope')
+-- require('usr.telescope-livegrep-arg')
+-- require('usr.urlview')
+
 require('usr.options')
 require('usr.plugins')
 require('usr.cmp')
--- require('usr.treesitter')
 require('usr.lsp')
 require('usr.dag-python')
 require('usr.lualine')
 require('usr.toggleterm')
--- require('usr.telescope')
--- require('usr.telescope-livegrep-arg')
 require('usr.python-dap')
--- require('usr.urlview')
 require('usr.luasnip')
 require('usr.mini')
 require('usr.common')
