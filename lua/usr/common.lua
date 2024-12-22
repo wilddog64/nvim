@@ -16,5 +16,19 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.cmd[[
 autocmd FileType lua lua local root_dir = require('usr.utils').get_lua_config_dir(vim.fn.expand('%:p'))
+function! PuppetIncludeExpr() abort
+  return luaeval("require'usr.utils'.resolve_puppet_path(_A)", expand('<cword>'))
+endfunction
 ]]
+
+-- Autocommand for Puppet filetype
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "puppet",
+  callback = function()
+    -- Use the Lua utility for includeexpr
+    vim.opt_local.includeexpr = "PuppetIncludeExpr()"
+    vim.opt_local.suffixesadd:append(".pp")      -- Add .pp as a suffix
+    vim.opt_local.path:append("modules/**")      -- Add Puppet modules directory to path
+  end,
+})
 
