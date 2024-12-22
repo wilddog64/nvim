@@ -61,6 +61,7 @@ Plug 'markonm/traces.vim'
 Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 Plug 'thomasfaingnaert/vim-lsp-snippets'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-endwise'
 " Plug 'majutsushi/tagbar'
 
 Plug 'JamshedVesuna/vim-markdown-preview', {'for': 'markdown'}
