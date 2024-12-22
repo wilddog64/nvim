@@ -53,7 +53,6 @@ return packer.startup(function(use)
   use 'christoomey/vim-tmux-navigator'
   use 'dbakker/vim-projectroot'
   use 'ervandew/supertab'
-  use 'othree/xml.vim'
   use 'sjl/gundo.vim'
   use 'tmhedberg/matchit'
   use 'tmux-plugins/vim-tmux'
@@ -86,6 +85,7 @@ return packer.startup(function(use)
   use 'mfussenegger/nvim-ansible'
 
   -- unused plugins
+  -- use 'othree/xml.vim'
   -- use "numToStr/Comment.nvim" -- Easily comment stuff
   -- use "rktjmp/lush.nvim"
   -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
