@@ -32,12 +32,22 @@ M.resolve_puppet_path = function()
   local base_dir = M.find_config_dir(vim.fn.expand("%:p"),
     { ".git", "modules" }) or vim.fn.getcwd()
 
+    -- Get the current line's content
   -- get puppet resource from where cursor is, and then construct
   -- proper puppet directory. if [ and  ] found, remove them
-  local puppet_manifest_ref = vim.fn.expand("<cWORD>")
+  local line=vim.fn.getline(".")
+  local puppet_manifest_ref = vim.fn.trim(line)
   if puppet_manifest_ref:find("%[") and puppet_manifest_ref:find("%]") then
-    puppet_manifest_ref = puppet_manifest_ref:gsub("^Class%['", ""):gsub("'%]$", "")
+    puppet_manifest_ref = puppet_manifest_ref:gsub("^Class%['", ""):gsub("'%]", ""):gsub(" ->", "")
+    puppet_manifest_ref = vim.fn.substitute(puppet_manifest_ref, " -$", "", "")
   end
+  if puppet_manifest_ref:find("Class") then
+    puppet_manifest_ref = vim.fn.substitute(line, "Class", "", "i")
+  end
+  if puppet_manifest_ref:find("include") then
+    puppet_manifest_ref = vim.fn.substitute(puppet_manifest_ref, "include ", "", "i")
+  end
+
   local manifests_dir = puppet_manifest_ref:gsub('::', '/manifests/')
   local puppet_manifest = base_dir .. '/' .. manifests_dir .. '.pp'
 
