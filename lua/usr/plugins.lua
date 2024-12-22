@@ -46,6 +46,31 @@ return packer.startup(function(use)
     config = function() require 'impatient' end
   }  -- cache plugins, make nvim start faster
 
+  -- unused plugins
+  -- use 'junegunn/fzf.vim'
+  -- use 'othree/xml.vim'
+  -- use "numToStr/Comment.nvim" -- Easily comment stuff
+  -- use "rktjmp/lush.nvim"
+  -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  -- use 'antoinemadec/FixCursorHold.nvim'
+  -- use 'axieax/urlview.nvim'
+  -- use 'fatih/vim-go'
+  -- use 'hanschen/vim-ipython-cell'
+  -- use 'hashivim/vim-hashicorp-tools'
+  -- use 'idbrii/itchy.vim'
+  -- use 'idbrii/vim-ripple'
+  -- use 'jpalardy/vim-slime'
+  -- use 'juliosueiras/vim-terraform-completion'
+  -- use 'junegunn/fzf'
+  -- use 'mfussenegger/nvim-dap-python'
+  -- use 'preservim/tagbar'
+  -- use 'rust-lang/rust.vim'
+  -- use 'shougo/deoplete-lsp'
+  -- use 'simrat39/rust-tools.nvim'
+  -- use 'szw/vim-maximizer'
+  -- use 'tpope/vim-fugitive'
+  -- use { 'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
+
   use 'wbthomason/packer.nvim'
   use 'jiangmiao/auto-pairs'
   use 'airblade/vim-gitgutter'
@@ -83,30 +108,6 @@ return packer.startup(function(use)
   use 'rodjek/vim-puppet'
   use 'mfussenegger/nvim-ansible'
 
-  -- unused plugins
-  -- use 'junegunn/fzf.vim'
-  -- use 'othree/xml.vim'
-  -- use "numToStr/Comment.nvim" -- Easily comment stuff
-  -- use "rktjmp/lush.nvim"
-  -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  -- use 'antoinemadec/FixCursorHold.nvim'
-  -- use 'axieax/urlview.nvim'
-  -- use 'fatih/vim-go'
-  -- use 'hanschen/vim-ipython-cell'
-  -- use 'hashivim/vim-hashicorp-tools'
-  -- use 'idbrii/itchy.vim'
-  -- use 'idbrii/vim-ripple'
-  -- use 'jpalardy/vim-slime'
-  -- use 'juliosueiras/vim-terraform-completion'
-  -- use 'junegunn/fzf'
-  -- use 'mfussenegger/nvim-dap-python'
-  -- use 'preservim/tagbar'
-  -- use 'rust-lang/rust.vim'
-  -- use 'shougo/deoplete-lsp'
-  -- use 'simrat39/rust-tools.nvim'
-  -- use 'szw/vim-maximizer'
-  -- use 'tpope/vim-fugitive'
-  -- use { 'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
 
   use {
     'ojroques/nvim-lspfuzzy',
