@@ -32,3 +32,5 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- trim off whitespaces
+vim.keymap.set('n', '<leader>tw', function() require('mini.trailspace').trim() end)
