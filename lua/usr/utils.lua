@@ -4,6 +4,8 @@ local M = {}
 M.find_config_dir = function(fname, markers)
   local startpath = fname and vim.fs.dirname(fname) or vim.fn.getcwd()
   local found_dir = vim.fs.find(markers, { path = startpath, upward = true })[1]
+  vim.notify("start path: " .. startpath, vim.log.levels.DEBUG)
+  vim.notify("found_dir: " .. found_dir, vim.log.levels.DEBUG)
   return found_dir and vim.fs.dirname(found_dir) or nil
 end
 
