@@ -34,15 +34,15 @@ M.resolve_puppet_path = function()
 
   -- get WORD from where cursor is, and then construct
   -- proper puppet directory. if [ and  ] found, remove them
-  local current_word = vim.fn.expand("<cWORD>")
-  if current_word:find("%[") and current_word:find("%]") then
-    current_word = current_word:gsub("^Class%['", ""):gsub("'%]$", "")
+  local puppet_manifest_ref = vim.fn.expand("<cWORD>")
+  if puppet_manifest_ref:find("%[") and puppet_manifest_ref:find("%]") then
+    puppet_manifest_ref = puppet_manifest_ref:gsub("^Class%['", ""):gsub("'%]$", "")
   end
-  local manifests_dir = current_word:gsub('::', '/manifests/')
+  local manifests_dir = puppet_manifest_ref:gsub('::', '/manifests/')
   local puppet_manifest = base_dir .. '/' .. manifests_dir .. '.pp'
 
   M.log("base directory: " .. base_dir, vim.log.levels.DEBUG)
-  M.log("current caputre WORD: " .. current_word, vim.log.levels.DEBUG)
+  M.log("current caputre WORD: " .. puppet_manifest_ref, vim.log.levels.DEBUG)
   M.log("manifests_dir: " .. manifests_dir, vim.log.levels.DEBUG)
   M.log("puppet manifest: " .. puppet_manifest, vim.log.levels.DEBUG)
 
