@@ -21,8 +21,11 @@ M.resolve_puppet_path = function()
     { ".git", "modules" }) or vim.fn.getcwd()
 
   -- get WORD from where cursor is, and then construct
-  -- proper puppet directory
+  -- proper puppet directory. if [ and  ] found, remove them
   local current_word = vim.fn.expand("<cWORD>")
+  if current_word:find("%[") and current_word:find("%]") then
+    current_word = current_word:gsub("^Class%['", ""):gsub("'%]$", "")
+  end
   local manifests_dir = current_word:gsub('::', '/manifests/')
   local puppet_manifest = base_dir .. '/' .. manifests_dir .. '.pp'
 
