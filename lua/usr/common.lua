@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.includeexpr = "substitute(v:fname, '\\.', '/', 'g') . '.lua'"
     local root_dir = require('usr.utils').get_lua_config_dir(vim.fn.expand("%:p"))
     if root_dir then
-      print("Lua Root Dir: " .. root_dir)
+      vim.notify("lua root dir: " .. root_dir, vim.log.levels.INFO)
     end
   end,
 })
