@@ -1,11 +1,20 @@
 -- General utility function to find a project or config directory
 local M = {}
 
+M.log = function(message, level)
+  local current_log_level = vim.log.levels.INFO
+  if level >= current_log_level then
+    local info = debug.getinfo(3, "Sl") -- Get the third-level caller info
+    local context = string.format("[%s:%d]", info.short_src, info.currentline)
+    vim.notify(context .. " " .. message, level)
+  end
+end
+
 M.find_config_dir = function(fname, markers)
   local startpath = fname and vim.fs.dirname(fname) or vim.fn.getcwd()
   local found_dir = vim.fs.find(markers, { path = startpath, upward = true })[1]
-  vim.notify("start path: " .. startpath, vim.log.levels.DEBUG)
-  vim.notify("found_dir: " .. found_dir, vim.log.levels.DEBUG)
+  M.log("start path: " .. startpath, vim.log.levels.DEBUG)
+  M.log("found_dir: " .. found_dir, vim.log.levels.DEBUG)
 
   return found_dir and vim.fs.dirname(found_dir) or nil
 end
@@ -32,10 +41,10 @@ M.resolve_puppet_path = function()
   local manifests_dir = current_word:gsub('::', '/manifests/')
   local puppet_manifest = base_dir .. '/' .. manifests_dir .. '.pp'
 
-  vim.notify("base directory: " .. base_dir, vim.log.levels.DEBUG)
-  vim.notify("current caputre WORD: " .. current_word, vim.log.levels.DEBUG)
-  vim.notify("manifests_dir: " .. manifests_dir, vim.log.levels.DEBUG)
-  vim.notify("puppet manifest: " .. puppet_manifest, vim.log.levels.DEBUG)
+  M.log("base directory: " .. base_dir, vim.log.levels.DEBUG)
+  M.log("current caputre WORD: " .. current_word, vim.log.levels.DEBUG)
+  M.log("manifests_dir: " .. manifests_dir, vim.log.levels.DEBUG)
+  M.log("puppet manifest: " .. puppet_manifest, vim.log.levels.DEBUG)
 
   -- check if file exists and return it
   if vim.fn.filereadable(puppet_manifest) then
@@ -43,7 +52,7 @@ M.resolve_puppet_path = function()
   end
 
   -- return "" if file does not exist
-  vim.notify("Puppet file does not exist: " .. puppet_manifest, vim.log.levels.WARN)
+  M.log("Puppet file does not exist: " .. puppet_manifest, vim.log.levels.WARN)
   return ""
 end
 
