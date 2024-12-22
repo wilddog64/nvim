@@ -36,6 +36,8 @@ source ~/.config/nvim/settings/functions.vim
 " Plug 'tommcdo/vim-exchange'
 " Plug 'tpope/vim-rake'
 " Plug 'vim-airline/vim-airline'
+" Plug 'https://github.com/othree/xml.vim.git'
+" Plug 'maxmellon/vim-jsx-pretty'
 
 " a list of plugins we want to have
 Plug 'Shougo/vimproc.vim'
@@ -54,7 +56,6 @@ Plug 'hashivim/vim-terraform'
 Plug 'haya14busa/is.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'honza/vim-snippets',
-Plug 'https://github.com/othree/xml.vim.git'
 Plug 'https://github.com/vim-scripts/taglist.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'juliosueiras/vim-terraform-completion'
@@ -63,7 +64,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'markonm/traces.vim'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'mattn/vim-lsp-settings'
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'ojroques/vim-oscyank'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'rafamadriz/friendly-snippets',
