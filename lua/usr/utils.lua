@@ -23,8 +23,13 @@ M.resolve_puppet_path = function()
   -- get WORD from where cursor is, and then construct
   -- proper puppet directory
   local current_word = vim.fn.expand("<cWORD>")
-  local cword = current_word:gsub('::', '/manifests/')
-  local puppet_manifest = base_dir .. '/' .. cword .. '.pp'
+  local manifests_dir = current_word:gsub('::', '/manifests/')
+  local puppet_manifest = base_dir .. '/' .. manifests_dir .. '.pp'
+
+  vim.notify("base directory: " .. base_dir, vim.log.levels.DEBUG)
+  vim.notify("current caputre WORD: " .. current_word, vim.log.levels.DEBUG)
+  vim.notify("manifests_dir: " .. manifests_dir, vim.log.levels.DEBUG)
+  vim.notify("puppet manifest: " .. puppet_manifest, vim.log.levels.DEBUG)
 
   -- check if file exists and return it
   if vim.fn.filereadable(puppet_manifest) then
