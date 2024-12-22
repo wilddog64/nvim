@@ -69,7 +69,6 @@ return packer.startup(function(use)
   use 'mfussenegger/nvim-dap'
   use 'nvim-lualine/lualine.nvim'
   use "akinsho/toggleterm.nvim"
-  use 'junegunn/fzf.vim'
   use 'honza/vim-snippets'
   use 'f3fora/cmp-spell'
   use 'plasticboy/vim-markdown'
@@ -85,6 +84,7 @@ return packer.startup(function(use)
   use 'mfussenegger/nvim-ansible'
 
   -- unused plugins
+  -- use 'junegunn/fzf.vim'
   -- use 'othree/xml.vim'
   -- use "numToStr/Comment.nvim" -- Easily comment stuff
   -- use "rktjmp/lush.nvim"
