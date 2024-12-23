@@ -2,6 +2,7 @@
 -- after plugins are installed
 -- simple setup for lsp-colors
 
+utils = require('usr.utils')
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "lua",
   callback = function()
@@ -19,6 +20,11 @@ autocmd FileType lua lua local root_dir = require('usr.utils').get_lua_config_di
 function! PuppetIncludeExpr() abort
   return luaeval("require'usr.utils'.resolve_puppet_path(_A)", expand('<cword>'))
 endfunction
+
+-- this function AnsibleIncludeExpr is to defer the includeexxpr evaluation
+function! AnsibleIncludeExpr() abort
+  return luaeval("require'usr.utils'.resolve_ansible_path()")
+endfunction
 ]]
 
 -- Autocommand for Puppet filetype
@@ -32,5 +38,17 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Autocommand for Ansible filetype
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "yaml.ansible",
+  callback = function()
+    -- Use the Lua utility for includeexpr
+    vim.opt_local.includeexpr = "AnsibleIncludeExpr()"
+    local ansible_task_path = utils.resolve_ansible_path()
+    if not ansible_task_path then
+      utils.log('ansible task not found: ' .. ansible_task_path, vim.log.levels.WARN)
+    end
+  end,
+})
 -- trim off whitespaces
 vim.keymap.set('n', '<leader>tw', function() require('mini.trailspace').trim() end)
