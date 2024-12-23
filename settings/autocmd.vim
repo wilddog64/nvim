@@ -99,6 +99,6 @@ function! Get_lua_config_dir()
   return ""
 endfunction
 
-" augroup luamap
-"   au BufEnter *.lua nmap <silent> gf :exe "e " . Get_lua_config_dir()<CR>
-" augroup END
+augroup luamap
+  au BufEnter *.lua nmap <silent> gf :exe "e " . Get_lua_config_dir()<CR>
+augroup END
