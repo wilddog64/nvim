@@ -2,7 +2,7 @@
 -- after plugins are installed
 -- simple setup for lsp-colors
 
-utils = require('usr.utils')
+local utils = require('usr.utils')
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "lua",
   callback = function()
