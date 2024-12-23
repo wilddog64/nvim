@@ -46,25 +46,27 @@ augroup END
 " content will be copy to clipboard
 autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif
 
-" only load vim-lsp for these file types
-autocmd FileType python,javascript,yaml call s:conditional_lsp_enable()
+" only load vim-lsp for these file types, only if we use vim
+if !has('nvim')
+   autocmd FileType python,javascript,yaml call s:conditional_lsp_enable()
 
-function! s:conditional_lsp_enable() abort
-  " Get the current file path
-  let l:fname = expand('%:p')
-  if l:fname ==# ''
-    return
-  endif
+   function! s:conditional_lsp_enable() abort
+     " Get the current file path
+     let l:fname = expand('%:p')
+     if l:fname ==# ''
+       return
+     endif
 
-  " Determine the root directory using vim.fs.find
-  let l:startpath = luaeval('vim.fs.dirname(vim.fn.expand("%:p")) or vim.fn.getcwd()')
-  let l:git_dir = luaeval('vim.fs.find(".git", { path = "' . l:startpath . '", upward = true })[1]')
+     " Determine the root directory using vim.fs.find
+     let l:startpath = luaeval('vim.fs.dirname(vim.fn.expand("%:p")) or vim.fn.getcwd()')
+     let l:git_dir = luaeval('vim.fs.find(".git", { path = "' . l:startpath . '", upward = true })[1]')
 
-  " Only enable LSP if a valid project root is found
-  if !empty(l:git_dir)
-    call lsp#enable()
-  endif
-endfunction
+     " Only enable LSP if a valid project root is found
+     if !empty(l:git_dir)
+       call lsp#enable()
+     endif
+   endfunction
+endif
 
 function! Get_lua_config_dir()
   let b:word = getline(line("."))
