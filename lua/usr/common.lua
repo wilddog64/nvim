@@ -18,10 +18,10 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.cmd[[
 autocmd FileType lua lua local root_dir = require('usr.utils').get_lua_config_dir()
 function! PuppetIncludeExpr() abort
-  return luaeval("require'usr.utils'.resolve_puppet_path(_A)", expand('<cword>'))
+  return luaeval("require'usr.utils'.resolve_puppet_path()"))
 endfunction
 
--- this function AnsibleIncludeExpr is to defer the includeexxpr evaluation
+" this function AnsibleIncludeExpr is to defer the includeexxpr evaluation
 function! AnsibleIncludeExpr() abort
   return luaeval("require'usr.utils'.resolve_ansible_path()")
 endfunction
