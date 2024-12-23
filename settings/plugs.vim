@@ -38,6 +38,7 @@ source ~/.config/nvim/settings/functions.vim
 " Plug 'vim-airline/vim-airline'
 " Plug 'https://github.com/othree/xml.vim.git'
 " Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'godlygeek/tabular'
 
 " a list of plugins we want to have
 Plug 'Shougo/vimproc.vim'
@@ -50,7 +51,6 @@ Plug 'corntrace/bufexplorer'
 Plug 'davidhalter/jedi-vim'
 Plug 'dbakker/vim-projectroot'
 Plug 'ervandew/supertab'
-Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-hashicorp-tools'
 Plug 'hashivim/vim-terraform'
 Plug 'haya14busa/is.vim'
