@@ -32,9 +32,8 @@ M.resolve_puppet_path = function()
   local base_dir = M.find_config_dir(vim.fn.expand("%:p"),
     { ".git", "modules", "role", "profile" }) or vim.fn.getcwd()
 
-    -- Get the current line's content
-  -- get puppet resource from where cursor is, and then construct
-  -- proper puppet directory. if [ and  ] found, remove them
+  -- Get the current line's content get puppet resource from where cursor is, and
+  -- trim of any whitespaces around it
   local line=vim.fn.getline(".")
   local puppet_manifest_ref = vim.fn.trim(line)
   if puppet_manifest_ref:find("%[") and puppet_manifest_ref:find("%]") then
