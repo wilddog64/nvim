@@ -4,14 +4,14 @@
 
 local utils = require('usr.utils')
 vim.cmd[[
-function! PuppetIncludeExpr() abort
-  return luaeval("require'usr.utils'.resolve_puppet_path()")
-endfunction
+  function! PuppetIncludeExpr() abort
+    return luaeval("require'usr.utils'.resolve_puppet_path()")
+  endfunction
 
-" this function AnsibleIncludeExpr is to defer the includeexxpr evaluation
-function! AnsibleIncludeExpr() abort
-  return luaeval("require'usr.utils'.resolve_ansible_path()")
-endfunction
+  " this function AnsibleIncludeExpr is to defer the includeexxpr evaluation
+  function! AnsibleIncludeExpr() abort
+    return luaeval("require'usr.utils'.resolve_ansible_path()")
+  endfunction
 ]]
 
 -- Autocommand for Puppet filetype
