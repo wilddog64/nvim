@@ -41,9 +41,7 @@ M.resolve_puppet_path = function()
     puppet_manifest_ref = vim.fn.substitute(puppet_manifest_ref, '\\s*->', '', 'g')
     puppet_manifest_ref = vim.fn.substitute(puppet_manifest_ref, " -$", "", "")
   end
-  if puppet_manifest_ref:find("Class") then
-    puppet_manifest_ref = vim.fn.substitute(line, "Class", "", "i")
-  end
+
   if puppet_manifest_ref:find("include") then
     puppet_manifest_ref = vim.fn.substitute(puppet_manifest_ref, "include ", "", "i")
   end
