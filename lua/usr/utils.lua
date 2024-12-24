@@ -38,7 +38,6 @@ M.resolve_puppet_path = function()
   local line=vim.fn.getline(".")
   local puppet_manifest_ref = vim.fn.trim(line)
   if puppet_manifest_ref:find("%[") and puppet_manifest_ref:find("%]") then
-    -- puppet_manifest_ref = puppet_manifest_ref:gsub("^Class%['", ""):gsub("'%]", ""):gsub(" ->", "")
     puppet_manifest_ref = puppet_manifest_ref:gsub("^Class%['", ""):gsub("'%]", "")
     puppet_manifest_ref = vim.fn.substitute(puppet_manifest_ref, '\\s*->', '', 'g')
     puppet_manifest_ref = vim.fn.substitute(puppet_manifest_ref, " -$", "", "")
