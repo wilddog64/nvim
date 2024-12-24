@@ -11,11 +11,14 @@ M.log = function(message, level)
 end
 
 M.find_config_dir = function(fname, markers)
+  -- find a project root base on git repo or return current directory if
+  -- it is not
   local startpath = fname and vim.fs.dirname(fname) or vim.fn.getcwd()
   local found_dir = vim.fs.find(markers, { path = startpath, upward = true })[1]
   M.log("start path: " .. startpath, vim.log.levels.DEBUG)
   M.log("found_dir: " .. found_dir, vim.log.levels.DEBUG)
 
+  -- return directory name or nil if not found
   return found_dir and vim.fs.dirname(found_dir) or nil
 end
 
