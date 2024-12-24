@@ -7,8 +7,8 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "lua",
   callback = function()
     -- Properly set includeexpr using Lua
-    vim.opt_local.includeexpr = "substitute(v:fname, '\\.', '/', 'g') . '.lua'"
-    local root_dir = require('usr.utils').get_lua_config_dir()
+    vim.opt_local.includeexpr = "LuaIncludeExpr()"
+    local root_dir = require('usr.utils').resolve_lua_path()
     if root_dir then
       utils.log("lua root dir: " .. root_dir, vim.log.levels.INFO)
     end
@@ -16,7 +16,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.cmd[[
-autocmd FileType lua lua local root_dir = require('usr.utils').get_lua_config_dir()
 function! PuppetIncludeExpr() abort
   return luaeval("require'usr.utils'.resolve_puppet_path()")
 endfunction
@@ -24,6 +23,10 @@ endfunction
 " this function AnsibleIncludeExpr is to defer the includeexxpr evaluation
 function! AnsibleIncludeExpr() abort
   return luaeval("require'usr.utils'.resolve_ansible_path()")
+endfunction
+
+function! LuaIncludeExpr() abort
+  return luaeval("require'usr.utils'.resolve_lua_path()")
 endfunction
 ]]
 

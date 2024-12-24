@@ -19,8 +19,54 @@ M.find_config_dir = function(fname, markers)
   return found_dir and vim.fs.dirname(found_dir) or nil
 end
 
-M.get_lua_config_dir = function ()
-  return M.find_config_dir(vim.fn.expand('%:p'), { 'init.lua', '.git', 'lua-config' })
+M.resolve_lua_path = function ()
+  local fn = vim.fn -- make typing shorter
+  local basedir = M.find_config_dir(vim.fn.expand('%:p'),
+    { 'init.lua', '.git', 'lua-config' }) or
+    vim.fn.getcwd()
+  M.log('base directory: ' .. basedir, vim.log.levels.DEBUG)
+
+  -- get line under cursor
+  local line = fn.getline('.')
+
+  -- cleanup work, remove '', and ""
+  local lua_path_ref = fn.trim(line)
+  lua_path_ref = fn.substitute(lua_path_ref, '"', '', 'g')
+  lua_path_ref = fn.substitute(lua_path_ref, "'", '', 'g')
+
+  -- if ~ is found in the beginning of a path, then expand it
+  if fn.matchstr(lua_path_ref, '^source ~') then
+    lua_path_ref = fn.substitute(lua_path_ref, 'source', '', '')
+    lua_path_ref = fn.expand(lua_path_ref)
+    if fn.filereadable(lua_path_ref) then
+      M.log('file: ' .. lua_path_ref, vim.log.levels.DEBUG)
+      return lua_path_ref
+    end
+  end
+
+  -- transfer . to / and add .lua extension
+  lua_path_ref = fn.matchstr(lua_path_ref, "require\\s*[(]?['\"]\\zs[^'\"]\\+")
+  -- if fn.matchstr(lua_path_ref, 'require') then
+  --   lua_path_ref = fn.substitute(lua_path_ref, 'require', '', 'g')
+  --   lua_path_ref = fn.substitute(lua_path_ref, '"', '', 'g')
+  --   lua_path_ref = fn.substitute(lua_path_ref, "'", '', 'g')
+  --   lua_path_ref = fn.substitute(lua_path_ref, '(\\|)', '', 'g')
+  -- end
+
+  lua_path_ref = basedir .. fn.substitute(lua_path_ref, '\\.', '/', 'g')
+  local lua_file_path = lua_path_ref .. '.lua'
+  if fn.filereadable(lua_file_path) then -- if file is readable
+    M.log('lua file: ' .. lua_file_path, vim.log.levels.DEBUG)
+    return lua_file_path
+  else -- check if there's init.lua within directory
+    local lua_init_file = lua_path_ref .. '/init.lua'
+    if fn.filereadable(lua_init_file) then
+      M.log('lua init file: ' .. lua_init_file, vim.log.levels.DEBUG)
+      return lua_init_file
+    end
+  end
+
+  return ''
 end
 
 -- Resolve Puppet module paths to file paths
