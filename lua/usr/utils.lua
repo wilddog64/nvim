@@ -36,19 +36,24 @@ M.resolve_puppet_path = function()
   -- trim of any whitespaces around it
   local line=vim.fn.getline(".")
   local puppet_manifest_ref = vim.fn.trim(line)
+
+  -- if [ and ] were found extract xyz from Class['xyz'] ->
   if puppet_manifest_ref:find("%[") and puppet_manifest_ref:find("%]") then
     puppet_manifest_ref = puppet_manifest_ref:gsub("^Class%['", ""):gsub("'%]", "")
     puppet_manifest_ref = vim.fn.substitute(puppet_manifest_ref, '\\s*->', '', 'g')
     puppet_manifest_ref = vim.fn.substitute(puppet_manifest_ref, " -$", "", "")
   end
 
+  -- remove include if there's any
   if puppet_manifest_ref:find("include") then
     puppet_manifest_ref = vim.fn.substitute(puppet_manifest_ref, "include ", "", "i")
   end
 
+  -- add /manifests/ between base_dir and puppet_ref
   local manifests_dir = puppet_manifest_ref:gsub('::', '/manifests/')
   local puppet_manifest = base_dir .. '/' .. manifests_dir .. '.pp'
 
+  -- debug output
   M.log("base directory: " .. base_dir, vim.log.levels.DEBUG)
   M.log("current caputre WORD: " .. puppet_manifest_ref, vim.log.levels.DEBUG)
   M.log("manifests_dir: " .. manifests_dir, vim.log.levels.DEBUG)
