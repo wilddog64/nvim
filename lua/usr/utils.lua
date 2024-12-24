@@ -30,7 +30,7 @@ M.resolve_puppet_path = function()
   -- figure out root directory from git repo if any; otherwise,
   -- from current directory
   local base_dir = M.find_config_dir(vim.fn.expand("%:p"),
-    { ".git", "modules" }) or vim.fn.getcwd()
+    { ".git", "modules", "role", "profile" }) or vim.fn.getcwd()
 
     -- Get the current line's content
   -- get puppet resource from where cursor is, and then construct
