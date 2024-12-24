@@ -3,18 +3,6 @@
 -- simple setup for lsp-colors
 
 local utils = require('usr.utils')
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "lua",
-  callback = function()
-    -- Properly set includeexpr using Lua
-    vim.opt_local.includeexpr = "substitute(v:fname, '\\.', '/', 'g') . '.lua'"
-    local root_dir = require('usr.utils').get_lua_config_dir()
-    if root_dir then
-      utils.log("lua root dir: " .. root_dir, vim.log.levels.INFO)
-    end
-  end,
-})
-
 vim.cmd[[
 autocmd FileType lua lua local root_dir = require('usr.utils').get_lua_config_dir()
 function! PuppetIncludeExpr() abort
@@ -50,5 +38,18 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "lua",
+  callback = function()
+    -- Properly set includeexpr using Lua
+    vim.opt_local.includeexpr = "substitute(v:fname, '\\.', '/', 'g') . '.lua'"
+    local root_dir = require('usr.utils').get_lua_config_dir()
+    if root_dir then
+      utils.log("lua root dir: " .. root_dir, vim.log.levels.INFO)
+    end
+  end,
+})
+
 -- trim off whitespaces
 vim.keymap.set('n', '<leader>tw', function() require('mini.trailspace').trim() end)
