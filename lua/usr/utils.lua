@@ -67,9 +67,56 @@ M.resolve_puppet_path = function()
     return puppet_manifest
   end
 
+  if vim.fn.matchstr(puppet_manifest_ref, 'lookup') then
+    local search_pattern = vim.fn.matchstr(puppet_manifest_ref, "['\"]\\zs[^\"]\\+']")
+    if search_pattern then
+      local datadir = base_dir .. '/data/'
+      local loclist = M.search_pattern_infiles(datadir, search_pattern)
+      vim.fn.setloclist(0, {}, 'r', {title = 'SEarch Results', items = loclist})
+      return ''
+    end
+  end
+
   -- return "" if file does not exist
   M.log("Puppet file does not exist: " .. puppet_manifest, vim.log.levels.WARN)
   return ""
+end
+
+M.search_pattern_infiles = function(dir, pattern)
+  -- use rg to search pattern in a given directory
+  local rg_cmd = 'rg --no-heading -n --with-filename --color=never --column ' .. pattern
+
+  -- execute rg_cmd and read all output into a result varabile
+  local handle = io.popen(rg_cmd)
+  if not handle then
+    return nil
+  end
+  local result = handle:read('*a')
+  handle:close()
+
+  -- check if there any result came back
+  if result == "" then
+    M.log("no match found for " .. pattern, vim.log.levels.INFO)
+    return ''
+  end
+
+  -- now create a location list with these entries
+  -- filename, location number, column, and text
+  local loclist = {}
+  for line in result:gmatch("[^\r\n]+") do
+    local file, lnum, col, text = line:match("([^:]+):(%d+):(%d+):(.*)")
+    if file and lnum and col and text then
+      table.insert(loclist, {
+        filename = file,
+        lnum = tonumber(line),
+        col = tonumber(col),
+        text = text
+      })
+    end
+  end
+
+  -- call vim function setLocList to popular a location list
+  return loclist
 end
 
 M.resolve_ansible_path = function()
