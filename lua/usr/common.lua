@@ -21,7 +21,8 @@ vim.api.nvim_create_autocmd("FileType", {
     -- Use the Lua utility for includeexpr
     vim.opt_local.includeexpr = "PuppetIncludeExpr()"
     vim.opt_local.suffixesadd:append(".pp")      -- Add .pp as a suffix
-    vim.opt_local.path:append("modules/**")      -- Add Puppet modules directory to path
+    vim.opt_local.path:append("data/**")      -- Add Puppet modules directory to path
+    vim.opt_local.path:append("site/**")      -- Add Puppet modules directory to path
   end,
 })
 

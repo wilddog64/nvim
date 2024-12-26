@@ -33,12 +33,33 @@ M.resolve_puppet_path = function()
   -- figure out root directory from git repo if any; otherwise,
   -- from current directory
   local base_dir = M.find_config_dir(vim.fn.expand("%:p"),
-    { ".git", "modules", "role", "profile" }) or vim.fn.getcwd()
+    { ".git", "modules", "role", "profile", "data" }) or vim.fn.getcwd()
 
   -- Get the current line's content get puppet resource from where cursor is, and
   -- trim of any whitespaces around it
   local line=vim.fn.getline(".")
   local puppet_manifest_ref = vim.fn.trim(line)
+
+  -- if cursor line has lookup, then we need to extract what's string inside quote
+  -- and use it as a search pattern to search against ./data directory. If pattern
+  -- is found from files then we create a location list for easy jump around within
+  -- found list
+  if vim.fn.matchstr(puppet_manifest_ref, 'lookup') then
+    local search_pattern = vim.fn.substitute(puppet_manifest_ref, "\\s*\\zs= lookup\\s*('\\(\\S\\+\\)'.*),", "\\1", "g")
+    search_pattern = vim.fn.substitute(search_pattern, '\\$.*\ze\\(.*\\),', '\\1', '')
+    search_pattern = vim.fn.trim(search_pattern)
+    vim.notify('search pattern: ' .. search_pattern)
+
+    if search_pattern then
+      vim.notify(base_dir)
+      local datadir = vim.fn.fnamemodify(base_dir, ':h')
+      datadir = base_dir .. '/../data/'
+      local loclist = M.search_pattern_infiles(datadir, search_pattern)
+      if loclist then
+        return vim.fn.setloclist(0, {}, 'r', {title = 'SEarch Results', items = loclist})
+      end
+    end
+  end
 
   -- if [ and ] were found extract xyz from Class['xyz'] ->
   if puppet_manifest_ref:find("%[") and puppet_manifest_ref:find("%]") then
@@ -67,16 +88,6 @@ M.resolve_puppet_path = function()
     return puppet_manifest
   end
 
-  if vim.fn.matchstr(puppet_manifest_ref, 'lookup') then
-    local search_pattern = vim.fn.matchstr(puppet_manifest_ref, "['\"]\\zs[^\"]\\+']")
-    if search_pattern then
-      local datadir = base_dir .. '/data/'
-      local loclist = M.search_pattern_infiles(datadir, search_pattern)
-      vim.fn.setloclist(0, {}, 'r', {title = 'SEarch Results', items = loclist})
-      return ''
-    end
-  end
-
   -- return "" if file does not exist
   M.log("Puppet file does not exist: " .. puppet_manifest, vim.log.levels.WARN)
   return ""
@@ -84,10 +95,17 @@ end
 
 M.search_pattern_infiles = function(dir, pattern)
   -- use rg to search pattern in a given directory
-  local rg_cmd = 'rg --no-heading -n --with-filename --color=never --column ' .. pattern
+  local rg_cmd = '/opt/homebrew/bin/rg --no-heading -n --with-filename --color=never --column ' .. pattern .. ' ' .. 'data'
+  vim.notify('search pattern:' .. pattern)
+  vim.notify(rg_cmd)
+  M.log("search directory: " .. dir, vim.log.levels.INFO)
 
+  if not pattern then
+    print('no pattern pass in ' .. pattern)
+    return nil
+  end
   -- execute rg_cmd and read all output into a result varabile
-  local handle = io.popen(rg_cmd)
+  local handle = io.popen(rg_cmd .. '2 > /dev/null')
   if not handle then
     return nil
   end
@@ -96,7 +114,8 @@ M.search_pattern_infiles = function(dir, pattern)
 
   -- check if there any result came back
   if result == "" then
-    M.log("no match found for " .. pattern, vim.log.levels.INFO)
+    print('rg command: ' .. rg_cmd)
+    -- M.log("no match found for " .. pattern, vim.log.levels.INFO)
     return ''
   end
 
