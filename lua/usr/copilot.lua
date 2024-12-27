@@ -7,6 +7,7 @@ require("CopilotChat").setup {
     }
   },
   selection = function(source)
-    return select.visual(source) or select.buffer(source)
+    return select.visual(source) or
+      select.buffer(source)
   end
 }
