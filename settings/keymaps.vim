@@ -1,4 +1,3 @@
-" 2010-09-06
 " map ctrl-return to open a line (for both normal and insert mode)
 map <C-CR> o
 imap <C-CR> <C-O>o
@@ -118,4 +117,17 @@ if has("nvim")
    nmap <leader>c <Plug>OSCYankOperator
    nmap <leader>cc <leader>c_
    vmap <leader>c <Plug>OSCYankVisual
+
+   nmap <leader>cce :CopilotChatExplain<cr>
+   nmap <leader>cct :CopilotChatTest<cr>
+   nmap <leader>ccr :CopilotChatReview<cr>
+   nmap <leader>cc :CopilotChatToggle<cr>
+
+   " map <leader>a to accept the word from copilot
+   imap <leader>a <Plug>(copilot-accept-word)
+
+   let g:copilot_no_tab_map = v:true
+   imap <Tab> copilot#Accept("\<CR>")
+
 endif
+
