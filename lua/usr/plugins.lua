@@ -107,7 +107,14 @@ return packer.startup(function(use)
   use 'sam4llis/nvim-lua-gf'
   use 'rodjek/vim-puppet'
   use 'mfussenegger/nvim-ansible'
-  use 'github/copilot.vim'
+  use {
+    'github/copilot.vim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-lua/popup.nvim',
+      'CopilotC-Nvim/CopilotChat.nvim'
+    },
+  }
 
   use {
     'ojroques/nvim-lspfuzzy',
