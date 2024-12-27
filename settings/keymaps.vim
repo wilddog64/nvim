@@ -26,12 +26,12 @@ imap <leader>vdup <C-O>/^\(.*\)\(\r\?\n\1\)\+$<CR>
 map <leader>gx yiw/^\(sub\<bar>function\)\s\+\w\+<CR>           " search sub or function declaractions in a buffer
 map <leader>c :hi Normal guibg=#<c-r>=expand("<cword>")<cr><cr> " display rgb color under the cursor, eg #445588
 
-" control-s in normal, insert, and visual mode will update buffer to disk
+" map control-s to save the buffer in normal, insert, and visual mode will update buffer to disk
 noremap  <C-S>   :update<CR>
 vnoremap <C-S>  <C-C>:update<CR>
 inoremap <C-S>  <C-O>:update<CR>
 
-" so these mappings can allow us to undo c-u and c-w
+" Allow undo for c-u and c-w in insert mode
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
@@ -89,41 +89,9 @@ imap <leader>fc <c-r>=system('~/.vim/bundle/fake-credential.rb')<cr>
 " autopairs plugin a bit easier
 imap <leader>ap <c-o>:call AutoPairsToggle()<cr>
 
-" mapping for navigating around tabs
-" map <leader>tn :tabn<CR>
-" imap <leader>tn <C-O>:tabn!<CR>
-" map <leader>tp :tabp<CR>
-" imap <leader>tp <C-O>:tabp!<CR>
-" map <leader>tf :tabfirst<CR>
-" imap <leader>tf :tabfirst!<CR>
-" map <leader>tl :tablast<CR>
-" imap <leader>tl :tablast<CR>
-
 map <leader>so :so $MYVIMRC<CR>
 
-" " mappings for fugitive
-" map <leader>gdi :Gvdiffsplit<CR>
-" map <leader>gw  :execute 'Gwrite ' . expand('%') . '\| Gcommit'<CR>
-" map <leader>gst :Git status<CR>
-" map <leader>gpu :Git push<CR>
-"
-" " map <leader>n :NERDTreeToggle<CR>
-"
-" " mappings for vim-go
-" augroup vimgo
-"    au!
-"    au FileType go nmap <leader>gr :GoRun<CR>
-"    au FileType go imap <leader>gr <C-O>:GoRun<CR>
-"    au FileType go nmap <leader>gb :GoBuild<CR>
-"    au FileType go imap <leader>gb <C-O>:GoBuild<CR>
-"    au FileType go nmap <leader>gi :GoImport<CR>
-"    au FileType go imap <leader>gi <C-O>:GoImport<CR>
-"    au FileType go nmap <leader>gv :GoVet<CR>
-"    au FileType go imap <leader>gv <C-O>:GoVet<CR>
-"    au FileType go set ts=4
-" augroup END
-
-" make transport 'xp' as one change rather than two
+" map cp to transpose characters in normal mode
 nmap <Plug>TransposeCharacters xp
 nmap cp <Plug>TransposeCharacters
 
