@@ -123,7 +123,11 @@ return packer.startup(function(use)
       { "zbirenbaum/copilot.lua" },
       { "nvim-lua/plenary.nvim" },
     },
+    requires = {
+      'zbirenbaum/copilot.lua',
+    },
     config = function()
+      require('copilot').setup {}
       require('CopilotChat').setup({
         keymaps = {
           close = "<C-c>", -- Close the chat
