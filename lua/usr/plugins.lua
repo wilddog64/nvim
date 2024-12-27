@@ -112,8 +112,27 @@ return packer.startup(function(use)
     requires = {
       'nvim-lua/plenary.nvim',
       'nvim-lua/popup.nvim',
-      'CopilotC-Nvim/CopilotChat.nvim'
     },
+  }
+
+  use {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    lazy = true,
+    branch = "main",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" },
+      { "nvim-lua/plenary.nvim" },
+    },
+    config = function()
+      require('CopilotChat').setup({
+        keymaps = {
+          close = "<C-c>", -- Close the chat
+          submit = "<Enter>", -- Send user input
+          next = "<Tab>", -- Navigate predefined options (if available)
+          prev = "<S-Tab>",
+        },
+      })
+    end,
   }
 
   use {
