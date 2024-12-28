@@ -24,7 +24,7 @@ require('usr.osc52')
 require('usr.win32yank')
 require('usr.nvim-tree')
 require('usr.fzf')
--- require('usr.copilot')
+require('usr.copilot')
 
 vim.cmd([[
   " source ~/.config/nvim/settings/slim.vim
