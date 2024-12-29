@@ -134,6 +134,7 @@ return packer.startup(function(use)
           submit = "<Enter>", -- Send user input
           next = "<Tab>", -- Navigate predefined options (if available)
           prev = "<S-Tab>",
+          aceept = "<C-e>", -- Accept the current suggestion
         },
       })
     end,
