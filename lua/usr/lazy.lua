@@ -105,6 +105,15 @@ require("lazy").setup({
    },
    {
       'airblade/vim-gitgutter',
+      event = 'bufReadPre',
+   },
+   {
+      'L3MON4D3/LuaSnip',
+      event = 'bufReadPre',
+   },
+   {
+     'mfussenegger/nvim-dap',
+      event = 'bufReadPre',
    },
    {
       'CopilotC-Nvim/CopilotChat.nvim',
