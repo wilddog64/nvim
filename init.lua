@@ -10,7 +10,8 @@ vim.opt.expandtab = true
 -- require('usr.urlview')
 
 require('usr.options')
-require('usr.plugins')
+-- require('usr.plugins')
+require('usr.lazy')
 require('usr.cmp')
 require('usr.lsp')
 require('usr.dag-python')
@@ -36,14 +37,14 @@ vim.cmd([[
   " source ~/.config/nvim/settings/slim.vim
   " source ~/.config/nvim/settings/ipy.vim
 
-  source ~/.config/nvim/settings/keymaps.vim
-  source ~/.config/nvim/settings/functions.vim
-  source ~/.config/nvim/settings/supertab.vim
-  source ~/.config/nvim/settings/gundo.vim
-  source ~/.config/nvim/settings/autocmd.vim
-  source ~/.config/nvim/settings/options.vim
-  source ~/.config/nvim/settings/vimux.vim
-  source ~/.config/nvim/settings/markdown.vim
-  source ~/.config/nvim/settings/asterisk.vim
-  source ~/.config/nvim/settings/nvim.vim
+   source ~/.config/nvim/settings/keymaps.vim
+   source ~/.config/nvim/settings/functions.vim
+   source ~/.config/nvim/settings/supertab.vim
+   source ~/.config/nvim/settings/gundo.vim
+   source ~/.config/nvim/settings/autocmd.vim
+   source ~/.config/nvim/settings/options.vim
+   source ~/.config/nvim/settings/vimux.vim
+   source ~/.config/nvim/settings/markdown.vim
+   source ~/.config/nvim/settings/asterisk.vim
+   source ~/.config/nvim/settings/nvim.vim
 ]])
