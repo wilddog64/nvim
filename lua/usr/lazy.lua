@@ -116,6 +116,10 @@ require("lazy").setup({
       event = 'bufReadPre',
    },
    {
+     'ojroques/nvim-osc52',
+      event = 'bufReadPre',
+   },
+   {
       'CopilotC-Nvim/CopilotChat.nvim',
       lazy = true,
       branch = "main",
