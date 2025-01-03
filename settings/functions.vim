@@ -95,7 +95,6 @@ function! Replace_patterns(input, replacements) abort
   return a:input
 endfunction
 
-
 fun! <SID>NewSplit()
    if (&bt ==? 'help' || &ft ==? 'man' || &ft ==? 'fugitive')
       let p = winnr('#')
