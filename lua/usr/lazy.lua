@@ -120,19 +120,35 @@ require("lazy").setup({
       event = 'bufReadPre',
    },
    {
-      'CopilotC-Nvim/CopilotChat.nvim',
-      lazy = true,
-      branch = "main",
-      build = "make tiktoken",
-      dependencies = {
-        -- { 'github/copilot.vim' },
-        { "zbirenbaum/copilot.lua" },
-        { "nvim-lua/plenary.nvim" },
-      },
-      requires = {
-         'zbirenbaum/copilot.lua',
-      },
-      event = "BufReadPost", -- Loads Copilot after a file is opened
+     'CopilotC-Nvim/CopilotChat.nvim',
+     lazy = true,
+     branch = "main",
+     build = "make tiktoken",
+     dependencies = {
+       { "zbirenbaum/copilot.lua" },
+       { "nvim-lua/plenary.nvim" },
+     },
+     opts = {
+       debug = false,
+       window = {
+         width = 0.30,
+       },
+     },
+     keys = {
+       {
+         "<Leader>ch",
+         ":'<,'>CopilotChat<CR>",
+         mode = { "v" },
+         desc = "Copilot Chat Selection",
+       },
+       {
+         "<Leader>ch",
+         ":CopilotChatToggle<CR>",
+         mode = { "n" },
+         desc = "Toggle Copilot Chat",
+       },
+     },
+     event = "BufReadPost", -- Loads Copilot after a file is opened
    },
    {
       'ojroques/nvim-lspfuzzy',
