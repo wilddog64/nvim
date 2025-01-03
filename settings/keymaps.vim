@@ -115,7 +115,6 @@ if has("nvim")
    nnoremap <silent><leader>gi :LazyGit<CR>
    imap <silent><leader>gi <c-o>:LazyGit<CR>
    nmap <leader>c <Plug>OSCYankOperator
-   nmap <leader>cc <leader>c_
    vmap <leader>c <Plug>OSCYankVisual
 
    " nmap <leader>cce :CopilotChatExplain<cr>
