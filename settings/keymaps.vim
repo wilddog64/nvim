@@ -118,16 +118,16 @@ if has("nvim")
    nmap <leader>cc <leader>c_
    vmap <leader>c <Plug>OSCYankVisual
 
-   nmap <leader>cce :CopilotChatExplain<cr>
-   nmap <leader>cct :CopilotChatTest<cr>
-   nmap <leader>ccr :CopilotChatReview<cr>
-   nmap <leader>cc :CopilotChatToggle<cr>
+   " nmap <leader>cce :CopilotChatExplain<cr>
+   " nmap <leader>cct :CopilotChatTest<cr>
+   " nmap <leader>ccr :CopilotChatReview<cr>
+   " nmap <leader>cc :CopilotChatToggle<cr>
 
    " map <leader>a to accept the word from copilot
-   imap <leader>a <Plug>(copilot-accept-word)
-
-   let g:copilot_no_tab_map = v:true
-   imap <Tab> copilot#Accept("\<CR>")
+   " imap <leader>a <Plug>(copilot-accept-word)
+   "
+   " let g:copilot_no_tab_map = v:true
+   " imap <Tab> copilot#Accept("\<CR>")
 
 endif
 
