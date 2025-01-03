@@ -1,4 +1,6 @@
 local dap = require'dap'
+
+--- @diagnostic disable-next-line: inject-field
 dap.configurations.python = dap.configurations.python or {}
     table.insert(dap.configurations.python, {
     type = 'python',
