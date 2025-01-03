@@ -2,7 +2,7 @@ local dap = require'dap'
 
 --- @diagnostic disable-next-line: inject-field
 dap.configurations.python = dap.configurations.python or {}
-    table.insert(dap.configurations.python, {
+table.insert(dap.configurations.python, {
     type = 'python',
     request = 'launch',
     name = 'launch with options',
