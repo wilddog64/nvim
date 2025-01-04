@@ -8,9 +8,9 @@ vim.opt.expandtab = true
 -- require('usr.telescope')
 -- require('usr.telescope-livegrep-arg')
 -- require('usr.urlview')
+-- require('usr.plugins')
 
 require('usr.options')
--- require('usr.plugins')
 require('usr.lazy')
 require('usr.cmp')
 require('usr.lsp')
