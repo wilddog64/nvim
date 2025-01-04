@@ -31,6 +31,7 @@
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
   "supertab": { "branch": "main", "commit": "8c638fe17b470f4a27554cdf8e641bafa5e2a7a4" },
   "toggleterm.nvim": { "branch": "main", "commit": "e76134e682c1a866e3dfcdaeb691eb7b01068668" },
+  "vim-asterisk": { "branch": "master", "commit": "77e97061d6691637a034258cc415d98670698459" },
   "vim-endwise": { "branch": "master", "commit": "5ec72eef1a07fb32af9be5402144678f68cb1a7a" },
   "vim-gitgutter": { "branch": "main", "commit": "7b0b5098e3e57be86bb96cfbf2b8902381eef57c" },
   "vim-projectroot": { "branch": "master", "commit": "ebf4aff28dff7d7fddc0550a379e872d7fc7cf68" },

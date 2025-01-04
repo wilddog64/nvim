@@ -120,6 +120,19 @@ require("lazy").setup({
       event = 'bufReadPre',
    },
    {
+     'haya14busa/vim-asterisk',
+      event = 'bufReadPre',
+   },
+   {
+     'haya14busa/vim-asterisk',
+      event = 'bufReadPre',
+   },
+   {
+     'sam4llis/nvim-lua-gf',
+      event = 'bufReadPre',
+   },
+
+   {
      'CopilotC-Nvim/CopilotChat.nvim',
      lazy = true,
      branch = "main",
@@ -156,7 +169,6 @@ require("lazy").setup({
          'ibhagwan/fzf-lua'
       }
    },
-
    {
      'VonHeikemen/lsp-zero.nvim',
      dependencies = {
