@@ -2,7 +2,8 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 -- Check if lazy.nvim is installed
-if not vim.loop.fs_stat(lazypath) then
+---@diagnostic disable-next-line: undefined-field
+if not vim.uv.fs_stat(lazypath) then
   print("Installing lazy.nvim...")
   vim.fn.system({
     "git",
