@@ -25,4 +25,3 @@ function! s:HideVisualBlock() abort
 
    let s:sign_ids = []
 endfunction
-
