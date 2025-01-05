@@ -67,3 +67,40 @@ if !has('nvim')
      endif
    endfunction
 endif
+
+function! Get_lua_config_dir()
+  let b:word = getline(line("."))
+  if stridx(b:word, 'require') == -1
+    if stridx(b:word, '~')
+      let b:word = expand(strcharpart(b:word, stridx(b:word, '~')))
+      if filereadable(b:word)
+        return b:word
+      endif
+    endif
+  endif
+
+  let b:looking_for = "'"
+  if stridx(b:word, b:looking_for) == -1
+    let b:looking_for = '"'
+  endif
+
+  let b:first_quote = stridx(b:word, b:looking_for) + 1
+  let b:second_quote = stridx(b:word, b:looking_for, b:first_quote)
+  let b:length = (b:second_quote - b:first_quote)
+  let b:lua_path = strcharpart(b:word, b:first_quote, b:length)
+  let b:lua_file_path = "./lua/" . substitute(b:lua_path, "\\.", "/", "g")
+  let b:lua_file = b:lua_file_path . '.lua'
+  if filereadable(b:lua_file)
+    return b:lua_file
+  else
+    let b:lua_init_file = b:lua_file_path . '/init.lua'
+    if filereadable(b:lua_init_file)
+      return b:lua_init_file
+    endif
+  endif
+  return ""
+endfunction
+
+augroup luamap
+  au BufEnter *.lua nmap <buffer> <silent> gf :exe "e " . Get_lua_config_dir()<CR>
+augroup END
