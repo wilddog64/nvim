@@ -71,6 +71,7 @@ return packer.startup(function(use)
   -- use 'tpope/vim-fugitive'
   -- use { 'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
 
+  use 'wbthomason/packer.nvim'
   use 'jiangmiao/auto-pairs'
   use 'airblade/vim-gitgutter'
   use 'benmills/vimux'
@@ -88,7 +89,6 @@ return packer.startup(function(use)
   use 'corntrace/bufexplorer'
   use 'neovim/nvim-lspconfig'
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use {'ojroques/nvim-osc52'}
   use 'mfussenegger/nvim-dap'
   use 'nvim-lualine/lualine.nvim'
@@ -206,16 +206,6 @@ return packer.startup(function(use)
       vim.g.UltiSnipsRemoveSelectModeMappings = 0
     end
   }
-
-  -- use {
-  --   "nvim-telescope/telescope.nvim",
-  --   requires = {
-  --     { "nvim-telescope/telescope-live-grep-args.nvim" },
-  --   },
-  --   config = function()
-  --     require("telescope").load_extension("live_grep_args")
-  --   end
-  -- }
 
   use {
     'ibhagwan/fzf-lua',
