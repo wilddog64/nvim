@@ -90,69 +90,69 @@ return packer.startup(function(use)
 
   use {
     'christoomey/vim-tmux-navigator',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'dbakker/vim-projectroot',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'ervandew/supertab',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'sjl/gundo.vim',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'tmhedberg/matchit',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'tmux-plugins/vim-tmux',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'tmux-plugins/vim-tmux-focus-events',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'tpope/vim-endwise',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'tpope/vim-repeat',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'tpope/vim-surround',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'tpope/vim-unimpaired',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'corntrace/bufexplorer',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use { 'neovim/nvim-lspconfig' }
 
   use {
     "jose-elias-alvarez/null-ls.nvim",
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }-- for formatters and linters
 
   use {'ojroques/nvim-osc52'}
@@ -160,76 +160,75 @@ return packer.startup(function(use)
 
   use {
     'nvim-lualine/lualine.nvim',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     "akinsho/toggleterm.nvim",
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'honza/vim-snippets',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'f3fora/cmp-spell',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'plasticboy/vim-markdown',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use { 'echasnovski/mini.nvim', }
 
   use {
     'hashivim/vim-terraform',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'kdheepak/lazygit.nvim',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'martinda/Jenkinsfile-vim-syntax',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'haya14busa/is.vim',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'haya14busa/vim-asterisk',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'wellle/targets.vim',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'sam4llis/nvim-lua-gf',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'rodjek/vim-puppet',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
     'mfussenegger/nvim-ansible',
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
-
 
   use {
     'github/copilot.vim',
@@ -262,7 +261,7 @@ return packer.startup(function(use)
         },
       })
     end,
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
@@ -271,7 +270,7 @@ return packer.startup(function(use)
       {'junegunn/fzf'},
       {'junegunn/fzf.vim'},
     },
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
@@ -288,7 +287,7 @@ return packer.startup(function(use)
         }
       }
     end,
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   -- LSP
@@ -332,7 +331,7 @@ return packer.startup(function(use)
       vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
       vim.g.UltiSnipsRemoveSelectModeMappings = 0
     end,
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   use {
@@ -340,7 +339,7 @@ return packer.startup(function(use)
     requires = {
       'nvim-tree/nvim-web-devicons',
     },
-    event = 'BufREadPre',
+    event = 'BufReadPre',
   }
 
   if PACKER_BOOTSTRAP then
