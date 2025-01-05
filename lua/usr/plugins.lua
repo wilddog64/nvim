@@ -72,6 +72,7 @@ return packer.startup(function(use)
   -- use { 'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
 
   use 'wbthomason/packer.nvim'
+
   use 'jiangmiao/auto-pairs'
   use 'airblade/vim-gitgutter'
   use 'benmills/vimux'
