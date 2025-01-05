@@ -71,7 +71,6 @@ return packer.startup(function(use)
   -- use 'tpope/vim-fugitive'
   -- use { 'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
 
-  use 'wbthomason/packer.nvim'
   use 'jiangmiao/auto-pairs'
   use 'airblade/vim-gitgutter'
   use 'benmills/vimux'
@@ -107,6 +106,7 @@ return packer.startup(function(use)
   use 'sam4llis/nvim-lua-gf'
   use 'rodjek/vim-puppet'
   use 'mfussenegger/nvim-ansible'
+
   use {
     'github/copilot.vim',
     requires = {
