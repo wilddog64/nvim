@@ -95,11 +95,6 @@ function! Replace_patterns(input, replacements) abort
   return a:input
 endfunction
 
-" split help file vertically
-aug NewSplit | au!
-   au WinNew * au BufEnter * ++once call <SID>NewSplit()
-aug end
-
 fun! <SID>NewSplit()
    if (&bt ==? 'help' || &ft ==? 'man' || &ft ==? 'fugitive')
       let p = winnr('#')
@@ -108,6 +103,11 @@ fun! <SID>NewSplit()
          exe 'wincmd ' . (&splitright ? 'L' : 'H')
          set splitright
       endif
+      nmap <buffer> q :norm! ZZ <CR>
    endif
-   nmap q :norm! ZZ <CR>
 endfun
+
+" split help file vertically
+aug NewSplit | au!
+   au WinNew * au BufEnter * ++nested call <SID>NewSplit()
+aug end
