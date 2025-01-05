@@ -42,11 +42,6 @@ function! <SID>Preserve(command)
 endfunction
 nmap <leader>= :call <SID>Preserve("normal gg=G")<CR>
 
-" this vim function will return a actual puppet module name, assuming that
-" delim is either - or _.  This function will strip off anything before - or _
-" including delim character, and return anything after - or _.
-" Lookupward function allow vim to copy vertical line above even if there's an
-" empty line in between
 " The `Lookupwards` function searches upwards from the current cursor position
 " for a non-whitespace character in the same column. It returns the character
 " found, allowing for easy vertical copying. This is mapped to `Ctrl-Y` in
