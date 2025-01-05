@@ -166,7 +166,7 @@ endfunction
 
 " split help file vertically
 aug NewSplit | au!
-   au WinNew * au BufEnter * ++once call <SID>NewSplit()
+   au WinNew * au BufEnter * ++nested call <SID>NewSplit()
 aug end
 
 fun! <SID>NewSplit()
