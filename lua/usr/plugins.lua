@@ -73,40 +73,163 @@ return packer.startup(function(use)
 
   use 'wbthomason/packer.nvim'
 
-  use 'jiangmiao/auto-pairs'
-  use 'airblade/vim-gitgutter'
-  use 'benmills/vimux'
-  use 'christoomey/vim-tmux-navigator'
-  use 'dbakker/vim-projectroot'
-  use 'ervandew/supertab'
-  use 'sjl/gundo.vim'
-  use 'tmhedberg/matchit'
-  use 'tmux-plugins/vim-tmux'
-  use 'tmux-plugins/vim-tmux-focus-events'
-  use 'tpope/vim-endwise'
-  use 'tpope/vim-repeat'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-unimpaired'
-  use 'corntrace/bufexplorer'
-  use 'neovim/nvim-lspconfig'
-  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use {
+    'jiangmiao/auto-pairs',
+    event = 'BufReadPre',
+  }
+
+  use {
+    'airblade/vim-gitgutter',
+    event = 'BufReadPre',
+  }
+
+  use {
+    'benmills/vimux',
+    event = 'BufReadPre',
+  }
+
+  use {
+    'christoomey/vim-tmux-navigator',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'dbakker/vim-projectroot',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'ervandew/supertab',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'sjl/gundo.vim',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'tmhedberg/matchit',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'tmux-plugins/vim-tmux',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'tmux-plugins/vim-tmux-focus-events',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'tpope/vim-endwise',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'tpope/vim-repeat',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'tpope/vim-surround',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'tpope/vim-unimpaired',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'corntrace/bufexplorer',
+    event = 'BufREadPre',
+  }
+
+  use { 'neovim/nvim-lspconfig' }
+
+  use {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = 'BufREadPre',
+  }-- for formatters and linters
+
   use {'ojroques/nvim-osc52'}
-  use 'mfussenegger/nvim-dap'
-  use 'nvim-lualine/lualine.nvim'
-  use "akinsho/toggleterm.nvim"
-  use 'honza/vim-snippets'
-  use 'f3fora/cmp-spell'
-  use 'plasticboy/vim-markdown'
-  use 'echasnovski/mini.nvim'
-  use 'hashivim/vim-terraform'
-  use 'kdheepak/lazygit.nvim'
-  use 'martinda/Jenkinsfile-vim-syntax'
-  use 'haya14busa/is.vim'
-  use 'haya14busa/vim-asterisk'
-  use 'wellle/targets.vim'
-  use 'sam4llis/nvim-lua-gf'
-  use 'rodjek/vim-puppet'
-  use 'mfussenegger/nvim-ansible'
+  use { 'mfussenegger/nvim-dap', }
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    event = 'BufREadPre',
+  }
+
+  use {
+    "akinsho/toggleterm.nvim",
+    event = 'BufREadPre',
+  }
+
+  use {
+    'honza/vim-snippets',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'f3fora/cmp-spell',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'plasticboy/vim-markdown',
+    event = 'BufREadPre',
+  }
+
+  use { 'echasnovski/mini.nvim', }
+
+  use {
+    'hashivim/vim-terraform',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'kdheepak/lazygit.nvim',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'martinda/Jenkinsfile-vim-syntax',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'haya14busa/is.vim',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'haya14busa/vim-asterisk',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'wellle/targets.vim',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'sam4llis/nvim-lua-gf',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'rodjek/vim-puppet',
+    event = 'BufREadPre',
+  }
+
+  use {
+    'mfussenegger/nvim-ansible',
+    event = 'BufREadPre',
+  }
+
 
   use {
     'github/copilot.vim',
@@ -139,6 +262,7 @@ return packer.startup(function(use)
         },
       })
     end,
+    event = 'BufREadPre',
   }
 
   use {
@@ -146,7 +270,8 @@ return packer.startup(function(use)
     requires = {
       {'junegunn/fzf'},
       {'junegunn/fzf.vim'},
-    }
+    },
+    event = 'BufREadPre',
   }
 
   use {
@@ -162,7 +287,8 @@ return packer.startup(function(use)
           }
         }
       }
-    end
+    end,
+    event = 'BufREadPre',
   }
 
   -- LSP
@@ -205,14 +331,16 @@ return packer.startup(function(use)
       vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
       vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
       vim.g.UltiSnipsRemoveSelectModeMappings = 0
-    end
+    end,
+    event = 'BufREadPre',
   }
 
   use {
     'ibhagwan/fzf-lua',
     requires = {
       'nvim-tree/nvim-web-devicons',
-    }
+    },
+    event = 'BufREadPre',
   }
 
   if PACKER_BOOTSTRAP then
