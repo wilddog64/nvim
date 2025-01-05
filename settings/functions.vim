@@ -1,11 +1,20 @@
-" remove trailing / by hitting control w
-cnoremap <C-w> <C-\>e(<SID>RemoveLastPathComponent())<CR>
+" The function uses `fnamemodify` to strip the last path component and a
+" `substitute` command to handle edge cases.
 function! s:RemoveLastPathComponent()
    let c = getcmdline()
    let cRoot = fnamemodify(c, ':r')
    return (c != cRoot ? cRoot : substitute(c, '\%(\\ \|[\\/]\@!\f\)\+[\\/]\=$\|.$', '', ''))
 endfunction
 
+" remove trailing / by hitting control w -- map to s:RemoveLastPathComponent
+" function
+cnoremap <C-w> <C-\>e(<SID>RemoveLastPathComponent())<CR>
+
+" The `FidgetWhitespace` function modifies a given pattern to handle
+" whitespace more flexibly. It replaces trailing and leading whitespace with
+" `\s*` and internal whitespace with `\_s\+`. This function is used in a
+" visual mode mapping to search for patterns with flexible whitespace
+" handling.
 function! <SID>FidgetWhitespace(pat)
    let pat = substitute(a:pat,'\_s\+$','\\s\\*', '')
    let pat = substitute(pat, '^\_s\+', '\\s\\*', '')
@@ -13,6 +22,11 @@ function! <SID>FidgetWhitespace(pat)
 endfunction
 vmap <silent><leader>vs :<C-U>let @/="\\V<C-R>=escape(<SID>FidgetWhitespace(escape(@*,'\')),'\"')<CR>"<CR>
 
+" The `Preserve` function saves the current search pattern and cursor
+" position, executes a given command, and then restores the saved state. This
+" is useful for commands that might disrupt the user's current context. It is
+" mapped to `leader+=` to reformat the entire buffer without moving the
+" cursor.
 function! <SID>Preserve(command)
    " save last search and cursor position
    let _s = @/
@@ -33,6 +47,10 @@ nmap <leader>= :call <SID>Preserve("normal gg=G")<CR>
 " including delim character, and return anything after - or _.
 " Lookupward function allow vim to copy vertical line above even if there's an
 " empty line in between
+" The `Lookupwards` function searches upwards from the current cursor position
+" for a non-whitespace character in the same column. It returns the character
+" found, allowing for easy vertical copying. This is mapped to `Ctrl-Y` in
+" insert mode.
 function! Lookupwards()
    let column_num      = virtcol( '.' )
    let target_pattern  = '\%' . column_num . 'v.'
@@ -47,7 +65,9 @@ function! Lookupwards()
 endfunction
 imap <silent> <C-Y> <C-R><C-R>=Lookupwards()<CR>
 
-" this function will relove symlink and follow it
+" The `FollowSymlink` function checks if the current file is a symbolic link
+" and, if so, resolves and opens the actual file. This helps in navigating to
+" the real file behind a symlink.
 function! <SID>FollowSymlink()
    let current_file = expand('%:p')
    " check if file type is a symlink
@@ -57,27 +77,30 @@ function! <SID>FollowSymlink()
       let actual_file = resolve(current_file)
       silent! execute 'file ' . actual_file
       end
-   endfunction
+endfunction
 
-   function! <SID>AutoProjectRootCD()
-      try
-         if &ft != 'help'
-            ProjectRootCD
-         endif
-      catch
-         " Silently ignore invalid buffers
-      endtry
-   endfunction
-   autocmd BufEnter * call <SID>AutoProjectRootCD()
+" The `AutoProjectRootCD` function attempts to change the working directory to
+" the project root when entering a buffer, unless the buffer is a help file.
+" This is set up to run automatically on the `BufEnter` event.
+function! <SID>AutoProjectRootCD()
+   try
+      if &ft != 'help'
+         ProjectRootCD
+      endif
+   catch
+      " Silently ignore invalid buffers
+   endtry
+endfunction
+autocmd BufEnter * call <SID>AutoProjectRootCD()
 
-   " strip trailing whitespaces without moving cursor
-   function! <SID>StripTrailingWhitespaces()
-      " Preparation: save last search, and cursor position.
-      call <SID>Preserve("%s/\s\+$//e")
-   endfunction
+" strip trailing whitespaces without moving cursor
+function! <SID>StripTrailingWhitespaces()
+   " Preparation: save last search, and cursor position.
+   call <SID>Preserve("%s/\s\+$//e")
+endfunction
 
-   nmap <silent> <leader>sw :call <SID>StripTrailingWhitespaces()<CR>
-   " autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
+nmap <silent> <leader>sw :call <SID>StripTrailingWhitespaces()<CR>
+" autocmd BufWritePost * call <SID>StripTrailingWhitespaces()
 
 function! Strip_patterns(input, patterns) abort
   " Apply multiple substitutions to an input string
@@ -95,6 +118,10 @@ function! Replace_patterns(input, replacements) abort
   return a:input
 endfunction
 
+" The `NewSplit` function customizes the behavior of new splits for help, man,
+" and fugitive buffers. It adjusts the split direction based on window width
+" and sets a mapping to close the buffer with `q`. This function is triggered
+" by an autocommand group `NewSplit` on the `WinNew` and `BufEnter` events.
 fun! <SID>NewSplit()
    if (&bt ==? 'help' || &ft ==? 'man' || &ft ==? 'fugitive')
       let p = winnr('#')
