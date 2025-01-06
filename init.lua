@@ -22,6 +22,7 @@ require('usr.mini')
 require('usr.common')
 require('usr.osc52')
 require('usr.win32yank')
+require('usr.fzf')
 
 vim.cmd([[
   " source ~/.config/nvim/settings/slim.vim
