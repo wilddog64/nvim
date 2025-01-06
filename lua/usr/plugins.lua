@@ -247,6 +247,15 @@ return packer.startup(function(use)
   }
 
   use {
+    "folke/which-key.nvim",
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  }
+
+  use {
     'ojroques/nvim-lspfuzzy',
     requires = {
       {'junegunn/fzf'},
