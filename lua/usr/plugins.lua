@@ -230,6 +230,21 @@ return packer.startup(function(use)
     event = 'BufReadPre',
   }
 
+
+  -- Packer
+  use {
+    "jackMort/ChatGPT.nvim",
+    config = function()
+      require("chatgpt").setup()
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "folke/trouble.nvim",
+      "nvim-telescope/telescope.nvim"
+    },
+    cmd = { "ChatGPT", "ChatGPTEditWithInstructions", "ChatGPTActAs"  },
+  }
   -- use {
   --   'github/copilot.vim',
   --   requires = {
