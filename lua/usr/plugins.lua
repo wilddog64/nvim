@@ -76,6 +76,7 @@ return packer.startup(function(use)
   use {
     'jiangmiao/auto-pairs',
     event = 'BufReadPre',
+    disable = true,
   }
 
   use {
