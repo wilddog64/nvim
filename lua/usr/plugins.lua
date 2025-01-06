@@ -230,39 +230,39 @@ return packer.startup(function(use)
     event = 'BufReadPre',
   }
 
-  use {
-    'github/copilot.vim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'nvim-lua/popup.nvim',
-    },
-  }
-
-  use {
-    'CopilotC-Nvim/CopilotChat.nvim',
-    lazy = true,
-    branch = "main",
-    dependencies = {
-      { "zbirenbaum/copilot.lua" },
-      { "nvim-lua/plenary.nvim" },
-    },
-    requires = {
-      'zbirenbaum/copilot.lua',
-    },
-    config = function()
-      require('copilot').setup {}
-      require('CopilotChat').setup({
-        keymaps = {
-          close = "<C-c>", -- Close the chat
-          submit = "<Enter>", -- Send user input
-          next = "<Tab>", -- Navigate predefined options (if available)
-          prev = "<S-Tab>",
-          aceept = "<C-e>", -- Accept the current suggestion
-        },
-      })
-    end,
-    event = 'BufReadPre',
-  }
+  -- use {
+  --   'github/copilot.vim',
+  --   requires = {
+  --     'nvim-lua/plenary.nvim',
+  --     'nvim-lua/popup.nvim',
+  --   },
+  -- }
+  --
+  -- use {
+  --   'CopilotC-Nvim/CopilotChat.nvim',
+  --   lazy = true,
+  --   branch = "main",
+  --   dependencies = {
+  --     { "zbirenbaum/copilot.lua" },
+  --     { "nvim-lua/plenary.nvim" },
+  --   },
+  --   requires = {
+  --     'zbirenbaum/copilot.lua',
+  --   },
+  --   config = function()
+  --     require('copilot').setup {}
+  --     require('CopilotChat').setup({
+  --       keymaps = {
+  --         close = "<C-c>", -- Close the chat
+  --         submit = "<Enter>", -- Send user input
+  --         next = "<Tab>", -- Navigate predefined options (if available)
+  --         prev = "<S-Tab>",
+  --         aceept = "<C-e>", -- Accept the current suggestion
+  --       },
+  --     })
+  --   end,
+  --   event = 'BufReadPre',
+  -- }
 
   use {
     'ojroques/nvim-lspfuzzy',

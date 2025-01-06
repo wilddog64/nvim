@@ -24,8 +24,8 @@ require('usr.osc52')
 require('usr.win32yank')
 require('usr.nvim-tree')
 require('usr.fzf')
-require('usr.copilot')
-require('usr.copilot-chat')
+-- require('usr.copilot')
+-- require('usr.copilot-chat')
 
 vim.cmd([[
   " source ~/.config/nvim/settings/slim.vim
