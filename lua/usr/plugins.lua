@@ -128,15 +128,7 @@ return packer.startup(function(use)
     },
     config = function()
       require('copilot').setup {}
-      require('CopilotChat').setup({
-        keymaps = {
-          close = "<C-c>", -- Close the chat
-          submit = "<Enter>", -- Send user input
-          next = "<Tab>", -- Navigate predefined options (if available)
-          prev = "<S-Tab>",
-          aceept = "<C-e>", -- Accept the current suggestion
-        },
-      })
+      require('CopilotChat').setup()
     end,
   }
 
