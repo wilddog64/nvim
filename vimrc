@@ -13,8 +13,6 @@ if !exists('g:vscode') " execute these if the context is not vscode
     source ~/.config/nvim/settings/asterisk.vim
     source ~/.config/nvim/settings/autocmd.vim
     source ~/.config/nvim/settings/deoplete-go.vim
-    source ~/.config/nvim/settings/easy-align.vim
-    source ~/.config/nvim/settings/firenvim.vim
     source ~/.config/nvim/settings/fzf.vim
     source ~/.config/nvim/settings/gundo.vim
     source ~/.config/nvim/settings/keymaps.vim
