@@ -192,13 +192,14 @@ require('lazy').setup({
       { "zbirenbaum/copilot.lua" },
       { "nvim-lua/plenary.nvim" },
     },
-    requires = {
+    dependencies = {
       'zbirenbaum/copilot.lua',
     },
     config = function()
       require('copilot').setup {}
       require('CopilotChat').setup()
     end,
+    event = "BufReadPost", -- Loads Copilot after a file is opened
   },
 
   {
@@ -238,7 +239,7 @@ require('lazy').setup({
   -- LSP
   {
     'VonHeikemen/lsp-zero.nvim',
-    requires = {
+    dependencies = {
       -- LSP Support
       {'neovim/nvim-lspconfig'},
       -- {'williamboman/nvim-lsp-installer'},
@@ -257,7 +258,7 @@ require('lazy').setup({
       -- Snippets
       {
         'L3MON4D3/LuaSnip',
-        requires = {
+        dependencies = {
           'rafamadriz/friendly-snippets',
           'honza/vim-snippets',
         }
@@ -277,23 +278,13 @@ require('lazy').setup({
       vim.g.UltiSnipsRemoveSelectModeMappings = 0
     end,
     event = 'BufReadPre',
-  }
+  },
 
-  --  {
-    --   "nvim-telescope/telescope.nvim",
-    --   requires = {
-      --     { "nvim-telescope/telescope-live-grep-args.nvim" },
-      --   },
-      --   config = function()
-        --     require("telescope").load_extension("live_grep_args")
-        --   end
-        -- }
-
-        {
-          'ibhagwan/fzf-lua',
-          requires = {
-            'nvim-tree/nvim-web-devicons',
-          },
-          event = 'BufReadPre',
-        }
+  {
+    'ibhagwan/fzf-lua',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    event = 'BufReadPre',
+  },
 })
