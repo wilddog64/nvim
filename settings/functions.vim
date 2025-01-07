@@ -60,9 +60,7 @@ function! Lookupwards()
 endfunction
 imap <silent> <C-Y> <C-R><C-R>=Lookupwards()<CR>
 
-" The `FollowSymlink` function checks if the current file is a symbolic link
-" and, if so, resolves and opens the actual file. This helps in navigating to
-" the real file behind a symlink.
+" this function will relove symlink and follow it
 function! FollowSymlink()
    let current_file = expand('%:p')
    " check if file type is a symlink

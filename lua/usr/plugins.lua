@@ -73,6 +73,7 @@ return packer.startup(function(use)
 
   use 'wbthomason/packer.nvim'
 
+<<<<<<< HEAD
   use {
     'jiangmiao/auto-pairs',
     event = 'BufReadPre',
@@ -229,6 +230,165 @@ return packer.startup(function(use)
     'mfussenegger/nvim-ansible',
     event = 'BufReadPre',
   }
+=======
+use {
+  'jiangmiao/auto-pairs',
+  event = 'BufReadPre',
+  disable = true,
+}
+
+use {
+  'airblade/vim-gitgutter',
+  event = 'BufReadPre',
+}
+
+use {
+  'benmills/vimux',
+  event = 'BufReadPre',
+}
+
+use {
+  'christoomey/vim-tmux-navigator',
+  event = 'BufReadPre',
+}
+
+use {
+  'dbakker/vim-projectroot',
+  event = 'BufReadPre',
+}
+
+use {
+  'ervandew/supertab',
+  event = 'BufReadPre',
+}
+
+use {
+  'sjl/gundo.vim',
+  event = 'BufReadPre',
+}
+
+use {
+  'tmhedberg/matchit',
+  event = 'BufReadPre',
+}
+
+use {
+  'tmux-plugins/vim-tmux',
+  event = 'BufReadPre',
+}
+
+use {
+  'tmux-plugins/vim-tmux-focus-events',
+  event = 'BufReadPre',
+}
+
+use {
+  'tpope/vim-endwise',
+  event = 'BufReadPre',
+}
+
+use {
+  'tpope/vim-repeat',
+  event = 'BufReadPre',
+}
+
+use {
+  'tpope/vim-surround',
+  event = 'BufReadPre',
+}
+
+use {
+  'tpope/vim-unimpaired',
+  event = 'BufReadPre',
+}
+
+use {
+  'corntrace/bufexplorer',
+  event = 'BufReadPre',
+}
+
+use { 'neovim/nvim-lspconfig' }
+
+use {
+  "jose-elias-alvarez/null-ls.nvim",
+  event = 'BufReadPre',
+}-- for formatters and linters
+
+use {'ojroques/nvim-osc52'}
+use { 'mfussenegger/nvim-dap', }
+
+use {
+  'nvim-lualine/lualine.nvim',
+  event = 'BufReadPre',
+}
+
+use {
+  "akinsho/toggleterm.nvim",
+  event = 'BufReadPre',
+}
+
+use {
+  'honza/vim-snippets',
+  event = 'BufReadPre',
+}
+
+use {
+  'f3fora/cmp-spell',
+  event = 'BufReadPre',
+}
+
+use {
+  'plasticboy/vim-markdown',
+  event = 'BufReadPre',
+}
+
+use { 'echasnovski/mini.nvim', }
+
+use {
+  'hashivim/vim-terraform',
+  event = 'BufReadPre',
+}
+
+use {
+  'kdheepak/lazygit.nvim',
+  event = 'BufReadPre',
+}
+
+use {
+  'martinda/Jenkinsfile-vim-syntax',
+  event = 'BufReadPre',
+}
+
+use {
+  'haya14busa/is.vim',
+  event = 'BufReadPre',
+}
+
+use {
+  'haya14busa/vim-asterisk',
+  event = 'BufReadPre',
+}
+
+use {
+  'wellle/targets.vim',
+  event = 'BufReadPre',
+}
+
+use {
+  'sam4llis/nvim-lua-gf',
+  event = 'BufReadPre',
+}
+
+use {
+  'rodjek/vim-puppet',
+  event = 'BufReadPre',
+}
+
+use {
+  'mfussenegger/nvim-ansible',
+  event = 'BufReadPre',
+}
+>>>>>>> lazy-rework
 
   use {
     'github/copilot.vim',
@@ -251,15 +411,7 @@ return packer.startup(function(use)
     },
     config = function()
       require('copilot').setup {}
-      require('CopilotChat').setup({
-        keymaps = {
-          close = "<C-c>", -- Close the chat
-          submit = "<Enter>", -- Send user input
-          next = "<Tab>", -- Navigate predefined options (if available)
-          prev = "<S-Tab>",
-          aceept = "<C-e>", -- Accept the current suggestion
-        },
-      })
+      require('CopilotChat').setup()
     end,
     event = 'BufReadPre',
   }

@@ -112,18 +112,14 @@ nnoremap <silent> <Leader>c :call clearmatches()<CR>
 imap <C-K> <C-O><S-D>
 
 if has("nvim")
-   " nnoremap <silent><leader>gi :LazyGit<CR>
-   imap <silent><leader>gi <c-o>:LazyGit<CR>
    nmap <leader>c <Plug>OSCYankOperator
    nmap <leader>cc <leader>c_
    vmap <leader>c <Plug>OSCYankVisual
-
 
    " map <leader>a to accept the word from copilot
    imap <leader>a <Plug>(copilot-accept-word)
 
    let g:copilot_no_tab_map = v:true
    imap <Tab> copilot#Accept("\<CR>")
-
 endif
 

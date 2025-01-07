@@ -10,7 +10,7 @@ vim.opt.expandtab = true
 -- require('usr.urlview')
 
 require('usr.options')
-require('usr.plugins')
+require('usr.lazy')
 require('usr.cmp')
 require('usr.lsp')
 require('usr.dag-python')
@@ -34,7 +34,6 @@ vim.cmd([[
   " source ~/.config/nvim/settings/rust.vim
   " source ~/.config/nvim/settings/deoplete.vim
   " source ~/.config/nvim/settings/vim_maximizer.vim
-  " source ~/.config/nvim/settings/slim.vim
   " source ~/.config/nvim/settings/ipy.vim
 
   source ~/.config/nvim/settings/keymaps.vim
