@@ -6,4 +6,3 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.keymap.set('n', '<c-e>', '<cmd>CopilotChatAccept<CR>', { buffer = true })
     end,
 })
-
