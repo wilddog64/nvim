@@ -40,5 +40,3 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
 })
-
-vim.keymap.set('n', '<leader>tw', function() require('mini.trailspace').trim() end)
