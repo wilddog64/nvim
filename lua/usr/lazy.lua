@@ -192,9 +192,6 @@ require('lazy').setup({
       { "zbirenbaum/copilot.lua" },
       { "nvim-lua/plenary.nvim" },
     },
-    dependencies = {
-      'zbirenbaum/copilot.lua',
-    },
     config = function()
       require('copilot').setup {}
       require('CopilotChat').setup()
