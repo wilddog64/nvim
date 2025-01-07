@@ -11,4 +11,3 @@ wk.add({
   { '<leader>fc', function() require"fzf-lua".loclist() end, group = 'fzf' },
   { '<leader>ft', function() require"fzf-lua".tags() end, group = 'fzf' },
 })
-
