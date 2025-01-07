@@ -63,7 +63,7 @@ imap <silent> <C-Y> <C-R><C-R>=Lookupwards()<CR>
 " The `FollowSymlink` function checks if the current file is a symbolic link
 " and, if so, resolves and opens the actual file. This helps in navigating to
 " the real file behind a symlink.
-function! <SID>FollowSymlink()
+function! FollowSymlink()
    let current_file = expand('%:p')
    " check if file type is a symlink
    if getftype(current_file) == 'link'
@@ -74,12 +74,10 @@ function! <SID>FollowSymlink()
       end
 endfunction
 
-" The `AutoProjectRootCD` function attempts to change the working directory to
-" the project root when entering a buffer, unless the buffer is a help file.
-" This is set up to run automatically on the `BufEnter` event.
 function! <SID>AutoProjectRootCD()
    try
       if &ft != 'help'
+         call Followsymlink()
          ProjectRootCD
       endif
    catch
