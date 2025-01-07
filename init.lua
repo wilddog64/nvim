@@ -26,6 +26,7 @@ require('usr.nvim-tree')
 require('usr.fzf')
 require('usr.copilot')
 require('usr.copilot-chat')
+require('usr.mapkeys')
 
 vim.cmd([[
   " source ~/.config/nvim/settings/slim.vim
