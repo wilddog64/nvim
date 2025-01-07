@@ -23,8 +23,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "yaml.ansible",
   callback = function()
     vim.opt_local.includeexpr = "AnsibleIncludeExpr()"
-    local ansible_task_path = utils.resolve_ansible_path()
-    if not ansible_task_path then
+    if not utils.resolve_ansible_path() then
       utils.log('ansible task not found: ', vim.log.levels.WARN)
     end
   end,
