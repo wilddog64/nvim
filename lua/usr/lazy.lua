@@ -1,8 +1,8 @@
+-- we use stdpath to figure where to place lazy.nvim package
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
--- Check if lazy.nvim is installed
 if not vim.loop.fs_stat(lazypath) then
-  print("Installing lazy.nvim...")
+  print('Cloning lazy.nvim repo from github ...')
   vim.fn.system({
     "git",
     "clone",
