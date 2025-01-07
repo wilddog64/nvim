@@ -58,7 +58,7 @@ set cmdheight=2
 
 set wildmenu
 set wildmode=longest:full,full
-set completeopt+=menuone,popup,preview
+set completeopt+=menuone,preview
 set shm+=film
 set hidden
 set showmatch         " show match of {}, [], <>, ...
