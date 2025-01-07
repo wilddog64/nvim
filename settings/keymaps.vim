@@ -107,14 +107,17 @@ nnoremap <silent> <Leader>h :call matchadd('LineHighlight', '\%'.line('.').'l')<
 " clear all the highlighted lines
 nnoremap <silent> <Leader>c :call clearmatches()<CR>
 
-" map C-K in insert mode to delete from current cursor postion to the end of
+" map C-K in insert mode to delete fromc urrent cursor postion to the end of
 " line
 imap <C-K> <C-O><S-D>
 
 if has("nvim")
+   " nnoremap <silent><leader>gi :LazyGit<CR>
+   imap <silent><leader>gi <c-o>:LazyGit<CR>
    nmap <leader>c <Plug>OSCYankOperator
    nmap <leader>cc <leader>c_
    vmap <leader>c <Plug>OSCYankVisual
+
 
    " map <leader>a to accept the word from copilot
    imap <leader>a <Plug>(copilot-accept-word)
