@@ -10,7 +10,7 @@ vim.opt.expandtab = true
 -- require('usr.urlview')
 
 require('usr.options')
-require('usr.plugins')
+require('usr.lazy')
 require('usr.cmp')
 require('usr.lsp')
 require('usr.dag-python')
