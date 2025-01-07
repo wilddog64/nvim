@@ -1,13 +1,14 @@
-vim.cmd([[
-  " Using Lua functions
-  nnoremap <leader>cf <cmd>lua require('fzf-lua').lgrep_curbuf()<cr>
-  nnoremap <leader>fb <cmd>lua require('fzf-lua').buffers()<cr>
-  nnoremap <leader>ff <cmd>lua require('fzf-lua').files()<cr>
-  nnoremap <leader>fb <cmd>lua require('fzf-lua').buffers()<cr>
-  nnoremap <leader>fl <cmd>lua require('fzf-lua').lines()<cr>
-  nnoremap <leader>fg <cmd>lua require('fzf-lua').live_grep_native()<cr>
-  nnoremap <leader>fc <cmd>lua require('fzf-lua').loclist()<cr>
-  nnoremap <leader>fh <cmd>lua require('fzf-lua').tags()<cr>
-  " inoremap <c-x><c-f> <cmd>lua require("fzf-lua").complete_path()<cr>
-]])
+-- use which-key
+local wk = require('which-key')
+
+-- add key mappings for various fzf-lua functions
+wk.add({
+  { '<leader>cf', function() require"fzf-lua".lgrep_curbuf() end },
+  { '<leader>ff', function() require"fzf-lua".files() end },
+  { '<leader>fb', function() require"fzf-lua".buffers() end },
+  { '<leader>fl', function() require"fzf-lua".lines() end },
+  { '<leader>fg', function() require"fzf-lua".live_grep_native() end },
+  { '<leader>fc', function() require"fzf-lua".loclist() end },
+  { '<leader>ft', function() require"fzf-lua".tags() end },
+})
 
