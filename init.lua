@@ -34,7 +34,6 @@ vim.cmd([[
   " source ~/.config/nvim/settings/rust.vim
   " source ~/.config/nvim/settings/deoplete.vim
   " source ~/.config/nvim/settings/vim_maximizer.vim
-  " source ~/.config/nvim/settings/slim.vim
   " source ~/.config/nvim/settings/ipy.vim
 
   source ~/.config/nvim/settings/keymaps.vim
