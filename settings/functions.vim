@@ -48,7 +48,7 @@ endfunction
 imap <silent> <C-Y> <C-R><C-R>=Lookupwards()<CR>
 
 " this function will relove symlink and follow it
-function! <SID>FollowSymlink()
+function! FollowSymlink()
    let current_file = expand('%:p')
    " check if file type is a symlink
    if getftype(current_file) == 'link'
@@ -62,6 +62,7 @@ function! <SID>FollowSymlink()
    function! <SID>AutoProjectRootCD()
       try
          if &ft != 'help'
+            call Followsymlink()
             ProjectRootCD
          endif
       catch
