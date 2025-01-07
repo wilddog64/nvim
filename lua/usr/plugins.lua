@@ -72,41 +72,165 @@ return packer.startup(function(use)
   -- use { 'shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
 
   use 'wbthomason/packer.nvim'
-  use 'jiangmiao/auto-pairs'
-  use 'airblade/vim-gitgutter'
-  use 'benmills/vimux'
-  use 'christoomey/vim-tmux-navigator'
-  use 'dbakker/vim-projectroot'
-  use 'ervandew/supertab'
-  use 'sjl/gundo.vim'
-  use 'tmhedberg/matchit'
-  use 'tmux-plugins/vim-tmux'
-  use 'tmux-plugins/vim-tmux-focus-events'
-  use 'tpope/vim-endwise'
-  use 'tpope/vim-repeat'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-unimpaired'
-  use 'corntrace/bufexplorer'
-  use 'neovim/nvim-lspconfig'
-  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  use {'ojroques/nvim-osc52'}
-  use 'mfussenegger/nvim-dap'
-  use 'nvim-lualine/lualine.nvim'
-  use "akinsho/toggleterm.nvim"
-  use 'honza/vim-snippets'
-  use 'f3fora/cmp-spell'
-  use 'plasticboy/vim-markdown'
-  use 'echasnovski/mini.nvim'
-  use 'hashivim/vim-terraform'
-  use 'kdheepak/lazygit.nvim'
-  use 'martinda/Jenkinsfile-vim-syntax'
-  use 'haya14busa/is.vim'
-  use 'haya14busa/vim-asterisk'
-  use 'wellle/targets.vim'
-  use 'sam4llis/nvim-lua-gf'
-  use 'rodjek/vim-puppet'
-  use 'mfussenegger/nvim-ansible'
+
+use {
+  'jiangmiao/auto-pairs',
+  event = 'BufReadPre',
+  disable = true,
+}
+
+use {
+  'airblade/vim-gitgutter',
+  event = 'BufReadPre',
+}
+
+use {
+  'benmills/vimux',
+  event = 'BufReadPre',
+}
+
+use {
+  'christoomey/vim-tmux-navigator',
+  event = 'BufReadPre',
+}
+
+use {
+  'dbakker/vim-projectroot',
+  event = 'BufReadPre',
+}
+
+use {
+  'ervandew/supertab',
+  event = 'BufReadPre',
+}
+
+use {
+  'sjl/gundo.vim',
+  event = 'BufReadPre',
+}
+
+use {
+  'tmhedberg/matchit',
+  event = 'BufReadPre',
+}
+
+use {
+  'tmux-plugins/vim-tmux',
+  event = 'BufReadPre',
+}
+
+use {
+  'tmux-plugins/vim-tmux-focus-events',
+  event = 'BufReadPre',
+}
+
+use {
+  'tpope/vim-endwise',
+  event = 'BufReadPre',
+}
+
+use {
+  'tpope/vim-repeat',
+  event = 'BufReadPre',
+}
+
+use {
+  'tpope/vim-surround',
+  event = 'BufReadPre',
+}
+
+use {
+  'tpope/vim-unimpaired',
+  event = 'BufReadPre',
+}
+
+use {
+  'corntrace/bufexplorer',
+  event = 'BufReadPre',
+}
+
+use { 'neovim/nvim-lspconfig' }
+
+use {
+  "jose-elias-alvarez/null-ls.nvim",
+  event = 'BufReadPre',
+}-- for formatters and linters
+
+use {'ojroques/nvim-osc52'}
+use { 'mfussenegger/nvim-dap', }
+
+use {
+  'nvim-lualine/lualine.nvim',
+  event = 'BufReadPre',
+}
+
+use {
+  "akinsho/toggleterm.nvim",
+  event = 'BufReadPre',
+}
+
+use {
+  'honza/vim-snippets',
+  event = 'BufReadPre',
+}
+
+use {
+  'f3fora/cmp-spell',
+  event = 'BufReadPre',
+}
+
+use {
+  'plasticboy/vim-markdown',
+  event = 'BufReadPre',
+}
+
+use { 'echasnovski/mini.nvim', }
+
+use {
+  'hashivim/vim-terraform',
+  event = 'BufReadPre',
+}
+
+use {
+  'kdheepak/lazygit.nvim',
+  event = 'BufReadPre',
+}
+
+use {
+  'martinda/Jenkinsfile-vim-syntax',
+  event = 'BufReadPre',
+}
+
+use {
+  'haya14busa/is.vim',
+  event = 'BufReadPre',
+}
+
+use {
+  'haya14busa/vim-asterisk',
+  event = 'BufReadPre',
+}
+
+use {
+  'wellle/targets.vim',
+  event = 'BufReadPre',
+}
+
+use {
+  'sam4llis/nvim-lua-gf',
+  event = 'BufReadPre',
+}
+
+use {
+  'rodjek/vim-puppet',
+  event = 'BufReadPre',
+}
+
+use {
+  'mfussenegger/nvim-ansible',
+  event = 'BufReadPre',
+}
+
   use {
     'github/copilot.vim',
     requires = {
@@ -153,7 +277,8 @@ return packer.startup(function(use)
           }
         }
       }
-    end
+    end,
+    event = 'BufReadPre',
   }
 
   -- LSP
@@ -196,7 +321,8 @@ return packer.startup(function(use)
       vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
       vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
       vim.g.UltiSnipsRemoveSelectModeMappings = 0
-    end
+    end,
+    event = 'BufReadPre',
   }
 
   -- use {
@@ -213,7 +339,8 @@ return packer.startup(function(use)
     'ibhagwan/fzf-lua',
     requires = {
       'nvim-tree/nvim-web-devicons',
-    }
+    },
+    event = 'BufReadPre',
   }
 
   if PACKER_BOOTSTRAP then
