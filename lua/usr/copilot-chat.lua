@@ -7,3 +7,11 @@ vim.api.nvim_create_autocmd('FileType', {
     end,
 })
 
+local wk = require('which-key')
+
+wk.add({
+  { '<leader>cc', function() vim.cmd([[ CopilotChatToggle ]]) end },
+  { '<leader>cce', function() vim.cmd([[ CopilotChatExplain ]]) end },
+  { '<leader>ccr', function() vim.cmd([[ CopilotChatReview ]]) end },
+  { '<leader>cct', function() vim.cmd([[ CopilotChatTest ]]) end },
+})
