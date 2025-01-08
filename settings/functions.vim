@@ -4,6 +4,7 @@ function! s:RemoveLastPathComponent()
    let c = getcmdline()
    let cRoot = fnamemodify(c, ':r')
    if c == cRoot
+      " Remove the last path component or trailing slash
       return substitute(c, '\%(\\ \|[\\/]\@!\f\)\+[\\/]\=$\|.$', '', '')
    endif
    return cRoot
