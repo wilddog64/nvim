@@ -25,11 +25,11 @@ cnoremap <C-w> <C-\>e(<SID>RemoveLastPathComponent())<CR>
 " visual mode mapping to search for patterns with flexible whitespace
 " handling.
 function! <SID>TrimOffWhitespaces(pat)
-   let pat = substitute(a:pat,'\_s\+$','\\s\\*', '')
-   let pat = substitute(pat, '^\_s\+', '\\s\\*', '')
-   return    substitute(pat,  '\_s\+', '\\_s\\+','g')
+   let pat = substitute(a:pat,'\_s\+$','\\s\\*', '') " remove trailing whitespace
+   let pat = substitute(pat, '^\_s\+', '\\s\\*', '') " remove leading whitespace
+   return    substitute(pat,  '\_s\+', '\\_s\\+','g') " replace internal whitespace
 endfunction
-vmap <silent><leader>vs :<C-U>let @/="\\V<C-R>=escape(<SID>FidgetWhitespace(escape(@*,'\')),'\"')<CR>"<CR>
+vmap <silent><leader>vs :<C-U>let @/="\\V<C-R>=escape(<SID>TrimOffWhitespaces(escape(@*,'\')),'\"')<CR>"<CR>
 
 " The `Preserve` function saves the current search pattern and cursor
 " position, executes a given command, and then restores the saved state. This
