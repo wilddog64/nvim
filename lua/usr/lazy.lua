@@ -25,7 +25,7 @@ require('lazy').setup({
 
   {
     'jiangmiao/auto-pairs',
-    event = 'BufReadPre',
+    event = 'InsertEnter',
   },
 
   {
