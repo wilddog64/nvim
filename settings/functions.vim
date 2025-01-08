@@ -5,7 +5,12 @@ function! s:RemoveLastPathComponent()
    let cRoot = fnamemodify(c, ':r')
    if c == cRoot
       " Remove the last path component or trailing slash
-      return substitute(c, '\%(\\ \|[\\/]\@!\f\)\+[\\/]\=$\|.$', '', '')
+      return substitute(
+               \ c,
+               \ '\%(\\ \|[\\/]\@!\f\)\+[\\/]\=$\|.$',
+               \ '',
+               \ ''
+               \)
    endif
    return cRoot
 endfunction
@@ -19,7 +24,7 @@ cnoremap <C-w> <C-\>e(<SID>RemoveLastPathComponent())<CR>
 " `\s*` and internal whitespace with `\_s\+`. This function is used in a
 " visual mode mapping to search for patterns with flexible whitespace
 " handling.
-function! <SID>FidgetWhitespace(pat)
+function! <SID>TrimOffWhitespaces(pat)
    let pat = substitute(a:pat,'\_s\+$','\\s\\*', '')
    let pat = substitute(pat, '^\_s\+', '\\s\\*', '')
    return    substitute(pat,  '\_s\+', '\\_s\\+','g')
