@@ -96,7 +96,7 @@ autocmd BufEnter * call <SID>AutoProjectRootCD()
 " strip trailing whitespaces without moving cursor
 function! <SID>StripTrailingWhitespaces()
    " Preparation: save last search, and cursor position.
-   call <SID>Preserve("%s/\s\+$//e")
+   call <SID>PreserveState("%s/\s\+$//e")
 endfunction
 
 nmap <silent> <leader>sw :call <SID>StripTrailingWhitespaces()<CR>
