@@ -2,7 +2,7 @@ local nvim_shada = vim.fn.stdpath('data') .. '/shada/main.shada'
 local nvim_backup = vim.fn.stdpath('data') .. '/backup'
 local nvim_undo = vim.fn.stdpath('data')  .. '/undo'
 
-vim.opt.cpo ='aABceFs$'
+vim.opt.cpo ='aABceFs$;-'
 vim.opt.cursorline = true
 vim.opt.undofile = true
 vim.opt.shada = "'50,<1000,s100,n" .. nvim_shada
