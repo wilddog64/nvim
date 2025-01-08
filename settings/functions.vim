@@ -36,7 +36,7 @@ vmap <silent><leader>vs :<C-U>let @/="\\V<C-R>=escape(<SID>TrimOffWhitespaces(es
 " is useful for commands that might disrupt the user's current context. It is
 " mapped to `leader+=` to reformat the entire buffer without moving the
 " cursor.
-function! <SID>Preserve(command)
+function! <SID>PreserveState(command)
    " save last search and cursor position
    let _s = @/
    let l = line(".")
@@ -49,13 +49,13 @@ function! <SID>Preserve(command)
    let @/ = _s
    call cursor(l, c)
 endfunction
-nmap <leader>= :call <SID>Preserve("normal gg=G")<CR>
+nmap <leader>= :call <SID>PreserveState("normal gg=G")<CR>
 
 " The `Lookupwards` function searches upwards from the current cursor position
 " for a non-whitespace character in the same column. It returns the character
 " found, allowing for easy vertical copying. This is mapped to `Ctrl-Y` in
 " insert mode.
-function! Lookupwards()
+function! LookNoneWhitespaceUpwards()
    let column_num      = virtcol( '.' )
    let target_pattern  = '\%' . column_num . 'v.'
    let target_line_num = search( target_pattern . '*\S', 'bnW' )
@@ -67,7 +67,7 @@ function! Lookupwards()
    endif
    return return_char
 endfunction
-imap <silent> <C-Y> <C-R><C-R>=Lookupwards()<CR>
+imap <silent> <C-Y> <C-R><C-R>=LookNoneWhitespaceUpwards()<CR>
 
 " this function will relove symlink and follow it
 function! FollowSymlink()
