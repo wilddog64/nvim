@@ -69,22 +69,9 @@ function! LookNoneWhitespaceUpwards()
 endfunction
 imap <silent> <C-Y> <C-R><C-R>=LookNoneWhitespaceUpwards()<CR>
 
-" this function will relove symlink and follow it
-function! FollowSymlink()
-   let current_file = expand('%:p')
-   " check if file type is a symlink
-   if getftype(current_file) == 'link'
-      " if it is a symlink resolve to the actual file path
-      "   and open the actual file
-      let actual_file = resolve(current_file)
-      silent! execute 'file ' . actual_file
-      end
-endfunction
-
 function! <SID>AutoProjectRootCD()
    try
       if &ft != 'help'
-         call Followsymlink()
          ProjectRootCD
       endif
    catch
