@@ -3,7 +3,10 @@
 function! s:RemoveLastPathComponent()
    let c = getcmdline()
    let cRoot = fnamemodify(c, ':r')
-   return (c != cRoot ? cRoot : substitute(c, '\%(\\ \|[\\/]\@!\f\)\+[\\/]\=$\|.$', '', ''))
+   if c == cRoot
+      return substitute(c, '\%(\\ \|[\\/]\@!\f\)\+[\\/]\=$\|.$', '', '')
+   endif
+   return cRoot
 endfunction
 
 " remove trailing / by hitting control w -- map to s:RemoveLastPathComponent
