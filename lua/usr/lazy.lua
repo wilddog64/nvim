@@ -1,5 +1,6 @@
--- Bootstrap lazy.nvim
+-- we use stdpath to figure where to place lazy.nvim package
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
   print('Cloning lazy.nvim repo from github ...')
   vim.fn.system({
@@ -7,112 +8,185 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
+    "--branch=stable", -- latest stable release
     lazypath,
   })
   print("lazy.nvim installed successfully.")
 end
+
+-- Add lazy.nvim to runtime path
 vim.opt.rtp:prepend(lazypath)
 
--- Plugin specifications
-return require('lazy').setup({
-  -- Core Editor Enhancements
-  {
-    'tpope/vim-surround',
-    'tpope/vim-repeat',
-    'tpope/vim-endwise',
-    'tpope/vim-unimpaired',
-    'jiangmiao/auto-pairs',
-    'wellle/targets.vim',
-    'ervandew/supertab',
-    event = 'VeryLazy',
-  },
-
-  {
-    'echasnovski/mini.nvim',
-    version = false,
-    config = function()
-      -- Add any mini.nvim modules you want to use
-      require('mini.bufremove').setup()
-      -- You can add other mini.nvim modules here
-    end,
-  },
-
-  -- Git Integration
+require('lazy').setup({
   {
     'airblade/vim-gitgutter',
+    event = 'BufReadPre',
+  },
+
+  {
+    'jiangmiao/auto-pairs',
+    event = 'BufReadPre',
+  },
+
+  {
+    'benmills/vimux',
+    event = 'BufReadPre',
+  },
+
+  {
+    'christoomey/vim-tmux-navigator',
+    event = 'BufReadPre',
+  },
+
+  {
+    'dbakker/vim-projectroot',
+    event = 'BufReadPre',
+  },
+
+  {
+    'ervandew/supertab',
+    event = 'BufReadPre',
+  },
+
+  {
+    'sjl/gundo.vim',
+    event = 'BufReadPre',
+  },
+
+  {
+    'tmhedberg/matchit',
+    event = 'BufReadPre',
+  },
+
+  {
+    'tmux-plugins/vim-tmux',
+    event = 'BufReadPre',
+  },
+
+  {
+    'tmux-plugins/vim-tmux-focus-events',
+    event = 'BufReadPre',
+  },
+
+  {
+    'tpope/vim-endwise',
+    event = 'BufReadPre',
+  },
+
+  {
+    'tpope/vim-repeat',
+    event = 'BufReadPre',
+  },
+
+  {
+    'tpope/vim-surround',
+    event = 'BufReadPre',
+  },
+
+  {
+    'tpope/vim-unimpaired',
+    event = 'BufReadPre',
+  },
+
+  {
+    'corntrace/bufexplorer',
+    event = 'BufReadPre',
+  },
+
+  { 'neovim/nvim-lspconfig' },
+
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = 'BufReadPre',
+  },-- for formatters and linters
+
+  {'ojroques/nvim-osc52'},
+  { 'mfussenegger/nvim-dap', },
+
+  {
+    'nvim-lualine/lualine.nvim',
+    event = 'BufReadPre',
+  },
+
+  {
+    "akinsho/toggleterm.nvim",
+    event = 'BufReadPre',
+  },
+
+  {
+    'honza/vim-snippets',
+    event = 'BufReadPre',
+  },
+
+  {
+    'f3fora/cmp-spell',
+    event = 'BufReadPre',
+  },
+
+  {
+    'plasticboy/vim-markdown',
+    event = 'BufReadPre',
+  },
+
+  { 'echasnovski/mini.nvim', },
+
+  {
+    'hashivim/vim-terraform',
+    event = 'BufReadPre',
+  },
+
+  {
     'kdheepak/lazygit.nvim',
-    event = 'VeryLazy',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-  },
-
-  -- File Navigation & Search
-  {
-    'nvim-tree/nvim-tree.lua',
-    priority = 900,
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-    },
-    config = function()
-      require("nvim-tree").setup {
-        actions = {
-          open_file = { quit_on_open = true }
-        }
-      }
-    end,
+    event = 'BufReadPre',
   },
 
   {
-    'ibhagwan/fzf-lua',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    event = 'VeryLazy',
+    'martinda/Jenkinsfile-vim-syntax',
+    event = 'BufReadPre',
   },
 
-  -- LSP & Completion
   {
-    'VonHeikemen/lsp-zero.nvim',
-    priority = 1000,
-    dependencies = {
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      {'williamboman/mason.nvim', build = ':MasonUpdate'},
-      {'williamboman/mason.lspconfig.nvim'},
-      {'tamago324/nlsp-settings.nvim'},
-
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-nvim-lua'},
-      {'saadparwaiz1/cmp_luasnip'},
-
-      -- Snippets
-      {
-        'L3MON4D3/LuaSnip',
-        dependencies = {
-          'rafamadriz/friendly-snippets',
-          'honza/vim-snippets',
-        }
-      },
-      'folke/lsp-colors.nvim',
-    }
+    'haya14busa/is.vim',
+    event = 'BufReadPre',
   },
 
-  -- AI Assistance
+  {
+    'haya14busa/vim-asterisk',
+    event = 'BufReadPre',
+  },
+
+  {
+    'wellle/targets.vim',
+    event = 'BufReadPre',
+  },
+
+  {
+    'sam4llis/nvim-lua-gf',
+    event = 'BufReadPre',
+  },
+
+  {
+    'rodjek/vim-puppet',
+    event = 'BufReadPre',
+  },
+
+  {
+    'mfussenegger/nvim-ansible',
+    event = 'BufReadPre',
+  },
+
   {
     'github/copilot.vim',
-    priority = 900,
-    dependencies = {
+    requires = {
       'nvim-lua/plenary.nvim',
       'nvim-lua/popup.nvim',
     },
   },
 
+
   {
     'CopilotC-Nvim/CopilotChat.nvim',
+    lazy = true,
     branch = "main",
     dependencies = {
       { "zbirenbaum/copilot.lua" },
@@ -122,68 +196,91 @@ return require('lazy').setup({
       require('copilot').setup {}
       require('CopilotChat').setup()
     end,
-    event = "BufReadPost",
+    event = "BufReadPost", -- Loads Copilot after a file is opened
   },
 
-  -- Terminal & TMUX Integration
   {
-    'akinsho/toggleterm.nvim',
-    'benmills/vimux',
-    'christoomey/vim-tmux-navigator',
-    'tmux-plugins/vim-tmux',
-    'tmux-plugins/vim-tmux-focus-events',
-    event = 'VeryLazy',
+    'ojroques/nvim-lspfuzzy',
+    depdencies = {
+      {'junegunn/fzf'},
+      {'junegunn/fzf.vim'},
+    }
   },
 
-  -- Language Specific
   {
-    'hashivim/vim-terraform',
-    'rodjek/vim-puppet',
-    'mfussenegger/nvim-ansible',
-    'martinda/Jenkinsfile-vim-syntax',
-    'plasticboy/vim-markdown',
-    ft = {
-      'terraform',
-      'puppet',
-      'yaml.ansible',
-      'Jenkinsfile',
-      'markdown',
+    'nvim-tree/nvim-tree.lua',
+    depdencies = {
+      'nvim-tree/nvim-web-devicons', -- optional
+    },
+    config = function()
+      require("nvim-tree").setup {
+        actions = {
+          open_file = {
+            quit_on_open = true
+          }
+        }
+      }
+    end,
+    event = 'BufReadPre',
+  },
+
+  {
+    "folke/which-key.nvim",
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to  the default settings
+      -- refer to the configuration section below
     },
   },
 
-  -- UI Enhancements
+  -- LSP
   {
-    'nvim-lualine/lualine.nvim',
-    'folke/which-key.nvim',
-    event = 'VeryLazy',
-  },
+    'VonHeikemen/lsp-zero.nvim',
+    dependencies = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig', priority = 1000},
+      {"williamboman/mason.nvim", run = ':MasonUpdate'},
+      {'williamboman/mason.lspconfig.nvim'},
+      {'tamago324/nlsp-settings.nvim'},
 
-  -- Debugging
-  {
-    'mfussenegger/nvim-dap',
-    event = 'VeryLazy',
-  },
-}, {
-  -- Lazy.nvim options
-  defaults = {
-    lazy = true,
-  },
-  install = {
-    colorscheme = { "habamax" },
-  },
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        "gzip",
-        "matchit",
-        "matchparen",
-        "netrwPlugin",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'saadparwaiz1/cmp_luasnip'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-nvim-lua'},
+
+      -- Snippets
+      {
+        'L3MON4D3/LuaSnip',
+        dependencies = {
+          'rafamadriz/friendly-snippets',
+          'honza/vim-snippets',
+        }
       },
+
+      'folke/lsp-colors.nvim',
+    }
+  },
+
+  {
+    'SirVer/ultisnips',
+    config = function()
+      vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
+      vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
+      vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
+      vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
+      vim.g.UltiSnipsRemoveSelectModeMappings = 0
+    end,
+    event = 'BufReadPre',
+  },
+
+  {
+    'ibhagwan/fzf-lua',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
     },
+    event = 'BufReadPre',
   },
 })
-
