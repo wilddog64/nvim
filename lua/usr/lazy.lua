@@ -14,73 +14,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-<<<<<<< HEAD
-require('lazy').setup({
-  {
-    'airblade/vim-gitgutter',
-    event = 'BufReadPre',
-  },
-
-  {
-    'jiangmiao/auto-pairs',
-    event = 'InsertEnter',
-  },
-
-  {
-    'benmills/vimux',
-    event = 'BufReadPre',
-  },
-
-  {
-    'christoomey/vim-tmux-navigator',
-    event = 'BufReadPre',
-  },
-
-  {
-    'dbakker/vim-projectroot',
-    event = 'BufReadPre',
-  },
-
-  {
-    'ervandew/supertab',
-    event = 'BufReadPre',
-  },
-
-  {
-    'sjl/gundo.vim',
-    event = 'BufReadPre',
-  },
-
-  {
-    'tmhedberg/matchit',
-    event = 'BufReadPre',
-  },
-
-  {
-    'tmux-plugins/vim-tmux',
-    event = 'BufReadPre',
-  },
-
-  {
-    'tmux-plugins/vim-tmux-focus-events',
-    event = 'BufReadPre',
-  },
-
-  {
-    'tpope/vim-endwise',
-    event = 'BufReadPre',
-  },
-
-  {
-    'tpope/vim-repeat',
-    event = 'BufReadPre',
-  },
-
-=======
 -- Plugin specifications
 return require('lazy').setup({
   -- Core Editor Enhancements
->>>>>>> da4f775 (rework lazy plugins to make them more organzied)
   {
     'tpope/vim-surround',
     'tpope/vim-repeat',
