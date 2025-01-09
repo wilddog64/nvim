@@ -28,15 +28,15 @@ return require('lazy').setup({
     event = 'VeryLazy',
   },
 
-{
-  'echasnovski/mini.nvim',
-  version = false,
-  config = function()
-    -- Add any mini.nvim modules you want to use
-    require('mini.bufremove').setup()
-    -- You can add other mini.nvim modules here
-  end,
-},
+  {
+    'echasnovski/mini.nvim',
+    version = false,
+    config = function()
+      -- Add any mini.nvim modules you want to use
+      require('mini.bufremove').setup()
+      -- You can add other mini.nvim modules here
+    end,
+  },
 
   -- Git Integration
   {
