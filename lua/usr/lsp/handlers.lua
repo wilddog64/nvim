@@ -59,19 +59,16 @@ M.setup = function()
   })
 end
 
-local function lsp_highlight_document(client)
-  -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
-    vim.api.nvim_exec(
-      [[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]],
-      false
-    )
+local function lsp_highlight_document(client, bufnr)
+  if client.server_capabilities.documentHighlightProvider then
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      buffer = bufnr,
+      callback = vim.lsp.buf.document_highlight,
+    })
+    vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+      buffer = bufnr,
+      callback = vim.lsp.buf.clear_references,
+    })
   end
 end
 
@@ -86,7 +83,15 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
+
+  vim.api.nvim_buf_set_keymap(
+  bufnr,
+  "n",
+  "gl",
+  '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>',
+  opts
+  )
+
   vim.api.nvim_buf_set_keymap(
     bufnr,
     "n",
@@ -101,14 +106,10 @@ end
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.documentFormatting = false
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-  vim.api.nvim_buf_set_option(0, "formatexpr", "v:lua.vim.lsp.formatexpr()")
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-  buf_set_option('omni_func', 'v:lua.vim.lsp.omnifunc')
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
