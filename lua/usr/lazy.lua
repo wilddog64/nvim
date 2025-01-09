@@ -177,7 +177,7 @@ require('lazy').setup({
 
   {
     'github/copilot.vim',
-    requires = {
+    dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-lua/popup.nvim',
     },
@@ -209,7 +209,7 @@ require('lazy').setup({
 
   {
     'nvim-tree/nvim-tree.lua',
-    depdencies = {
+    dependencies = {
       'nvim-tree/nvim-web-devicons', -- optional
     },
     config = function()
