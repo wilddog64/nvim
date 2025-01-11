@@ -183,6 +183,10 @@ require('lazy').setup({
     },
   },
 
+  {
+    'nvim-lua/plenary.nvim',
+    lazy = false,  -- This ensures it loads immediately
+  },
 
   {
     'CopilotC-Nvim/CopilotChat.nvim',
