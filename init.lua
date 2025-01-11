@@ -27,6 +27,7 @@ require('usr.fzf')
 require('usr.copilot')
 require('usr.copilot-chat')
 require('usr.mapkeys')
+require('usr.copilot-chat-history')
 
 vim.cmd([[
   " source ~/.config/nvim/settings/slim.vim
