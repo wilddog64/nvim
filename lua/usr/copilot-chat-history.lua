@@ -1,42 +1,30 @@
+-- In copilot-chat-history.lua
 local M = {}
 
-local history_file = vim.fn.stdpath("data") .. "/copilot-chat-history.json"
-
-function M.set_history_file(file)
-    history_file = file
+local ok, CopilotChat = pcall('require', 'CopilotChat')
+if not ok then
+  return
 end
 
-function M.get_history_file()
-    return history_file
+function M.save_chat_history(name, path)
+  if not name then
+    name = 'chat-history'
+  end
+  if not path then
+    path = vim.fn.stdpath("data") .. "/copilot-chat"
+  end
+  -- Use the default save location from your configuration
+  CopilotChat.save("chat-history", path)
 end
 
-function M.save_chat_history()
-    local ok, chat = pcall(require, "CopilotChat")
-    if not ok then
-        vim.notify("Copilot chat not available", vim.log.levels.ERROR)
-        return
-    end
-
-    local history = chat.get_chat_history()
-    if history then
-        local json = vim.fn.json_encode(history)
-        vim.fn.writefile({json}, history_file)
-        vim.notify("Copilot chat history saved")
-    end
-end
-
-function M.restore_chat_history()
-    local ok, chat = pcall(require, "CopilotChat")
-    if not ok then return end
-
-    if vim.fn.filereadable(history_file) == 1 then
-        local json = vim.fn.readfile(history_file)[1]
-        local history = vim.fn.json_decode(json)
-        if history then
-            chat.set_chat_history(history)
-            return history
-        end
-    end
+function M.load_chat_history(name, path)
+  if not name then
+    name = 'chat-history'
+  end
+  if not path then
+    path = vim.fn.stdpath("data") .. "/copilot-chat"
+  end
+  return CopilotChat.load("chat-history", path)
 end
 
 return M

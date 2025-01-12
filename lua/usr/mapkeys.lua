@@ -12,7 +12,7 @@ wk.add({
       vim.notify("Copilot chat history saved")
     end
   },
-  { '<leader>hr', function()
+  { '<leader>hl', function()
       require("usr.copilot-chat-history").restore_chat_history()
       vim.notify("Copilot chat history restored")
     end
