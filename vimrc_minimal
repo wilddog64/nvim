@@ -32,12 +32,18 @@ set nu
 set sts=4
 set ts=4
 set sw=4
+set expandtab
 set ai
 set cpo+=$
 set cursorline
-set viminfo='50,<1000,s100,n~/.vim/viminfo
 set hidden
 set bg=dark
+
+if has('nvim')
+  vim.opt.shada = "'50,<1000,s100,n" .. nvim_shada
+else
+  set viminfo='50,<1000,s100,n~/.vim/viminfo
+endif
 
 " create swap dir if it is not exist
 if !isdirectory(expand("$XDG_DATA_HOME/vim/swap"))
