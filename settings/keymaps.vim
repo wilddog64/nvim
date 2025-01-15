@@ -117,8 +117,8 @@ if has("nvim")
    vmap <leader>c <Plug>OSCYankVisual
 
    " map <leader>a to accept the word from copilot
-   imap <tab> <Plug>(copilot-accept-word)
-   imap <c-e> <Plug>(copilot-accept-line)
+   " imap <tab> <Plug>(copilot-accept-word)
+   " imap <c-e> <Plug>(copilot-accept-line)
 
    let g:copilot_no_tab_map = v:true
    imap <Tab> copilot#Accept("\<CR>")
