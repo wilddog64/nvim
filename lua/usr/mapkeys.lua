@@ -6,6 +6,5 @@ wk.add({
   { '<leader>gi', function() vim.cmd([[ LazyGit ]]) end },
   { '<leader>tw', function() require('mini.trailspace').trim() end },
   { '<tab>', '<Plug>(copilot-accept-word)' },
-  { '<c-a>', '<Plug>(copilot-accept-line)' },
-  { '<c-e>', '<Plug>(copilot-accept)' },
+  { '<c-e>', '<Plug>(copilot-accept-line)' },
 })
