@@ -287,5 +287,5 @@ require('lazy').setup({
   {
     'Ramilito/kubectl.nvim',
     event = 'BufReadPre',
-  }
+  },
 })
