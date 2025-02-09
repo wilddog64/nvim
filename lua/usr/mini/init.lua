@@ -44,31 +44,5 @@ local opts = {
 }
 keymap('n', '<leader>z', ":lua require('mini.misc').zoom()<CR>", opts)
 
-require('mini.git').setup({
-  signs = true,
-  blame = true,
-  diff = true,
-  diff_inline = true,
-  diff_opts = {
-    internal = true,
-    external = true,
-  },
-  diff_keymap = {
-    next = '<leader>gn',
-    prev = '<leader>gp',
-    toggle = '<leader>gd',
-  },
-  blame_keymap = {
-    next = '<leader>bn',
-    prev = '<leader>bp',
-    toggle = '<leader>bd',
-  },
-  signs_keymap = {
-    next = '<leader>sn',
-    prev = '<leader>sp',
-    toggle = '<leader>sd',
-  },
-  command = {
-    split = 'auto',
-  },
-})
+require('usr.mini.git')
+require('usr.mini.diff')
