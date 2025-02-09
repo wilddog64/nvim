@@ -21,3 +21,4 @@ require('mini.diff').setup({
     -- How much to wait before update following every text change
     text_change = 200,
   },
+})
