@@ -43,3 +43,91 @@ local opts = {
   silent = true
 }
 keymap('n', '<leader>z', ":lua require('mini.misc').zoom()<CR>", opts)
+
+require('mini.git').setup({
+  signs = true,
+  blame = true,
+  diff = true,
+  diff_inline = true,
+  diff_opts = {
+    internal = true,
+    external = true,
+  },
+  diff_keymap = {
+    next = '<leader>gn',
+    prev = '<leader>gp',
+    toggle = '<leader>gd',
+  },
+  blame_keymap = {
+    next = '<leader>bn',
+    prev = '<leader>bp',
+    toggle = '<leader>bd',
+  },
+  signs_keymap = {
+    next = '<leader>sn',
+    prev = '<leader>sp',
+    toggle = '<leader>sd',
+  },
+  command = {
+    split = 'auto',
+  },
+})
+
+require('mini.diff').setup({
+  -- Options for how hunks are visualized
+  view = {
+    -- Visualization style. Possible values are 'sign' and 'number'.
+    -- Default: 'number' if line numbers are enabled, 'sign' otherwise.
+    style = vim.go.number and 'number' or 'sign',
+
+    -- Signs used for hunks with 'sign' view
+    signs = { add = '+', change = '~', delete = '-' },
+
+    -- Priority of used visualization extmarks
+    priority = 199,
+  },
+
+  -- Source for how reference text is computed/updated/etc
+  -- Uses content from Git index by default
+  source = nil,
+
+  -- Delays (in ms) defining asynchronous processes
+  delay = {
+    -- How much to wait before update following every text change
+    text_change = 200,
+  },
+
+  -- Module mappings. Use `''` (empty string) to disable one.
+  mappings = {
+    -- Apply hunks inside a visual/operator region
+    apply = 'gh',
+
+    -- Reset hunks inside a visual/operator region
+    reset = 'gH',
+
+    -- Hunk range textobject to be used inside operator
+    -- Works also in Visual mode if mapping differs from apply and reset
+    textobject = 'gh',
+
+    -- Go to hunk range in corresponding direction
+    goto_first = '[H',
+    goto_prev = '[h',
+    goto_next = ']h',
+    goto_last = ']H',
+  },
+
+  -- Various options
+  options = {
+    -- Diff algorithm. See `:h vim.diff()`.
+    algorithm = 'histogram',
+
+    -- Whether to use "indent heuristic". See `:h vim.diff()`.
+    indent_heuristic = true,
+
+    -- The amount of second-stage diff to align lines (in Neovim>=0.9)
+    linematch = 60,
+
+    -- Whether to wrap around edges during hunk navigation
+    wrap_goto = false,
+  },
+})
