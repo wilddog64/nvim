@@ -44,5 +44,5 @@ local opts = {
 }
 keymap('n', '<leader>z', ":lua require('mini.misc').zoom()<CR>", opts)
 
-require('usr.mini.git')
+-- require('usr.mini.git')
 require('usr.mini.diff')
