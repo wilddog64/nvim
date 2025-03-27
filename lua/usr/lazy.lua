@@ -43,10 +43,10 @@ require('lazy').setup({
     event = 'BufReadPre',
   },
 
-  {
-    'ervandew/supertab',
-    event = 'BufReadPre',
-  },
+  -- {
+  --   'ervandew/supertab',
+  --   event = 'BufReadPre',
+  -- },
 
   {
     'sjl/gundo.vim',
@@ -78,10 +78,10 @@ require('lazy').setup({
     event = 'BufReadPre',
   },
 
-  {
-    'tpope/vim-surround',
-    event = 'BufReadPre',
-  },
+  -- {
+  --   'tpope/vim-surround',
+  --   event = 'BufReadPre',
+  -- },
 
   {
     'tpope/vim-unimpaired',
