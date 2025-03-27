@@ -35,6 +35,15 @@ require('mini.indentscope').setup {}
 require('mini.diff').setup({})
 require('mini.ai').setup({})
 require('mini.trailspace').setup({})
+require('mini.surround').setup({
+  mappings = {
+    add = 'ys',
+    delete = 'ds',
+    find = 'sf',
+    find_left = 'sF',
+    update_n_lines = 'gn',
+  }
+})
 -- require('mini.misc').setup {}
 
 local keymap = vim.api.nvim_set_keymap
@@ -46,3 +55,4 @@ keymap('n', '<leader>z', ":lua require('mini.misc').zoom()<CR>", opts)
 
 -- require('usr.mini.git')
 require('usr.mini.diff')
+require('usr.mini.completion')
