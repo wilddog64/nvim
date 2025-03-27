@@ -1,5 +1,5 @@
 -- vim.opt.clipboard = "unnamedplus"
-if not vim.fn.has('wsl') then
+if not vim.fn.executable('win32yank.exe') then
   return
 end
 
