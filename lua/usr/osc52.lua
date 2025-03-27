@@ -1,6 +1,11 @@
 if not vim.fn.exists('+clipboard') then
-  vim.fn.finish()
+  return
 end
+
+if vim.fn.has('wsl') == 1 then
+  return
+end
+
 local function copy(lines, _)
   require('osc52').copy(table.concat(lines, '\n'))
 end
@@ -11,8 +16,8 @@ end
 
 vim.g.clipboard = {
   name = 'osc52',
-  copy = {['+'] = 'yank', ['*'] = 'yank'},
-  paste = {['+'] = 'put', ['*'] = 'put'},
+  copy = {['+'] = copy, ['*'] = copy },
+  paste = {['+'] = paste, ['*'] = paste },
 }
 
 -- Now the '+' register will copy to system clipboard using OSC52
