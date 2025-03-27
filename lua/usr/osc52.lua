@@ -2,7 +2,7 @@ if not vim.fn.exists('+clipboard') then
   return
 end
 
-if vim.fn.has('wsl') == 1 then
+if vim.fn.executable('win32yank.exe') == 0 then
   return
 end
 
