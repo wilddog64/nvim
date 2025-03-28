@@ -1,4 +1,5 @@
 if not vim.fn.exists('+clipboard') then
+  vim.notify('Clipboard support not available', vim.log.levels.WARN)
   return
 end
 
@@ -11,7 +12,7 @@ local function paste()
 end
 
 -- vim.opt.clipboard = "unnamedplus"
-if vim.fn.executable('win32yank.exe') == 0 then
+if vim.fn.executable('win32yank.exe') == 1 then
   vim.g.clipboard = {
     name = "win32yank-wsl",
     copy = {
@@ -23,11 +24,13 @@ if vim.fn.executable('win32yank.exe') == 0 then
       ["*"] = "win32yank.exe -o --lf",
     }
   }
+  vim.notify('Clipboard set to win32yank', vim.log.levels.INFO)
 else
   vim.g.clipboard = {
     name = 'osc52',
     copy = {['+'] = copy, ['*'] = copy },
     paste = {['+'] = paste, ['*'] = paste },
   }
+  vim.notify('Clipboard set to osc52', vim.log.levels.INFO)
 end
 
