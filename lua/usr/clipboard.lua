@@ -11,7 +11,6 @@ end
 -- copy and paste are functions that handle the copying and pasting of text
 -- using the `osc52` plugin. The `copy` function takes a table of lines and
 -- concatenates them into a single string,
---
 local function copy(lines, _)
   require('osc52').copy(table.concat(lines, '\n'))
 end
