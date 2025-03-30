@@ -191,25 +191,25 @@ lspconfig.azure_pipelines_ls.setup {
 }
 
 lspconfig.yamlls.setup({
-    root_dir = get_root_dir,
-    settings = {
-        yaml = {
-            format = { enable = true },
-            validate = true,
-            schemaStore = {
-                enable = true, -- Disable fetching schemas from SchemaStore
-            },
-            schemas = {
-                -- Explicitly define schemas for Helm files
-                ["https://json.schemastore.org/helmfile.json"] = "helmfile.yaml",
-                ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*",
-                ["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
-                ["https://json.schemastore.org/ansible-playbook"] = "/*.ansible.yaml", -- Ansible Playbooks
-            },
-        },
+  root_dir = get_root_dir,
+  settings = {
+    yaml = {
+      format = { enable = true },
+      validate = true,
+      schemaStore = {
+        enable = true, -- Disable fetching schemas from SchemaStore
+      },
+      schemas = {
+        -- Explicitly define schemas for Helm files
+        ["https://json.schemastore.org/helmfile.json"] = "helmfile.yaml",
+        ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*",
+        ["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
+        ["https://json.schemastore.org/ansible-playbook"] = "/*.ansible.yaml", -- Ansible Playbooks
+      },
     },
-    flags = {
-        debounce_text_changes = 150,
-    },
+  },
+  flags = {
+    debounce_text_changes = 150,
+  },
 })
 
