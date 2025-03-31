@@ -78,6 +78,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'voldikss/vim-floaterm'
 Plug 'wellle/targets.vim'
 Plug 'yasuhiroki/github-actions-yaml.vim'
+Plug 'tpope/vim-surround'
 
 Plug 'JamshedVesuna/vim-markdown-preview', {'for': 'markdown'}
 
