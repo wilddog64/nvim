@@ -84,6 +84,19 @@ require('lazy').setup({
   -- },
 
   {
+    'kylechui/nvim-surround',
+    event = 'VeryLazy',
+    config = function()
+      require('nvim-surround').setup({
+        normal = 'ys',
+        visual = 'S',
+        change = 'cs',
+        delete = 'ds',
+      })
+    end
+  },
+
+  {
     'tpope/vim-unimpaired',
     event = 'BufReadPre',
   },
