@@ -34,6 +34,11 @@ vim.o.splitright = false
 vim.osplitbelow = true
 vim.o.mouse=""
 
+if vim.fn.has("win64") then
+  vim.g["python3_host_prog"] = 'c:/python311/python.exe'
+else
+  vim.g["python3_host_prog"] = '/usr/bin/python3'
+end
 -- what we want to store in a session file
 vim.opt.ssop = {
   "buffers",
