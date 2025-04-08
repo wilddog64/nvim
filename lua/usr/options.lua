@@ -13,7 +13,6 @@ vim.opt.backupcopy = "auto"
 vim.opt.backupdir = nvim_backup
 vim.opt.hidden = true
 vim.g.mapleader = ";"
-vim.g["python3_host_prog"] = 'c:/python311/python.exe'
 vim.opt.backspace = { "indent", "eol", "start" }
 vim.opt.history = 1000    -- command line history
 vim.opt.hlsearch = true   -- highlight search result
@@ -39,6 +38,7 @@ if vim.fn.has("win64") then
 else
   vim.g["python3_host_prog"] = '/usr/bin/python3'
 end
+
 -- what we want to store in a session file
 vim.opt.ssop = {
   "buffers",
