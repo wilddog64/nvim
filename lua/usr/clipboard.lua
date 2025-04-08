@@ -11,7 +11,8 @@ local function paste()
 end
 
 -- vim.opt.clipboard = "unnamedplus"
-if vim.fn.executable('win32yank.exe') == 0 then
+if vim.fn.executable('win32yank.exe') == 1 then
+  vim.notify('use win32yank')
   vim.g.clipboard = {
     name = "win32yank-wsl",
     copy = {
@@ -24,6 +25,7 @@ if vim.fn.executable('win32yank.exe') == 0 then
     }
   }
 else
+  vim.notify('use osc52')
   vim.g.clipboard = {
     name = 'osc52',
     copy = {['+'] = copy, ['*'] = copy },
