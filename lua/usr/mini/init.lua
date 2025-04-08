@@ -35,17 +35,6 @@ require('mini.indentscope').setup {}
 require('mini.diff').setup({})
 require('mini.ai').setup({})
 require('mini.trailspace').setup({})
--- require('mini.surround').setup({
---   mappings = {
---     add = 'ys',
---     delete = 'ds',
---     find = 'sf',
---     find_left = 'sF',
---     change = 'cs',
---     visual = 'S',
---   }
--- })
--- require('mini.misc').setup {}
 
 local keymap = vim.api.nvim_set_keymap
 
