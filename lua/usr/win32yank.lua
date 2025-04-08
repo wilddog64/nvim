@@ -1,6 +1,7 @@
 -- vim.opt.clipboard = "unnamedplus"
 
 if vim.fn.has("wsl") == 1 then
+  vim.notify_once('use win32yank', vim.log.levels.INFO)
   vim.g.clipboard = {
     name = "win32yank-wsl",
     copy = {

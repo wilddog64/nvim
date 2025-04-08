@@ -1,6 +1,9 @@
 if not vim.fn.exists('+clipboard') then
   vim.fn.finish()
 end
+
+vim.notify_once('use osc52', vim.log.levels.INFO)
+
 local function copy(lines, _)
   require('osc52').copy(table.concat(lines, '\n'))
 end
@@ -14,7 +17,3 @@ vim.g.clipboard = {
   copy = {['+'] = copy, ['*'] = copy},
   paste = {['+'] = paste, ['*'] = paste},
 }
-
--- Now the '+' register will copy to system clipboard using OSC52
-vim.keymap.set('n', '<leader>c', '"+y')
-vim.keymap.set('n', '<leader>cc', '"+yy')
