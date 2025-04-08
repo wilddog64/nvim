@@ -8,17 +8,6 @@ if not vim.fn.exists('+clipboard') then
   return
 end
 
--- copy and paste are functions that handle the copying and pasting of text
--- using the `osc52` plugin. The `copy` function takes a table of lines and
--- concatenates them into a single string,
-local function copy(lines, _)
-  require('osc52').copy(table.concat(lines, '\n'))
-end
-
-local function paste()
-  return {vim.fn.split(vim.fn.getreg(''), '\n'), vim.fn.getregtype('')}
-end
-
 -- Check to see if win32yank is available
 if vim.fn.executable('win32yank.exe') == 1 then
   vim.g.clipboard = {
@@ -34,6 +23,17 @@ if vim.fn.executable('win32yank.exe') == 1 then
   }
   vim.notify('Clipboard set to win32yank', vim.log.levels.INFO)
 else -- else we use osc52
+  -- copy and paste are functions that handle the copying and pasting of text
+  -- using the `osc52` plugin. The `copy` function takes a table of lines and
+  -- concatenates them into a single string,
+  local function copy(lines, _)
+    require('osc52').copy(table.concat(lines, '\n'))
+  end
+
+  local function paste()
+    return {vim.fn.split(vim.fn.getreg(''), '\n'), vim.fn.getregtype('')}
+  end
+
   vim.g.clipboard = {
     name = 'osc52',
     copy = {['+'] = copy, ['*'] = copy },
