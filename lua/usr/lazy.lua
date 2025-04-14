@@ -109,7 +109,7 @@ require('lazy').setup({
   { 'neovim/nvim-lspconfig' },
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     event = 'BufReadPre',
   },-- for formatters and linters
 
