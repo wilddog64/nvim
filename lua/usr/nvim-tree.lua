@@ -1,5 +1,13 @@
 -- local ok, nvim_tree = pcall('require', 'nvim-tree')
 
+require('nvim-tree').setup({
+  actions = {
+    open_file = {
+      quit_on_open = true
+    }
+  }
+})
+
 local opts = { noremap = true, silent = true }
 
 -- create an alias for option

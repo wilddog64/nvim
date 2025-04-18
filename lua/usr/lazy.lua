@@ -206,7 +206,7 @@ require('lazy').setup({
       { "nvim-lua/plenary.nvim" },
     },
     config = function()
-      require('copilot').setup {}
+      -- require('copilot').setup {}
       require('CopilotChat').setup()
     end,
     event = "BufReadPost", -- Loads Copilot after a file is opened
@@ -225,15 +225,15 @@ require('lazy').setup({
     dependencies = {
       'nvim-tree/nvim-web-devicons', -- optional
     },
-    config = function()
-      require("nvim-tree").setup {
-        actions = {
-          open_file = {
-            quit_on_open = true
-          }
-        }
-      }
-    end,
+    -- config = function()
+    --   require("nvim-tree").setup {
+    --     actions = {
+    --       open_file = {
+    --         quit_on_open = true
+    --       }
+    --     }
+    --   }
+    -- end,
     event = 'BufReadPre',
   },
 
