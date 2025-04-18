@@ -36,8 +36,8 @@ else -- else we use osc52
 
   vim.g.clipboard = {
     name = 'osc52',
-    copy = {['+'] = copy, ['*'] = copy },
-    paste = {['+'] = paste, ['*'] = paste },
+    copy = { ['+'] = copy, ['*'] = copy },
+    paste = { ['+'] = paste, ['*'] = paste },
   }
   vim.notify('Clipboard set to osc52', vim.log.levels.INFO)
 end
