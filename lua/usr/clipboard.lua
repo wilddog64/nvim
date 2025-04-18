@@ -41,4 +41,3 @@ else -- else we use osc52
   }
   vim.notify('Clipboard set to osc52', vim.log.levels.INFO)
 end
-
