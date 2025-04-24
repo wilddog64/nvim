@@ -42,6 +42,13 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 vim.keymap.set("n", "<leader>tv", "<cmd>ToggleTerm size=50 direction=vertical<CR>", { noremap = true, silent = true  })
 vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm size=50 direction=float<CR>", { noremap = true, silent = true  })
 
+-- make terminal buffer modifiable
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "term://*toggleterm#*",
+  callback = function()
+    vim.bo.modifiable = true
+  end,
+})
 
 -- local Terminal = require("toggleterm.terminal").Terminal
 -- local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
