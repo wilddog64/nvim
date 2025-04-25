@@ -43,9 +43,6 @@ augroup tabconf
     autocmd Filetype rst setlocal tabstop=3 shiftwidth=3 softtabstop=3 expandtab
 augroup END
 
-" content will be copy to clipboard
-autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif
-
 " only load vim-lsp for these file types, only if we use vim
 if !has('nvim')
    autocmd FileType python,javascript,yaml call s:conditional_lsp_enable()
