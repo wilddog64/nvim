@@ -206,7 +206,6 @@ require('lazy').setup({
     },
   },
 
-
   {
     'CopilotC-Nvim/CopilotChat.nvim',
     lazy = true,
