@@ -42,7 +42,6 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 vim.keymap.set("n", "<leader>tv", "<cmd>ToggleTerm size=50 direction=vertical<CR>", { noremap = true, silent = true  })
 vim.keymap.set("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", { noremap = true, silent = true  })
 vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm size=50 direction=float<CR>", { noremap = true, silent = true  })
-vim.keymap.set("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", { noremap = true, silent = true  })
 
 -- Auto yank to clipboard only inside ToggleTerm
 -- vim.api.nvim_create_autocmd("TextYankPost", {
