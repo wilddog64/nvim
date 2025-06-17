@@ -111,6 +111,7 @@ require('lazy').setup({
   {
     "nvimtools/none-ls.nvim",
     event = 'BufReadPre',
+    pin = true,
   },-- for formatters and linters
 
   {
@@ -223,6 +224,7 @@ require('lazy').setup({
 
   {
     'ojroques/nvim-lspfuzzy',
+    pin = true,
     depdencies = {
       {'junegunn/fzf'},
       {'junegunn/fzf.vim'},
@@ -258,12 +260,13 @@ require('lazy').setup({
   -- LSP
   {
     'VonHeikemen/lsp-zero.nvim',
+    pin = true,
     dependencies = {
       -- LSP Support
-      {'neovim/nvim-lspconfig', priority = 1000},
-      {"williamboman/mason.nvim", run = ':MasonUpdate'},
-      {'williamboman/mason.lspconfig.nvim'},
-      {'tamago324/nlsp-settings.nvim'},
+      {'neovim/nvim-lspconfig', priority = 1000, pin = true},
+      {"williamboman/mason.nvim", run = ':MasonUpdate', pin = true},
+      {'williamboman/mason.lspconfig.nvim', pin = true},
+      {'tamago324/nlsp-settings.nvim', pin = true},
 
       -- Autocompletion
       {'hrsh7th/nvim-cmp'},
