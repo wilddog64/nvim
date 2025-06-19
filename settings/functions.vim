@@ -50,7 +50,7 @@ function! <SID>PreserveState(command)
    call cursor(l, c)
 endfunction
 nmap <leader>= :call <SID>PreserveState("normal gg=G")<CR>
-nmap <leader>y :call <SID>PreserveState("'<,'>y")<CR>
+nmap <leader>y :call <SID>PreserveState("='<,'>y")<CR>
 
 " The `Lookupwards` function searches upwards from the current cursor position
 " for a non-whitespace character in the same column. It returns the character
