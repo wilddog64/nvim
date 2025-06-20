@@ -26,8 +26,30 @@ else -- else we use osc52
   -- copy and paste are functions that handle the copying and pasting of text
   -- using the `osc52` plugin. The `copy` function takes a table of lines and
   -- concatenates them into a single string,
+
+  local function dedent_lines(lines)
+    local min_indent = math.huge
+
+    -- Compute minimum leading whitespace (ignore blank lines)
+    for _, line in ipairs(lines) do
+      local indent = line:match("^(%s*)")
+      if line:match("%S") then
+        min_indent = math.min(min_indent, #indent)
+      end
+    end
+
+    -- Remove the common indent from all lines
+    local cleaned = {}
+    for _, line in ipairs(lines) do
+      table.insert(cleaned, line:sub(min_indent + 1))
+    end
+
+    return cleaned
+  end
+
   local function copy(lines, _)
-    require('osc52').copy(table.concat(lines, '\n'))
+    local cleaned = dedent_lines(lines)
+    require('osc52').copy(table.concat(cleaned, '\n'))
   end
 
   local function paste()
