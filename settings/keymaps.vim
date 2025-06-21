@@ -82,7 +82,7 @@ map <leader>sz :sp term://zsh<CR>
 imap <leader>sz <C-O>:sp term://zsh<CR>
 
 " mapping for generating uuid into vim buffer
-imap <leader>uid <c-r>=system('~/.vim/bundle/genuuid.py')<cr>
+imap <leader>u <c-r>=system('uuid')<cr>
 
 " map <leader>fc to fake-credential.rb to generate a fake credential
 imap <leader>fc <c-r>=system('~/.vim/bundle/fake-credential.rb')<cr>
