@@ -1,27 +1,31 @@
 require('mini.pick').setup({
   window = {
     config = function()
-      local screen_h = vim.o.lines
-      local screen_w = vim.o.columns
+      local editor_w = vim.o.columns
+      local editor_h = vim.o.lines
 
-      local win_h = math.floor(screen_h * 0.4)
-      local win_w = math.floor(screen_w * 0.5)
+      local win_w = math.floor(editor_w * 0.5)
+      local win_h = math.floor(editor_h * 0.4)
 
-      local row = math.floor((screen_h - win_h) / 2)
-      local col = math.floor((screen_w - win_w) / 2)
+      local row = math.floor((editor_h - win_h) / 2 - 1)
+      local col = math.floor((editor_w - win_w) / 2)
 
       return {
         anchor = 'NW',
-        border = 'single',
-        style = 'minimal',
-        relative = 'editor',
         row = row,
         col = col,
         width = win_w,
         height = win_h,
+        border = 'single',
+        style = 'minimal',
       }
-    end
-  }
+    end,
+  },
+  mappings = {
+    move_down = 'j',
+    move_up = 'k',
+    choose = '<CR>',
+  },
 })
 
 local function pick_files_from_cwd()
