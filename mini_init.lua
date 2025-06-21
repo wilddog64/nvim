@@ -97,7 +97,6 @@ vim.api.nvim_set_keymap('i', [[<Tab>]],   [[pumvisible() ? "\<C-n>" : "\<Tab>"]]
 vim.api.nvim_set_keymap('i', [[<S-Tab>]], [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { noremap = true, expr = true })
 
 require('mini.cursorword').setup {}
-require('mini.fuzzy').setup {}
 require('mini.indentscope').setup {}
 require('mini.pairs').setup {}
 require('mini.statusline').setup {}
