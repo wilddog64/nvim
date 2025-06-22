@@ -28,7 +28,6 @@ require('mini.comment').setup({
 
 require('mini.cursorword').setup {}
 require('mini.indentscope').setup {}
-require('mini.diff').setup({})
 require('mini.ai').setup({})
 require('mini.trailspace').setup({})
 
@@ -40,6 +39,5 @@ local opts = {
 keymap('n', '<leader>z', ":lua require('mini.misc').zoom()<CR>", opts)
 
 -- require('usr.mini.git')
-require('usr.mini.diff')
 require('usr.mini.completion')
 require('usr.mini.bufremove')
