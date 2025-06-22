@@ -22,11 +22,10 @@ cnoremap <C-w> <C-\>e(<SID>RemoveLastPathComponent())<CR>
 " The `FidgetWhitespace` function modifies a given pattern to handle
 " whitespace more flexibly. It replaces trailing and leading whitespace with
 " `\s*` and internal whitespace with `\_s\+`. This function is used in a
-" visual mode mapping to search for patterns with flexible whitespace
-" handling.
+" visual mode mapping to search for patterns with flexible whitespace handling.
 function! <SID>TrimOffWhitespaces(pat)
-   let pat = substitute(a:pat,'\_s\+$','\\s\\*', '') " remove trailing whitespace
-   let pat = substitute(pat, '^\_s\+', '\\s\\*', '') " remove leading whitespace
+   let pat = substitute(a:pat,'\_s\+$','\\s\\*', '')  " remove trailing whitespace
+   let pat = substitute(pat, '^\_s\+', '\\s\\*', '')  " remove leading whitespace
    return    substitute(pat,  '\_s\+', '\\_s\\+','g') " replace internal whitespace
 endfunction
 vmap <silent><leader>vs :<C-U>let @/="\\V<C-R>=escape(<SID>TrimOffWhitespaces(escape(@*,'\')),'\"')<CR>"<CR>
@@ -54,8 +53,7 @@ nmap <leader>y :call <SID>PreserveState("='<,'>y")<CR>
 
 " The `Lookupwards` function searches upwards from the current cursor position
 " for a non-whitespace character in the same column. It returns the character
-" found, allowing for easy vertical copying. This is mapped to `Ctrl-Y` in
-" insert mode.
+" found, allowing for easy vertical copying. This is mapped to `Ctrl-Y` in insert mode.
 function! LookNoneWhitespaceUpwards()
    let column_num      = virtcol( '.' )
    let target_pattern  = '\%' . column_num . 'v.'
