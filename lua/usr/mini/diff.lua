@@ -1,52 +1,58 @@
-require('mini.pick').setup({
-  window = {
-    config = function()
-      local screen_h = vim.o.lines
-      local screen_w = vim.o.columns
+require('mini.diff').setup({
+  -- Options for how hunks are visualized
+  view = {
+    -- Visualization style. Possible values are 'sign' and 'number'.
+    -- Default: 'number' if line numbers are enabled, 'sign' otherwise.
+    style = vim.go.number and 'number' or 'sign',
 
-      local win_h = math.floor(screen_h * 0.4)
-      local win_w = math.floor(screen_w * 0.5)
+    -- Signs used for hunks with 'sign' view
+    signs = { add = '+', change = '~', delete = '-' },
 
-      local row = math.floor((screen_h - win_h) / 2)
-      local col = math.floor((screen_w - win_w) / 2)
+    -- Priority of used visualization extmarks
+    priority = 199,
+  },
 
-      return {
-        anchor = 'NW',
-        border = 'single',
-        style = 'minimal',
-        relative = 'editor',
-        row = row,
-        col = col,
-        width = win_w,
-        height = win_h,
-      }
-    end
-  }
+  -- Source for how reference text is computed/updated/etc
+  -- Uses content from Git index by default
+  source = nil,
+
+  -- Delays (in ms) defining asynchronous processes
+  delay = {
+    -- How much to wait before update following every text change
+    text_change = 200,
+  },
+
+  -- Module mappings. Use `''` (empty string) to disable one.
+  mappings = {
+    -- Apply hunks inside a visual/operator region
+    apply = 'gh',
+
+    -- Reset hunks inside a visual/operator region
+    reset = 'gH',
+
+    -- Hunk range textobject to be used inside operator
+    -- Works also in Visual mode if mapping differs from apply and reset
+    textobject = 'gh',
+
+    -- Go to hunk range in corresponding direction
+    goto_first = '[H',
+    goto_prev = '[h',
+    goto_next = ']h',
+    goto_last = ']H',
+  },
+
+  -- Various options
+  options = {
+    -- Diff algorithm. See `:h vim.diff()`.
+    algorithm = 'histogram',
+
+    -- Whether to use "indent heuristic". See `:h vim.diff()`.
+    indent_heuristic = true,
+
+    -- The amount of second-stage diff to align lines (in Neovim>=0.9)
+    linematch = 60,
+
+    -- Whether to wrap around edges during hunk navigation
+    wrap_goto = false,
+  },
 })
-
-local function pick_files_from_cwd()
-  local cwd = vim.fn.getcwd()
-
-  -- Collect files recursively from current directory
-  local output = vim.fn.systemlist({ 'find', cwd, '-type', 'f' })
-
-  -- Handle error or empty results
-  if vim.v.shell_error ~= 0 then
-    vim.notify("Error finding files", vim.log.levels.ERROR)
-    return
-  end
-
-  -- Launch picker
-  require('mini.pick').start({
-    source = {
-      items = output,
-      name = 'Find Files'
-    },
-    -- Optional: on confirm, open selected file
-    action = function(item)
-      vim.cmd('edit ' .. vim.fn.fnameescape(item))
-    end,
-  })
-end
-
-vim.keymap.set('n', '<leader>df', pick_files_from_cwd, { desc = '[P]ick [F]ile (static list)' })
