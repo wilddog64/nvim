@@ -113,10 +113,14 @@ endfunction
 fun! <SID>NewSplit()
    if (&bt ==? 'help' || &ft ==? 'man' || &ft ==? 'fugitive')
       let p = winnr('#')
+      " Check if window is wide enough for side-by-side (horizontal width)
       if winwidth(p) >= getwinvar(p, '&tw', 80) + getwinvar(winnr(), '&tw', 80)
          set nosplitright
          exe 'wincmd ' . (&splitright ? 'L' : 'H')
          set splitright
+      " Otherwise if window is tall enough, use a horizontal split
+      elseif winheight(p) >= 20
+         wincmd K
       endif
       nmap <buffer> q :norm! ZZ <CR>
    endif
