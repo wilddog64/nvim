@@ -75,6 +75,9 @@ imap <leader>ev <C-O>:vsp %%
 map <leader>et :tabe %%
 imap <leader>et <C-O>:tabe %%
 
+map <leader>dt :diffsplit %%
+imap <leader>dt <C-O>:diffsplit %%
+
 map <leader>en :enew<CR>
 imap <leader>en <C-O>:enew<CR>
 
