@@ -122,7 +122,7 @@ if executable('uname') && system('uname -r') =~ "microsoft"
      " First set paste mode to avoid autoindent during paste
      set paste
      " Get clipboard content through the configured clipboard provider
-     let l:reg_content = getreg('+')
+     let l:reg_content = getreg('*')
      execute "normal! i" . l:reg_content . "\<Esc>"
      " Restore paste mode
      set nopaste
