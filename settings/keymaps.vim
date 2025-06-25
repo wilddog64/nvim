@@ -119,14 +119,15 @@ imap <C-K> <C-O><S-D>
 " WSL/Alacritty YAML paste with OSC52
 if executable('uname') && system('uname -r') =~ "microsoft"
   function! OSC52YamlPaste()
-    " First set paste mode to avoid autoindent during paste
-    set paste
-    " Paste from the clipboard that OSC52 populates
-    normal! "+p
-    " Restore paste mode
-    set nopaste
-    " Now fix the indentation of what was just pasted
-    normal! `[v`]=
+     " First set paste mode to avoid autoindent during paste
+     set paste
+     " Get clipboard content through the configured clipboard provider
+     let l:reg_content = getreg('+')
+     execute "normal! i" . l:reg_content . "\<Esc>"
+     " Restore paste mode
+     set nopaste
+     " Now fix the indentation of what was just pasted
+     normal! `[v`]=
   endfunction
 
   " Override default paste in YAML files on WSL
