@@ -26,7 +26,6 @@ endif
 
 " === General Settings ===
 set nocompatible             " Use Vim settings, not vi
-set nu                       " Show line numbers
 set sts=4 ts=4 sw=4          " Consistent tab width
 set ai                       " Auto-indent
 set hidden                   " Allow switching buffers without saving
