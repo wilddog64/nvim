@@ -116,6 +116,23 @@ nnoremap <silent> <Leader>c :call clearmatches()<CR>
 " map C-K in insert mode to delete fromc urrent cursor postion to the end of
 " line
 imap <C-K> <C-O><S-D>
+" WSL/Alacritty YAML paste with OSC52
+if executable('uname') && system('uname -r') =~ "microsoft"
+  function! OSC52YamlPaste()
+    " First set paste mode to avoid autoindent during paste
+    set paste
+    " Paste from the clipboard that OSC52 populates
+    normal! "+p
+    " Restore paste mode
+    set nopaste
+    " Now fix the indentation of what was just pasted
+    normal! `[v`]=
+  endfunction
+
+  " Override default paste in YAML files on WSL
+  autocmd FileType yaml nnoremap <silent> p :call OSC52YamlPaste()<CR>
+  autocmd FileType yaml nnoremap <silent> P :call OSC52YamlPaste()<CR>
+endif
 
 if has("nvim")
    nmap <leader>c <Plug>OSCYankOperator
