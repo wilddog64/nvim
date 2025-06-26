@@ -26,10 +26,10 @@ require('mini.comment').setup({
   textobject = 'gc',
 })
 
-require('mini.cursorword').setup {}
-require('mini.indentscope').setup {}
-require('mini.ai').setup({})
-require('mini.trailspace').setup({})
+require('mini.cursorword').setup()
+require('mini.indentscope').setup()
+require('mini.ai').setup()
+require('mini.trailspace').setup()
 
 local keymap = vim.api.nvim_set_keymap
 
