@@ -27,6 +27,8 @@ require('usr.copilot')
 require('usr.copilot-chat')
 require('usr.mapkeys')
 require('usr.kubectl')
+require('usr.visual_sign')
+require('usr.modules')
 
 vim.cmd([[
   " source ~/.config/nvim/settings/slim.vim
