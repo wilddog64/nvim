@@ -87,9 +87,6 @@ imap <leader>sz <C-O>:sp term://zsh<CR>
 " mapping for generating uuid into vim buffer
 imap <leader>u <c-r>=system('uuid')<cr>
 
-" map <leader>fc to fake-credential.rb to generate a fake credential
-imap <leader>fc <c-r>=system('~/.vim/bundle/fake-credential.rb')<cr>
-
 " maps <leader>ap to AutoPairsToggle().  Allows one to enable/disable
 " autopairs plugin a bit easier
 imap <leader>ap <c-o>:call AutoPairsToggle()<cr>
