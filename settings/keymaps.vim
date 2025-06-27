@@ -27,7 +27,6 @@ map <leader>c :hi Normal guibg=#<c-r>=expand("<cword>")<cr><cr> " display rgb co
 
 " map control-s to save the buffer in normal, insert, and visual mode will update buffer to disk
 noremap  <C-S>   :update<CR>
-vnoremap <C-S>  <C-C>:update<CR>
 inoremap <C-S>  <C-O>:update<CR>
 
 " Allow undo for c-u and c-w in insert mode
