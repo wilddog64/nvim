@@ -197,7 +197,7 @@ lspconfig.yamlls.setup({
       format = { enable = true },
       validate = true,
       schemaStore = {
-        enable = true, -- Disable fetching schemas from SchemaStore
+        enable = true,
       },
       schemas = {
         -- Explicitly define schemas for Helm files
