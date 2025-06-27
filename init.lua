@@ -41,7 +41,6 @@ vim.cmd([[
 
   source ~/.config/nvim/settings/keymaps.vim
   source ~/.config/nvim/settings/functions.vim
-  source ~/.config/nvim/settings/supertab.vim
   source ~/.config/nvim/settings/gundo.vim
   source ~/.config/nvim/settings/autocmd.vim
   source ~/.config/nvim/settings/options.vim
