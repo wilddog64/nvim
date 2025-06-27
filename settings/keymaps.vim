@@ -134,17 +134,3 @@ if executable('uname') && system('uname -r') =~ "microsoft"
   autocmd FileType yaml nnoremap <silent> p :call OSC52YamlPaste()<CR>
   autocmd FileType yaml nnoremap <silent> P :call OSC52YamlPaste()<CR>
 endif
-
-if has("nvim")
-   nmap <leader>c <Plug>OSCYankOperator
-   nmap <leader>cc <leader>c_
-   vmap <leader>c <Plug>OSCYankVisual
-
-   " map <leader>a to accept the word from copilot
-   " imap <tab> <Plug>(copilot-accept-word)
-   " imap <c-e> <Plug>(copilot-accept-line)
-
-   let g:copilot_no_tab_map = v:true
-   imap <Tab> copilot#Accept("\<CR>")
-endif
-
