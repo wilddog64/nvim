@@ -47,5 +47,4 @@ vim.cmd([[
   source ~/.config/nvim/settings/options.vim
   source ~/.config/nvim/settings/markdown.vim
   source ~/.config/nvim/settings/asterisk.vim
-  source ~/.config/nvim/settings/nvim.vim
 ]])
