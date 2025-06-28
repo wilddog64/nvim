@@ -1,5 +1,7 @@
 local M = {}
 
+vim.g.lua_dir_hotkey = 'gf'
+
 M.get_lua_config_dir = function()
   local line = vim.api.nvim_get_current_line()
   local word = line
@@ -52,7 +54,8 @@ function M.enable_keymap()
     pattern = "*.lua",
     callback = function(event)
       local bufnr = event.buf
-      vim.api.nvim_buf_set_keymap(bufnr, "n", "gf", "", {
+      local hotkey = vim.b[bufnr].lua_dir_hotkey or vim.g.lua_dir_hotkey or "gf"
+      vim.api.nvim_buf_set_keymap(bufnr, "n", hotkey, "", {
         silent = true,
         callback = function()
           local path = M.get_lua_config_dir()
