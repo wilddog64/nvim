@@ -217,7 +217,29 @@ require('lazy').setup({
     },
     config = function()
       -- require('copilot').setup {}
-      require('CopilotChat').setup()
+      require('CopilotChat').setup({
+        mappings ={
+          complete = {
+            insert = '<Tab>',
+          },
+          close = {
+            normal = 'q',
+            insert = '<C-c>'
+          },
+          reset = {
+            normal = '<C-r>',
+            insert = '<C-r>'
+          },
+          submit_prompt = {
+            normal = '<CR>',
+            insert = '<C-CR>',
+          },
+          accept_diff = {
+            normal = '<C-y>',
+            insert = '<C-y>'
+          }
+        }
+      })
     end,
     event = "BufReadPost", -- Loads Copilot after a file is opened
   },
