@@ -10,5 +10,8 @@ wk.add({
   mode = { 'i' },
   { '<tab>', '<Plug>(copilot-accept-word)' },
   { '<c-e>', '<Plug>(copilot-accept-line)' },
+})
+
+wk.add({
   { '<leader>tw', function() require('mini.trailspace').trim() end },
 })
