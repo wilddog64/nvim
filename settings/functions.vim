@@ -110,15 +110,19 @@ endfunction
 " by an autocommand group `NewSplit` on the `WinNew` and `BufEnter` events.
 fun! <SID>NewSplit()
    if (&bt ==? 'help' || &ft ==? 'man' || &ft ==? 'fugitive')
-      let p = winnr('#')
-      " Check if window is wide enough for side-by-side (horizontal width)
-      if winwidth(p) >= getwinvar(p, '&tw', 80) + getwinvar(winnr(), '&tw', 80)
-         set nosplitright
-         exe 'wincmd ' . (&splitright ? 'L' : 'H')
-         set splitright
-      " Otherwise if window is tall enough, use a horizontal split
-      elseif winheight(p) >= 20
-         wincmd K
+      " Check if this buffer has already been positioned
+      if !exists('b:split_positioned')
+         let b:split_positioned = 1
+         let p = winnr('#')
+         " Check if window is wide enough for side-by-side (horizontal width)
+         if winwidth(p) >= getwinvar(p, '&tw', 80) + getwinvar(winnr(), '&tw', 80)
+            set nosplitright
+            exe 'wincmd ' . (&splitright ? 'L' : 'H')
+            set splitright
+         " Otherwise if window is tall enough, use a horizontal split
+         elseif winheight(p) >= 20
+            wincmd K
+         endif
       endif
       nmap <buffer> q :norm! ZZ <CR>
    endif
