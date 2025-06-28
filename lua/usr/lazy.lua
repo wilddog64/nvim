@@ -232,7 +232,7 @@ require('lazy').setup({
           },
           submit_prompt = {
             normal = '<CR>',
-            insert = '<C-CR>',
+            insert = '<C-S>',
           },
           accept_diff = {
             normal = '<C-y>',
