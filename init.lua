@@ -28,7 +28,7 @@ require('usr.copilot-chat')
 require('usr.mapkeys')
 require('usr.kubectl')
 require('usr.visual_sign')
-require('usr.modules')
+require('usr.modules').enable_lua_dir_keymap()
 
 vim.cmd([[
   source ~/.config/nvim/settings/keymaps.vim
