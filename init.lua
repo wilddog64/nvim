@@ -12,6 +12,7 @@ vim.opt.expandtab = true
 require('usr.options')
 require('usr.lazy')
 require('usr.modules').enable_lua_dir_keymap()
+require('usr.modules').enable_look_nonwhitespace_keymap()
 require('usr.cmp')
 require('usr.lsp')
 require('usr.dag-python')
