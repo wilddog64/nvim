@@ -11,6 +11,7 @@ vim.opt.expandtab = true
 
 require('usr.options')
 require('usr.lazy')
+require('usr.modules').enable_lua_dir_keymap()
 require('usr.cmp')
 require('usr.lsp')
 require('usr.dag-python')
@@ -28,7 +29,6 @@ require('usr.copilot-chat')
 require('usr.mapkeys')
 require('usr.kubectl')
 require('usr.visual_sign')
-require('usr.modules').enable_lua_dir_keymap()
 
 vim.cmd([[
   source ~/.config/nvim/settings/keymaps.vim
