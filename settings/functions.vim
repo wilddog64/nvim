@@ -51,34 +51,6 @@ endfunction
 nmap <leader>= :call <SID>PreserveState("normal gg=G")<CR>
 nmap <leader>y :call <SID>PreserveState("='<,'>y")<CR>
 
-" The `Lookupwards` function searches upwards from the current cursor position
-" for a non-whitespace character in the same column. It returns the character
-" found, allowing for easy vertical copying. This is mapped to `Ctrl-Y` in insert mode.
-function! LookNoneWhitespaceUpwards()
-   let column_num      = virtcol( '.' )
-   let target_pattern  = '\%' . column_num . 'v.'
-   let target_line_num = search( target_pattern . '*\S', 'bnW' )
-
-   " If target line found, return verticaly copied character ...
-   let return_char = ""
-   if target_line_num
-      let return_char = matchstr( getline( target_line_num ), target_pattern )
-   endif
-   return return_char
-endfunction
-imap <silent> <C-Y> <C-R><C-R>=LookNoneWhitespaceUpwards()<CR>
-
-function! <SID>AutoProjectRootCD()
-   try
-      if &ft != 'help'
-         ProjectRootCD
-      endif
-   catch
-      " Silently ignore invalid buffers
-   endtry
-endfunction
-autocmd BufEnter * call <SID>AutoProjectRootCD()
-
 " strip trailing whitespaces without moving cursor
 function! <SID>StripTrailingWhitespaces()
    " Preparation: save last search, and cursor position.
