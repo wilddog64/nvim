@@ -130,3 +130,33 @@ if executable('uname') && system('uname -r') =~ "microsoft"
   autocmd FileType yaml nnoremap <silent> p :call OSC52YamlPaste()<CR>
   autocmd FileType yaml nnoremap <silent> P :call OSC52YamlPaste()<CR>
 endif
+
+" The `NewSplit` function customizes the behavior of new splits for help, man,
+" and fugitive buffers. It adjusts the split direction based on window width
+" and sets a mapping to close the buffer with `q`. This function is triggered
+" by an autocommand group `NewSplit` on the `WinNew` and `BufEnter` events.
+fun! <SID>NewSplit()
+   if (&bt ==? 'help' || &ft ==? 'man' || &ft ==? 'fugitive')
+      " Check if this buffer has already been positioned
+      if !exists('b:split_positioned')
+         let b:split_positioned = 1
+         let p = winnr('#')
+         " Check if window is wide enough for side-by-side (horizontal width)
+         if winwidth(p) >= getwinvar(p, '&tw', 80) + getwinvar(winnr(), '&tw', 80)
+            set nosplitright
+            exe 'wincmd ' . (&splitright ? 'L' : 'H')
+            set splitright
+         " Otherwise if window is tall enough, use a horizontal split
+         elseif winheight(p) >= 20
+            wincmd K
+         endif
+      endif
+      nmap <buffer> q :norm! ZZ <CR>
+   endif
+endfun
+
+" split help file vertically
+aug NewSplit | au!
+   au WinNew * au BufEnter * ++nested call <SID>NewSplit()
+aug end
+
