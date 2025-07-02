@@ -13,6 +13,7 @@ require('usr.options')
 require('usr.lazy')
 require('usr.modules').enable_lua_dir_keymap()
 require('usr.modules').enable_visual_sign_keymap()
+require('usr.modules').enable_last_path_keymap()
 require('usr.cmp')
 require('usr.lsp')
 require('usr.dag-python')
@@ -32,7 +33,7 @@ require('usr.kubectl')
 
 vim.cmd([[
   source ~/.config/nvim/settings/keymaps.vim
-  source ~/.config/nvim/settings/functions.vim
+  " source ~/.config/nvim/settings/functions.vim
   source ~/.config/nvim/settings/gundo.vim
   source ~/.config/nvim/settings/autocmd.vim
   source ~/.config/nvim/settings/options.vim
