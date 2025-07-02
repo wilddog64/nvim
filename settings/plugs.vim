@@ -66,6 +66,7 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'mattn/vim-lsp-settings'
 Plug 'ojroques/vim-oscyank'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'preservim/vim-indent-guides',
 Plug 'rafamadriz/friendly-snippets',
 Plug 'rodjek/vim-puppet'
 Plug 'tfnico/vim-gradle'
