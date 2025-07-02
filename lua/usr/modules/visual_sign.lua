@@ -23,7 +23,7 @@ local function show_visual_block()
   end
 end
 
-M.enable_keymap = function()
+function M.enable_keymap()
   vim.api.nvim_create_autocmd("InsertLeave", {
     group = visual_sign_group,
     once = true,
