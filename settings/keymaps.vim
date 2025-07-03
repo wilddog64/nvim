@@ -175,5 +175,5 @@ function! LookNoneWhitespaceUpwards()
    endif
    return return_char
 endfunction
-belent> <C-Y> <C-R><C-R>=LookNoneWhitespaceUpwards()<CR>
+imap <silent> <C-Y> <C-R><C-R>=LookNoneWhitespaceUpwards()<CR>
 
