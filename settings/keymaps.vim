@@ -160,3 +160,20 @@ aug NewSplit | au!
    au WinNew * au BufEnter * ++nested call <SID>NewSplit()
 aug end
 
+" The `Lookupwards` function searches upwards from the current cursor position
+" for a non-whitespace character in the same column. It returns the character
+" found, allowing for easy vertical copying. This is mapped to `Ctrl-Y` in insert mode.
+function! LookNoneWhitespaceUpwards()
+   let column_num      = virtcol( '.' )
+   let target_pattern  = '\%' . column_num . 'v.'
+   let target_line_num = search( target_pattern . '*\S', 'bnW' )
+
+   " If target line found, return verticaly copied character ...
+   let return_char = ""
+   if target_line_num
+      let return_char = matchstr( getline( target_line_num ), target_pattern )
+   endif
+   return return_char
+endfunction
+belent> <C-Y> <C-R><C-R>=LookNoneWhitespaceUpwards()<CR>
+
