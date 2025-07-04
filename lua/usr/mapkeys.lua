@@ -14,4 +14,3 @@ wk.add({
   { '<tab>', '<Plug>(copilot-accept-word)' },
   { '<c-e>', '<Plug>(copilot-accept-line)' },
 })
-
