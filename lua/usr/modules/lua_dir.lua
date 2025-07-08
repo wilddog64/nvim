@@ -3,8 +3,7 @@ local M = {}
 vim.g.lua_dir_hotkey = 'gf'
 
 M.get_lua_config_dir = function()
-  local line = vim.api.nvim_get_current_line()
-  local word = line
+  local word = vim.api.nvim_get_current_line()
 
   if not string.find(word, "require", 1, true) then
     local tilde_pos = string.find(word, "~", 1, true)
