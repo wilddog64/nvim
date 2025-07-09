@@ -149,11 +149,13 @@ _G.vimrc.cmp.lsp = function()
     completion = {
       autocomplete = false
     },
+
     snippet = {
       expand = function(args)
         vim.fn["UltiSnips#Annon"](args.body)
       end,
     },
+
     mapping = {
       ["<C-k>"] = cmp.mapping.select_prev_item(),
       ["<C-j>"] = cmp.mapping.select_next_item(),
@@ -165,6 +167,7 @@ _G.vimrc.cmp.lsp = function()
         i = cmp.mapping.abort(),
         c = cmp.mapping.close(),
       },
+
       -- Accept currently selected item. If none selected, `select` first item.
       -- Set `select` to `false` to only confirm explicitly selected items.
       ["<CR>"] = cmp.mapping.confirm { select = false },
@@ -187,6 +190,7 @@ _G.vimrc.cmp.lsp = function()
           "i",
           "s",
         }),
+
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
@@ -201,6 +205,7 @@ _G.vimrc.cmp.lsp = function()
           "s",
         }),
     },
+
     formatting = {
       fields = { "kind", "abbr", "menu" },
       format = function(entry, vim_item)
@@ -216,6 +221,7 @@ _G.vimrc.cmp.lsp = function()
         return vim_item
       end,
     },
+
     sources = {
       { name = "nvim_lsp", max_item_count = 10 },
       { name = "luasnip" },
@@ -224,19 +230,23 @@ _G.vimrc.cmp.lsp = function()
       { name = "buffer", max_item_count = 10 },
       { name = 'spell' },
     },
+
     confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,
       select = false,
     },
+
     documentation = {
       border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
     },
+
     experimental = {
       ghost_text = false,
       native_menu = false,
     },
   })
 end
+
 _G.vimrc.cmp.snippet = function()
   cmp.complete({
     config = {
