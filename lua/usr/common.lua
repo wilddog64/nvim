@@ -28,14 +28,3 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
 })
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "lua",
-  callback = function()
-    vim.opt_local.includeexpr = "substitute(v:fname, '\\.', '/', 'g') . '.lua'"
-    local root_dir = require('usr.utils').get_lua_config_dir()
-    if root_dir then
-      utils.log("lua root dir: ", vim.log.levels.DEBUG)
-    end
-  end,
-})
