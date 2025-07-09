@@ -8,7 +8,6 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 local wk = require('which-key')
-
 wk.add({
   { '<leader>cc', function() vim.cmd([[ CopilotChatToggle ]]) end },
   { '<leader>cce', function() vim.cmd([[ CopilotChatExplain ]]) end },
