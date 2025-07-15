@@ -28,16 +28,17 @@ if v:version >= 700
   endif
 endif
 
-set nu
-set sts=4
-set ts=4
-set sw=4
-set expandtab
-set ai
-set cpo+=$
-set cursorline
-set hidden
-set bg=dark
+set nu          " turn on line number
+set sts=4       " softtabstop - number of spaces that a tab counts for when performing editing operations
+set ts=4        " ts - tab stop
+set sw=4        " sw - number of spaces to use for auto-indent
+set expandtab   " make tab as spaces
+set ai          " auto indent
+set cpo+=$      " show $ at the end when editig a word or a sentence (cpo - a compatible-options)
+set cursorline  " hightligh the text line of the cursor. useful to spot where the cursor is
+set hidden      " make buffer becomes hidden when it is abandoed. Make moving around buffers easy even
+                " when buffer is modified
+set bg=dark     " when set to dark, vim will try to use colors that look good on a dark background
 
 if has('nvim')
   vim.opt.shada = "'50,<1000,s100,n" .. nvim_shada
