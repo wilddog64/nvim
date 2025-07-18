@@ -1,19 +1,14 @@
 -- redact.nvim: A Neovim Lua module to sanitize sensitive data in buffers
 -- Place this file in ~/.config/nvim/lua/redact.lua
 
+local api = vim.api
 local M = {}
 
 -- Default patterns to sanitize; override via enable_keymap(opts)
 M.patterns = {
-  -- JDBC connection strings (hide DB names)
-  { pattern = 'jdbc:[%w+.-]+://[%w%._%/:%?&=#%-]+' , replace = 'REDACTED_JDBC_URL' },
-  -- URIs (http, https, rediss, jdbc, ftp, etc.)
-  -- URIs (http, https, rediss, jdbc, ftp, etc.)
   { pattern = '%f[%w][A-Za-z][A-Za-z0-9+%-%.]+://[%w%._%/:%?&=#%-]+', replace = 'REDACTED_URL' },
-  -- host: entries (case-insensitive)
   { pattern = '[Hh][Oo][Ss][Tt]:%s*[%w%._%-]+', replace = 'host: REDACTED_HOST' },
   { pattern = '[Ee][Xx][Tt][Ee][Rr][Nn][Aa][Ll][Hh][Oo][Ss][Tt]:%s*[%w%._%-]+', replace = 'externalHost: REDACTED_EXTERNAL_HOST' },
-  -- private IP ranges: 10.x.x.x, 192.168.x.x, 172.16.x.x - 172.31.x.x
   { pattern = '(%d+%.%d+%.%d+%.%d+)', replace = function(s)
       if s:match('^10%.') or s:match('^192%.168%.')
          or s:match('^172%.1[6-9]') or s:match('^172%.2[0-9]')
@@ -23,46 +18,30 @@ M.patterns = {
       return s
     end
   },
-  -- internal domain names
   { pattern = '[%w%._%-]+%.internal', replace = 'REDACTED_DNS' },
   { pattern = '[%w%._%-]+%.cluster%.local', replace = 'REDACTED_DNS' },
-  -- bearer tokens or JWTs
-  { pattern = 'Bearer%s+[%w%._%-]+', replace = 'Bearer REDACTED_TOKEN' },
-    -- tenantId keys
+  { pattern = 'Bearer%s+[%w._%-]+', replace = 'Bearer REDACTED_TOKEN' },
+  { pattern = '[Pp]assword[:=]%s*["\']?[^"\',%s]+', replace = 'password: REDACTED' },
+  { pattern = '[%w%.%-]+@[%w%.%-]+%.[A-Za-z][A-Za-z]+', replace = 'REDACTED_EMAIL' },
   { pattern = '[Tt]enant[Ii]d[:=]%s*[%w%-]+', replace = 'tenantId: REDACTED_TENANT_ID' },
-  -- repository keys
   { pattern = '[Rr]epository[:=]%s*[%w%/._%-]+', replace = 'repository: REDACTED_REPO' },
-  -- dbUsername in Spring configs
   { pattern = '[Dd]bUsername[:=]%s*[%w._%-]+', replace = 'dbUsername: REDACTED_DB_USER' },
   { pattern = 'spring%%.datasource%%.username[:=]%s*[%w._%-]+', replace = 'spring.datasource.username: REDACTED_DB_USER' },
-    -- databaseName in JDBC strings
-  { pattern = '[Dd]atabase[Nn]ame=[^;,%s]+' , replace = 'databaseName=REDACTED_DB' },
-  -- generic passwords
-  { pattern = '[Pp]assword[:=]%s*["\']?[^"\',%s]+', replace = 'password: REDACTED' },
-  -- email addresses
-  { pattern = '[%w%.%-]+@[%w%.%-]+%.[A-Za-z][A-Za-z]+', replace = 'REDACTED_EMAIL' },
+  { pattern = 'database[Nn]ame=[^;,%s]+', replace = 'databaseName=REDACTED_DB' },
 }
 
 -- enable_keymap: configure patterns and keybindings
--- opts = { patterns = {...}, mappings = { buffer, selection, copy, preview } }
 function M.enable_keymap(opts)
   opts = opts or {}
   M.patterns = opts.patterns or M.patterns
-  local maps = opts.mappings or {
-    buffer    = '<leader>rb',
-    selection = '<leader>rs',
-    copy      = '<leader>rc',
-    preview   = '<leader>rp',
-  }
+  local maps = opts.mappings or { buffer = '<leader>rb', selection = '<leader>rs', copy = '<leader>rc', preview = '<leader>rp' }
 
-  -- user commands
-  vim.api.nvim_create_user_command('RedactBuffer',    M.sanitize_buffer, {})
-  vim.api.nvim_create_user_command('RedactSelection', M.sanitize_selection, { range = true })
-  vim.api.nvim_create_user_command('RedactCopy',      M.copy_buffer, {})
-  vim.api.nvim_create_user_command('RedactPreview',   M.preview_buffer, {})
+  api.nvim_create_user_command('RedactBuffer',    M.sanitize_buffer, {})
+  api.nvim_create_user_command('RedactSelection', M.sanitize_selection, { range = true })
+  api.nvim_create_user_command('RedactCopy',      M.copy_buffer, {})
+  api.nvim_create_user_command('RedactPreview',   M.preview_buffer, {})
 
-  -- key mappings
-  local km = vim.api.nvim_set_keymap
+  local km = api.nvim_set_keymap
   km('n', maps.buffer,    ':RedactBuffer<CR>',    { noremap=true, silent=true })
   km('v', maps.selection, ':RedactSelection<CR>', { noremap=true, silent=true })
   km('n', maps.copy,      ':RedactCopy<CR>',      { noremap=true, silent=true })
@@ -83,43 +62,54 @@ end
 
 -- sanitize entire buffer in-place
 function M.sanitize_buffer()
-  local buf = vim.api.nvim_get_current_buf()
-  local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+  local buf = api.nvim_get_current_buf()
+  local lines = api.nvim_buf_get_lines(buf, 0, -1, false)
   for i=1,#lines do lines[i] = sanitize_line(lines[i]) end
-  vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+  api.nvim_buf_set_lines(buf, 0, -1, false, lines)
 end
 
 -- sanitize visual selection in-place
 function M.sanitize_selection()
   local s = vim.fn.line("'<")-1
   local e = vim.fn.line("'>")
-  local buf = vim.api.nvim_get_current_buf()
-  local lines = vim.api.nvim_buf_get_lines(buf, s, e, false)
+  local buf = api.nvim_get_current_buf()
+  local lines = api.nvim_buf_get_lines(buf, s, e, false)
   for i=1,#lines do lines[i] = sanitize_line(lines[i]) end
-  vim.api.nvim_buf_set_lines(buf, s, e, false, lines)
+  api.nvim_buf_set_lines(buf, s, e, false, lines)
 end
 
 -- sanitize buffer and copy to clipboard
 function M.copy_buffer()
-  local buf = vim.api.nvim_get_current_buf()
-  local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+  local buf = api.nvim_get_current_buf()
+  local lines = api.nvim_buf_get_lines(buf, 0, -1, false)
   for i=1,#lines do lines[i] = sanitize_line(lines[i]) end
   vim.fn.setreg('+', table.concat(lines, '\n'))
 end
 
--- preview sanitized buffer in a split, original untouched
+-- preview sanitized buffer in a floating window
 function M.preview_buffer()
-  local buf = vim.api.nvim_get_current_buf()
-  local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+  local buf = api.nvim_get_current_buf()
+  local lines = api.nvim_buf_get_lines(buf, 0, -1, false)
   local out = {}
   for i,line in ipairs(lines) do out[i] = sanitize_line(line) end
-  vim.cmd('vnew')
-  local nb = vim.api.nvim_get_current_buf()
-  vim.api.nvim_buf_set_lines(nb, 0, -1, false, out)
-  vim.api.nvim_buf_set_option(nb, 'buftype', 'nofile')
-  vim.api.nvim_buf_set_option(nb, 'bufhidden', 'wipe')
-  vim.api.nvim_buf_set_option(nb, 'swapfile', false)
-  vim.api.nvim_buf_set_option(nb, 'filetype', vim.api.nvim_buf_get_option(buf, 'filetype'))
+
+  -- create scratch buffer
+  local fb = api.nvim_create_buf(false, true)
+  api.nvim_buf_set_lines(fb, 0, -1, false, out)
+  api.nvim_buf_set_option(fb, 'filetype', api.nvim_buf_get_option(buf, 'filetype'))
+
+  -- floating window dimensions
+  local width = math.floor(vim.o.columns * 0.7)
+  local height = math.floor(vim.o.lines * 0.7)
+  local row = math.floor((vim.o.lines - height) / 2)
+  local col = math.floor((vim.o.columns - width) / 2)
+
+  api.nvim_open_win(fb, true, {
+    relative = 'editor',
+    row = row, col = col,
+    width = width, height = height,
+    style = 'minimal', border = 'rounded'
+  })
 end
 
 return M
