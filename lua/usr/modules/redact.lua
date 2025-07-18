@@ -25,6 +25,13 @@ M.patterns = {
   { pattern = '[%w%._%-]+%.cluster%.local', replace = 'REDACTED_DNS' },
   -- bearer tokens or JWTs
   { pattern = 'Bearer%s+[%w%._%-]+', replace = 'Bearer REDACTED_TOKEN' },
+    -- tenantId keys
+  { pattern = '[Tt]enant[Ii]d[:=]%s*[%w%-]+', replace = 'tenantId: REDACTED_TENANT_ID' },
+  -- repository keys
+  { pattern = '[Rr]epository[:=]%s*[%w%/._%-]+', replace = 'repository: REDACTED_REPO' },
+  -- dbUsername in Spring configs
+  { pattern = '[Dd]bUsername[:=]%s*[%w._%-]+', replace = 'dbUsername: REDACTED_DB_USER' },
+  { pattern = 'spring%%.datasource%%.username[:=]%s*[%w._%-]+', replace = 'spring.datasource.username: REDACTED_DB_USER' },
   -- generic passwords
   { pattern = '[Pp]assword[:=]%s*["\']?[^"\',%s]+', replace = 'password: REDACTED' },
   -- email addresses
