@@ -5,6 +5,9 @@ local M = {}
 
 -- Default patterns to sanitize; override via enable_keymap(opts)
 M.patterns = {
+  -- JDBC connection strings (hide DB names)
+  { pattern = 'jdbc:[%w+.-]+://[%w%._%/:%?&=#%-]+' , replace = 'REDACTED_JDBC_URL' },
+  -- URIs (http, https, rediss, jdbc, ftp, etc.)
   -- URIs (http, https, rediss, jdbc, ftp, etc.)
   { pattern = '%f[%w][A-Za-z][A-Za-z0-9+%-%.]+://[%w%._%/:%?&=#%-]+', replace = 'REDACTED_URL' },
   -- host: entries (case-insensitive)
@@ -32,6 +35,8 @@ M.patterns = {
   -- dbUsername in Spring configs
   { pattern = '[Dd]bUsername[:=]%s*[%w._%-]+', replace = 'dbUsername: REDACTED_DB_USER' },
   { pattern = 'spring%%.datasource%%.username[:=]%s*[%w._%-]+', replace = 'spring.datasource.username: REDACTED_DB_USER' },
+    -- databaseName in JDBC strings
+  { pattern = '[Dd]atabase[Nn]ame=[^;,%s]+' , replace = 'databaseName=REDACTED_DB' },
   -- generic passwords
   { pattern = '[Pp]assword[:=]%s*["\']?[^"\',%s]+', replace = 'password: REDACTED' },
   -- email addresses
