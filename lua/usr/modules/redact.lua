@@ -31,6 +31,9 @@ M.patterns = {
 
   -- email addresses
   { pattern = '[%w%.%-]+@[%w%.%-]+%.[A-Za-z][A-Za-z]+', replace = 'REDACTED_EMAIL' },
+
+  -- handle http(s) URLs
+  { pattern = 'https?://[%w%._%/:%?&=#-]+', replace = 'REDACTED_URL' },
 }
 
 -- enable_keymap: configure patterns and keybindings
