@@ -122,6 +122,7 @@ function M.preview_buffer()
     col      = col,
     width    = width,
     height   = height,
+    title    = 'Redact Preview: c: copy whole preview, q: close, c-f: forward, c-b: backward',
     style    = 'minimal',
     border   = 'rounded',
   })
