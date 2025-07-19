@@ -44,6 +44,7 @@ function M.enable_keymap(opts)
     preview_selection = '<leader>rq',
   }
 
+  -- create user commands for each action
   api.nvim_create_user_command('RedactBuffer',           M.sanitize_buffer, {})
   api.nvim_create_user_command('RedactSelectionPreview', M.preview_selection, { range = true })
   api.nvim_create_user_command('RedactSelection',        M.sanitize_selection, { range = true })
@@ -51,6 +52,7 @@ function M.enable_keymap(opts)
   api.nvim_create_user_command('RedactPreview',          M.preview_buffer, {})
   api.nvim_create_user_command('RedactSelectionPreview', M.preview_selection, { range = true })
 
+  -- set up key mappings
   api.nvim_set_keymap('n', maps.buffer,    ':RedactBuffer<CR>',    { noremap=true, silent=true })
   api.nvim_set_keymap('v', maps.selection, ':RedactSelection<CR>', { noremap=true, silent=true })
   api.nvim_set_keymap('n', maps.copy,      ':RedactCopy<CR>',      { noremap=true, silent=true })
@@ -124,28 +126,34 @@ function M.preview_buffer()
     title_pos  = 'center',
   })
 
+  -- Set keymaps for the floating window
   api.nvim_buf_set_keymap(fb, 'n', 'q', '<cmd>close<CR>',           { nowait=true, noremap=true, silent=true })
   api.nvim_buf_set_keymap(fb, 'n', 'c', '<cmd>normal! ggVG"+y<CR>', { nowait=true, noremap=true, silent=true })
 end
 
 -- Preview only the selection in floating window
 function M.preview_selection()
+  -- Ensure we have a visual selection
   local s = vim.fn.line("'<") - 1
   local e = vim.fn.line("'>")
   local buf = api.nvim_get_current_buf()
   local lines = api.nvim_buf_get_lines(buf, s, e, false)
+
+  -- Sanitize the selected lines
   local out = {}
   for i, line in ipairs(lines) do out[i] = sanitize_line(line) end
 
+  -- Create a floating buffer to display the sanitized selection
   local fb = api.nvim_create_buf(false, true)
   api.nvim_buf_set_lines(fb, 0, -1, false, out)
   api.nvim_buf_set_option(fb, 'filetype', api.nvim_buf_get_option(buf, 'filetype'))
 
+  -- Set up floating window dimensions and position
+  -- Use 70% of the editor size for the floating window
   local width  = math.floor(vim.o.columns * 0.7)
   local height = math.floor(vim.o.lines   * 0.7)
   local row    = math.floor((vim.o.lines  - height) / 2)
   local col    = math.floor((vim.o.columns - width ) / 2)
-
   api.nvim_open_win(fb, true, {
     relative   = 'editor',
     row        = row,
@@ -158,6 +166,7 @@ function M.preview_selection()
     title_pos  = 'center',
   })
 
+  -- Set keymaps for the floating window
   api.nvim_buf_set_keymap(fb, 'n', 'q', '<cmd>close<CR>',           { nowait=true, noremap=true, silent=true })
   api.nvim_buf_set_keymap(fb, 'n', 'c', '<cmd>normal! ggVG"+y<CR>', { nowait=true, noremap=true, silent=true })
 end
