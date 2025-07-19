@@ -114,7 +114,7 @@ function M.preview_buffer()
   local row    = math.floor((vim.o.lines  - height) / 2)
   local col    = math.floor((vim.o.columns - width ) / 2)
 
-  local win = api.nvim_open_win(fb, true, {
+  api.nvim_open_win(fb, true, {
     relative   = 'editor',
     row        = row,
     col        = col,
@@ -148,7 +148,7 @@ function M.preview_selection()
   local row    = math.floor((vim.o.lines  - height) / 2)
   local col    = math.floor((vim.o.columns - width ) / 2)
 
-  local win = api.nvim_open_win(fb, true, {
+  api.nvim_open_win(fb, true, {
     relative   = 'editor',
     row        = row,
     col        = col,
