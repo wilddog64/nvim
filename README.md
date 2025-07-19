@@ -135,4 +135,4 @@ echo "Minimal vimrc loaded!"
 
 Happy coding!
 
-[LICENSE](LICENSE) | [CONTACT](LICENSE)
+[MIT LICENSE INFO](LICENSE)
