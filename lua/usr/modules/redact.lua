@@ -45,9 +45,7 @@ function M.enable_keymap(opts)
   }
 
   api.nvim_create_user_command('RedactBuffer',           M.sanitize_buffer, {})
-    -- Now RedactSelectionPreview for visual to preview without modifying
   api.nvim_create_user_command('RedactSelectionPreview', M.preview_selection, { range = true })
-  -- Keep RedactSelection if you want in-place update
   api.nvim_create_user_command('RedactSelection',        M.sanitize_selection, { range = true })
   api.nvim_create_user_command('RedactCopy',             M.copy_buffer, {})
   api.nvim_create_user_command('RedactPreview',          M.preview_buffer, {})
