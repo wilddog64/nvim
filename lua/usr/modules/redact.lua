@@ -126,8 +126,8 @@ function M.preview_buffer()
     title_pos  = 'center',
   })
 
-  api.nvim_buf_set_keymap(fb, 'n', 'q', '<cmd>close<CR>',                  { nowait=true, noremap=true, silent=true })
-  api.nvim_buf_set_keymap(fb, 'n', 'c', '<cmd>normal! ggVG"+y<CR>',        { nowait=true, noremap=true, silent=true })
+  api.nvim_buf_set_keymap(fb, 'n', 'q', '<cmd>close<CR>',           { nowait=true, noremap=true, silent=true })
+  api.nvim_buf_set_keymap(fb, 'n', 'c', '<cmd>normal! ggVG"+y<CR>', { nowait=true, noremap=true, silent=true })
 end
 
 -- Preview only the selection in floating window
@@ -160,8 +160,8 @@ function M.preview_selection()
     title_pos  = 'center',
   })
 
-  api.nvim_buf_set_keymap(fb, 'n', 'q', '<cmd>close<CR>',                  { nowait=true, noremap=true, silent=true })
-  api.nvim_buf_set_keymap(fb, 'n', 'c', '<cmd>normal! ggVG"+y<CR>',        { nowait=true, noremap=true, silent=true })
+  api.nvim_buf_set_keymap(fb, 'n', 'q', '<cmd>close<CR>',           { nowait=true, noremap=true, silent=true })
+  api.nvim_buf_set_keymap(fb, 'n', 'c', '<cmd>normal! ggVG"+y<CR>', { nowait=true, noremap=true, silent=true })
 end
 
 return M
