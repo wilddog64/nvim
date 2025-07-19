@@ -122,7 +122,7 @@ function M.preview_buffer()
     height     = height,
     style      = 'minimal',
     border     = 'rounded',
-    title      = 'q: quit | c: copy',
+    title      = 'Redact Preview q: quit, c: copy',
     title_pos  = 'center',
   })
 
@@ -156,7 +156,7 @@ function M.preview_selection()
     height     = height,
     style      = 'minimal',
     border     = 'rounded',
-    title      = 'q: quit | c: copy',
+    title      = 'Redact Preview: q: quit, c: copy',
     title_pos  = 'center',
   })
 
