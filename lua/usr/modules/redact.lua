@@ -4,7 +4,14 @@ local M = {}
 
 -- Default sanitization patterns
 M.patterns = {
-  { pattern = '%f[%w][A-Za-z][A-Za-z0-9+%-%.]+://[%w%._%/:%?&=#%-]+', replace = 'REDACTED_URL' },
+  -- redact *.costco.com
+  { pattern = '%f[%w][A-Za-z][A-Za-z0-9+%-%.]+://[%w%._%-]*costco%.com[%w%._%/:%?&=#%-]*',
+    replace = 'REDACTED_URL' },
+
+  -- redact *.costcotravel.com
+  { pattern = '%f[%w][A-Za-z][A-Za-z0-9+%-%.]+://[%w%._%-]*costcotravel%.com[%w%._%/:%?&=#%-]*',
+    replace = 'REDACTED_URL' },
+
   { pattern = '[Hh][Oo][Ss][Tt]:%s*[%w%._%-]+', replace = 'host: REDACTED_HOST' },
   { pattern = '[Ee][Xx][Tt][Ee][Rr][Nn][Aa][Ll][Hh][Oo][Ss][Tt]:%s*[%w%._%-]+', replace = 'externalHost: REDACTED_EXTERNAL_HOST' },
   {
