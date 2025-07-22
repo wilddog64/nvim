@@ -143,7 +143,11 @@ function M.preview_buffer()
 
   local fb = api.nvim_create_buf(false, true)
   api.nvim_buf_set_lines(fb, 0, -1, false, out)
-  api.nvim_buf_set_option(fb, 'filetype', api.nvim_buf_get_option(buf, 'filetype'))
+
+  -- read buffer-local option from `buf`
+  local ft = vim.api.nvim_get_option_value('filetype', { buf = buf })
+  -- write the same option to buffer `fb`
+  vim.api.nvim_set_option_value('filetype', ft, { buf = fb })
 
   local width  = math.floor(vim.o.columns * 0.7)
   local height = math.floor(vim.o.lines   * 0.7)
