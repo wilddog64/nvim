@@ -37,6 +37,26 @@ M.patterns = {
   { pattern = '[Dd]bUsername[:=]%s*[%w._%-]+', replace = 'dbUsername: REDACTED_DB_USER' },
   { pattern = 'spring%%.datasource%%.username[:=]%s*[%w._%-]+', replace = 'spring.datasource.username: REDACTED_DB_USER' },
   { pattern = 'database[Nn]ame=[^;,%s]+', replace = 'databaseName=REDACTED_DB' },
+  {
+    -- Replaces the value that follows `name:` when it appears one
+    -- logical line below `azureKeyvault:` (indent and spacing can vary).
+    --
+    -- Pattern logic
+    --   [ \t]*               leading indent before the key
+    --   azure[Kk]eyvault:    the key itself (case-insensitive K/k)
+    --   %s*                  any whitespace after the colon – this **does include
+    --                        the newline** plus the indent on the next line
+    --   name:%s*             the literal `name:` token with optional spaces
+    --   ([%w%-]+)            capture the Key-Vault value (letters, digits, dash)
+    --
+    -- Replacement
+    --   %1                   everything up to (and including) the spaces after
+    --                        `name:` is re-emitted unchanged
+    --   REDACTED_KEYVAULT_NAME  overwrites only the value
+    --
+    pattern = '([ \t]*azure[Kk]eyvault:%s*name:%s*)([%w%-]+)',
+    replace = '%1REDACTED_KEYVAULT_NAME',
+  },
 }
 
 -- Setup commands and keymaps
@@ -67,15 +87,24 @@ function M.enable_keymap(opts)
   api.nvim_set_keymap('v', maps.preview_selection, ':RedactSelectionPreview<CR>', { noremap=true, silent=true })
 end
 
--- Internal sanitize function
-local function sanitize_line(line)
-  for _, pat in ipairs(M.patterns) do
-    if type(pat.replace) == 'function' then
-      line = line:gsub(pat.pattern, pat.replace)
-    else
-      line = line:gsub(pat.pattern, pat.replace)
-    end
+local awaiting_name = nil   -- holds indent if previous line was azureKeyvault:
+function M.sanitize_line(line)
+  -- check if we were waiting for the `name:` line
+  if awaiting_name then
+    local pat = '^' .. awaiting_name .. 'name:%s*([%w%-]+)'
+    line = line:gsub(pat, awaiting_name .. 'name: REDACTED_KEYVAULT_NAME')
+    awaiting_name = nil
   end
+
+  -- single-line replacements
+  for _,p in ipairs(M.patterns) do
+    line = line:gsub(p.pattern, p.replace)
+  end
+
+  -- detect azureKeyvault: line for next iteration
+  local indent = line:match('^([ \t]*)azure[Kk]eyvault:%s*$')
+  if indent then awaiting_name = indent .. '  ' end   -- assume 2-space indent
+
   return line
 end
 
@@ -83,7 +112,7 @@ end
 function M.sanitize_buffer()
   local buf = api.nvim_get_current_buf()
   local lines = api.nvim_buf_get_lines(buf, 0, -1, false)
-  for i = 1, #lines do lines[i] = sanitize_line(lines[i]) end
+  for i = 1, #lines do lines[i] = M.sanitize_line(lines[i]) end
   api.nvim_buf_set_lines(buf, 0, -1, false, lines)
 end
 
@@ -93,7 +122,7 @@ function M.sanitize_selection()
   local e = vim.fn.line("'>")
   local buf = api.nvim_get_current_buf()
   local lines = api.nvim_buf_get_lines(buf, s, e, false)
-  for i = 1, #lines do lines[i] = sanitize_line(lines[i]) end
+  for i = 1, #lines do lines[i] = M.sanitize_line(lines[i]) end
   api.nvim_buf_set_lines(buf, s, e, false, lines)
 end
 
@@ -101,7 +130,7 @@ end
 function M.copy_buffer()
   local buf = api.nvim_get_current_buf()
   local lines = api.nvim_buf_get_lines(buf, 0, -1, false)
-  for i = 1, #lines do lines[i] = sanitize_line(lines[i]) end
+  for i = 1, #lines do lines[i] = M.sanitize_line(lines[i]) end
   vim.fn.setreg('+', table.concat(lines, '\n'))
 end
 
@@ -110,7 +139,7 @@ function M.preview_buffer()
   local buf = api.nvim_get_current_buf()
   local lines = api.nvim_buf_get_lines(buf, 0, -1, false)
   local out = {}
-  for i, line in ipairs(lines) do out[i] = sanitize_line(line) end
+  for i, line in ipairs(lines) do out[i] = M.sanitize_line(line) end
 
   local fb = api.nvim_create_buf(false, true)
   api.nvim_buf_set_lines(fb, 0, -1, false, out)
@@ -148,7 +177,7 @@ function M.preview_selection()
 
   -- Sanitize the selected lines
   local out = {}
-  for i, line in ipairs(lines) do out[i] = sanitize_line(line) end
+  for i, line in ipairs(lines) do out[i] = M.sanitize_line(line) end
 
   -- Create a floating buffer to display the sanitized selection
   local fb = api.nvim_create_buf(false, true)
