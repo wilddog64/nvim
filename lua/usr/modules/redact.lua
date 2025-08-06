@@ -13,6 +13,7 @@ M.patterns = {
     replace = 'REDACTED_URL' },
 
   { pattern = '[Hh][Oo][Ss][Tt]:%s*[%w%._%-]+', replace = 'host: REDACTED_HOST' },
+
   { pattern = '[Ee][Xx][Tt][Ee][Rr][Nn][Aa][Ll][Hh][Oo][Ss][Tt]:%s*[%w%._%-]+', replace = 'externalHost: REDACTED_EXTERNAL_HOST' },
   {
     pattern = '(%d+%.%d+%.%d+%.%d+)',
@@ -27,6 +28,7 @@ M.patterns = {
       return s
     end,
   },
+
   { pattern = '[%w%._%-]+%.internal', replace = 'REDACTED_DNS' },
   { pattern = '[%w%._%-]+%.cluster%.local', replace = 'REDACTED_DNS' },
   { pattern = 'Bearer%s+[%w._%-]+', replace = 'Bearer REDACTED_TOKEN' },
