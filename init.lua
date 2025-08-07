@@ -12,7 +12,7 @@ vim.opt.expandtab = true
 require('usr.options')
 require('usr.lazy')
 require('usr.modules').enable_lua_dir_keymap()
-require('usr.modules').enable_visual_sign_keymap()
+-- require('usr.modules').enable_visual_sign_keymap()
 require('usr.modules').enable_last_path_keymap()
 require('usr.modules').enable_redact_keymap()
 require('usr.cmp')
@@ -38,4 +38,5 @@ vim.cmd([[
   source ~/.config/nvim/settings/options.vim
   source ~/.config/nvim/settings/markdown.vim
   source ~/.config/nvim/settings/asterisk.vim
+  source ~/.config/nvim/settings/nvim.vim
 ]])
