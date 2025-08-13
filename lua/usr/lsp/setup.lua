@@ -190,26 +190,54 @@ lspconfig.azure_pipelines_ls.setup {
   },
 }
 
-lspconfig.yamlls.setup({
-  root_dir = get_root_dir,
+local yaml_config = {
   settings = {
     yaml = {
-      format = { enable = true },
-      validate = true,
-      schemaStore = {
-        enable = true,
-      },
       schemas = {
-        -- Explicitly define schemas for Helm files
         ["https://json.schemastore.org/helmfile.json"] = "helmfile.yaml",
+        ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.0-standalone-strict/all.json"] = "templates/**/*.yaml",
         ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*",
         ["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
-        ["https://json.schemastore.org/ansible-playbook"] = "/*.ansible.yaml", -- Ansible Playbooks
+      },
+      schemaStore = {
+        enable = true,
+        url = "https://www.schemastore.org/api/json/catalog.json",
+      },
+      validate = true,
+      -- This is crucial - it tells YAML LSP how to handle Helm template syntax
+      customTags = {
+        "!include scalar",
+        "!loop sequence",
+        "!merge mapping",
+        "tag:yaml.org,2002:str",
+        -- Helm template specific tags
+        "!env scalar",
+        "!tpl scalar",
+      },
+      hover = true,
+      completion = true,
+      format = {
+        enable = true,
       },
     },
   },
-  flags = {
-    debounce_text_changes = 150,
-  },
-})
+  -- Explicitly tell yamlls to ignore template syntax errors
+  handlers = {
+    ["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
+      -- Filter out certain diagnostics for Helm templates
+      if result and result.diagnostics then
+        local filtered_diagnostics = {}
+        for _, diagnostic in ipairs(result.diagnostics) do
+          -- Skip diagnostics related to template syntax like {{ .Values.xxx }}
+          if not (diagnostic.message and diagnostic.message:match("{{.*}}")) then
+            table.insert(filtered_diagnostics, diagnostic)
+          end
+        end
+        result.diagnostics = filtered_diagnostics
+      end
+      -- Call the default handler with filtered diagnostics
+      vim.lsp.handlers["textDocument/publishDiagnostics"](_, result, ctx, config)
+    end,
+  }
+}
 
