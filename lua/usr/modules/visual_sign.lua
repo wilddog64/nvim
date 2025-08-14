@@ -16,11 +16,17 @@ end
 
 local function show_visual_block()
   local start_line = vim.fn.line("'<")
-  local end_line = vim.fn.line("'>")
-  for lnum = start_line, end_line do
+  local endline = vim.fn.line("'>")
+  for lnum = start_line, endline do
     local id = vim.fn.sign_place(0, "", "VisualSign", vim.fn.bufnr("%"), { lnum = lnum })
     table.insert(sign_ids, id)
   end
+  -- Register InsertLeave autocmd to clear signs after editing
+  vim.api.nvim_create_autocmd("InsertLeave", {
+    group = visual_sign_group,
+    once = true,
+    callback = hide_visual_block,
+  })
 end
 
 function M.enable_keymap()
