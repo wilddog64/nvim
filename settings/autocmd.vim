@@ -68,11 +68,16 @@ endif
 function! <SID>AutoProjectRootCD()
    try
       if &ft != 'help'
-         ProjectRootCD
+         let l:realfile = resolve(expand('%:p'))
+         if filereadable(l:realfile)
+            execute 'lcd' fnameescape(fnamemodify(l:realfile, ':p'))
+            ProjectRootCD
+         else
+            ProjectRootCD
+         endif
       endif
    catch
       " Silently ignore invalid buffers
    endtry
 endfunction
 autocmd BufEnter * call <SID>AutoProjectRootCD()
-
