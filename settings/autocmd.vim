@@ -70,7 +70,8 @@ function! <SID>AutoProjectRootCD()
       if &ft != 'help'
          let l:realfile = resolve(expand('%:p'))
          if filereadable(l:realfile)
-            execute 'lcd' fnameescape(fnamemodify(l:realfile, ':p'))
+            l:dir = fnamemodify(l:realfile, ':h')
+            execute 'lcd ' . fnameescape(l:dir)
             ProjectRootCD
          else
             ProjectRootCD
