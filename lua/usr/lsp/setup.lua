@@ -195,9 +195,9 @@ local yaml_config = {
     yaml = {
       schemas = {
         ["https://json.schemastore.org/helmfile.json"] = "helmfile.yaml",
-        ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.0-standalone-strict/all.json"] = "templates/**/*.yaml",
         ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*",
         ["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
+        ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argo-rollouts.io/rollouts_v1alpha1.json"] = { "**/*rollout*.ya?ml", "**/*rollouts*.ya?ml" },
       },
       schemaStore = {
         enable = true,
@@ -240,4 +240,45 @@ local yaml_config = {
     end,
   }
 }
+
+-- your yaml_config (as you posted) ...
+
+local rollouts_schema =
+  "https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argo-rollouts.io/rollouts_v1alpha1.json"
+
+local function map_rollout_schema_for_this_file(client, bufnr)
+  local fname = vim.api.nvim_buf_get_name(bufnr)
+  if not fname:match("%.ya?ml$") then return end
+  local lines = vim.api.nvim_buf_get_lines(bufnr, 0, math.min(200, vim.api.nvim_buf_line_count(bufnr)), false)
+  local text = table.concat(lines, "\n")
+
+  -- Detect a Rollout document
+  if text:match("apiVersion:%s*argoproj%.io/v1alpha1") and text:match("kind:%s*Rollout") then
+    local cfg = vim.deepcopy(client.config.settings or {})
+    cfg.yaml = cfg.yaml or {}
+    cfg.yaml.schemas = cfg.yaml.schemas or {}
+
+    -- map THIS exact file path to the schema (no repo changes)
+    local cur = cfg.yaml.schemas[rollouts_schema]
+    if type(cur) == "string" then
+      cfg.yaml.schemas[rollouts_schema] = { cur, fname }
+    elseif type(cur) == "table" then
+      table.insert(cur, fname)
+    else
+      cfg.yaml.schemas[rollouts_schema] = { fname }
+    end
+
+    client.config.settings = cfg
+    client.notify("workspace/didChangeConfiguration", { settings = cfg })
+  end
+end
+
+yaml_config.on_attach = function(client, bufnr)
+  if client.name == "yamlls" then
+    map_rollout_schema_for_this_file(client, bufnr)
+  end
+end
+
+-- finally:
+require("lspconfig").yamlls.setup(yaml_config)
 
