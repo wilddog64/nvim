@@ -262,13 +262,80 @@ lspconfig.helm_ls.setup({
   },
 })
 
--- 3) Ensure yamlls does NOT attach to helm buffers
+-- Detect Helm templates as 'helm' (from earlier)
+vim.filetype.add({
+  pattern = {
+    [".*/templates/.*%.ya?ml"] = "helm",
+  },
+})
+
+-- Detect Ansible YAML as 'yaml.ansible' (ansible-vim also does this;
+-- keep this if you don't use that plugin or want extra paths)
+vim.filetype.add({
+  pattern = {
+    [".*/(playbooks|group_vars|host_vars)/.*%.ya?ml"] = "yaml.ansible",
+    [".*/roles/.*/(tasks|handlers|vars|defaults)/.*%.ya?ml"] = "yaml.ansible",
+    [".*/inventory/.*%.ya?ml"] = "yaml.ansible",
+  },
+})
+
+local lspconfig = require("lspconfig")
+
+-- 1) Helm: only on 'helm' buffers
+lspconfig.helm_ls.setup({
+  filetypes = { "helm" },
+  settings = { ["helm-ls"] = { yamlls = { enabled = false } } },
+})
+
+-- 2) YAML LS: DON'T attach to helm or ansible buffers
 lspconfig.yamlls.setup({
-  filetypes = { "yaml", "yml", "yaml.docker-compose" }, -- note: no "helm" here
+  filetypes = { "yaml", "yml", "yaml.docker-compose" }, -- no "helm", no "yaml.ansible"
   settings = {
     yaml = {
-      -- your normal yaml settings (schemas, etc.) go here
       validate = true,
+      schemaStore = { enable = true },
+      schemas = {
+        kubernetes = { "manifests/**/*.yaml", "k8s/**/*.yaml" },
+        -- Istio (optional)
+        ["https://raw.githubusercontent.com/istio/api/master/networking/v1beta1/gateway.json"] = "**/gateway*.ya?ml",
+        ["https://raw.githubusercontent.com/istio/api/master/networking/v1beta1/virtualservice.json"] = "**/virtualservice*.ya?ml",
+      },
+    },
+  },
+})
+
+-- 3) Ansible LSP: only on 'yaml.ansible' buffers
+lspconfig.ansiblels.setup({
+  filetypes = { "yaml.ansible" },
+  settings = {
+    ansible = {
+      python = { interpreterPath = "python" }, -- or your venv path
+      ansible = { path = "ansible" },
+      ansibleLint = { enabled = true, path = "ansible-lint" }, -- requires ansible-lint installed
+      executionEnvironment = { enabled = false }, -- set true if you use EE containers
+    },
+  },
+})
+
+-- 3) Ensure yamlls does NOT attach to helm buffers
+lspconfig.yamlls.setup({
+  filetypes = { "yaml", "yml", "yaml.docker-compose" }, -- keep helm out
+  settings = {
+    yaml = {
+      validate = true,
+      schemaStore = { enable = true }, -- enable SchemaStore catalog
+      schemas = {
+        -- Kubernetes core manifests only in your "manifests/" or "k8s/" dirs
+        kubernetes = {
+          "manifests/**/*.yaml",
+          "k8s/**/*.yaml",
+        },
+
+        -- (optional) Istio CRDs, if you want yamlls to stop complaining about Gateway/VirtualService
+        -- Replace these URLs with the actual schema sources you want:
+        ["https://raw.githubusercontent.com/istio/api/master/networking/v1beta1/gateway.json"] = "**/gateway*.ya?ml",
+        ["https://raw.githubusercontent.com/istio/api/master/networking/v1beta1/virtualservice.json"] = "**/virtualservice*.ya?ml",
+      },
     },
   },
 })
