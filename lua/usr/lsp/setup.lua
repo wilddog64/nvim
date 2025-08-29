@@ -243,6 +243,36 @@ local yaml_config = {
 
 -- your yaml_config (as you posted) ...
 
+-- 1) Make Helm templates use filetype=helm
+vim.filetype.add({
+  pattern = {
+    [".*/templates/.*%.ya?ml"] = "helm",
+    [".*/Chart%.yaml"] = "helm",  -- optional; helps in chart roots
+  },
+})
+
+-- 2) Start helm-ls only on helm buffers
+lspconfig.helm_ls.setup({
+  filetypes = { "helm" },
+  settings = {
+    ["helm-ls"] = {
+      -- optional: let helm-ls *embed* yamlls for plain YAML bits
+      yamlls = { enabled = true },
+    },
+  },
+})
+
+-- 3) Ensure yamlls does NOT attach to helm buffers
+lspconfig.yamlls.setup({
+  filetypes = { "yaml", "yml", "yaml.docker-compose" }, -- note: no "helm" here
+  settings = {
+    yaml = {
+      -- your normal yaml settings (schemas, etc.) go here
+      validate = true,
+    },
+  },
+})
+
 local rollouts_schema =
   "https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argo-rollouts.io/rollouts_v1alpha1.json"
 

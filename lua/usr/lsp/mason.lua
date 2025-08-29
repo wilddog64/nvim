@@ -23,6 +23,7 @@ require('mason-lspconfig').setup({
         'pylsp',
         'terraformls',
         'yamlls',
+        'helm-ls',
     },
 })
 

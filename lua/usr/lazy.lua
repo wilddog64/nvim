@@ -208,6 +208,12 @@ require('lazy').setup({
   },
 
   {
+    "towolf/vim-helm",
+    ft = { "helm" },
+  },
+
+
+  {
     'CopilotC-Nvim/CopilotChat.nvim',
     lazy = true,
     branch = "main",

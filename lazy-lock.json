@@ -45,6 +45,7 @@
   "vim-asterisk": { "branch": "master", "commit": "77e97061d6691637a034258cc415d98670698459" },
   "vim-endwise": { "branch": "master", "commit": "eab530110d7a0d985902a3964894816b50dbf31a" },
   "vim-gitgutter": { "branch": "main", "commit": "85ca3a087204e3a32cb2faa5d9d0451524e08720" },
+  "vim-helm": { "branch": "master", "commit": "cc5ac22444332381f38084a6c7f023c25eef6201" },
   "vim-markdown": { "branch": "master", "commit": "8f6cb3a6ca4e3b6bcda0730145a0b700f3481b51" },
   "vim-projectroot": { "branch": "master", "commit": "ebf4aff28dff7d7fddc0550a379e872d7fc7cf68" },
   "vim-puppet": { "branch": "master", "commit": "10bf0b27c5be81ee26c3a0d32e39b270f95329ce" },
