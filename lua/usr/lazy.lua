@@ -196,11 +196,6 @@ require('lazy').setup({
   },
 
   {
-    'mfussenegger/nvim-ansible',
-    event = 'BufReadPre',
-  },
-
-  {
     'github/copilot.vim',
     dependencies = {
       'nvim-lua/plenary.nvim',
