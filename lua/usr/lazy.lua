@@ -196,7 +196,6 @@ require('lazy').setup({
   },
 
   {
-<<<<<<< HEAD
     'mfussenegger/nvim-ansible',
     event = 'BufReadPre',
   },
