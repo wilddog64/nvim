@@ -195,6 +195,7 @@ require('lazy').setup({
   },
 
   {
+<<<<<<< HEAD
     'mfussenegger/nvim-ansible',
     event = 'BufReadPre',
   },
@@ -253,7 +254,7 @@ require('lazy').setup({
   {
     'ojroques/nvim-lspfuzzy',
     pin = true,
-    depdencies = {
+    dependencies = {
       {'junegunn/fzf'},
       {'junegunn/fzf.vim'},
     }
