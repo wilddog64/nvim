@@ -50,7 +50,7 @@ require('lazy').setup({
 
   {
     'sjl/gundo.vim',
-    event = 'BufReadPre',
+    cmd = { "GundoToggle", "GundoShow" }
   },
 
   {
@@ -134,7 +134,7 @@ require('lazy').setup({
 
   {
     "akinsho/toggleterm.nvim",
-    event = 'BufReadPre',
+    keys = { { "<C-`>", "<cmd>ToggleTerm<cr>", desc="Terminal" } }
   },
 
   {
@@ -161,7 +161,8 @@ require('lazy').setup({
 
   {
     'kdheepak/lazygit.nvim',
-    event = 'BufReadPre',
+    cmd = { "LazyGit", "LazyGitConfig", "LazyGitCurrentFile" }
+
   },
 
   {
@@ -260,21 +261,34 @@ require('lazy').setup({
     }
   },
 
+  -- devicons: install even if nothing else depends on it
+  {
+    "nvim-tree/nvim-web-devicons",
+    lazy = true,                      -- load on demand
+    opts = { default = true  },        -- generic icons for unknown types
+  },
+
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = {
       'nvim-tree/nvim-web-devicons', -- optional
     },
-    -- config = function()
-    --   require("nvim-tree").setup {
-    --     actions = {
-    --       open_file = {
-    --         quit_on_open = true
-    --       }
-    --     }
-    --   }
-    -- end,
-    event = 'BufReadPre',
+    config = function()
+      require('nvim-web-devicons').setup( { default = true } )
+      require("nvim-tree").setup {
+        actions = {
+          open_file = {
+            quit_on_open = true
+          }
+        },
+        renderer = {
+          icons = {
+            show = { file = true, folder = true, folder_arrow = true, git = true }
+          }
+        }
+      }
+    end,
+    keys = { { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc="File tree" } }
   },
 
   {
