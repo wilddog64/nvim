@@ -1,7 +1,7 @@
-local lspconfig = require('lspconfig')
-local lsp_defaults = lspconfig.util.default_config
+-- (removed) local lspconfig = require('lspconfig')
+-- (removed) local lsp_defaults = lspconfig.util.default_config
 
--- TOGGLE INLAY HINTS
+-- TOGGLE INLAY HINTS (left as-is)
 if vim.lsp.inlay_hint then
     vim.keymap.set('n', '<leader>ih', function()
         vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
@@ -25,7 +25,7 @@ local handlers = {
     ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
 }
 
--- DIAGNOSTICS SIGNS
+-- DIAGNOSTICS SIGNS (unchanged)
 local signs = { Error = ' ', Warn = ' ', Hint = '󰌶 ', Info = ' ' }
 for type, icon in pairs(signs) do
     local hl = 'DiagnosticSign' .. type
@@ -34,31 +34,25 @@ end
 
 vim.diagnostic.config({
     virtual_text = {
-        prefix = '', -- Could be '●', '▎', │, 'x', '■', , 
+        prefix = '',
     },
     float = { border = border },
-    -- virtual_text = false,
-    -- signs = true,
-    -- underline = true,
 })
 
 ---
 -- LSP Servers
 ---
-lspconfig.lua_ls.setup({
+
+vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
-      runtime = {
-        version = "LuaJIT", -- Use LuaJIT for Neovim
-      },
-      diagnostics = {
-        globals = { "vim" }, -- Suppress "undefined global 'vim'" warning
-      },
+      runtime = { version = "LuaJIT" },
+      diagnostics = { globals = { "vim" } },
       workspace = {
-        library = vim.api.nvim_get_runtime_file("", true), -- Include Neovim runtime
-        checkThirdParty = false, -- Avoid third-party prompts
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
       },
-      telemetry = { enable = false }, -- Disable telemetry
+      telemetry = { enable = false },
     },
   },
   on_init = function(client)
@@ -74,46 +68,23 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.keymap.set(mode, lhs, rhs, opts)
     end
 
-    -- Displays hover information about the symbol under the cursor
-    bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
-
-    -- Jump to the definition
+    bufmap('n', 'K',  '<cmd>lua vim.lsp.buf.hover()<cr>')
     bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
-
-    -- Jump to declaration
     bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
-
-    -- Lists all the implementations for the symbol under the cursor
     bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
-
-    -- Jumps to the definition of the type symbol
     bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
-
-    -- Lists all the references
     bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
-
-    -- Displays a function's signature information
     bufmap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
-
-    -- Renames all references to the symbol under the cursor
     bufmap('n', 'gR', '<cmd>lua vim.lsp.buf.rename()<cr>')
-
-    -- Selects a code action available at the current cursor position
     bufmap('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<cr>')
     bufmap('x', 'ga', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
-
-    -- Show diagnostics in a floating window
     bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
-
-    -- Move to the previous diagnostic
     bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
-
-    -- Move to the next diagnostic
     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
   end
 })
 
-lspconfig.pylsp.setup({
+vim.lsp.config('pylsp', {
   handlers = handlers,
   settings = {
     pyls = {
@@ -125,11 +96,7 @@ lspconfig.pylsp.setup({
         jedi_signature_help = {enabled = true},
         jedi_symbols = {enabled = true, all_scopes = true},
         pycodestyle = {enabled = false},
-        flake8 = {
-          enabled = true,
-          ignore = {},
-          maxLineLength = 160
-        },
+        flake8 = { enabled = true, ignore = {}, maxLineLength = 160 },
         mypy = {enabled = false},
         isort = {enabled = false},
         yapf = {enabled = false},
@@ -143,7 +110,7 @@ lspconfig.pylsp.setup({
   },
 })
 
-lspconfig.terraformls.setup({})
+vim.lsp.config('terraformls', {})
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
   pattern = {"*.tf", "*.tfvars"},
   callback = function()
@@ -151,21 +118,10 @@ vim.api.nvim_create_autocmd({"BufWritePre"}, {
   end,
 })
 
-lspconfig.bashls.setup({
-  handlers = handlers
-})
-
-lspconfig.marksman.setup({
-  handlers = handlers
-})
-
-lspconfig.dockerls.setup({
-  handlers = handlers
-})
-
-lspconfig.jsonls.setup({
-  handlers = handlers
-})
+vim.lsp.config('bashls', { handlers = handlers })
+vim.lsp.config('marksman', { handlers = handlers })
+vim.lsp.config('dockerls', { handlers = handlers })
+vim.lsp.config('jsonls', { handlers = handlers })
 
 local function get_root_dir(fname)
   local startpath = fname and vim.fs.dirname(fname) or vim.fn.getcwd()
@@ -173,7 +129,7 @@ local function get_root_dir(fname)
   return git_dir and vim.fs.dirname(git_dir) or vim.fn.getcwd()
 end
 
-lspconfig.azure_pipelines_ls.setup {
+vim.lsp.config('azure_pipelines_ls', {
   root_dir = get_root_dir,
   handlers = handlers,
   settings = {
@@ -188,7 +144,7 @@ lspconfig.azure_pipelines_ls.setup {
       },
     },
   },
-}
+})
 
 local yaml_config = {
   settings = {
@@ -204,73 +160,47 @@ local yaml_config = {
         url = "https://www.schemastore.org/api/json/catalog.json",
       },
       validate = true,
-      -- This is crucial - it tells YAML LSP how to handle Helm template syntax
       customTags = {
         "!include scalar",
         "!loop sequence",
         "!merge mapping",
         "tag:yaml.org,2002:str",
-        -- Helm template specific tags
         "!env scalar",
         "!tpl scalar",
       },
       hover = true,
       completion = true,
-      format = {
-        enable = true,
-      },
+      format = { enable = true },
     },
   },
-  -- Explicitly tell yamlls to ignore template syntax errors
   handlers = {
     ["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
-      -- Filter out certain diagnostics for Helm templates
       if result and result.diagnostics then
-        local filtered_diagnostics = {}
-        for _, diagnostic in ipairs(result.diagnostics) do
-          -- Skip diagnostics related to template syntax like {{ .Values.xxx }}
-          if not (diagnostic.message and diagnostic.message:match("{{.*}}")) then
-            table.insert(filtered_diagnostics, diagnostic)
+        local filtered = {}
+        for _, d in ipairs(result.diagnostics) do
+          if not (d.message and d.message:match("{{.*}}")) then
+            table.insert(filtered, d)
           end
         end
-        result.diagnostics = filtered_diagnostics
+        result.diagnostics = filtered
       end
-      -- Call the default handler with filtered diagnostics
       vim.lsp.handlers["textDocument/publishDiagnostics"](_, result, ctx, config)
     end,
   }
 }
 
--- your yaml_config (as you posted) ...
-
--- 1) Make Helm templates use filetype=helm
+-- Detect Helm templates / ansible (unchanged)
 vim.filetype.add({
   pattern = {
     [".*/templates/.*%.ya?ml"] = "helm",
-    [".*/Chart%.yaml"] = "helm",  -- optional; helps in chart roots
+    [".*/Chart%.yaml"] = "helm",
   },
 })
-
--- 2) Start helm-ls only on helm buffers
-lspconfig.helm_ls.setup({
+vim.lsp.config('helm_ls', {
   filetypes = { "helm" },
-  settings = {
-    ["helm-ls"] = {
-      -- optional: let helm-ls *embed* yamlls for plain YAML bits
-      yamlls = { enabled = true },
-    },
-  },
+  settings = { ["helm-ls"] = { yamlls = { enabled = true } } },
 })
 
--- Detect Helm templates as 'helm' (from earlier)
-vim.filetype.add({
-  pattern = {
-    [".*/templates/.*%.ya?ml"] = "helm",
-  },
-})
-
--- Detect Ansible YAML as 'yaml.ansible' (ansible-vim also does this;
--- keep this if you don't use that plugin or want extra paths)
 vim.filetype.add({
   pattern = {
     [".*/(playbooks|group_vars|host_vars)/.*%.ya?ml"] = "yaml.ansible",
@@ -279,61 +209,48 @@ vim.filetype.add({
   },
 })
 
-local lspconfig = require("lspconfig")
-
--- 1) Helm: only on 'helm' buffers
-lspconfig.helm_ls.setup({
+-- (kept both yamlls/helm/ansible blocks you had; just converted)
+vim.lsp.config('helm_ls', {
   filetypes = { "helm" },
   settings = { ["helm-ls"] = { yamlls = { enabled = false } } },
 })
 
--- 2) YAML LS: DON'T attach to helm or ansible buffers
-lspconfig.yamlls.setup({
-  filetypes = { "yaml", "yml", "yaml.docker-compose" }, -- no "helm", no "yaml.ansible"
+vim.lsp.config('yamlls', {
+  filetypes = { "yaml", "yml", "yaml.docker-compose" },
   settings = {
     yaml = {
       validate = true,
       schemaStore = { enable = true },
       schemas = {
         kubernetes = { "manifests/**/*.yaml", "k8s/**/*.yaml" },
-        -- Istio (optional)
-        ["https://raw.githubusercontent.com/istio/api/master/networking/v1beta1/gateway.json"] = "**/gateway*.ya?ml",
+        ["https://raw.githubusercontent.com/istio/api/master/networking/v1beta1/gateway.json"]       = "**/gateway*.ya?ml",
         ["https://raw.githubusercontent.com/istio/api/master/networking/v1beta1/virtualservice.json"] = "**/virtualservice*.ya?ml",
       },
     },
   },
 })
 
--- 3) Ansible LSP: only on 'yaml.ansible' buffers
-lspconfig.ansiblels.setup({
+vim.lsp.config('ansiblels', {
   filetypes = { "yaml.ansible" },
   settings = {
     ansible = {
-      python = { interpreterPath = "python" }, -- or your venv path
+      python = { interpreterPath = "python" },
       ansible = { path = "ansible" },
-      ansibleLint = { enabled = true, path = "ansible-lint" }, -- requires ansible-lint installed
-      executionEnvironment = { enabled = false }, -- set true if you use EE containers
+      ansibleLint = { enabled = true, path = "ansible-lint" },
+      executionEnvironment = { enabled = false },
     },
   },
 })
 
--- 3) Ensure yamlls does NOT attach to helm buffers
-lspconfig.yamlls.setup({
-  filetypes = { "yaml", "yml", "yaml.docker-compose" }, -- keep helm out
+vim.lsp.config('yamlls', {
+  filetypes = { "yaml", "yml", "yaml.docker-compose" },
   settings = {
     yaml = {
       validate = true,
-      schemaStore = { enable = true }, -- enable SchemaStore catalog
+      schemaStore = { enable = true },
       schemas = {
-        -- Kubernetes core manifests only in your "manifests/" or "k8s/" dirs
-        kubernetes = {
-          "manifests/**/*.yaml",
-          "k8s/**/*.yaml",
-        },
-
-        -- (optional) Istio CRDs, if you want yamlls to stop complaining about Gateway/VirtualService
-        -- Replace these URLs with the actual schema sources you want:
-        ["https://raw.githubusercontent.com/istio/api/master/networking/v1beta1/gateway.json"] = "**/gateway*.ya?ml",
+        kubernetes = { "manifests/**/*.yaml", "k8s/**/*.yaml" },
+        ["https://raw.githubusercontent.com/istio/api/master/networking/v1beta1/gateway.json"]       = "**/gateway*.ya?ml",
         ["https://raw.githubusercontent.com/istio/api/master/networking/v1beta1/virtualservice.json"] = "**/virtualservice*.ya?ml",
       },
     },
@@ -349,13 +266,11 @@ local function map_rollout_schema_for_this_file(client, bufnr)
   local lines = vim.api.nvim_buf_get_lines(bufnr, 0, math.min(200, vim.api.nvim_buf_line_count(bufnr)), false)
   local text = table.concat(lines, "\n")
 
-  -- Detect a Rollout document
   if text:match("apiVersion:%s*argoproj%.io/v1alpha1") and text:match("kind:%s*Rollout") then
     local cfg = vim.deepcopy(client.config.settings or {})
     cfg.yaml = cfg.yaml or {}
     cfg.yaml.schemas = cfg.yaml.schemas or {}
 
-    -- map THIS exact file path to the schema (no repo changes)
     local cur = cfg.yaml.schemas[rollouts_schema]
     if type(cur) == "string" then
       cfg.yaml.schemas[rollouts_schema] = { cur, fname }
@@ -376,6 +291,17 @@ yaml_config.on_attach = function(client, bufnr)
   end
 end
 
--- finally:
-require("lspconfig").yamlls.setup(yaml_config)
+vim.lsp.config('yamlls', yaml_config)
 
+-- enable servers (added to replace .setup())
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('pylsp')
+vim.lsp.enable('terraformls')
+vim.lsp.enable('bashls')
+vim.lsp.enable('marksman')
+vim.lsp.enable('dockerls')
+vim.lsp.enable('jsonls')
+vim.lsp.enable('azure_pipelines_ls')
+vim.lsp.enable('helm_ls')
+vim.lsp.enable('yamlls')
+vim.lsp.enable('ansiblels')
