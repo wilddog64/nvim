@@ -124,7 +124,14 @@ vim.lsp.config('dockerls', { handlers = handlers })
 vim.lsp.config('jsonls', { handlers = handlers })
 
 local function get_root_dir(fname)
-  local startpath = fname and vim.fs.dirname(fname) or vim.fn.getcwd()
+  if type(fname) == 'number' then
+    -- called with a buffer handle when coming from some autocmds
+    fname = vim.api.nvim_buf_get_name(fname)
+  end
+  if not fname or fname == '' then
+    fname = vim.api.nvim_buf_get_name(0)
+  end
+  local startpath = fname ~= '' and vim.fs.dirname(fname) or vim.fn.getcwd()
   local git_dir = vim.fs.find('.git', { path = startpath, upward = true })[1]
   return git_dir and vim.fs.dirname(git_dir) or vim.fn.getcwd()
 end
