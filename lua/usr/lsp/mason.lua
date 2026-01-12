@@ -15,6 +15,7 @@ require('mason-lspconfig').setup({
         'azure_pipelines_ls',
         'bashls',
         'dockerls',
+        'helm_ls',
         'html',
         'jdtls',
         'jsonls',
